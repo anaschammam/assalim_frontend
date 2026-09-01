@@ -1,0 +1,1 @@
+import{g as r,ga as o}from"./chunk-KC2YFYMH.js";var s=(()=>{class t{subject=new r(null);state$=this.subject.asObservable();setDetailChrome(e){this.subject.next(e)}clearDetailChrome(){this.subject.next(null)}static \u0275fac=function(a){return new(a||t)};static \u0275prov=o({token:t,factory:t.\u0275fac,providedIn:"root"})}return t})();export{s as a};

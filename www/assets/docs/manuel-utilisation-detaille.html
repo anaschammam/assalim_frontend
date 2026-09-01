@@ -1,0 +1,625 @@
+<!DOCTYPE html><html lang="fr"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assalim — Manuel approfondi</title>
+  <link rel="stylesheet" href="manuel-common.css">
+</head>
+<body>
+
+<div class="cover">
+  <div class="logo-placeholder">📘</div>
+  <h1>ASSALIM</h1>
+  <h2>Manuel approfondi</h2>
+  <p class="subtitle">
+    Procédures détaillées, champs, totaux, remises et cas limites — complète le
+    <a href="manuel-utilisation.html" style="color: rgba(255,255,255,0.95); text-decoration: underline;">manuel d’utilisation (synthèse)</a>.
+  </p>
+  <div class="version-badge">Version 1.8 — Édition Française</div>
+  <div class="date">Août 2026</div>
+</div>
+
+<div class="toc-page">
+  <h2>Table des matières (approfondi)</h2>
+  <ul class="toc-list">
+    <li><a class="toc-link" href="#dm-intro"><span class="toc-num">A</span><span class="toc-title">À propos de ce document</span></a></li>
+    <li><a class="toc-link" href="#dm-nav"><span class="toc-num">B</span><span class="toc-title">Connexion, session et navigation</span></a></li>
+    <li><a class="toc-link" href="#dm-ref"><span class="toc-num">C</span><span class="toc-title">Référentiels (produits, tiers, unités)</span></a></li>
+    <li><a class="toc-link" href="#dm-pos"><span class="toc-num">D</span><span class="toc-title">POS vente — parcours complet</span></a></li>
+    <li class="sub"><a class="toc-link" href="#dm-pos-discounts"><span class="toc-num">D.1</span><span class="toc-title">Remises par ligne et remise globale</span></a></li>
+    <li class="sub"><a class="toc-link" href="#dm-pos-fast"><span class="toc-num">D.2</span><span class="toc-title">Mode rapide et visibilité des remises</span></a></li>
+    <li class="sub"><a class="toc-link" href="#dm-pos-gs1"><span class="toc-num">D.5</span><span class="toc-title">Scan GS1 DataMatrix et affiche client</span></a></li>
+    <li class="sub"><a class="toc-link" href="#dm-pos-instock"><span class="toc-num">D.6</span><span class="toc-title">Filtre En stock</span></a></li>
+    <li class="sub"><a class="toc-link" href="#dm-pos-context"><span class="toc-num">D.7</span><span class="toc-title">Client, solde, fidélité, tarifs</span></a></li>
+    <li class="sub"><a class="toc-link" href="#dm-pos-lock"><span class="toc-num">D.8</span><span class="toc-title">Verrou caisse (PIN)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#dm-pos-stamp"><span class="toc-num">D.9</span><span class="toc-title">Paiement mixte et droit de timbre</span></a></li>
+    <li><a class="toc-link" href="#dm-pos-purchase"><span class="toc-num">E</span><span class="toc-title">POS achat — parcours complet</span></a></li>
+    <li><a class="toc-link" href="#dm-sale"><span class="toc-num">F</span><span class="toc-title">Transactions de vente (devis → paiement)</span></a></li>
+    <li><a class="toc-link" href="#dm-purchase"><span class="toc-num">G</span><span class="toc-title">Transactions d’achat</span></a></li>
+    <li><a class="toc-link" href="#dm-stock"><span class="toc-num">H</span><span class="toc-title">Stock et inventaires</span></a></li>
+    <li class="sub"><a class="toc-link" href="#dm-stock-sites"><span class="toc-num">H.1</span><span class="toc-title">Sites / dépôts et transferts</span></a></li>
+    <li><a class="toc-link" href="#dm-cash"><span class="toc-num">I</span><span class="toc-title">Caisse (sessions, mouvements, clôture)</span></a></li>
+    <li><a class="toc-link" href="#dm-reports"><span class="toc-num">J</span><span class="toc-title">Rapports et exports</span></a></li>
+    <li><a class="toc-link" href="#dm-horeca"><span class="toc-num">K</span><span class="toc-title">HoReCa (salle, tables, cuisine, réservations, appel serveur)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#dm-horeca-waiter-call"><span class="toc-num">K.8</span><span class="toc-title">Appel serveur (QR code)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#dm-horeca-delivery"><span class="toc-num">K.9</span><span class="toc-title">Board livraisons (Glovo / Uber / téléphone)</span></a></li>
+    <li><a class="toc-link" href="#dm-msg"><span class="toc-num">L</span><span class="toc-title">Messagerie</span></a></li>
+    <li><a class="toc-link" href="#dm-settings"><span class="toc-num">M</span><span class="toc-title">Paramètres, utilisateurs, rôles, licence</span></a></li>
+    <li class="sub"><a class="toc-link" href="#dm-settings-backup"><span class="toc-num">M.1</span><span class="toc-title">Backup base de données</span></a></li>
+    <li><a class="toc-link" href="#dm-mobile"><span class="toc-num">N</span><span class="toc-title">App manager mobile (PWA / Android)</span></a></li>
+  </ul>
+  <div class="box info" style="margin-top: 28px;">
+    <div class="box-title">Manuel synthèse</div>
+    <p>Pour une vue d’ensemble plus courte du même périmètre fonctionnel, revenez au
+    <a href="manuel-utilisation.html"><strong>Manuel d’utilisation</strong></a>.</p>
+  </div>
+</div>
+
+<div class="content">
+
+<div class="chapter" id="dm-intro">
+  <div class="chapter-header">
+    <div class="chapter-number">Annexe A</div>
+    <h2>À propos de ce document</h2>
+    <p>Comment lire le manuel approfondi et l’aligner sur l’application</p>
+  </div>
+
+  <h3 id="dm-intro-purpose">Objectif</h3>
+  <p>
+    Ce manuel est destiné aux personnes qui configurent l’outil, forment les équipes ou ont besoin de
+    <strong>comprendre chaque étape</strong> d’un écran (champs obligatoires, ordre des calculs, messages d’erreur typiques).
+    Le <a href="manuel-utilisation.html">manuel d’utilisation (synthèse)</a> reste la porte d’entrée ; ici nous descendons au niveau
+    <strong>procédure + justification métier</strong>.
+  </p>
+
+  <h3 id="dm-intro-how">Méthode de lecture</h3>
+  <ul>
+    <li><strong>Prérequis</strong> : droits utilisateur, données déjà créées (ex. client, produit), session de caisse si le parcours l’exige.</li>
+    <li><strong>Étapes numérotées</strong> : à suivre dans l’ordre sauf mention contraire.</li>
+    <li><strong>Figures</strong> : les captures du dossier <code>manual-screenshots/</code> sont partagées avec le manuel synthèse ; des captures <em>supplémentaires</em> pourront être ajoutées dans <code>manual-screenshots-detail/</code> (préfixe libre, ex. <code>d-pos-remise.png</code>) puis référencées ici.</li>
+    <li><strong>Écarts de version</strong> : en cas de mise à jour mineure de l’interface, le texte peut légèrement devancer ou retarder l’UI — le comportement décrit est celui du code applicatif au moment de la rédaction.</li>
+  </ul>
+
+  <div class="box warn">
+    <div class="box-title">Maintenance</div>
+    Quand un écran change (libellé, emplacement d’un bouton, nouveau champ), mettez à jour <em>d’abord</em> le manuel synthèse si l’utilisateur lambda est impacté, puis ce manuel approfondi pour les parcours détaillés concernés.
+  </div>
+</div>
+
+<div class="chapter" id="dm-nav">
+  <div class="chapter-header">
+    <div class="chapter-number">Annexe B</div>
+    <h2>Connexion, session et navigation</h2>
+    <p>Depuis l’URL jusqu’au module — avec points de vigilance</p>
+  </div>
+
+  <h3 id="dm-nav-login">B.1 Connexion</h3>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-body"><h4>URL et contexte</h4><p>Saisissez l’adresse fournie par votre administrateur (instance cloud ou serveur interne). Vérifiez le cadenas HTTPS en production.</p></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Identifiants</h4><p>Sur un poste déjà utilisé : touchez un <strong>profil mémorisé</strong>, puis PIN caisse (si défini) ou mot de passe. Sinon e-mail et mot de passe. En cas d’échec répété, un verrouillage temporaire peut s’appliquer selon la politique de sécurité.</p></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Première connexion / mot de passe oublié</h4><p>Suivez le flux « mot de passe oublié » du manuel synthèse ; notez les délais d’expiration des liens s’ils sont affichés dans l’email.</p></div></div>
+  </div>
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="002"><img src="manual-screenshots/shot-002.png" alt="Écran de connexion" loading="lazy" width="900"></figure>
+
+  <h3 id="dm-nav-shell">B.2 Coque de l’application (barre latérale, hub, aide)</h3>
+  <ul>
+    <li><strong>Menu latéral</strong> : regroupe les modules selon <strong>vos permissions</strong> — une entrée absente signifie souvent un rôle insuffisant, pas un bug.</li>
+    <li><strong>Hub</strong> : raccourcis visuels ; utile sur tablette ou pour les profils qui n’utilisent que quelques briques.</li>
+    <li><strong>Menu Aide (?)</strong> : visite guidée, manuel synthèse, <strong>manuel approfondi</strong>, navigation rapide.</li>
+    <li><strong>Langue et thème</strong> : français, anglais ou arabe (RTL) ; thème clair / sombre / système — persistés sur l'appareil.</li>
+    <li><strong>Modes verrouillés</strong> : menu compte → mode caissier (POS + caisse) ou serveur (salle). Sortie = mot de passe gérant. Distinct du kiosque (plein écran sans PIN) et du <strong>verrou caisse PIN</strong> pendant une session POS (annexe D.8).</li>
+  </ul>
+  <figure class="screenshot-figure" data-shot="001"><img src="manual-screenshots/shot-001.png" alt="Hub" loading="lazy" width="900"></figure>
+
+  <h3 id="dm-nav-license">B.3 Licence, abonnement et messages bloquants</h3>
+  <p>
+    Si l’instance affiche un bandeau ou un écran de blocage (licence expirée, abonnement requis), les modules métier peuvent être inaccessibles.
+    Consignez pour les utilisateurs : <em>qui</em> contacter (admin interne vs éditeur), et quelles opérations d’urgence restent possibles (ex. consultation seule).
+  </p>
+</div>
+
+<div class="chapter" id="dm-ref">
+  <div class="chapter-header">
+    <div class="chapter-number">Annexe C</div>
+    <h2>Référentiels (produits, clients, fournisseurs, unités)</h2>
+    <p>Qualité des données en amont du POS et des documents</p>
+  </div>
+
+  <p>
+    Les écrans de référentiel déterminent ce qui apparaît au POS (prix, code-barres, stock, image, vente au poids)
+    et sur les documents (TVA, remises autorisées côté métier, conditions de paiement).
+  </p>
+
+  <h3 id="dm-ref-products">C.1 Produits</h3>
+  <ul>
+    <li>Création / modification : nom, codes-barres principal et secondaire, catégorie, unité, prix d’achat HT, prix de vente TTC, TVA, stock minimum, photo.</li>
+    <li><strong>Étiquettes</strong> : A4 (une étiquette 50×30&nbsp;mm par unité de stock vendable de la page) ou rouleau unitaire depuis la liste / la fiche. Option « Prix sur les étiquettes » dans les paramètres généraux.</li>
+    <li>Un article inactif n’apparaît plus dans la recherche POS. Les seuils de stock alimentent les alertes (§H).</li>
+  </ul>
+
+  <h3 id="dm-ref-parties">C.2 Clients et fournisseurs</h3>
+  <ul>
+    <li>Fiche tiers : identifiants fiscaux, plafond de crédit, conditions de paiement par défaut.</li>
+    <li>Association aux documents et conséquence sur les échéances et relances.</li>
+  </ul>
+
+  <h3 id="dm-ref-units">C.3 Unités et catégories</h3>
+  <p>Harmoniser les unités <em>avant</em> les imports massifs ou l’usage POS évite les erreurs de quantité et d’arrondi sur les inventaires.</p>
+</div>
+
+<div class="chapter" id="dm-pos">
+  <div class="chapter-header">
+    <div class="chapter-number">Annexe D</div>
+    <h2>POS vente — parcours complet</h2>
+    <p>Du ticket au pavé Encaisser, y compris remises et totaux</p>
+  </div>
+
+  <p>
+    Un <strong>seul écran tactile</strong> (vente et achat) : tuiles catalogue, ticket, pavé. Il n’y a plus de caisse à quatre colonnes.
+    Le <strong>POS vente</strong> calcule les montants dans un ordre précis : chaque ligne a un montant <strong>de base</strong> (quantité × prix catalogue ou prix chargé depuis un document),
+    puis des <strong>ajustements</strong> (remise ligne ou prix unitaire forcé). Le <strong>sous-total</strong> du ticket est la somme des totaux de ligne <em>déjà ajustés</em>.
+    Une <strong>remise globale</strong> s’applique ensuite sur ce sous-total (pourcentage, montant fixe, ou total imposé).
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="017"><img src="manual-screenshots/shot-017.png" alt="Caisse tactile vente — vue générale" loading="lazy" width="900"></figure>
+  <p class="screenshot-caption">Vue d’ensemble : tuiles catalogue, ticket, pavé Encaisser.</p>
+
+  <h3 id="dm-pos-flow">D.0 Déroulement type d’une vente</h3>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Session de caisse</h4><p>Sans session ouverte, le POS peut vous rediriger vers l’ouverture de caisse (voir chapitre Caisse du manuel synthèse).</p></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Ajout au ticket</h4><p>Toucher une tuile ou scanner le code-barres ; la ligne apparaît avec quantité modifiable.</p></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Client (optionnel mais recommandé)</h4><p>Associer le client pour l’historique, le crédit et les conditions de paiement par défaut.</p></div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Remises et ajustements</h4><p>Voir sections D.1 et D.2 ci-dessous.</p></div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-body"><h4>Encaisser</h4><p>Moyen de paiement sur le pavé, montant reçu (ou Exact), rendu monnaie si espèces ; <strong>Encaisser</strong> crée le document de vente attendu.</p></div></div>
+  </div>
+
+  <figure class="screenshot-figure" data-shot="018"><img src="manual-screenshots/shot-018.png" alt="POS — validation paiement" loading="lazy" width="900"></figure>
+
+  <h3 id="dm-pos-discounts">D.1 Remises par ligne et remise globale</h3>
+
+  <h4>Ouvrir les contrôles de remise sur une ligne</h4>
+  <ul>
+    <li>Sur le ticket, touchez la ligne puis le chip remise ou le mode <strong>Remise</strong> du pavé. Les contrôles s’affichent.</li>
+    <li>Le montant de <strong>base</strong> de la ligne peut apparaître barré pour rappeler le catalogue avant remise.</li>
+  </ul>
+
+  <h4>Types de remise sur une ligne</h4>
+  <table>
+    <thead><tr><th>Type</th><th>Saisie</th><th>Effet</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Aucun</strong></td><td>—</td><td>Prix catalogue (ou prix issu du document chargé) × quantité.</td></tr>
+      <tr><td><strong>Pourcentage</strong></td><td>0 à 100 % (pas à l’unité décimale près pour le pourcentage)</td><td>Réduction (ou majoration si votre saisie le permet) calculée sur le montant de base de la ligne.</td></tr>
+      <tr><td><strong>Montant fixe</strong></td><td>Montant en devise, plafonné au <strong>montant de base de la ligne</strong></td><td>Réduit d’un montant absolu la ligne.</td></tr>
+      <tr><td><strong>Prix unitaire forcé</strong></td><td>Nouveau prix <em>unitaire</em> (minimum 0,01)</td><td>Fixe directement le prix unitaire ; utile pour une négociation ponctuelle sans passer par un pourcentage.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box info">
+    <div class="box-title">Référence prix d’achat</div>
+    Si la fiche produit contient un <strong>prix d’achat</strong>, le POS peut afficher un rappel sur la ligne. Si le prix de vente effectif passe
+    <strong>sous le prix d’achat</strong>, un <strong>avertissement visuel</strong> (couleur, icône) signale une marge négative — la vente peut toutefois être autorisée selon vos règles métier.
+  </div>
+
+  <h4>Supprimer une remise ligne</h4>
+  <p>Utilisez le bouton de suppression de remise (icône proche des champs de remise) pour revenir au calcul catalogue sur cette ligne.</p>
+
+  <h4>Totaux affichés en bas du ticket</h4>
+  <ul>
+    <li><strong>Sous-total de base</strong> : somme des montants catalogue (hors remises ligne), en tenant compte des quantités et des retours éventuels.</li>
+    <li><strong>Sous-total</strong> : somme des <strong>totaux de ligne après remises</strong> (c’est la base sur laquelle s’exprime la remise globale en pourcentage).</li>
+    <li><strong>Remise appliquée</strong> (ligne rouge) : récapitulatif textuel de la remise globale lorsqu’elle est active.</li>
+  </ul>
+
+  <h4>Remise globale (bas du ticket, sans ligne sélectionnée)</h4>
+  <table>
+    <thead><tr><th>Type</th><th>Saisie</th><th>Effet sur le total à payer</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Aucune</strong></td><td>—</td><td>Pas de remise globale ; un ancien champ « remise en montant » peut encore apparaître si aucun type moderne n’est choisi (comportement de compatibilité).</td></tr>
+      <tr><td><strong>Pourcentage</strong></td><td>0 à 100 %</td><td>Le total devient <code>sous-total × (1 − %/100)</code>.</td></tr>
+      <tr><td><strong>Montant fixe</strong></td><td>Montant ≤ sous-total</td><td>Le total devient <code>sous-total − montant</code>.</td></tr>
+      <tr><td><strong>Forcer le total</strong></td><td>Montant TTC cible &gt; 0</td><td>Le total à payer devient <em>exactement</em> ce montant (arrondi commercial selon les règles de l’application).</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box success">
+    <div class="box-title">Ordre à retenir pour la formation</div>
+    <strong>1)</strong> Remises / prix sur <em>chaque ligne</em> → <strong>2)</strong> remise globale (ou total forcé) sur le <em>sous-total déjà remisé</em>.
+  </div>
+
+  <h3 id="dm-pos-fast">D.2 Mode rapide et visibilité des remises</h3>
+  <p>
+    En <strong>mode rapide</strong> (<em>fast mode</em>), le ticket tactile masque le chip remise, le mode Remise du pavé et les détails « base / remise » pour accélérer l’encaissement standard.
+    Si un utilisateur applique une <strong>remise globale</strong> alors que le mode rapide était actif, l’application <strong>désactive le mode rapide</strong> et affiche un message d’information pour éviter une incohérence silencieuse.
+  </p>
+  <div class="box warn">
+    <div class="box-title">Piège fréquent</div>
+    Si un caissier « ne voit pas » les remises, vérifier d’abord le <strong>mode rapide</strong> avant d’ouvrir un ticket support.
+  </div>
+
+  <h3 id="dm-pos-conversion">D.3 Conversion documentaire et quantité source</h3>
+  <p>
+    Lorsque le POS est ouvert en <strong>conversion</strong> (ex. commande → facture), chaque ligne peut afficher la <strong>quantité source</strong> du document d’origine sous le sélecteur de quantité.
+    Vous modifiez la quantité sur le nouveau document tout en gardant la référence visible.
+  </p>
+
+  <h3 id="dm-pos-kitchen">D.4 HoReCa : lignes annulées en cuisine → facture</h3>
+  <p>
+    Une ligne marquée <strong>annulée en cuisine</strong> peut porter une quantité à facturer proposée à <strong>0</strong> lors de la conversion en facture depuis le POS, avec pastille de statut.
+    La quantité source du document reste visible pour audit.
+  </p>
+
+  <h3 id="dm-pos-gs1">D.5 Scan GS1 DataMatrix et affiche client</h3>
+  <p>
+    Le champ scan du POS parse un DataMatrix GS1 (GTIN, lot, DLC) via <code>parseGs1Barcode</code> puis
+    interroge le produit par GTIN. Un EAN-13 simple reste inchangé. L'<strong>affiche client</strong>
+    (<code>/pos/customer-display</code>) synchronise le panier via un canal navigateur : l'ouvrir depuis
+    la barre d'actions POS sur un second écran. Pas de POS embarqué dans l'app manager <code>/m</code>.
+  </p>
+  <figure class="screenshot-figure" data-shot="067"><img src="manual-screenshots/shot-067.png" alt="Affiche client" loading="lazy" width="900"></figure>
+
+  <h3 id="dm-pos-instock">D.6 Filtre En stock</h3>
+  <p>
+    Bouton <strong>En stock</strong> à côté de la recherche catalogue. Visible seulement si
+    la gestion de stock est activée. <strong>Actif par défaut</strong> à l’ouverture de la caisse vente.
+    L’API liste / recherche / catégorie envoie <code>inStock=true</code> (stock vendable &gt; 0).
+    Les favoris sont filtrés côté client. Un scan code-barres n’est pas filtré.
+    POS achat : bouton <strong>À commander</strong>, éteint par défaut.
+  </p>
+
+  <h3 id="dm-pos-context">D.7 Client, solde, fidélité, tarifs</h3>
+  <p>
+    Surfaces verrouillées (pas d’interrupteur dans <code>pos_ui_options</code>) :
+    <code>entity</code> toujours visible ; <code>entityCredit</code>, <code>loyalty</code>,
+    <code>commercialPricing</code> selon le tiers / les prix appliqués.
+    L’UI POS masque solde et fidélité tant qu’aucun tiers n’est choisi.
+    Fidélité et tarifs = vente seulement. Achat : solde fournisseur si crédit fournisseur actif.
+  </p>
+
+  <h3 id="dm-pos-lock">D.8 Verrou caisse (PIN)</h3>
+  <p>
+    Bouton <strong>Verrouiller la caisse</strong> du bandeau (pas le ticket). Overlay visages + PIN.
+    Inactivité : paramètre <code>staff_lock_idle_seconds</code> (défaut 90, 0 = jamais). Distinct du mode caissier verrouillé (mot de passe gérant, §B.2).
+  </p>
+
+  <h3 id="dm-pos-stamp">D.9 Paiement mixte, rupture et droit de timbre</h3>
+  <ul>
+    <li><strong>Paiement mixte</strong> : plusieurs moyens sur la même vente ; le total des parts doit couvrir le dû. Toucher une ligne la sélectionne (pavé Reçu). <strong>+ Espèces / + Carte / + Chèque</strong> ajoute une part.</li>
+    <li><strong>Rupture</strong> : tuile et ligne marquée ; l’ajout n’est pas bloqué ; l’encaissement demande confirmation.</li>
+    <li><strong>Droit de timbre</strong> : taux % par mode (paramètres généraux) sur la part encaissée, hors CA, comme le pourboire. Visible sur ticket, paiement, avance et clôture (part espèces).</li>
+  </ul>
+</div>
+
+<div class="chapter" id="dm-pos-purchase">
+  <div class="chapter-header">
+    <div class="chapter-number">Annexe E</div>
+    <h2>POS achat — parcours complet</h2>
+    <p>Réception rapide, fournisseur, prix d’achat</p>
+  </div>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="019"><img src="manual-screenshots/shot-019.png" alt="Caisse tactile achat" loading="lazy" width="900"><figcaption class="screenshot-caption">Même écran tactile que la vente — badge Achat, chip Fournisseur.</figcaption></figure>
+
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Fournisseur</h4><p>Sélectionnez le fournisseur avant validation si votre processus l’exige — impact sur l’historique d’achat et les factures.</p></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Quantités reçues</h4><p>Scanner ou saisir ; en conversion depuis une commande d’achat, surveillez la <strong>quantité source</strong> comme en POS vente.</p></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Prix d’achat</h4><p>Ajustez si le fournisseur facture différemment du catalogue ; l’historique de prix d’achat peut être alimenté.</p></div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Encaisser / Valider</h4><p>Touchez <strong>Encaisser</strong>. Les stocks sont mis à jour selon les règles de votre instance (gestion de stock activée ou non).</p></div></div>
+  </div>
+
+  <p>
+    La validation met à jour le stock vendable selon les règles de l’instance. Les écarts de réception
+    (quantité reçue ≠ quantité commandée) se gèrent en ajustant les quantités avant Encaisser ;
+    le lien avec la facture fournisseur se fait ensuite dans le cycle d’achat (annexe G).
+  </p>
+</div>
+
+<div class="chapter" id="dm-sale">
+  <div class="chapter-header">
+    <div class="chapter-number">Annexe F</div>
+    <h2>Transactions de vente</h2>
+    <p>Devis, commande, bon de livraison, facture, encaissement</p>
+  </div>
+  <p>Aligné sur le chapitre 7 du manuel synthèse. Pour l’approfondissement, prévoir une section par type de document :</p>
+  <ul>
+    <li>États du document (brouillon, confirmé, annulé) et impacts stock / compta selon votre paramétrage.</li>
+    <li>Conversion en chaîne (devis → commande → …) depuis la liste <em>et</em> depuis le POS.</li>
+    <li>Remises document, escomptes, acomptes. <strong>Droit de timbre</strong> : taux par mode de paiement (§D.9, paramètres généraux) ; hors CA facture.</li>
+    <li>Pièces jointes et messagerie contextuelle sur transaction.</li>
+  </ul>
+  <figure class="screenshot-figure" data-shot="020"><img src="manual-screenshots/shot-020.png" alt="Liste devis" loading="lazy" width="900"></figure>
+</div>
+
+<div class="chapter" id="dm-purchase">
+  <div class="chapter-header">
+    <div class="chapter-number">Annexe G</div>
+    <h2>Transactions d’achat</h2>
+    <p>Proposition, commande, réception, facture fournisseur</p>
+  </div>
+  <p>Miroir métier du cycle vente. Même logique de conversion et de traçabilité ; détailler les validations qui augmentent le stock et celles qui engagent la dette fournisseur.</p>
+</div>
+
+<div class="chapter" id="dm-stock">
+  <div class="chapter-header">
+    <div class="chapter-number">Annexe H</div>
+    <h2>Stock et inventaires</h2>
+    <p>Mouvements, inventaire physique, alertes</p>
+  </div>
+  <p>Si la <strong>gestion de stock</strong> est désactivée pour l’instance, les modules Stock / Inventaire sont masqués et le POS n’envoie plus le filtre En stock. Les ventes ne décrémentent pas le stock.</p>
+
+  <h3 id="dm-stock-sites">H.1 Sites / dépôts et transferts</h3>
+  <p>
+    Un tenant a au moins un site <strong>défaut (POS)</strong>. Les ventes et le POS débitent uniquement ce site.
+    Créer un dépôt : <code>/stock/sites</code>. Déplacer du stock : <code>/stock/transfers</code> —
+    confirmation atomique (sortie source + entrée destination). Refus si quantité vendable insuffisante.
+    WhatsApp n'est pas utilisé ici ; le partage WhatsApp concerne factures, résas et propositions d'achat.
+  </p>
+  <figure class="screenshot-figure" data-shot="065"><img src="manual-screenshots/shot-065.png" alt="Sites de stock" loading="lazy" width="900"></figure>
+  <figure class="screenshot-figure" data-shot="066"><img src="manual-screenshots/shot-066.png" alt="Transferts" loading="lazy" width="900"></figure>
+</div>
+
+<div class="chapter" id="dm-cash">
+  <div class="chapter-header">
+    <div class="chapter-number">Annexe I</div>
+    <h2>Caisse</h2>
+    <p>Sessions, mouvements, clôture</p>
+  </div>
+  <p>Détailler : écart de caisse, retraits, versements, rapport de clôture PDF, réouverture exceptionnelle selon politique interne.</p>
+</div>
+
+<div class="chapter" id="dm-reports">
+  <div class="chapter-header">
+    <div class="chapter-number">Annexe J</div>
+    <h2>Rapports et exports</h2>
+    <p>Filtres, colonnes, formats</p>
+  </div>
+  <p>Pour chaque rapport : jeu de filtres par défaut, période fiscale, export CSV/Excel/PDF et fuseau horaire des dates.</p>
+</div>
+
+<div class="chapter" id="dm-horeca">
+  <div class="chapter-header">
+    <div class="chapter-number">Annexe K</div>
+    <h2>HoReCa — Restaurant / Café</h2>
+    <p>Plan de salle, sessions table, cuisine (KDS), réservations, statistiques salle, appel serveur (QR)</p>
+  </div>
+
+  <h3 id="dm-horeca-overview">K.1 Vue d'ensemble</h3>
+  <p>
+    Le module HoReCa (<em>Hotel, Restaurant, Café</em>) permet de gérer l'intégralité du service en salle :
+    plan de salle interactif, sessions par table, écran cuisine (KDS), calendrier de réservations et statistiques détaillées.
+  </p>
+  <p>
+    <strong>Flux standard :</strong>
+    Ouverture de session → Ajout d'articles → Envoi en cuisine → Suivi KDS → Demande d'addition → Encaissement POS.
+  </p>
+
+  <h3 id="dm-horeca-floor">K.2 Plan de salle</h3>
+  <p>
+    Accès : menu <strong>Plan de salle</strong>. Le plan se rafraîchit automatiquement toutes les 30 secondes.
+  </p>
+  <ul>
+    <li><strong>Couleurs des tables :</strong> vert = libre, orange = occupée, rouge = addition demandée, gris = nettoyage requis.</li>
+    <li><strong>Minuteur d'occupation :</strong> durée de la session en cours affichée sur la carte.</li>
+    <li><strong>Zoom :</strong> molette souris (Ctrl+défilement), boutons +/− en bas à droite, ou pincement tactile.</li>
+    <li><strong>Nouvelle commande comptoir :</strong> bouton « Comptoir » → choisir Emporter ou Livraison pour ouvrir une session sans table assignée (<code>/horeca/comptoir</code>).</li>
+    <li><strong>Appels serveur :</strong> cloche en haut à droite avec badge rouge ; panneau latéral listant les appels en attente ; badge pulsant sur la carte de la table concernée.</li>
+    <li><strong>QR code par table :</strong> survolez une carte de table → icône QR → dialogue avec code imprimable et lien <code>/call/{token}</code>.</li>
+  </ul>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="060">
+    <img src="manual-screenshots/shot-060.png" alt="Panneau appels serveur" loading="lazy" width="900">
+    <figcaption class="screenshot-caption">Panneau des appels serveur en attente.</figcaption>
+  </figure>
+
+  <h3 id="dm-horeca-session">K.3 Session table</h3>
+  <p>
+    Cliquez sur une table libre pour l'ouvrir. Un dialogue vous demande le <strong>mode de service</strong> (sur place / emporter / livraison) et le <strong>nombre de couverts</strong>.
+  </p>
+  <ul>
+    <li><strong>Ajout d'articles :</strong> utilisez la barre de recherche ou naviguez par onglets de catégories (style POS).</li>
+    <li><strong>Modificateurs :</strong> les options personnalisables apparaissent lors de l'ajout (cuisson, allergènes…).</li>
+    <li><strong>Envoi en cuisine :</strong> bouton « Envoyer en cuisine » — les lignes PENDING partent vers le KDS.</li>
+    <li><strong>Demande d'addition :</strong> le statut de la table passe à « Addition demandée » et pulse sur le plan.</li>
+    <li><strong>Partager l'addition :</strong> bouton « Partager l'addition » pour répartir les articles en deux parts, puis encaisser chaque part séparément dans le POS.</li>
+    <li><strong>Encaissement :</strong> bouton « Encaisser » ouvre directement le POS avec la commande pré-remplie.</li>
+  </ul>
+  <figure class="screenshot-figure" data-shot="056">
+    <img src="manual-screenshots/shot-056.png" alt="Dialogue split bill" loading="lazy" width="900">
+    <figcaption class="screenshot-caption">Dialogue de partage d'addition (split bill).</figcaption>
+  </figure>
+
+  <h3 id="dm-horeca-kds">K.4 Écran cuisine (KDS)</h3>
+  <p>
+    Accès : menu <strong>Cuisine (KDS)</strong>. L'écran KDS affiche les commandes envoyées, triées par station de cuisine.
+  </p>
+  <ul>
+    <li><strong>Statuts :</strong> En attente → En préparation → Prêt → Servi.</li>
+    <li><strong>Chronomètre :</strong> temps écoulé depuis l'envoi, affiché sur chaque carte (format MM:SS).</li>
+    <li><strong>Annuler en cuisine :</strong> annule la ligne avec confirmation (refus de préparation).</li>
+    <li><strong>Rupture de stock :</strong> bouton « Rupture » pour signaler un article indisponible ; la ligne passe en statut <em>Rupture</em>.</li>
+    <li><strong>Mode TV plein écran :</strong> bouton TV pour afficher le KDS sans la navigation principale.</li>
+  </ul>
+
+  <h3 id="dm-horeca-reservations">K.5 Calendrier des réservations</h3>
+  <p>
+    Accès : menu <strong>Réservations</strong>. Vue hebdomadaire avec un créneau par heure.
+  </p>
+  <ul>
+    <li><strong>Créer une réservation :</strong> remplissez le formulaire (date, heure, table, couverts, nom, téléphone) et cliquez « Enregistrer ».</li>
+    <li><strong>Filtres :</strong> filtrer par table et par statut (Réservée / Installée / Annulée / Non venue).</li>
+    <li><strong>Actions rapides :</strong> marquer comme « Installé(e) », annuler ou supprimer depuis la carte de réservation.</li>
+    <li><strong>Navigation :</strong> boutons ← Semaine précédente / Aujourd'hui / Semaine suivante →.</li>
+  </ul>
+
+  <h3 id="dm-horeca-stats">K.6 Statistiques salle</h3>
+  <p>
+    Accès : menu <strong>Statistiques salle</strong> ou via le hub Rapports.
+  </p>
+  <ul>
+    <li><strong>KPIs globaux :</strong> CA total, nombre de sessions, moyenne couverts, durée moyenne de session, taux de rotation.</li>
+    <li><strong>Heatmap horaire :</strong> histogramme du CA par tranche horaire pour identifier les heures de pointe.</li>
+    <li><strong>Performance par table :</strong> classement des tables par CA, avec sessions, couverts moyens, durée et taux de rotation.</li>
+    <li><strong>CA par serveur :</strong> classement des serveurs (utilisateurs) par chiffre d'affaires et nombre de sessions.</li>
+    <li><strong>Période :</strong> 7 j / 30 j / 90 j ou dates personnalisées.</li>
+    <li><strong>Export PDF :</strong> bouton « Exporter PDF » → impression via la boîte de dialogue du navigateur.</li>
+  </ul>
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="055">
+    <img src="manual-screenshots/shot-055.png" alt="Statistiques salle" loading="lazy" width="900">
+    <figcaption class="screenshot-caption">Écran statistiques salle.</figcaption>
+  </figure>
+
+  <h3 id="dm-horeca-roles">K.7 Droits et rôles</h3>
+  <table class="dm-table">
+    <thead>
+      <tr><th>Fonctionnalité</th><th>Rôles requis</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Plan de salle, sessions table</td><td>ADMIN, MANAGER, CASHIER</td></tr>
+      <tr><td>Écran KDS (cuisine)</td><td>ADMIN, MANAGER, CASHIER + rôle Kitchen</td></tr>
+      <tr><td>Réservations</td><td>ADMIN, MANAGER, CASHIER</td></tr>
+      <tr><td>Statistiques salle</td><td>ADMIN, MANAGER (reports:read)</td></tr>
+      <tr><td>Appels serveur (acquittement)</td><td>ADMIN, MANAGER, CASHIER</td></tr>
+      <tr><td>Renouveler token QR d'une table</td><td>ADMIN, MANAGER</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="dm-horeca-waiter-call">K.8 Appel serveur (QR code / tablette cliente)</h3>
+  <p>
+    Chaque table possède un <strong>jeton unique</strong> permettant aux clients d'appeler un serveur
+    depuis leur téléphone, <strong>sans compte ni application</strong>.
+  </p>
+
+  <h4>Côté personnel — mise en place</h4>
+  <ol>
+    <li>Allez sur <strong>Plan de salle</strong> (<code>/horeca/salle</code>).</li>
+    <li>Survolez une table → cliquez l'icône <strong>QR code</strong>.</li>
+    <li>Imprimez le QR (bouton « Imprimer ») et placez-le sur la table, ou copiez le lien.</li>
+    <li>Le lien a la forme <code>https://votre-domaine/call/{token}</code>.</li>
+  </ol>
+
+  <h4>Côté client — utilisation</h4>
+  <ol>
+    <li>Le client scanne le QR code avec l'appareil photo de son téléphone.</li>
+    <li>Une page s'ouvre avec le nom de la table et un bouton <strong>« Appeler le serveur »</strong>.</li>
+    <li>Il peut ajouter un message optionnel (ex. « Eau s'il vous plaît »).</li>
+    <li>Un seul appel actif par table à la fois ; un second appel affiche « Serveur en route ».</li>
+  </ol>
+
+  <h4>Côté personnel — traitement</h4>
+  <ul>
+    <li>La <strong>cloche</strong> du plan de salle affiche le nombre d'appels en attente (rafraîchissement toutes les 15 s).</li>
+    <li>Cliquez la cloche pour ouvrir le panneau ; acquittez chaque appel individuellement ou « Tout acquitter ».</li>
+    <li>La carte de la table affiche un badge rouge pulsant tant que l'appel n'est pas traité.</li>
+  </ul>
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="058">
+    <img src="manual-screenshots/shot-058.png" alt="Page publique appel serveur" loading="lazy" width="900">
+    <figcaption class="screenshot-caption">Page publique client — appel serveur sans connexion.</figcaption>
+  </figure>
+  <figure class="screenshot-figure" data-shot="059">
+    <img src="manual-screenshots/shot-059.png" alt="QR code table" loading="lazy" width="900">
+    <figcaption class="screenshot-caption">QR code imprimable par table.</figcaption>
+  </figure>
+
+  <div class="box warn">
+    <div class="box-title">⚠️ Test en développement</div>
+    La page <code>/call/{token}</code> est publique (sans connexion). Pour la tester localement,
+    utilisez une <strong>fenêtre de navigation privée</strong> ou videz le jeton stocké dans le navigateur,
+    afin d'éviter une redirection vers la page de connexion.
+  </div>
+
+  <h4>Renouveler un QR code</h4>
+  <p>
+    Si un QR code est compromis ou doit être remplacé, un administrateur peut régénérer le jeton
+    via l'API <code>POST /api/horeca/tables/{id}/call-token/regenerate</code>.
+    Les anciens QR codes deviennent alors invalides.
+  </p>
+
+  <h3 id="dm-horeca-delivery">K.9 Board livraisons (téléphone / Glovo / Uber)</h3>
+  <p>
+    Écran <code>/horeca/livraisons</code>. Saisie manuelle uniquement (pas d'API partenaire).
+    Canaux extensibles : <code>PHONE</code> (téléphone requis), <code>GLOVO</code> / <code>UBER_EATS</code>
+    (n° plateforme requis), <code>OTHER</code>. Statuts : Reçue → En prép. → Prête → En route → Livrée.
+    Envoi KDS seulement si au moins une ligne cuisine. WhatsApp si canal téléphone + n°.
+  </p>
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="063"><img src="manual-screenshots/shot-063.png" alt="Board livraisons" loading="lazy" width="900"></figure>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="064"><img src="manual-screenshots/shot-064.png" alt="Nouvelle livraison" loading="lazy" width="900"></figure>
+</div>
+
+<div class="chapter" id="dm-msg">
+  <div class="chapter-header">
+    <div class="chapter-number">Annexe L</div>
+    <h2>Messagerie interne</h2>
+    <p>Conversations liées aux transactions</p>
+  </div>
+  <p>Expliquer l’ouverture d’une conversation depuis un document et les notifications en cloche.</p>
+  <p>
+    Depuis <code>/messages/:id</code>, le fil s’ouvre collé en bas (dernier message entièrement visible
+    au-dessus du compositeur). Le scroll programmé attend la peinture et le chargement des images ;
+    remonter dans l’historique désactive le collage. « Charger plus anciens » conserve le décalage.
+  </p>
+</div>
+
+<div class="chapter" id="dm-settings">
+  <div class="chapter-header">
+    <div class="chapter-number">Annexe M</div>
+    <h2>Paramètres, utilisateurs, rôles, licence</h2>
+    <p>Gouvernance de l’instance</p>
+  </div>
+  <ul>
+    <li>Hiérarchie des rôles et permissions effectives (rôle + surcharge utilisateur).</li>
+    <li>Paramètres généraux : devise, TVA, numérotation, options stock.</li>
+    <li>Options de l’écran caisse : masquage des blocs du profil ; pas d’interrupteur Client / Solde / Fidélité / Tarifs commerciaux.</li>
+    <li>Licence : activation, renouvellement, bandeaux d’avertissement.</li>
+    <li>Historique des connexions : lecture et export pour audit.</li>
+    <li>Backup &amp; restauration PostgreSQL : voir section ci-dessous.</li>
+  </ul>
+
+  <h3 id="dm-settings-backup">M.1 Sauvegarde &amp; restauration base de données</h3>
+  <p>
+    Accès : <strong>Paramètres → Backup base de données</strong> (<code>/settings/backup</code>).
+    Réservé au rôle <strong>Administrateur</strong>.
+  </p>
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="061">
+    <img src="manual-screenshots/shot-061.png" alt="Backup base de données" loading="lazy" width="900">
+    <figcaption class="screenshot-caption">Interface de sauvegarde et restauration PostgreSQL.</figcaption>
+  </figure>
+  <h4>Télécharger un backup</h4>
+  <ol>
+    <li>Ouvrez la page Backup depuis les liens en bas de l'écran Paramètres.</li>
+    <li>Saisissez un mot de passe, puis cliquez <strong>« Télécharger le backup »</strong> — un fichier chiffré <code>.assalim.bak</code> est généré via <code>pg_dump</code>.</li>
+    <li>Conservez ce fichier dans un emplacement sécurisé (cloud chiffré, disque externe…).</li>
+  </ol>
+  <h4>Restaurer depuis un backup</h4>
+  <div class="box warn">
+    <div class="box-title">⚠️ Opération destructive</div>
+    La restauration <strong>écrase entièrement</strong> la base de données actuelle.
+    Téléchargez toujours un backup récent avant de procéder.
+  </div>
+  <ol>
+    <li>Sélectionnez un fichier <code>.assalim.bak</code> (ou un ancien <code>.sql</code>) et saisissez le mot de passe.</li>
+    <li>Tapez exactement <strong>RESTAURER</strong> dans le champ de confirmation.</li>
+    <li>Cliquez <strong>« Restaurer la base »</strong> et redémarrez le serveur après la fin de l'opération.</li>
+  </ol>
+  <p>
+    <strong>Prérequis serveur :</strong> les utilitaires <code>pg_dump</code> et <code>psql</code> doivent être
+    installés et accessibles sur la machine hébergeant le backend (variable optionnelle <code>pg.tools.path</code>).
+  </p>
+</div>
+
+<div class="chapter" id="dm-mobile">
+  <div class="chapter-header">
+    <div class="chapter-number">Annexe N</div>
+    <h2>App manager mobile</h2>
+    <p>PWA <code>/m</code> et APK Android Capacitor</p>
+  </div>
+  <p>
+    Shell hors layout principal : header, pull-to-refresh, nav Accueil / Alertes / Plus.
+    Gardes : auth, licence, setup, staff-lock, <code>dashboard:read</code>.
+    APK : WebView native, URL LAN en pilote (<code>capacitor.lan.json</code>). Hors MVP : stores, push natif, POS embarqué.
+  </p>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="062"><img src="manual-screenshots/shot-062.png" alt="App manager" loading="lazy" width="900"></figure>
+</div>
+
+<div class="page-footer">
+  Assalim — Manuel approfondi (complément du manuel d’utilisation). Contenu évolutif : enrichir chapitre par chapitre avec captures dans <code>manual-screenshots-detail/</code>.
+</div>
+
+</div>
+
+</body></html>

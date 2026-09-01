@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="assalimMarkGrad" x1="8" y1="6" x2="42" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#667eea"/>
+      <stop offset="100%" stop-color="#764ba2"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="13" fill="url(#assalimMarkGrad)"/>
+  <path fill="#ffffff" fill-rule="evenodd" d="M24 10.5 36.2 37.5h-4.1l-3.6-9.2H19.5l-3.6 9.2h-4.1L24 10.5zm0 8-4.3 8.8h8.6L24 18.5z"/>
+  <path fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.85" d="M14 39c3.2-4.8 8.4-7.8 14.2-7.8 4.2 0 8 1.6 10.8 4.2"/>
+</svg>

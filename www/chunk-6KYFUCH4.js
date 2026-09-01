@@ -1,0 +1,1 @@
+var s=class{static formatFromIsoDateString(n){if(!n?.trim())return null;let r=n.trim(),t=(r.length>=10?r.substring(0,10):r).split("-");if(t.length===3){let a=t[0],c=t[1].padStart(2,"0"),e=t[2].padStart(2,"0");return`${a}${c}${e}`}return null}};export{s as a};

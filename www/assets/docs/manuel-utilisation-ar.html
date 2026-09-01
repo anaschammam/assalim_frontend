@@ -1,0 +1,3130 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>السليم — دليل الاستخدام</title>
+  <style>
+    /* ── VARIABLES (clair — impression / lecture jour) ── */
+    :root {
+      color-scheme: light dark;
+      --primary: #1a5276;
+      --primary-light: #2980b9;
+      --accent: #27ae60;
+      --warn: #e67e22;
+      --danger: #c0392b;
+      --bg: #f4f6f9;
+      --surface: #ffffff;
+      --border: #dce3ec;
+      --text: #2c3e50;
+      --muted: #7f8c8d;
+      --code-bg: #eaf2ff;
+      --code-border: #c5d9f0;
+      --screenshot-bg: #e8ecf2;
+      --screenshot-border: #b0bec5;
+      --table-stripe: #f1f4f8;
+      --kbd-bg: #eee;
+      --kbd-border: #bbb;
+      --box-info-bg: #eaf4ff;
+      --box-info-title: #1a5276;
+      --box-success-bg: #eafaf1;
+      --box-success-title: #1e8449;
+      --box-warn-bg: #fef5e7;
+      --box-warn-title: #935116;
+      --box-danger-bg: #fdedec;
+      --box-danger-title: #922b21;
+      --box-tip-bg: #f1f8e9;
+      --box-tip-title: #2e7d32;
+      --box-tip-border: #a5d6a7;
+      --badge-green-bg: #d5f5e3;
+      --badge-green-text: #1e8449;
+      --badge-blue-bg: #d6eaf8;
+      --badge-blue-text: #1a5276;
+      --badge-orange-bg: #fde8d8;
+      --badge-orange-text: #935116;
+      --badge-red-bg: #fadbd8;
+      --badge-red-text: #922b21;
+      --badge-gray-bg: #e5e8e8;
+      --badge-gray-text: #566573;
+      --screenshot-missing-bg: #fffbf0;
+      --cover-gradient: linear-gradient(135deg, #1a5276 0%, #2980b9 60%, #27ae60 100%);
+      --chapter-header-gradient: linear-gradient(90deg, #1a5276, #2980b9);
+      --table-head-gradient: linear-gradient(90deg, #1a5276, #2980b9);
+      --step-num-bg: #2980b9;
+    }
+
+    /* ── Thème sombre (aligné application Assalim : fond #121212, cartes #2a2a2a) ── */
+    @media (prefers-color-scheme: dark) {
+      :root:not(.assalim-light-theme) {
+        --primary: #90caf9;
+        --primary-light: #64b5f6;
+        --accent: #81c784;
+        --warn: #ffb74d;
+        --danger: #ef9a9a;
+        --bg: #121212;
+        --surface: #2a2a2a;
+        --border: rgba(255, 255, 255, 0.12);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.55);
+        --code-bg: rgba(102, 126, 234, 0.18);
+        --code-border: rgba(159, 168, 218, 0.35);
+        --screenshot-bg: #323232;
+        --screenshot-border: rgba(255, 255, 255, 0.22);
+        --table-stripe: rgba(255, 255, 255, 0.05);
+        --kbd-bg: #3a3a3a;
+        --kbd-border: rgba(255, 255, 255, 0.2);
+        --box-info-bg: rgba(33, 150, 243, 0.18);
+        --box-info-title: #90caf9;
+        --box-success-bg: rgba(76, 175, 80, 0.16);
+        --box-success-title: #a5d6a7;
+        --box-warn-bg: rgba(255, 152, 0, 0.16);
+        --box-warn-title: #ffcc80;
+        --box-danger-bg: rgba(239, 83, 80, 0.16);
+        --box-danger-title: #ef9a9a;
+        --box-tip-bg: rgba(76, 175, 80, 0.14);
+        --box-tip-title: #a5d6a7;
+        --box-tip-border: #81c784;
+        --badge-green-bg: rgba(76, 175, 80, 0.22);
+        --badge-green-text: #c8e6c9;
+        --badge-blue-bg: rgba(33, 150, 243, 0.2);
+        --badge-blue-text: #bbdefb;
+        --badge-orange-bg: rgba(255, 152, 0, 0.18);
+        --badge-orange-text: #ffe0b2;
+        --badge-red-bg: rgba(239, 83, 80, 0.2);
+        --badge-red-text: #ffcdd2;
+        --badge-gray-bg: rgba(255, 255, 255, 0.08);
+        --badge-gray-text: rgba(255, 255, 255, 0.65);
+        --screenshot-missing-bg: rgba(255, 152, 0, 0.12);
+        --cover-gradient: linear-gradient(135deg, #1e1e2d 0%, #2a2438 45%, #311b92 100%);
+        --chapter-header-gradient: linear-gradient(90deg, #3949ab 0%, #5c6bc0 55%, #00897b 100%);
+        --table-head-gradient: linear-gradient(90deg, #3949ab, #5c6bc0);
+        --step-num-bg: #5c6bc0;
+      }
+    }
+
+    html.assalim-dark-theme {
+      --primary: #90caf9;
+      --primary-light: #64b5f6;
+      --accent: #81c784;
+      --warn: #ffb74d;
+      --danger: #ef9a9a;
+      --bg: #121212;
+      --surface: #2a2a2a;
+      --border: rgba(255, 255, 255, 0.12);
+      --text: rgba(255, 255, 255, 0.92);
+      --muted: rgba(255, 255, 255, 0.55);
+      --code-bg: rgba(102, 126, 234, 0.18);
+      --code-border: rgba(159, 168, 218, 0.35);
+      --screenshot-bg: #323232;
+      --screenshot-border: rgba(255, 255, 255, 0.22);
+      --table-stripe: rgba(255, 255, 255, 0.05);
+      --kbd-bg: #3a3a3a;
+      --kbd-border: rgba(255, 255, 255, 0.2);
+      --box-info-bg: rgba(33, 150, 243, 0.18);
+      --box-info-title: #90caf9;
+      --box-success-bg: rgba(76, 175, 80, 0.16);
+      --box-success-title: #a5d6a7;
+      --box-warn-bg: rgba(255, 152, 0, 0.16);
+      --box-warn-title: #ffcc80;
+      --box-danger-bg: rgba(239, 83, 80, 0.16);
+      --box-danger-title: #ef9a9a;
+      --box-tip-bg: rgba(76, 175, 80, 0.14);
+      --box-tip-title: #a5d6a7;
+      --box-tip-border: #81c784;
+      --badge-green-bg: rgba(76, 175, 80, 0.22);
+      --badge-green-text: #c8e6c9;
+      --badge-blue-bg: rgba(33, 150, 243, 0.2);
+      --badge-blue-text: #bbdefb;
+      --badge-orange-bg: rgba(255, 152, 0, 0.18);
+      --badge-orange-text: #ffe0b2;
+      --badge-red-bg: rgba(239, 83, 80, 0.2);
+      --badge-red-text: #ffcdd2;
+      --badge-gray-bg: rgba(255, 255, 255, 0.08);
+      --badge-gray-text: rgba(255, 255, 255, 0.65);
+      --screenshot-missing-bg: rgba(255, 152, 0, 0.12);
+      --cover-gradient: linear-gradient(135deg, #1e1e2d 0%, #2a2438 45%, #311b92 100%);
+      --chapter-header-gradient: linear-gradient(90deg, #3949ab 0%, #5c6bc0 55%, #00897b 100%);
+      --table-head-gradient: linear-gradient(90deg, #3949ab, #5c6bc0);
+      --step-num-bg: #5c6bc0;
+    }
+
+    html.assalim-dark-theme .screenshot-figure img {
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+      border-color: var(--border);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not(.assalim-light-theme) .screenshot-figure img {
+        box-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+        border-color: var(--border);
+      }
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── BODY ── */
+    body {
+      font-family: 'Noto Naskh Arabic', Tahoma, 'Segoe UI', Arial, sans-serif;
+      font-size: 13.5pt;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    a { color: var(--primary-light); }
+    a:hover { color: var(--primary); }
+
+    /* ── COVER PAGE ── */
+    .cover {
+      width: 100%;
+      min-height: 100vh;
+      background: var(--cover-gradient);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 40px;
+      page-break-after: always;
+    }
+    .cover .logo-placeholder {
+      width: 160px; height: 160px;
+      background: rgba(255,255,255,0.15);
+      border: 3px solid rgba(255,255,255,0.4);
+      border-radius: 24px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 56px; color: #fff;
+      margin-bottom: 40px;
+    }
+    .cover h1 { font-size: 48pt; color: #fff; font-weight: 700; letter-spacing: 2px; }
+    .cover h2 { font-size: 22pt; color: rgba(255,255,255,0.85); font-weight: 300; margin-top: 12px; }
+    .cover .subtitle {
+      margin-top: 30px;
+      font-size: 14pt;
+      color: rgba(255,255,255,0.75);
+      max-width: 600px;
+    }
+    .cover .version-badge {
+      margin-top: 50px;
+      padding: 10px 28px;
+      border: 2px solid rgba(255,255,255,0.5);
+      border-radius: 30px;
+      color: #fff;
+      font-size: 11pt;
+      letter-spacing: 1px;
+    }
+    .cover .date { margin-top: 16px; color: rgba(255,255,255,0.6); font-size: 10pt; }
+
+    /* ── TOC ── */
+    .toc-page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 50px;
+      page-break-after: always;
+    }
+    .toc-page h2 { font-size: 22pt; color: var(--primary); border-bottom: 3px solid var(--primary); padding-bottom: 12px; margin-bottom: 30px; }
+    .toc-list { list-style: none; }
+    .toc-list li { display: flex; align-items: baseline; gap: 8px; padding: 7px 0; border-bottom: 1px dotted var(--border); }
+    .toc-list li .toc-num { color: var(--primary); font-weight: 700; min-width: 36px; }
+    .toc-list li .toc-title { flex: 1; color: var(--text); }
+    .toc-list li .toc-page-num { color: var(--muted); font-size: 10pt; }
+    .toc-list li.sub { padding-left: 30px; }
+    .toc-list li.sub .toc-num { color: var(--primary-light); font-size: 10pt; }
+
+    .toc-list a.toc-link {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex: 1;
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .toc-list a.toc-link:hover .toc-title {
+      color: var(--primary-light);
+      text-decoration: underline;
+    }
+    .toc-list a.toc-link:focus-visible {
+      outline: 2px solid var(--primary-light);
+      outline-offset: 2px;
+    }
+
+    .chapter, h3[id^="ch"] {
+      scroll-margin-top: 12px;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 50px;
+    }
+
+    /* ── CHAPTER ── */
+    .chapter {
+      page-break-before: always;
+      padding-top: 20px;
+    }
+    .chapter-header {
+      background: var(--chapter-header-gradient);
+      color: #fff;
+      padding: 28px 36px;
+      border-radius: 12px;
+      margin-bottom: 36px;
+    }
+    .chapter-header .chapter-number { font-size: 12pt; opacity: 0.75; letter-spacing: 2px; text-transform: uppercase; }
+    .chapter-header h2 { font-size: 26pt; font-weight: 700; margin-top: 6px; }
+    .chapter-header p { margin-top: 8px; opacity: 0.85; font-size: 11pt; }
+
+    /* ── SECTIONS ── */
+    h3 {
+      font-size: 16pt;
+      color: var(--primary);
+      margin: 36px 0 14px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--border);
+    }
+    h4 {
+      font-size: 13pt;
+      color: var(--primary-light);
+      margin: 24px 0 10px;
+    }
+    p { margin-bottom: 14px; }
+    ul, ol { margin: 10px 0 16px 26px; }
+    li { margin-bottom: 6px; }
+
+    /* ── SCREENSHOT PLACEHOLDER ── */
+    .screenshot {
+      width: 100%;
+      min-height: 280px;
+      background: var(--screenshot-bg);
+      border: 2px dashed var(--screenshot-border);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 24px 0;
+      padding: 30px;
+      text-align: center;
+      color: var(--muted);
+      gap: 10px;
+    }
+    .screenshot .icon { font-size: 48px; opacity: 0.4; }
+    .screenshot .label { font-size: 12pt; font-weight: 600; color: var(--primary); }
+    .screenshot .hint { font-size: 9.5pt; color: var(--muted); max-width: 400px; }
+    .screenshot.tall { min-height: 380px; }
+    .screenshot.small { min-height: 180px; }
+
+    /* Figures générées (capture manuel) */
+    .screenshot-figure {
+      margin: 24px 0;
+      text-align: center;
+    }
+    .screenshot-figure img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    }
+    .screenshot-figure--tall img {
+      min-height: 200px;
+      object-fit: contain;
+    }
+    .screenshot-figure--small img {
+      max-height: 300px;
+      object-fit: contain;
+    }
+    .screenshot-caption {
+      font-size: 9.5pt;
+      color: var(--muted);
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+    .screenshot-missing {
+      border: 2px dashed var(--warn);
+      border-radius: 10px;
+      padding: 22px;
+      background: var(--screenshot-missing-bg);
+      color: var(--text);
+      font-size: 10pt;
+      text-align: left;
+    }
+    .screenshot-missing code {
+      font-size: 9pt;
+    }
+
+    /* ── INFO BOXES ── */
+    .box {
+      border-left: 5px solid;
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: 10.5pt;
+      color: var(--text);
+    }
+    .box-title { font-weight: 700; margin-bottom: 6px; font-size: 11pt; }
+    .box.info { border-color: var(--primary-light); background: var(--box-info-bg); }
+    .box.info .box-title { color: var(--box-info-title); }
+    .box.success { border-color: var(--accent); background: var(--box-success-bg); }
+    .box.success .box-title { color: var(--box-success-title); }
+    .box.warn { border-color: var(--warn); background: var(--box-warn-bg); }
+    .box.warn .box-title { color: var(--box-warn-title); }
+    .box.danger { border-color: var(--danger); background: var(--box-danger-bg); }
+    .box.danger .box-title { color: var(--box-danger-title); }
+    .box.tip { border-color: var(--box-tip-border); background: var(--box-tip-bg); }
+    .box.tip .box-title { color: var(--box-tip-title); }
+
+    /* ── STEP CARDS ── */
+    .steps { counter-reset: step; margin: 20px 0; }
+    .step {
+      counter-increment: step;
+      display: flex;
+      gap: 18px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+    .step-num {
+      min-width: 38px; height: 38px;
+      background: var(--step-num-bg);
+      color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 14pt;
+      flex-shrink: 0;
+    }
+    .step-body h4 { margin: 2px 0 6px; color: var(--text); font-size: 12pt; }
+    .step-body p { margin: 0; font-size: 10.5pt; }
+
+    /* ── ROLE TABLE ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 10.5pt;
+    }
+    thead tr { background: var(--table-head-gradient); color: #fff; }
+    thead th { padding: 12px 14px; text-align: left; }
+    tbody tr:nth-child(even) { background: var(--table-stripe); }
+    tbody td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 8.5pt;
+      font-weight: 600;
+    }
+    .badge-green { background: var(--badge-green-bg); color: var(--badge-green-text); }
+    .badge-blue { background: var(--badge-blue-bg); color: var(--badge-blue-text); }
+    .badge-orange { background: var(--badge-orange-bg); color: var(--badge-orange-text); }
+    .badge-red { background: var(--badge-red-bg); color: var(--badge-red-text); }
+    .badge-gray { background: var(--badge-gray-bg); color: var(--badge-gray-text); }
+
+    /* ── KEYBOARD SHORTCUT ── */
+    kbd {
+      background: var(--kbd-bg);
+      border: 1px solid var(--kbd-border);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-family: monospace;
+      font-size: 10pt;
+    }
+    code {
+      font-family: ui-monospace, Consolas, monospace;
+      font-size: 10.5pt;
+      background: var(--code-bg);
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--code-border);
+    }
+
+    /* ── FOOTER ── */
+    .page-footer {
+      text-align: center;
+      font-size: 8.5pt;
+      color: var(--muted);
+      margin-top: 60px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── PRINT / PDF ── */
+    @page { size: A4; margin: 12mm; }
+    @media print {
+      :root,
+      html,
+      html.assalim-dark-theme {
+        --bg: #ffffff;
+        --surface: #ffffff;
+        --text: #2c3e50;
+        --muted: #5d6d7e;
+        --border: #dce3ec;
+        --primary: #1a5276;
+        --primary-light: #2980b9;
+        --screenshot-bg: #e8ecf2;
+        --screenshot-border: #b0bec5;
+        --table-stripe: #f1f4f8;
+        --code-bg: #eaf2ff;
+        --code-border: #c5d9f0;
+        --box-info-bg: #eaf4ff;
+        --box-info-title: #1a5276;
+        --box-success-bg: #eafaf1;
+        --box-success-title: #1e8449;
+        --box-warn-bg: #fef5e7;
+        --box-warn-title: #935116;
+        --box-danger-bg: #fdedec;
+        --box-danger-title: #922b21;
+        --box-tip-bg: #f1f8e9;
+        --box-tip-title: #2e7d32;
+        --box-tip-border: #a5d6a7;
+        --cover-gradient: linear-gradient(135deg, #1a5276 0%, #2980b9 60%, #27ae60 100%);
+        --chapter-header-gradient: linear-gradient(90deg, #1a5276, #2980b9);
+        --table-head-gradient: linear-gradient(90deg, #1a5276, #2980b9);
+        --step-num-bg: #2980b9;
+      }
+      body { background: #fff; color: #2c3e50; font-size: 11pt; height: auto !important; overflow: visible !important; }
+      html { height: auto !important; overflow: visible !important; }
+      .content { height: auto !important; overflow: visible !important; max-height: none !important; }
+      .cover {
+        min-height: 0;
+        height: auto;
+        padding: 48px 28px;
+        page-break-after: always;
+        break-after: page;
+      }
+      .toc-page { page-break-after: always; break-after: page; }
+      .chapter { page-break-before: always; break-before: page; }
+      .screenshot, .screenshot-figure, .screenshot-figure img, .chapter-header, thead tr, .box {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .screenshot-figure img,
+      .screenshot-figure--small img,
+      .screenshot-figure--tall img {
+        max-width: 100% !important;
+        max-height: 170mm !important;
+        width: auto !important;
+        height: auto !important;
+        min-height: 0 !important;
+        object-fit: contain;
+        page-break-inside: auto;
+        break-inside: auto;
+      }
+      .no-print { display: none !important; }
+    }
+
+    html[dir="rtl"] ul, html[dir="rtl"] ol { margin: 10px 26px 16px 0; }
+    html[dir="rtl"] .toc-list li.sub { padding-left: 0; padding-right: 30px; }
+    html[dir="rtl"] .box {
+      border-left: none;
+      border-right: 5px solid;
+      border-radius: 8px 0 0 8px;
+    }
+    html[dir="rtl"] thead th { text-align: right; }
+    html[dir="rtl"] .screenshot-missing { text-align: right; }
+    html[dir="rtl"] .chapter-header .chapter-number { letter-spacing: 0; text-transform: none; }
+  </style>
+</head>
+<body>
+<!-- ══════════════════════════════════════════
+     PAGE DE COUVERTURE
+══════════════════════════════════════════ -->
+<div class="cover">
+  <div class="logo-placeholder">🏪</div>
+  <h1>ASSALIM</h1>
+  <h2>دليل الاستخدام</h2>
+  <p class="subtitle">
+    دليل شامل لمستخدمي حل السليم لإدارة النشاط التجاري — البيع، الشراء، المخزون، الصندوق، التقارير والمزيد.
+  </p>
+  <div class="version-badge">الإصدار 1.9 — الطبعة العربية</div>
+  <div class="date">أغسطس 2026</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     TABLE DES MATIÈRES
+══════════════════════════════════════════ -->
+<div class="toc-page">
+  <h2>جدول المحتويات</h2>
+  <ul class="toc-list">
+    <li><a class="toc-link" href="#ch1"><span class="toc-num">1</span><span class="toc-title">تقديم التطبيق</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch1-s1"><span class="toc-num">1.1</span><span class="toc-title">الوظائف الرئيسية</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch1-s2"><span class="toc-num">1.2</span><span class="toc-title">الأدوار وملفات المستخدمين</span></a></li>
+
+    <li><a class="toc-link" href="#ch2"><span class="toc-num">2</span><span class="toc-title">تسجيل الدخول والتنقّل</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch2-s1"><span class="toc-num">2.1</span><span class="toc-title">تسجيل الدخول</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch2-s2"><span class="toc-num">2.2</span><span class="toc-title">نسيت كلمة المرور</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch2-s3"><span class="toc-num">2.3</span><span class="toc-title">الواجهة العامة</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch2-s4"><span class="toc-num">2.4</span><span class="toc-title">Hub (مركز التطبيقات)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch2-s5"><span class="toc-num">2.5</span><span class="toc-title">سمة العرض (فاتح / داكن)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch2-s6"><span class="toc-num">2.6</span><span class="toc-title">قائمة المساعدة: الجولة، التنقّل السريع، الدليل</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch2-s7"><span class="toc-num">2.7</span><span class="toc-title">البحث الشامل (Ctrl+K)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch2-s8"><span class="toc-num">2.8</span><span class="toc-title">اختصارات لوحة المفاتيح</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch2-s9"><span class="toc-num">2.9</span><span class="toc-title">الخطوط القابلة للضبط</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch2-s10"><span class="toc-num">2.10</span><span class="toc-title">الأوضاع المقفلة (أمين الصندوق / النادل)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch2-s11"><span class="toc-num">2.11</span><span class="toc-title">الوضع اللمسي</span></a></li>
+
+    <li><a class="toc-link" href="#ch3"><span class="toc-num">3</span><span class="toc-title">لوحة التحكم</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch3-s1"><span class="toc-num">3.1</span><span class="toc-title">لوحة قابلة للتخصيص</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch3-s2"><span class="toc-num">3.2</span><span class="toc-title">خطة العمل «ماذا تفعل غدًا»</span></a></li>
+
+    <li><a class="toc-link" href="#ch4"><span class="toc-num">4</span><span class="toc-title">مرجع المنتجات</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch4-s1"><span class="toc-num">4.1</span><span class="toc-title">المنتجات</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch4-s2"><span class="toc-num">4.2</span><span class="toc-title">الفئات</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch4-s3"><span class="toc-num">4.3</span><span class="toc-title">وحدات القياس</span></a></li>
+
+    <li><a class="toc-link" href="#ch5"><span class="toc-num">5</span><span class="toc-title">العملاء والموردون</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch5-s1"><span class="toc-num">5.1</span><span class="toc-title">إدارة العملاء</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch5-s2"><span class="toc-num">5.2</span><span class="toc-title">إدارة الموردين</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch5-s3"><span class="toc-num">5.3</span><span class="toc-title">شروط الدفع</span></a></li>
+
+    <li><a class="toc-link" href="#ch6"><span class="toc-num">6</span><span class="toc-title">نقطة البيع (POS)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch6-s1"><span class="toc-num">6.1</span><span class="toc-title">POS البيع</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch6-s2"><span class="toc-num">6.2</span><span class="toc-title">POS الشراء</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch6-s3"><span class="toc-num">6.3</span><span class="toc-title">الخصومات والهامش والتحويل في POS</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch6-s4"><span class="toc-num">6.4</span><span class="toc-title">وضع الكشك (ملء الشاشة على الجهاز اللوحي)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch6-s5"><span class="toc-num">6.5</span><span class="toc-title">وضع دون اتصال</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch6-s6"><span class="toc-num">6.6</span><span class="toc-title">برنامج الولاء في POS</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch6-s7"><span class="toc-num">6.7</span><span class="toc-title">مسح الرمز الشريطي وGS1 DataMatrix</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch6-s8"><span class="toc-num">6.8</span><span class="toc-title">شاشة العميل</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch6-s9"><span class="toc-num">6.9</span><span class="toc-title">الكتالوج: فلتر المتوفر والمستخدَم</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch6-s10"><span class="toc-num">6.10</span><span class="toc-title">العميل والرصيد والأسعار</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch6-s11"><span class="toc-num">6.11</span><span class="toc-title">قفل الصندوق</span></a></li>
+
+    <li><a class="toc-link" href="#ch7"><span class="toc-num">7</span><span class="toc-title">معاملات البيع</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch7-s1"><span class="toc-num">7.1</span><span class="toc-title">عروض أسعار البيع</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch7-s2"><span class="toc-num">7.2</span><span class="toc-title">طلبات البيع</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch7-s3"><span class="toc-num">7.3</span><span class="toc-title">أذونات التسليم</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch7-s4"><span class="toc-num">7.4</span><span class="toc-title">فواتير البيع</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch7-s5"><span class="toc-num">7.5</span><span class="toc-title">دفعات العملاء</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch7-s6"><span class="toc-num">7.6</span><span class="toc-title">المناقشات والمرفقات على المستند</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch7-s7"><span class="toc-num">7.7</span><span class="toc-title">مرتجعات البيع — إشعار دائن للعميل</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch7-s8"><span class="toc-num">7.8</span><span class="toc-title">المشاركة عبر WhatsApp</span></a></li>
+
+    <li><a class="toc-link" href="#ch8"><span class="toc-num">8</span><span class="toc-title">معاملات الشراء</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch8-s1"><span class="toc-num">8.1</span><span class="toc-title">مقترحات الشراء</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch8-s2"><span class="toc-num">8.2</span><span class="toc-title">عرض سعر المورد</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch8-s3"><span class="toc-num">8.3</span><span class="toc-title">طلبات الشراء</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch8-s4"><span class="toc-num">8.4</span><span class="toc-title">أذونات الاستلام</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch8-s5"><span class="toc-num">8.5</span><span class="toc-title">فواتير الموردين</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch8-s6"><span class="toc-num">8.6</span><span class="toc-title">دفعات الموردين</span></a></li>
+
+    <li><a class="toc-link" href="#ch9"><span class="toc-num">9</span><span class="toc-title">المخزون والجرد</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch9-s1"><span class="toc-num">9.1</span><span class="toc-title">حالة المخزون</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch9-s2"><span class="toc-num">9.2</span><span class="toc-title">الجرد</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch9-s3"><span class="toc-num">9.3</span><span class="toc-title">تنبيهات المخزون</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch9-s4"><span class="toc-num">9.4</span><span class="toc-title">إدارة المنتهية صلاحيتها</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch9-s5"><span class="toc-num">9.5</span><span class="toc-title">المواقع / المستودعات</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch9-s6"><span class="toc-num">9.6</span><span class="toc-title">تحويلات المخزون</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch9-s7"><span class="toc-num">9.7</span><span class="toc-title">شبكة التجزئة</span></a></li>
+
+    <li><a class="toc-link" href="#ch10"><span class="toc-num">10</span><span class="toc-title">الصندوق</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch10-s1"><span class="toc-num">10.1</span><span class="toc-title">فتح جلسة الصندوق</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch10-s2"><span class="toc-num">10.2</span><span class="toc-title">حركات الصندوق</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch10-s3"><span class="toc-num">10.3</span><span class="toc-title">إغلاق الجلسة</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch10-s4"><span class="toc-num">10.4</span><span class="toc-title">سجل الجلسات</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch10-s5"><span class="toc-num">10.5</span><span class="toc-title">فئات الصندوق</span></a></li>
+
+    <li><a class="toc-link" href="#ch11"><span class="toc-num">11</span><span class="toc-title">التقارير والتحليلات</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch11-s0"><span class="toc-num">11.0</span><span class="toc-title">صفحة التقارير: نظرة عامة</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch11-s1"><span class="toc-num">11.1</span><span class="toc-title">مستحقات العملاء (الائتمان)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch11-s2"><span class="toc-num">11.2</span><span class="toc-title">تصفية تقرير وتصديره</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch11-s3"><span class="toc-num">11.3</span><span class="toc-title">تقادم المستحقات (Aging 30/60/90 يومًا)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch11-s4"><span class="toc-num">11.4</span><span class="toc-title">تحليل ABC للمنتجات</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch11-s5"><span class="toc-num">11.5</span><span class="toc-title">الإشعارات الدائنة للعملاء (تقرير)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch11-s6"><span class="toc-num">11.6</span><span class="toc-title">صادرات المحاسبة DGI</span></a></li>
+
+    <li><a class="toc-link" href="#ch12"><span class="toc-num">12</span><span class="toc-title">HoReCa — المطاعم</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch12-s1"><span class="toc-num">12.1</span><span class="toc-title">مخطط القاعة</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch12-s2"><span class="toc-num">12.2</span><span class="toc-title">إدارة الطاولات</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch12-s3"><span class="toc-num">12.3</span><span class="toc-title">شاشة المطبخ (KDS)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch12-s4"><span class="toc-num">12.4</span><span class="toc-title">الحجوزات</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch12-s5"><span class="toc-num">12.5</span><span class="toc-title">إحصائيات القاعة</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch12-s6"><span class="toc-num">12.6</span><span class="toc-title">تقسيم الفاتورة (split bill)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch12-s7"><span class="toc-num">12.7</span><span class="toc-title">طلب الكاونتر</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch12-s8"><span class="toc-num">12.8</span><span class="toc-title">استدعاء النادل (QR)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch12-s9"><span class="toc-num">12.9</span><span class="toc-title">التوصيل هاتفًا / Glovo / Uber</span></a></li>
+
+    <li><a class="toc-link" href="#ch13"><span class="toc-num">13</span><span class="toc-title">الرسائل الداخلية</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch13-s3"><span class="toc-num">13.3</span><span class="toc-title">فتح محادثة</span></a></li>
+
+    <li><a class="toc-link" href="#ch14"><span class="toc-num">14</span><span class="toc-title">التجاري</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch14-s1"><span class="toc-num">14.1</span><span class="toc-title">الولاء</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch14-s2"><span class="toc-num">14.2</span><span class="toc-title">العروض</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch14-s3"><span class="toc-num">14.3</span><span class="toc-title">قوائم الأسعار</span></a></li>
+
+    <li><a class="toc-link" href="#ch15"><span class="toc-num">15</span><span class="toc-title">الإعدادات</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch15-s1"><span class="toc-num">15.1</span><span class="toc-title">الإعدادات العامة</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch15-s2"><span class="toc-num">15.2</span><span class="toc-title">المستخدمون</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch15-s3"><span class="toc-num">15.3</span><span class="toc-title">الأدوار والصلاحيات</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch15-s4"><span class="toc-num">15.4</span><span class="toc-title">إدارة الترخيص</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch15-s5"><span class="toc-num">15.5</span><span class="toc-title">سجل الاتصالات</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch15-s6"><span class="toc-num">15.6</span><span class="toc-title">المصادقة الثنائية (MFA)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch15-s7"><span class="toc-num">15.7</span><span class="toc-title">المعرّفات الضريبية DGI</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch15-s8"><span class="toc-num">15.8</span><span class="toc-title">نسخ احتياطي لقاعدة البيانات</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch15-s9"><span class="toc-num">15.9</span><span class="toc-title">خيارات شاشة الصندوق</span></a></li>
+
+    <li><a class="toc-link" href="#ch16"><span class="toc-num">16</span><span class="toc-title">تطبيق المدير على الجوال</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch16-s1"><span class="toc-num">16.1</span><span class="toc-title">PWA /m (الهاتف)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch16-s2"><span class="toc-num">16.2</span><span class="toc-title">تطبيق أندرويد (APK)</span></a></li>
+
+    <li><a class="toc-link" href="#ch17"><span class="toc-num">17</span><span class="toc-title">السليم الأساسي (حانوت)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch17-s1"><span class="toc-num">17.1</span><span class="toc-title">الملف البسيط والواجهة</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch17-s2"><span class="toc-num">17.2</span><span class="toc-title">الدفتر والكشف</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch17-s3"><span class="toc-num">17.3</span><span class="toc-title">الترقية إلى Retail</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch17-s4"><span class="toc-num">17.4</span><span class="toc-title">مقاييس التجربة والعتاد</span></a></li>
+
+    <li><a class="toc-link" href="#annexe-glossaire"><span class="toc-num">A</span><span class="toc-title">المسرد (مصطلحات شائعة)</span></a></li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════════════
+     CONTENU PRINCIPAL
+══════════════════════════════════════════ -->
+<div class="content">
+<!-- ─────────────────────────────────────────
+     CHAPITRE 1 — PRÉSENTATION
+───────────────────────────────────────── -->
+<div class="chapter" id="ch1">
+  <div class="chapter-header">
+    <div class="chapter-number">الفصل 1</div>
+    <h2>تقديم التطبيق</h2>
+    <p>تعرّف على السليم ووظائفه الأساسية</p>
+  </div>
+
+  <p>
+    <strong>السليم</strong> حلّ متكامل لإدارة النشاط التجاري، مصمّم لتجارة التجزئة والصيدليات بدون وصفة ومؤسسات المطاعم. يجمع في واجهة ويب واحدة كل الأدوات اللازمة لتسيير نشاطكم اليومي: البيع، الشراء، المخزون، الصندوق، التقارير والمزيد.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="001"><img src="manual-screenshots-ar/shot-001.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <h3 id="ch1-s1">1.1 الوظائف الرئيسية</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>الوحدة</th>
+        <th>الوصف</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Hub</strong></td><td>مركز التطبيقات: بلاطات وصول سريع إلى الوحدات (المبيعات، المشتريات، المخزون، إلخ) حسب صلاحياتكم</td></tr>
+      <tr><td><strong>لوحة التحكم</strong></td><td>نظرة تركيبية على مؤشرات الأداء (رقم المعاملات، الهوامش، أبرز المنتجات، مبيعات اليوم)</td></tr>
+      <tr><td><strong>نقطة البيع (POS)</strong></td><td>صندوق لمسي واحد (بيع وشراء): بلاطات، تذكرة، لوحة تحصيل، دفع مختلط، ماسح الرمز الشريطي / GS1، شاشة العميل، قفل برقم PIN</td></tr>
+      <tr><td><strong>البيع</strong></td><td>دورة كاملة: عرض سعر → طلب → إذن تسليم → فاتورة → دفع</td></tr>
+      <tr><td><strong>الشراء</strong></td><td>دورة كاملة: مقترح → طلب → استلام → فاتورة مورد → دفع</td></tr>
+      <tr><td><strong>المخزون والجرد</strong></td><td>متابعة آنية، مواقع / مستودعات، تحويلات، جرد فعلي، تنبيهات النفاد</td></tr>
+      <tr><td><strong>الصندوق</strong></td><td>فتح الصندوق وإغلاقه، حركات النقد، تقرير الإقفال</td></tr>
+      <tr><td><strong>التقارير</strong></td><td>تقارير البيع والشراء والهامش والمخزون، تصدير CSV / Excel / PDF</td></tr>
+      <tr><td><strong>HoReCa</strong></td><td>مخطط القاعة، طلبات حسب الطاولة، شاشة المطبخ (KDS)، الحجوزات، الإحصائيات، استدعاء النادل بـ QR، لوحة التوصيل (هاتف / Glovo / Uber)</td></tr>
+      <tr><td><strong>تطبيق الجوال</strong></td><td>عرض المدير على الهاتف (<code>/m</code>): رقم معاملات اليوم، الصندوق، التنبيهات، الاختصارات — PWA أو APK أندرويد</td></tr>
+      <tr><td><strong>الرسائل</strong></td><td>مراسلة داخلية بين مستخدمي مؤسستكم</td></tr>
+      <tr><td><strong>الإعدادات</strong></td><td>تهيئة الشركة، المستخدمون، الأدوار، الصلاحيات، الترخيص، النسخ الاحتياطي لقاعدة البيانات</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="ch1-s2">1.2 الأدوار وملفات المستخدمين</h3>
+  <p>
+    يدير السليم عدة مستويات وصول. يمكن للمسؤول أن يمنح كل مستخدم دورًا وفق مسؤولياته.
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>الدور</th>
+        <th>الوصف</th>
+        <th>الوصول النموذجي</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-red">مسؤول</span></td>
+        <td>وصول كامل إلى جميع الوظائف والإعدادات</td>
+        <td>الكل</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">مدير</span></td>
+        <td>الإشراف على المبيعات والمشتريات والتقارير والمخزون</td>
+        <td>البيع، الشراء، المخزون، التقارير</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">صيدلي / بائع</span></td>
+        <td>عمليات البيع واستشارة المخزون</td>
+        <td>POS، البيع، المخزون (قراءة)</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-orange">أمين الصندوق</span></td>
+        <td>التحصيل وعمليات الصندوق</td>
+        <td>POS، الصندوق</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-gray">المطبخ (KDS)</span></td>
+        <td>استشارة الطلبات في المطبخ وتحديثها</td>
+        <td>شاشة المطبخ فقط</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-gray">مسؤول المنصّة</span></td>
+        <td>دور تقني SaaS: التهيئة العامة (مثل بريد النظام)، دون وصول مهني افتراضي</td>
+        <td>إعدادات النسخة، وليس مسار البيع/الشراء المعتاد</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ صلاحيات مخصّصة</div>
+    يمكن للمسؤول ضبط حقوق كل مستخدم على حدة، بمنح صلاحيات معيّنة أو سحبها بمعزل عن دوره العام.
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 2 — CONNEXION & NAVIGATION
+───────────────────────────────────────── -->
+<div class="chapter" id="ch2">
+  <div class="chapter-header">
+    <div class="chapter-number">الفصل 2</div>
+    <h2>تسجيل الدخول والتنقّل</h2>
+    <p>كيف تدخلون إلى التطبيق وتجدون طريقكم فيه</p>
+  </div>
+
+  <p class="screenshot-caption">
+    <strong>لقطات للتوثيق</strong>: لتفادي نافذة الجولة الإرشادية (لوحة التحكم، POS)، افتحوا التطبيق بإضافة <code>?noTour=1</code> في عنوان URL مرة واحدة على الأقل في جلسة المتصفح. يستخدم سكربت Playwright في مجلد <code>docs/scripts</code> إطار عرض 1920×1080، ويضيف <code>noTour=1</code>، ويعيد لشاشات POS تحميل أول معاملة من السجل الحديث (يلزم وجود فاتورة بيع / شراء واحدة على الأقل حسب الشاشة، وفق نوع المستند الحالي في POS).
+  </p>
+
+  <h3 id="ch2-s1">2.1 تسجيل الدخول</h3>
+  <p>
+    افتحوا متصفح الويب (Chrome أو Firefox أو Edge…) وأدخلوا عنوان نسخة السليم لديكم (يوفّره المسؤول). تظهر صفحة تسجيل الدخول تلقائيًا.
+  </p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>إدخال بيانات الدخول</h4>
+        <p>أدخلوا <strong>عنوان البريد الإلكتروني</strong> و<strong>كلمة المرور</strong> في الحقول المخصّصة.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>النقر على «تسجيل الدخول»</h4>
+        <p>اضغطوا الزر أو استخدموا مفتاح <kbd>Entrée</kbd> في لوحة المفاتيح.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>الدخول إلى التطبيق</h4>
+        <p>إذا كانت بياناتكم صحيحة، تُوجَّهون إلى <strong>الصفحة الرئيسية</strong> (شبكة <strong>Hub</strong>) أو إلى أول صفحة يسمح بها ملفّكم. تبقى <strong>لوحة التحكم</strong> متاحة من Hub أو من القائمة الجانبية. تظهر <strong>قائمة التنقّل الجانبية</strong> <strong>مطوية</strong> افتراضيًا بعد تسجيل الدخول (أو التسجيل): استخدموا زر <strong>القائمة</strong> (<span style="font-family:monospace">menu</span> / <span style="font-family:monospace">menu_open</span>) في الشريط العلوي لإظهارها أو إخفائها؛ يُحفظ اختياركم على هذا الجهاز.</p>
+      </div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure" data-shot="002"><img src="manual-screenshots-ar/shot-002.png" alt="صفحة الدخول مع الملفات المحفوظة" loading="eager" width="900"><figcaption class="screenshot-caption">تسجيل الدخول — الملفات المحفوظة على الجهاز، أو البريد / كلمة المرور.</figcaption></figure>
+
+  <p>
+    على جهاز سبق استخدامه، قد تعرض الصفحة <strong>الملفات المحفوظة</strong> (الحرف الأول والاسم).
+    المسوا وجهًا: إن وُجد <strong>رقم PIN للصندوق</strong> لهذا الحساب يُفتح لوحة أرقام؛
+    وإلا أدخلوا كلمة المرور. <strong>حساب آخر</strong> يعيد نموذج البريد / كلمة المرور.
+  </p>
+
+  <div class="box warn">
+    <div class="box-title">⚠️ الأمان</div>
+    لا تشاركوا كلمة مروركم أبدًا. عند استخدام جهاز مشترك، احرصوا على تسجيل الخروج بعد كل جلسة عبر قائمة المستخدم في أعلى اليسار (أو أعلى اليمين حسب اللغة).
+  </div>
+
+  <h3 id="ch2-s2">2.2 نسيت كلمة المرور</h3>
+  <p>
+    إذا نسيتم كلمة المرور، انقروا الرابط <strong>«نسيت كلمة المرور؟»</strong>
+    أسفل نموذج تسجيل الدخول.
+  </p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>إدخال عنوان البريد الإلكتروني</h4>
+        <p>أدخلوا البريد المرتبط بحسابكم في السليم.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>استلام رمز OTP</h4>
+        <p>يُرسل إليكم رمز تحقق لمرة واحدة (OTP) عبر البريد الإلكتروني.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>إدخال رمز OTP</h4>
+        <p>أدخلوا الرمز المستلم في صفحة التحقق.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>تعيين كلمة مرور جديدة</h4>
+        <p>اختاروا كلمة مرور آمنة ثم أكّدوها.</p>
+      </div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="003"><img src="manual-screenshots-ar/shot-003.png?v=2" alt="لقطة" loading="eager" width="900"></figure>
+
+  <h3 id="ch2-s3">2.3 الواجهة العامة</h3>
+  <p>
+    تجمع واجهة السليم <strong>شريط تنقّل جانبي</strong> (القائمة، على اليسار بالفرنسية — وعلى اليمين بالعربية RTL)، و<strong>شريط أدوات علوي</strong>، و<strong>منطقة المحتوى الرئيسية</strong>.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="004"><img src="manual-screenshots-ar/shot-004.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <h4>عناصر الواجهة</h4>
+  <ul>
+    <li><strong>القائمة الجانبية</strong>: الوصول إلى الوحدات (مجمّعة حسب المواضيع: المبيعات، المشتريات، البيانات المرجعية، إلخ). يمكن إخفاؤها أو إظهارها عبر الزر المخصّص في شريط الأدوات؛ بعد <strong>تسجيل الدخول</strong> أو <strong>تغيير المستخدم</strong> تُخفى افتراضيًا لإفساح المجال للمحتوى.</li>
+    <li><strong>شريط الأدوات (الرأس)</strong>: شعار المؤسسة أو اسمها، ثم في الجهة المقابلة: أيقونة <strong>التطبيقات</strong> (العودة إلى Hub)، <strong>مركز الإشعارات / التنبيهات</strong> (الجرس)، قائمة <strong>المساعدة</strong> (الجولة الإرشادية، التنقّل السريع، <strong>دليل الاستخدام</strong> المدمج)، أيقونة <strong>الشمس أو القمر</strong> (اختيار السمة الفاتحة أو الداكنة أو التلقائية)، <strong>اللغة</strong> (FR / EN / AR)، <strong>تغيير المستخدم</strong>، قائمة <strong>الحساب</strong> (كلمة المرور، الإعدادات، وضع الكشك، الأوضاع المقفلة، تسجيل الخروج). على الشاشات الصغيرة تُجمع عدة إجراءات تحت قائمة <strong>المزيد</strong> (<span style="font-family:monospace">more_vert</span>).</li>
+    <li><strong>اللافتات</strong>: حسب نشركم، قد تظهر أشرطة (تجربة، ترخيص يجب تفعيله، ترخيص منتهٍ، وضع دون اتصال)</li>
+    <li><strong>شريط سياق المستند</strong>: عند استشارة مستند بيع أو شراء، يذكّر شريط ملوّن بالمسار (بيع / شراء) ونوع المستند والإجراءات السريعة</li>
+    <li><strong>منطقة المحتوى</strong>: تعرض الصفحة أو الوحدة المختارة</li>
+    <li><strong>أسفل القائمة الجانبية</strong>: تذكير بالمستخدم المتّصل وزر تسجيل الخروج</li>
+  </ul>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ واجهة بثلاث لغات</div>
+    يدعم السليم <strong>الفرنسية</strong> و<strong>الإنجليزية</strong> و<strong>العربية</strong>. يتم تغيير اللغة من أيقونة <strong>اللغة</strong> في شريط الأدوات (أو قائمة «المزيد» على الشاشات الصغيرة). تنتقل الواجهة إلى القراءة <strong>من اليمين إلى اليسار (RTL)</strong> عند اختيار العربية. تتبع التذاكر وملفات PDF والصادرات اللغة و<strong>العملة</strong> المضبوطتين في إعدادات المؤسسة.
+  </div>
+
+  <h3 id="ch2-s4">2.4 Hub (مركز التطبيقات)</h3>
+  <p>
+    <strong>Hub</strong> هو شبكة الاستقبال: تمثّل <strong>بلاطات ملوّنة</strong>
+    عائلات الوظائف (المبيعات، المشتريات، المخزون، التقارير، إلخ). انقروا بلاطة أصل لعرض الوحدات الفرعية، أو بلاطة بسيطة لفتح صفحة مباشرة
+    (مثل لوحة التحكم أو الصندوق).
+  </p>
+  <p>
+    تعيد أيقونة <strong>التطبيقات</strong> (<span style="font-family:monospace">apps</span>) في
+    شريط الأدوات دائمًا إلى Hub. تعتمد البلاطات المعروضة على <strong>صلاحياتكم</strong>
+    وعلى معلمة <strong>تعطيل إدارة المخزون</strong> في المؤسسة بالنسبة للمخزون.
+  </p>
+  <p>
+    في أعلى Hub، يعتمد شريط <strong>إجراءات سريعة</strong> (الصندوق، POS، التنبيهات…) على نوع المؤسسة.
+    يقود شريط <strong>«فتح تطبيق المدير»</strong> إلى عرض الهاتف <code>/m</code> (الفصل 16).
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="005"><img src="manual-screenshots-ar/shot-005.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <figure class="screenshot-figure" data-shot="006"><img src="manual-screenshots-ar/shot-006.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <h3 id="ch2-s5">2.5 سمة العرض (فاتح أو داكن)</h3>
+  <p>
+    يمكنكم تكييف التطبيق مع راحتكم البصرية أو إضاءة المحل.
+    انقروا أيقونة <strong>الشمس</strong> أو <strong>القمر</strong> في شريط الأدوات (أو افتحوا قائمة <strong>المزيد</strong> على الهاتف أو الجهاز اللوحي، ثم بند السمة).
+  </p>
+  <ul>
+    <li><strong>فاتح</strong>: خلفية فاتحة ونص داكن.</li>
+    <li><strong>داكن</strong>: خلفية داكنة ونص فاتح.</li>
+    <li><strong>النظام</strong>: يتبع السليم إعداد النهار / الليل في المتصفح أو الجهاز؛ إذا غيّرتم سمة Windows أو macOS، يمكن للتطبيق أن يتبعها تلقائيًا.</li>
+  </ul>
+  <p>
+    يُ<strong>حفظ اختياركم على هذا الجهاز</strong>: عند إعادة الاتصال من المتصفح نفسه، تعود السمة كما تركتموها.
+  </p>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="069"><img src="manual-screenshots-ar/shot-069.png" alt="قائمة السمة الفاتحة / الداكنة" loading="eager" width="900"><figcaption class="screenshot-caption">قائمة السمة — فاتح، داكن، النظام، وحجم النص (مضغوط / عادي / كبير).</figcaption></figure>
+
+  <h3 id="ch2-s6">2.6 قائمة المساعدة: الجولة الإرشادية، التنقّل السريع، الدليل</h3>
+  <p>
+    يفتح زر <strong>المساعدة</strong> (علامة استفهام) قائمة بثلاثة مداخل مفيدة يوميًا:
+  </p>
+  <ul>
+    <li><strong>اكتشاف الواجهة</strong>: جولة قصيرة في الشاشات الرئيسية (لوحة التحكم، POS، إلخ). يمكنكم مغادرتها في أي وقت.</li>
+    <li><strong>التنقّل السريع (Ctrl+K)</strong>: مربع حوار للانتقال سريعًا إلى وحدة بكتابة بضع أحرف.</li>
+    <li><strong>دليل الاستخدام</strong>: يفتح هذا الدليل <strong>داخل التطبيق</strong>، عمليًا لاستشارة إجراء دون مغادرة جلستكم. يتبع الدليل <strong>لغة الواجهة</strong> (الفرنسية أو العربية). زر <strong>تصدير PDF</strong> يحفظ الدليل بهذه اللغة نفسها: في نافذة الطباعة اختاروا «حفظ كملف PDF».</li>
+  </ul>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="070"><img src="manual-screenshots-ar/shot-070.png" alt="قائمة المساعدة" loading="eager" width="900"><figcaption class="screenshot-caption">قائمة المساعدة — الجولة الإرشادية، الدليل المدمج، التنقّل السريع (Ctrl+K) واختصارات لوحة المفاتيح.</figcaption></figure>
+
+  <h3 id="ch2-s7">2.7 البحث الشامل (Ctrl+K)</h3>
+  <p>
+    اضغطوا <kbd>Ctrl</kbd>+<kbd>K</kbd> (أو <kbd>⌘K</kbd> على Mac) من أي صفحة
+    لفتح لوحة البحث. اكتبوا بضع أحرف للعثور فورًا على:
+  </p>
+  <ul>
+    <li><strong>منتج</strong> بالاسم أو الرمز الشريطي</li>
+    <li><strong>عميل</strong> أو <strong>مورد</strong></li>
+    <li><strong>فاتورة</strong> بالرقم</li>
+    <li><strong>وحدة</strong> من التطبيق</li>
+  </ul>
+  <p>تنقّلوا بمفتاحي <kbd>↑</kbd> <kbd>↓</kbd>، أكّدوا بـ <kbd>Entrée</kbd>، وأغلقوا بـ <kbd>Échap</kbd>.</p>
+
+  <div class="box tip">
+    <div class="box-title">💡 تلميح</div>
+    البحث الشامل أسرع وسيلة للتنقّل: أقل من ثانيتين للوصول إلى أي شاشة أو مستند.
+  </div>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="071"><img src="manual-screenshots-ar/shot-071.png" alt="البحث الشامل Ctrl+K" loading="eager" width="900"><figcaption class="screenshot-caption">لوحة Ctrl+K — البحث عن الوحدات والمنتجات والعملاء والموردين والفواتير.</figcaption></figure>
+
+  <h3 id="ch2-s8">2.8 اختصارات لوحة المفاتيح</h3>
+  <p>
+    اضغطوا <kbd>?</kbd> من أي صفحة (خارج حقل إدخال) لعرض قائمة
+    الاختصارات المتاحة. يمكنكم أيضًا الوصول إليها عبر <strong>قائمة المساعدة → اختصارات لوحة المفاتيح (?)</strong>.
+  </p>
+  <table>
+    <thead><tr><th>الاختصار</th><th>الإجراء</th></tr></thead>
+    <tbody>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>K</kbd></td><td>فتح البحث الشامل</td></tr>
+      <tr><td><kbd>?</kbd></td><td>لوحة اختصارات لوحة المفاتيح</td></tr>
+      <tr><td><kbd>Échap</kbd></td><td>الخروج من وضع الكشك / إغلاق الحوارات</td></tr>
+      <tr><td><kbd>F1</kbd></td><td>مساعدة سياقية لـ POS</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>Entrée</kbd></td><td>تأكيد نموذج</td></tr>
+    </tbody>
+  </table>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="072"><img src="manual-screenshots-ar/shot-072.png" alt="لوحة اختصارات لوحة المفاتيح" loading="eager" width="900"><figcaption class="screenshot-caption">لوحة الاختصارات — مفتاح <kbd>?</kbd> من أي صفحة.</figcaption></figure>
+
+  <h3 id="ch2-s9">2.9 الخطوط القابلة للضبط</h3>
+  <p>
+    يمكنكم ضبط حجم النص من <strong>قائمة السمة</strong> (أيقونة اللوحة أعلى الجهة المقابلة).
+    تتوفر ثلاثة مستويات:
+  </p>
+  <ul>
+    <li><strong>مضغوط</strong>: نص أصغر ومعلومات أكثر على الشاشة — مناسب للطاولات الكبيرة والشاشات الواسعة.</li>
+    <li><strong>عادي</strong>: الحجم القياسي الموصى به.</li>
+    <li><strong>كبير</strong>: نص أكبر — مناسب لإتاحة الوصول أو الشاشات البعيدة.</li>
+  </ul>
+  <p>يُحفظ الاختيار تلقائيًا ويُطبَّق على التطبيق كله.</p>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="085"><img src="manual-screenshots-ar/shot-085.png" alt="أحجام نص قائمة السمة" loading="eager" width="900"><figcaption class="screenshot-caption">قائمة السمة نفسها — مضغوط وعادي وكبير أسفل القائمة.</figcaption></figure>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ أول اتصال أو جهاز جديد</div>
+    حسب تنظيمكم، قد يظهر <strong>معالج تهيئة</strong> عند أول دخول لإرشادكم (الشركة، المستخدمون، إلخ). قد تدعوكم أيضًا <strong>لافتات</strong> أعلى الشاشة إلى تفعيل الترخيص أو الاتصال بالمسؤول: اتبعوا الروابط المقترحة على اللافتة.
+  </div>
+
+  <h3 id="ch2-s10">2.10 الأوضاع المقفلة (أمين الصندوق / النادل)</h3>
+  <p>
+    إضافة إلى <strong>وضع الكشك</strong> (ملء الشاشة، خروج حر — انظر §6.4)، تقترح قائمة الحساب
+    (أيقونة 👤) وضعين <strong>مقفلين</strong> مخصّصين للعاملين في القاعة أو الصندوق.
+    يتطلّب الخروج <strong>كلمة مرور مدير</strong> (إلا إذا كان مسؤول أو مدير أو صيدلي متّصلًا أصلًا).
+  </p>
+  <table>
+    <thead><tr><th>الوضع</th><th>الشاشات المسموحة</th><th>الخروج</th></tr></thead>
+    <tbody>
+      <tr><td><strong>وضع أمين الصندوق المقفل</strong></td><td>POS والصندوق فقط (دون قائمة جانبية)</td><td>Échap أو زر الخروج → كلمة مرور المدير</td></tr>
+      <tr><td><strong>وضع النادل المقفل</strong></td><td>مخطط القاعة، الطاولات، الكاونتر (جرس الإشعارات ظاهر)</td><td>نفسه</td></tr>
+      <tr><td><strong>وضع الكشك</strong></td><td>ملء الشاشة بحرية</td><td>دون رمز PIN</td></tr>
+    </tbody>
+  </table>
+  <p>يرفع <strong>تسجيل الخروج</strong> القفل أيضًا. تمنع هذه الأوضاع أمين الصندوق أو النادل من فتح الإعدادات أو التقارير أو وحدات أخرى أثناء الخدمة.</p>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="068"><img src="manual-screenshots-ar/shot-068.png" alt="قائمة الحساب: أوضاع الكشك والمقفلة" loading="eager" width="900"><figcaption class="screenshot-caption">قائمة الحساب — الكشك، وضع أمين الصندوق المقفل، وضع النادل المقفل.</figcaption></figure>
+
+  <h3 id="ch2-s11">2.11 الوضع اللمسي</h3>
+  <p>
+    يكبّر <strong>الوضع اللمسي</strong> الأزرار وصفوف الجداول والحقول (أهداف نحو 48&nbsp;بكسل)
+    في التطبيق كله — القوائم والفواتير والمخزون والقائمة — وليس الصندوق فقط.
+    وهو <strong>مفعّل افتراضيًا</strong> على كل جهاز (صندوق أو لوحي أو مكتب).
+  </p>
+  <ul>
+    <li>لوحة المفاتيح واللوحات الرقمية (رمز PIN، OTP، الصندوق، إغلاق الصندوق، الكميات) بنفس الأسلوب في كل التطبيق: مفاتيح فاتحة، أهداف 48&nbsp;بكسل، إجراءات باللون الأساسي.</li>
+    <li>قائمة الحساب (👤) → <strong>خروج من الوضع اللمسي</strong> لعرض مضغوط بالفأرة على هذا الجهاز فقط.</li>
+    <li>نفس القائمة → <strong>الوضع اللمسي</strong> لإعادة تفعيله.</li>
+  </ul>
+</div>
+<!-- ─────────────────────────────────────────
+     CHAPITRE 3 — TABLEAU DE BORD
+───────────────────────────────────────── -->
+<div class="chapter" id="ch3">
+  <div class="chapter-header">
+    <div class="chapter-number">الفصل 3</div>
+    <h2>لوحة التحكم</h2>
+    <p>نظرة عامة على مؤشرات أدائكم الرئيسية</p>
+  </div>
+
+  <div class="box info">
+    <div class="box-title">باختصار</div>
+    تجيب لوحة التحكم عن: <strong>«كيف تسير مبيعاتي اليوم وهذا الشهر؟»</strong> — رقم اليوم، مجموع الشهر، الهامش، المنتجات الأكثر مبيعًا والرسوم البيانية. افتحوها من <strong>Hub</strong> أو القائمة الجانبية عندما تحتاجون نظرة سريعة، دون المرور بالتقارير التفصيلية.
+  </div>
+
+  <p>
+    بعد تسجيل الدخول تصلون عادة إلى <strong>Hub</strong> (انظر الفصل 2).
+    تُفتح <strong>لوحة التحكم</strong> من بلاطة في Hub أو من القائمة الجانبية.
+    وتقدّم نظرة تركيبية فورية على حالة نشاطكم التجاري.
+  </p>
+
+  <p class="screenshot-caption">
+    <strong>عرض بعد التمرير</strong>: أسفل لوحة التحكم (الصفحة نفسها الواردة في شكل الفصل 2 «الواجهة العامة»)،
+    لإظهار الرسوم والكتل الواقعة تحت أول ارتفاع شاشة. تُنتج اللقطة بإطار عرض <strong>1920×1080</strong> بعد تمرير تلقائي أثناء توليد الصور.
+  </p>
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="007"><img src="manual-screenshots-ar/shot-007.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <h3 id="ch3-kpis">المؤشرات المعروضة</h3>
+  <table>
+    <thead>
+      <tr><th>المؤشر</th><th>الوصف</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>رقم معاملات اليوم</strong></td><td>مجموع المبيعات المحصّلة اليوم</td></tr>
+      <tr><td><strong>مبيعات الشهر</strong></td><td>تراكم المبيعات خلال الشهر الجاري</td></tr>
+      <tr><td><strong>الهامش الإجمالي</strong></td><td>الفرق بين رقم المعاملات وتكلفة المشتريات</td></tr>
+      <tr><td><strong>العملاء النشطون</strong></td><td>عدد العملاء الذين أجروا مشتريات حديثة</td></tr>
+      <tr><td><strong>أبرز المنتجات</strong></td><td>المنتجات الأكثر مبيعًا في الفترة</td></tr>
+      <tr><td><strong>المبيعات حسب الفئة</strong></td><td>توزيع رقم المعاملات حسب عائلة المنتجات (رسم بياني)</td></tr>
+      <tr><td><strong>تطوّر المبيعات</strong></td><td>رسم لتطوّر يومي أو شهري</td></tr>
+      <tr><td><strong>السلف الحديثة</strong></td><td>قائمة آخر العربون المستلم</td></tr>
+    </tbody>
+  </table>
+
+  <figure class="screenshot-figure" data-shot="008"><img src="manual-screenshots-ar/shot-008.png" alt="مؤشرات لوحة التحكم" loading="eager" width="900"><figcaption class="screenshot-caption">مؤشرات لوحة التحكم — رقم معاملات اليوم، المبيعات، الهامش وبطاقات KPI (وليست صفحة التقارير).</figcaption></figure>
+
+  <div class="box success">
+    <div class="box-title">✅ التحديث</div>
+    تُحدَّث بيانات لوحة التحكم آنيا. يمكنكم فرض إعادة التحميل بالضغط على زر التحديث أعلى الصفحة.
+  </div>
+
+  <h3 id="ch3-s1">3.1 لوحة قابلة للتخصيص</h3>
+  <p>
+    يمكنكم اختيار الودجات المعروضة على لوحة التحكم بالنقر على أيقونة
+    <strong>تخصيص</strong> (🔧) بجانب زر التحديث.
+  </p>
+  <p>تنفتح لوحة بقائمة كل الودجات المتاحة:</p>
+  <ul>
+    <li><strong>مؤشرات KPI</strong> — مبيعات/مشتريات اليوم، الهامش الشهري</li>
+    <li><strong>جلسة الصندوق</strong> — حالة الصندوق المفتوح</li>
+    <li><strong>المبيعات اليومية</strong> — رسم منحنيات على 30 يومًا</li>
+    <li><strong>المبيعات حسب الفئة</strong> — رسم دائري (فطيرة)</li>
+    <li><strong>أبرز المنتجات</strong> — ترتيب المنتجات الأكثر مبيعًا</li>
+    <li><strong>المبيعات مقابل المشتريات</strong> — مقارنة شهرية</li>
+    <li><strong>تنبيهات المخزون</strong> — منتجات نافدة أو منخفضة المخزون</li>
+    <li><strong>مقترحات الشراء</strong> — عدّاد إعادة التموين المطلوب اعتمادها</li>
+  </ul>
+  <p>ضعوا العلامات أو أزيلوها بحرية. انقروا <strong>إعادة التعيين</strong> لاستعادة التهيئة الافتراضية. تُحفظ تفضيلاتكم تلقائيًا.</p>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="073"><img src="manual-screenshots-ar/shot-073.png" alt="تخصيص لوحة التحكم" loading="eager" width="900"><figcaption class="screenshot-caption">لوحة التخصيص — إظهار ودجات لوحة التحكم أو إخفاؤها.</figcaption></figure>
+
+  <h3 id="ch3-s2">3.2 خطة العمل «ماذا تفعل غدًا»</h3>
+  <p>
+    تحت مؤشرات اليوم، تعرض لوحة التحكم قائمة مرتّبة <strong>«ماذا تفعل غدًا»</strong>
+    عند وجود نقاط تستدعي الانتباه. تفتح كل سطر الشاشة المفيدة (الصندوق، المخزون، المنتهية، المستحقات، إلخ).
+  </p>
+  <p>ترتيب الأولوية المعتاد:</p>
+  <ol>
+    <li>الصندوق مغلق</li>
+    <li>نفاد المخزون</li>
+    <li>انتهاء الصلاحية خلال 7 أيام</li>
+    <li>مستحقات لأكثر من 30 يومًا</li>
+    <li>مخزون منخفض</li>
+    <li>منتجات بهامش سالب</li>
+    <li>مقترحات شراء للمعالجة</li>
+  </ol>
+  <div class="box tip">
+    <div class="box-title">💡 القائمة نفسها على الهاتف</div>
+    يعيد تبويب <strong>التنبيهات</strong> في تطبيق المدير (<code>/m</code>، الفصل 16) خطة العمل هذه تمامًا.
+  </div>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="074"><img src="manual-screenshots-ar/shot-074.png" alt="خطة العمل ماذا تفعل غدًا" loading="eager" width="900"><figcaption class="screenshot-caption">خطة العمل «ماذا تفعل غدًا» — أولويات قابلة للنقر تحت المؤشرات.</figcaption></figure>
+
+</div>
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 4 — RÉFÉRENTIEL PRODUITS
+───────────────────────────────────────── -->
+<div class="chapter" id="ch4">
+  <div class="chapter-header">
+    <div class="chapter-number">الفصل 4</div>
+    <h2>مرجع المنتجات</h2>
+    <p>إدارة المنتجات والفئات ووحدات القياس</p>
+  </div>
+
+  <h3 id="ch4-s1">4.1 المنتجات</h3>
+  <p>
+    تتيح لكم قسم <strong>المنتجات</strong> إدارة كتالوجكم كاملًا:
+    إنشاء المقالات وتعديلها والبحث عنها وحذفها.
+  </p>
+
+  <figure class="screenshot-figure" data-shot="009"><img src="manual-screenshots-ar/shot-009.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <h4>إنشاء منتج جديد</h4>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>فتح النموذج</h4>
+        <p>انقروا زر <strong>«+ منتج جديد»</strong> أعلى القائمة.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>تعبئة المعلومات</h4>
+        <p>أدخلوا الاسم، الرمز الشريطي (أو اتركوا التوليد التلقائي)، الفئة، الوحدة، أسعار الشراء والبيع، والحد الأدنى للمخزون.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>إضافة صورة (اختياري)</h4>
+        <p>استوردوا صورة للمنتج لتسهيل التعرّف عليه في POS.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>الحفظ</h4>
+        <p>انقروا <strong>«حفظ»</strong>. يظهر المنتج فورًا في القائمة.</p>
+      </div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure" data-shot="010"><img src="manual-screenshots-ar/shot-010.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <h4>حقول المنتج</h4>
+  <table>
+    <thead><tr><th>الحقل</th><th>الوصف</th><th>مطلوب</th></tr></thead>
+    <tbody>
+      <tr><td>الاسم</td><td>التسمية التجارية للمنتج</td><td>✅</td></tr>
+      <tr><td>المرجع / الرمز الشريطي</td><td>رمز تعريف فريد (EAN، QR…)</td><td>—</td></tr>
+      <tr><td>الفئة</td><td>عائلة المنتجات</td><td>✅</td></tr>
+      <tr><td>الوحدة</td><td>وحدة البيع (قطعة، كغ، لتر…)</td><td>✅</td></tr>
+      <tr><td>سعر الشراء (بدون ضريبة)</td><td>تكلفة الشراء من المورد</td><td>✅</td></tr>
+      <tr><td>سعر البيع (شامل الضريبة)</td><td>السعر المعروض للعميل</td><td>✅</td></tr>
+      <tr><td>حظر الخصم</td><td>يمنع خصم السطر في البيع (نسبة، مبلغ، سعر مفروض). يبقى خصم التذكرة الإجمالي ممكناً. معطّل افتراضياً.</td><td>—</td></tr>
+      <tr><td>حظر الإرجاع</td><td>يمنع إرجاع البيع (كميات مرتجعة على التذكرة أو الإشعار الدائن). تبقى مرتجعات الشراء ممكنة. معطّل افتراضياً.</td><td>—</td></tr>
+      <tr><td>حظر تعديل السعر</td><td>يمنع تعديل سعر البيع في الكتالوج من الصندوق (⋯ تعديل السعر). تبقى بطاقة المنتج قابلة للتعديل. معطّل افتراضياً.</td><td>—</td></tr>
+      <tr><td>TVA</td><td>نسبة الضريبة المطبّقة</td><td>—</td></tr>
+      <tr><td>الحد الأدنى للمخزون</td><td>عتبة التنبيه عند اقتراب النفاد</td><td>—</td></tr>
+      <tr><td>تاريخ انتهاء الصلاحية</td><td>إدارة المنتجات القابلة للتلف</td><td>—</td></tr>
+      <tr><td>الوصف</td><td>ملاحظات داخلية أو وصف مفصّل</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <h4>طباعة الملصقات</h4>
+  <p>
+    من <strong>قائمة المنتجات</strong>: زر <strong>ملصقات A4</strong> (ملصق 50×30&nbsp;مم لكل وحدة مخزون قابل للبيع في الصفحة، ويُتجاهل المخزون 0)
+    وعلى كل سطر أيقونة الملصق للطباعة على <strong>رول</strong> واحد. من <strong>بطاقة المنتج</strong>: طباعة الرمز الشريطي الرئيسي أو الثانوي.
+    ظهور السعر على الملصق يُضبط في الإعدادات العامة («السعر على الملصقات»).
+  </p>
+
+  <h4>الإضافات / خيارات المطبخ (HoReCa)</h4>
+  <p>
+    على <strong>بطاقة المنتج</strong> (دون المرور بتعديل)، تتيح بطاقة <strong>الإضافات / خيارات المطبخ</strong>
+    إضافة إضافات (جبن، لحم مضاعف، درجة الطهي…) مع زيادة سعر اختيارية.
+    تظهر هذه الخيارات بعدها في صندوق الطاولة أو الكاونتر. مخصّصة للملفات التي تدير مخطط القاعة (مدير، مسؤول).
+  </p>
+
+  <h3 id="ch4-s2">4.2 الفئات</h3>
+  <p>
+    تتيح الفئات تنظيم كتالوجكم في عائلات منطقية (مثل: أدوية،
+    مستحضرات تجميل، نظافة، مكملات غذائية…).
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="011"><img src="manual-screenshots-ar/shot-011.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <p>
+    لإنشاء فئة، انقروا <strong>«+ فئة جديدة»</strong>، أدخلوا الاسم
+    ثم أكّدوا. يمكنكم أيضًا تعديل فئة موجودة أو حذفها عبر
+    أيقونات الإجراء على يسار كل سطر (أو يمينها حسب اللغة).
+  </p>
+
+  <div class="box warn">
+    <div class="box-title">⚠️ حذف فئة</div>
+    لا يمكن حذف فئة إلا إذا لم يكن أي منتج مرتبطًا بها.
+    أعيدوا تخصيص المنتجات قبل حذف الفئة.
+  </div>
+
+  <h3 id="ch4-s3">4.3 وحدات القياس</h3>
+  <p>
+    عرّفوا كل الوحدات المستخدمة في نشاطكم: قطعة، علبة، غرام، لتر، إلخ.
+    تُختار هذه الوحدات عند إنشاء كل منتج.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="012"><img src="manual-screenshots-ar/shot-012.png" alt="لقطة" loading="eager" width="900"></figure>
+</div>
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 5 — CLIENTS & FOURNISSEURS
+───────────────────────────────────────── -->
+<div class="chapter" id="ch5">
+  <div class="chapter-header">
+    <div class="chapter-number">الفصل 5</div>
+    <h2>العملاء والموردون</h2>
+    <p>إدارة دفتر عناوينكم التجاري</p>
+  </div>
+
+  <h3 id="ch5-s1">5.1 إدارة العملاء</h3>
+  <p>
+    يجمع قسم <strong>العملاء</strong> كل المعلومات عن المشترين لديكم:
+    بيانات الاتصال، سجل المشتريات، الرصيد والسلف.
+  </p>
+
+  <figure class="screenshot-figure" data-shot="013"><img src="manual-screenshots-ar/shot-013.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <h4>إنشاء عميل</h4>
+  <p>انقروا <strong>«+ عميل جديد»</strong> واملأوا المعلومات التالية:</p>
+  <ul>
+    <li><strong>الاسم / الاسم التجاري</strong> (إلزامي)</li>
+    <li>الهاتف وعنوان البريد الإلكتروني</li>
+    <li>العنوان البريدي</li>
+    <li>شرط الدفع الافتراضي</li>
+    <li>سقف الائتمان (0 = الائتمان غير مسموح؛ فارغ = دون سقف)</li>
+    <li>ملاحظات داخلية</li>
+  </ul>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="014"><img src="manual-screenshots-ar/shot-014.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <h4>بطاقة العميل — التفصيل</h4>
+  <p>
+    بالنقر على عميل في القائمة تصلون إلى بطاقته التفصيلية التي تعرض:
+  </p>
+  <ul>
+    <li>بياناته الكاملة</li>
+    <li>سجل طلباته وفواتيره</li>
+    <li>مدفوعاته المنفّذة ورصيده الجاري</li>
+    <li>سلفه وعربونه</li>
+  </ul>
+
+  <h3 id="ch5-s2">5.2 إدارة الموردين</h3>
+  <p>
+    يعمل قسم <strong>الموردين</strong> بالطريقة نفسها كقسم العملاء،
+    لكن موجّهًا نحو شركاء التوريد لديكم.
+  </p>
+
+  <figure class="screenshot-figure" data-shot="015"><img src="manual-screenshots-ar/shot-015.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <p>تشمل المعلومات الخاصة بالمورد:</p>
+  <ul>
+    <li>الاسم التجاري والاسم القانوني</li>
+    <li>ICE ورقم السجل التجاري (المغرب)</li>
+    <li>جهات الاتصال (هاتف، بريد إلكتروني)</li>
+    <li>سجل المشتريات وفواتير المورد</li>
+    <li>الرصيد المستحق وسجل المدفوعات</li>
+  </ul>
+
+  <h3 id="ch5-s3">5.3 شروط الدفع</h3>
+  <p>
+    عرّفوا شروط الدفع المعيارية لتجارتكم (نقدًا، 30 يومًا،
+    60 يومًا صافيًا، إلخ) واربطوها بعملائكم ومورديكم.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="016"><img src="manual-screenshots-ar/shot-016.png" alt="لقطة" loading="eager" width="900"></figure>
+</div>
+<!-- ─────────────────────────────────────────
+     CHAPITRE 6 — POINT DE VENTE (POS)
+───────────────────────────────────────── -->
+<div class="chapter" id="ch6">
+  <div class="chapter-header">
+    <div class="chapter-number">الفصل 6</div>
+    <h2>نقطة البيع (POS)</h2>
+    <p>صندوق سريع للبيع والشراء</p>
+  </div>
+
+  <div class="box info">
+    <div class="box-title">باختصار</div>
+    شاشة <strong>لمسية واحدة</strong> للبيع والشراء: بلاطات المنتجات، التذكرة، لوحة المفاتيح.
+    لم يعد هناك صندوق «كلاسيكي» بأربعة أعمدة. <strong>POS البيع</strong> يحصّل؛
+    <strong>POS الشراء</strong> يسجّل استلام مورد. الخصومات والتحويل: §6.3.
+    يلزم عادة <strong>جلسة صندوق مفتوحة</strong> (الفصل 10).
+  </div>
+
+  <h3 id="ch6-s1">6.1 POS البيع</h3>
+  <p>
+    افتحوا <strong>نقطة البيع</strong> (<code>/pos</code>). يُفتح الصندوق <strong>بدون القائمة الجانبية للنظام</strong>
+    (لوحة التحكم مخفية): <strong>التصنيفات</strong> (الاسم + الاسم الثاني إن وُجد، مثل البلاطات) و<strong>بلاطات المنتجات</strong> يسارًا، <strong>التذكرة</strong> و
+    <strong>اللوحة</strong> (المقبوض، الكمية، الخصم) يمينًا. في <strong>الإعدادات → خيارات شاشة الصندوق</strong> (§15.9) يمكن إخفاء <strong>الكتالوج</strong> (التصنيفات والبلاطات): يبقى المسح و<strong>البحث</strong> بمحاذاة عرض التذكرة؛ من حرفين تظهر <strong>قائمة مؤقتة</strong> لاختيار المنتج وتتّسع التذكرة لليسار (أعمدة محاذاة وأزرار إجراءات ظاهرة). بدون سطر، تُظهر التذكرة شريحة <strong>العميل</strong> فقط (أو المورّد في POS الشراء) وتعمل اللوحة ك<strong>آلة حاسبة</strong> (+ − × ÷ =)؛ عند إضافة منتج تعود إلى المقبوض / الكمية / الخصم. زر <strong>آلة حاسبة</strong> في الشريط العلوي (وفي قائمة ⋮) يفتح <strong>نافذة</strong> (+ − × ÷ =) دون إخفاء التحصيل؛ أغلقوها بالـ X أو الخلفية أو Escape. زر <strong>قائمة النظام</strong> يُعيد الشريط والقائمة.
+    على الهاتف أو الجهاز اللوحي العمودي، تُفتح التذكرة كورقة من شريط <strong>التذكرة</strong>. السجل (F8) في <strong>شريط الإجراءات</strong> العلوي
+    (وليس في رأس التذكرة). يمكن إضافة منتج <strong>نافد</strong> (مخزون قابل للبيع = 0):
+    تظهر شارة «نفاد»؛ عند التحصيل يطلب الحوار <strong>التأكيد رغم ذلك</strong>.
+    لوحة المفاتيح اللمسية تُفتح من أيقونة لوحة المفاتيح، لا عند التركيز فقط.
+    يعرض الشريط أيضًا <strong>تحديث</strong> و<strong>آلة حاسبة</strong> و<strong>قفل الصندوق</strong> (§6.11) واستعادة آخر تذكرة (F9) وإفراغ السلة (F10) — دون زر إفراغ ثانٍ في رأس التذكرة.
+    كل إضافة إلى التذكرة تُحفظ فورًا في المتصفح: بعد F5 يبقى زر <strong>استعادة آخر فاتورة</strong> في الشريط (التذكرة فارغة حتى تستعيدوا).
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="017"><img src="manual-screenshots-ar/shot-017.png?v=5" alt="صندوق البيع اللمسي" loading="eager" width="900"><figcaption class="screenshot-caption">صندوق البيع اللمسي — البحث، البلاطات والتذكرة (الاسم، −/+/⋯) ولوحة التحصيل. زر المسح (كاميرا) يظهر فقط على الهاتف / الجهاز اللوحي.</figcaption></figure>
+
+  <h4>إجراء عملية بيع</h4>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>اختيار المنتجات أو مسحها</h4>
+        <p>المسوا بلاطة، أو امسحوا الرمز الشريطي (مسدّس USB: لا حاجة للمس الشاشة). رمز EAN يُلصق في <strong>البحث</strong> يُضاف وحده؛ يُفرَّغ الحقل ويعود المؤشر إليه. علامة <strong>X</strong> واحدة تمسح البحث (وليس X المتصفح الإضافي). على <strong>الهاتف أو الجهاز اللوحي</strong>، زر <strong>مسح</strong> (أيقونة الكاميرا) يفتح <strong>الكاميرا</strong> — يُخفى على صندوق 15–24 بوصة (مسدّس USB) ولا يشغّل المسدّس. صفّوا حسب التصنيف أو المفضّلة. فلتر <strong>متوفر</strong> <strong>مفعّل مسبقًا</strong> عند الفتح (§6.9): النفاد لا يظهر في البلاطات (المسح يبقى ممكنًا). زر <strong>مستخدم 90 ي</strong> (مطفي افتراضيًا) يُبقي فقط المنتجات المباعة مرة واحدة على الأقل خلال آخر 90 يومًا — الكتالوج كاملًا مع الصفحات، وليس فقط 12 منتجًا سريعًا.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>ضبط الكميات</h4>
+        <p>على التذكرة، الاسم يأخذ العرض كاملًا بجانب الصورة. أسفل: <strong>−</strong> / الكمية / <strong>+</strong> ثم المجموع ثم الإغلاق ثم <strong>⋯</strong>، محاذاة من سطر إلى آخر. إذا أُخفي الكتالوج (§15.9)، يُحاذى البحث مع التذكرة؛ كل سطر يُحاذي الأعمدة (السعر، الكمية، المجموع) ويعرض أزرار <strong>الخصم</strong> و<strong>المرتجع</strong> و<strong>الملاحظة</strong> و<strong>السعر</strong> (تبقى قائمة <strong>⋯</strong> في وضع الكتالوج). أو لوحة <strong>الكمية</strong>. لمس سطر يعرض لوحة الخصم و/أو الإرجاع الخاصة به (إن وُجدت) ويخفي لوحات المنتجات الأخرى. لمس السطر المحدد مرة أخرى يلغي تحديده. الخصم والإرجاع وخيارات المطبخ: زر <strong>⋯</strong> (وضع الكتالوج) أو أزرار السطر (كتالوج مخفي) — بنفس أسلوب اللغة / المظهر (§6.3).</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>اختيار عميل (اختياري)</h4>
+        <p>شريحة <strong>العميل</strong> ظاهرة دائمًا على التذكرة. ابحثوا عن عميل واربطوه: الرصيد والسقف والولاء يظهرون عندها فقط (§6.10).</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>التحصيل</h4>
+        <p>اختاروا الوسيلة (نقد، بطاقة، شيك، آجل) على اللوحة، أدخلوا المقبوض (أو <strong>المبلغ المطابق</strong>) ثم <strong>تحصيل</strong>. إذا فُعّلت الإكراميات (§15.1) يظهر سطر <strong>إكرامية</strong> <strong>أسفل</strong> كتلة الدفع (تحت الوسائل أو المختلط): المسوه وأدخلوا مبلغًا بالدرهم على اللوحة. اختاروا <strong>نقد</strong> (الصندوق) أو <strong>ضمن البطاقة</strong> (الجهاز يخصم الفاتورة + الإكرامية). يُحفظ المبلغ والوضع في المسودة (F5 / استعادة) وعلى الفاتورة. <strong>مجموع الفاتورة</strong> لا يتغيّر. لعدة وسائل على نفس البيع استخدموا <strong>الدفع المختلط</strong>: لمس السطر يحدده ولوحة <strong>المقبوض</strong> تدخل المبلغ؛ <strong>+ نقد / + بطاقة / + شيك / + آجل</strong> يضيف حصة. <strong>الآجل</strong> هو الباقي على حساب العميل (وليس تحصيلاً): اختيار عميل إلزامي. قد يُضاف <strong>حق الطابع</strong> حسب نسب §15.1 (خارج رقم المعاملات، مثل الإكرامية). <strong>تحصيل + تذكرة</strong> يطبع في الوقت نفسه إن كان الخيار ظاهرًا.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <h4>طباعة الإيصال أو إرساله</h4>
+        <p>إذا ضُبطت طابعة تذاكر شبكية على <strong>نقطة الصندوق</strong> (المضيف، المنفذ 9100)، تُرسل التذكرة ESC/POS؛ وإلا معاينة المتصفح. يمكن للتحصيل النقدي فتح الدرج إذا فُعّل الخيار. يمكن أيضًا إرسال الإيصال بالبريد.</p>
+      </div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="018"><img src="manual-screenshots-ar/shot-018.png" alt="معاينة إيصال POS" loading="eager" width="900"><figcaption class="screenshot-caption">معاينة الإيصال — بعد تحصيل + تذكرة، أو من السجل.</figcaption></figure>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ جلسة الصندوق</div>
+    لاستخدام POS يجب فتح جلسة صندوق مسبقًا (انظر الفصل 10 — الصندوق).
+    إذا لم تكن أي جلسة نشطة، يدعوكم التطبيق إلى فتح واحدة.
+  </div>
+
+  <h3 id="ch6-s2">6.2 POS الشراء</h3>
+  <p>
+    <strong>POS الشراء</strong> (<code>/purchase-pos</code> أو قائمة <strong>POS المورد</strong>)
+    هو <strong>نفس الشاشة اللمسية</strong> للبيع، مع شارة <strong>شراء</strong>
+    وشريحة المورد. يسجّل استلامًا ويحدّث المخزون.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="019"><img src="manual-screenshots-ar/shot-019.png?v=2" alt="صندوق الشراء اللمسي" loading="eager" width="900"><figcaption class="screenshot-caption">صندوق الشراء اللمسي — نفس الشاشة الغامرة للبيع، شريحة المورد، بلا ولاء.</figcaption></figure>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>اختيار المورد</h4>
+        <p>شريحة <strong>المورد</strong> ظاهرة دائمًا. ابحثوا عن المورد وحدّدوه: يظهر رصيده إن وُجد. لا ولاء ولا أسعار تجارية في الشراء.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>مسح المنتجات المستلمة أو إضافتها</h4>
+        <p>امسحوا كل مقال أو اختاروه من القائمة وأدخلوا الكمية المستلمة. زر <strong>للطلب</strong> (مقابل «متوفر» في البيع) <strong>مطفي</strong> افتراضيًا: فعّلوه لعرض النفاد وما دون الحد الأدنى فقط.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>التحقق من أسعار الشراء</h4>
+        <p>أكّدوا سعر شراء كل مقال أو عدّلوه. يُحفظ سجل الأسعار.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>تأكيد الاستلام</h4>
+        <p>المسوا <strong>تحصيل</strong> (أو ما يعادله تأكيد). يُحدَّث المخزون فورًا.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ التحويل المستندي في POS الشراء</div>
+    عند تحميل مستند (مثل طلب مورد) في وضع <strong>التحويل</strong> داخل POS الشراء، تظهر <strong>الكمية المصدر</strong> لكل سطر تحت محدّد الكمية، كما في POS البيع — مفصّل في <strong>القسم 6.3</strong> أدناه.
+  </div>
+
+  <h3 id="ch6-s3">6.3 الخصومات والهامش والتحويل في POS</h3>
+  <p>
+    تكمّل الفقرات أدناه <strong>POS البيع</strong> و<strong>POS الشراء</strong> عندما تحوّلون مستندًا قائمًا (عرض سعر، طلب، إذن تسليم / إذن استلام، إلخ) إلى مستند آخر من شاشة الصندوق، أو عندما تعدّلون الأسعار لحظة التحصيل.
+  </p>
+
+  <h4>خصم على سطر (POS البيع)</h4>
+  <ul>
+    <li>لمس <strong>سطر</strong> في التذكرة يفتح لوحة الخصم (إن وُضع خصم) و/أو الإرجاع، ويخفي لوحات المنتجات الأخرى. لمس السطر المحدد مرة أخرى يلغي تحديده (وتُغلق اللوحات).</li>
+    <li>إن كان دوركم يسمح بتعديل المنتجات (مسؤول، صيدلي، مدير)، يقدّم زر <strong>⋯</strong> أيضًا <strong>تعديل السعر</strong>: شاشة مخصّصة تحفظ <strong>سعر البيع في الكتالوج</strong> (وليس خصم السطر فقط). إذا كان المنتج عليه <strong>حظر تعديل السعر</strong>، يبقى الإدخال ظاهرًا لكنه <strong>مشطوب ورمادي</strong>.</li>
+    <li>على التذكرة، المسوا <strong>⋯</strong> على السطر ثم <strong>خصم</strong> (أو وضع الخصم في اللوحة): نسبة، مبلغ أو <strong>سعر مفروض</strong>. إذا أُخفي الكتالوج (§15.9)، زر <strong>الخصم</strong> ظاهر على السطر. إذا كان المنتج عليه <strong>حظر الخصم</strong>، يبقى خصم السطر ظاهرًا لكنه <strong>مشطوب ورمادي</strong>؛ ويبقى خصم التذكرة الإجمالي ممكناً.</li>
+    <li>وبالمثل، <strong>⋯ → مرتجع</strong> (أو زر <strong>مرتجع</strong> على السطر عند إخفاء الكتالوج) يُدخل الكميات القابلة للبيع / التالفة / المنتهية. إذا كان المنتج عليه <strong>حظر الإرجاع</strong>، يبقى المرتجع ظاهرًا لكنه <strong>مشطوب ورمادي</strong>؛ وتبقى مرتجعات الشراء ممكنة.</li>
+    <li>في وضع <strong>النسبة</strong>، تسمح النقطة في اللوحة بكسور المعدل (مثال 10.5٪). يُقرَّب المبلغ بالدرهم حسب خطوة القطع (14.50 − 10٪ = 13.05 → <strong>13.10</strong> إذا كانت الخطوة 0.10). ملخص <strong>المبيعات</strong> / <strong>تخفيضات الأسطر</strong> والنقد المقبوض والباقي يتبعان نفس الخطوة (§15.1).</li>
+    <li>يظهر <strong>سعر الشراء (PPH)</strong> المرجعي إن كان مذكورًا: لا تنخفضوا كثيرًا.</li>
+    <li>إذا انخفض سعر البيع الفعلي <strong>تحت PPH</strong>، تظهر شارة <strong>تحت PPH</strong> على السطر.</li>
+  </ul>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="086"><img src="manual-screenshots-ar/shot-086.png?v=5" alt="خصم سطر في POS" loading="eager" width="900"><figcaption class="screenshot-caption">قائمة ⋯ للسطر ثم الخصم — نسبة أو مبلغ أو سعر مفروض من اللوحة.</figcaption></figure>
+
+  <h4>التحويل إلى مستند آخر (الكمية المصدر)</h4>
+  <p>
+    عندما يُفتح POS في <strong>وضع التحويل</strong> (مثل عرض سعر → طلب، طلب → فاتورة، إذن تسليم → فاتورة، أو ما يعادلها <strong>في جانب الشراء</strong>)، يعرض كل سطر آتٍ من المستند المصدر تحت محدّد الكمية عبارة <strong>«الكمية المصدر»</strong>: وهي الكمية على المستند الأصلي. يمكنكم تعديل الكمية على المستند الجديد مع الإبقاء على هذا المرجع ظاهرًا.
+  </p>
+  <ul>
+    <li><strong>POS البيع</strong>: تحويل طلب → فاتورة أو إذن تسليم؛ عرض الكمية المصدر لكل الأسطر المستوردة.</li>
+    <li><strong>POS الشراء</strong>: المبدأ نفسه عند تحميل مستند مورد في التحويل داخل POS الشراء.</li>
+  </ul>
+
+  <h4>طلب المطعم / المطبخ والفوترة (POS البيع)</h4>
+  <p>
+    إذا كنتم تستخدمون وحدة <strong>HoReCa</strong>: يمكن استعادة سطر طلب موسوم <strong>ملغى في المطبخ</strong> عند التحويل إلى <strong>فاتورة</strong> من POS. تشير شارة إلى هذا الوضع؛ وتُقترح <strong>الكمية المراد فوترتها</strong> بقيمة <strong>0</strong> (يمكنكم زيادتها إن لزم فوترة جزئية). تبقى <strong>الكمية المصدر</strong> على مستند الطلب ظاهرة كما سبق.
+  </p>
+
+  <h3 id="ch6-s4">6.4 وضع الكشك (ملء الشاشة على الجهاز اللوحي)</h3>
+  <p>
+    يخفي <strong>وضع الكشك</strong> الشريط الجانبي وشريط الأدوات ليحوّل POS إلى
+    تطبيق بملء الشاشة — مناسب للجهاز اللوحي في الصندوق أو الخدمة الذاتية.
+  </p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>التفعيل</h4><p>قائمة الحساب (أيقونة 👤) → <strong>وضع الكشك</strong>. تنتقل الشاشة إلى ملء الشاشة ويختفي الشريط الجانبي.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>الخروج</h4><p>اضغطوا <kbd>Échap</kbd> أو مرّروا المؤشر فوق الزاوية العلوية المقابلة لإظهار زر <strong>الخروج من الكشك</strong>.</p></div>
+    </div>
+  </div>
+  <div class="box info">
+    <div class="box-title">ℹ️ كiosk أم وضع مقفل؟</div>
+    الكشك ملء شاشة <strong>دون كلمة مرور</strong>. لتقييد أمين الصندوق بـ POS (خروج المدير)، استخدموا <strong>وضع أمين الصندوق المقفل</strong> في قائمة الحساب (§2.10).
+  </div>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="068"><img src="manual-screenshots-ar/shot-068.png" alt="قائمة الحساب وضع الكشك" loading="eager" width="900"><figcaption class="screenshot-caption">قائمة الحساب — مدخل وضع الكشك (ملء الشاشة) والأوضاع المقفلة.</figcaption></figure>
+
+  <h3 id="ch6-s5">6.5 وضع دون اتصال</h3>
+  <p>
+    يكتشف السليم تلقائيًا انقطاع الاتصال بالإنترنت. عندما تكونون دون اتصال:
+  </p>
+  <ul>
+    <li>يظهر <strong>شريط أحمر</strong> أعلى الشاشة.</li>
+    <li>تستمر مبيعات POS بالعمل بشكل طبيعي وتُحفظ محليًا.</li>
+    <li>يُعرض عدد المبيعات في انتظار المزامنة على الشريط.</li>
+    <li>عند عودة الاتصال، يشير <strong>شريط برتقالي</strong> إلى المزامنة الجارية ثم يختفي تلقائيًا.</li>
+  </ul>
+  <div class="box warn">
+    <div class="box-title">⚠️ انتبهوا</div>
+    تتطلّب المشتريات والمرتجعات وتعديلات الجرد اتصالًا نشطًا. مبيعات POS وحدها تعمل دون اتصال.
+  </div>
+
+  <h3 id="ch6-s6">6.6 برنامج الولاء في POS</h3>
+  <p>
+    إذا كان <strong>برنامج الولاء</strong> مفعّلًا (<strong>التجاري → الولاء</strong>، §14.1)، تظهر ودجة تلقائيًا
+    على التذكرة بمجرد <strong>اختيار عميل</strong> على فاتورة.
+    هذا <strong>ليس</strong> مفتاحًا في خيارات شاشة الصندوق: بلا عميل لا يُعرض شيء.
+  </p>
+  <ul>
+    <li>تعرض النقاط المتراكمة والمستوى (برونزي / فضي / ذهبي).</li>
+    <li>تعرض التقدّم نحو المستوى التالي.</li>
+    <li>تتيح إدخال عدد نقاط للاستخدام → يُطبَّق خصم مقابل تلقائيًا.</li>
+  </ul>
+  <p>تُضاف النقاط تلقائيًا بعد كل بيع مؤكَّد.</p>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="075"><img src="manual-screenshots-ar/shot-075.png?v=2" alt="ودجة الولاء في POS" loading="eager" width="900"><figcaption class="screenshot-caption">ودجة الولاء — النقاط والمستوى والاسترداد، بمجرد اختيار عميل على فاتورة.</figcaption></figure>
+
+  <h3 id="ch6-s7">6.7 مسح الرمز الشريطي وGS1 DataMatrix</h3>
+  <p>
+    ثلاث طرق لإضافة مقال بالرمز:
+  </p>
+  <ul>
+    <li><strong>مسدّس USB</strong>: يكتب في الصندوق كلوحة مفاتيح. رمز EAN (≥ 6 أرقام) ينتقل إلى السلة دون أن يعلق في البحث أو لوحة المبلغ المستلم.</li>
+    <li><strong>شريط البحث</strong>: لصق أو مسح EAN يضيف المنتج؛ الاسم (مثل ZIAJA) يصفّي الكتالوج.</li>
+    <li><strong>زر المسح</strong>: يظهر فقط على الهاتف / الجهاز اللوحي؛ يفتح الكاميرا ثم نفس البحث عن المنتج. غائب على صندوق المكتب (مسدّس USB).</li>
+  </ul>
+  <p>
+    يقبل الحقل رمز EAN تقليديًا <strong>و</strong> رمز <strong>DataMatrix GS1</strong>
+    (يُطبع غالبًا على الكراتين والمنتجات ذات الدفعات). يستخرج المسح تلقائيًا:
+  </p>
+  <ul>
+    <li><strong>GTIN</strong> (معرّف المنتج) للعثور على المقال؛</li>
+    <li><strong>رقم الدفعة</strong> إن وُجد في الرمز؛</li>
+    <li><strong>تاريخ انتهاء الاستهلاك</strong> إن وُجد.</li>
+  </ul>
+  <p>
+    تُقترح هذه المعلومات عند الإضافة إلى السلة (اختيار الدفعة / تاريخ الانتهاء). يستمر الرمز الشريطي البسيط (EAN-13)
+    بالعمل كما كان.
+  </p>
+
+  <h3 id="ch6-s8">6.8 شاشة العميل</h3>
+  <p>
+    على شاشة ثانية (جهاز لوحي مواجه للعميل، شاشة الصندوق)، افتحوا <strong>شاشة العميل</strong>
+    من شريط إجراءات POS. تعرض نافذة <code>/pos/customer-display</code> آنيا
+    السلة والكميات والمجموع المستحق والمرتجعات ونقاط الولاء.
+  </p>
+  <figure class="screenshot-figure" data-shot="067"><img src="manual-screenshots-ar/shot-067.png" alt="شاشة العميل POS" loading="eager" width="900"><figcaption class="screenshot-caption">شاشة العميل — شاشة ثانية مواجهة للعميل أثناء التحصيل.</figcaption></figure>
+  <p>تتحدّث الشاشة وحدها ما دام POS مفتوحًا على الجهاز الرئيسي. يمكن تهيئة رسالة ترويجية ورمز QR (ولاء، تقييم، قائمة) في الإعدادات.</p>
+
+  <h3 id="ch6-s9">6.9 الكتالوج: فلتر المتوفر والمستخدَم</h3>
+  <p>
+    فوق بلاطات الكتالوج، بجانب البحث، يظهر زر <strong>متوفر</strong> فقط إذا كانت
+    <strong>إدارة المخزون</strong> مفعّلة (خيار «تعطيل إدارة المخزون» غير مؤشَّر، §15.1).
+    عند فتح <strong>صندوق البيع</strong> يكون الفلتر <strong>مفعّلًا مسبقًا</strong>.
+  </p>
+  <ul>
+    <li>مفعّل (افتراضي البيع): تبقى البلاطات ذات <strong>مخزون قابل للبيع &gt; 0</strong> فقط (كل الفئات والبحث والمفضّلة).</li>
+    <li>مطفي: يعود الكتالوج كاملًا بما فيه النفاد. يمكن عندها إضافة مقال بمخزون 0. التحصيل ممكن فقط إذا كان <strong>السماح بالمخزون السالب</strong> مفعّلًا (§15.1): يطلب الحوار تأكيدًا ثم يصير المخزون القابل للبيع تحت الصفر. وإلا يبقى <strong>تحصيل</strong> محظورًا.</li>
+    <li>مسح <strong>رمز شريطي</strong> لمنتج بمخزون 0 يبقى ممكنًا: الفلتر يخص البلاطات فقط (وقائمة البحث إذا أُخفي الكتالوج، §15.9).</li>
+    <li>في <strong>POS الشراء</strong> يظهر في المكان نفسه <strong>للطلب</strong> (نفاد وما دون الحد)، <strong>مطفي</strong> افتراضيًا.</li>
+  </ul>
+  <p>
+    بجانبه، في <strong>POS البيع</strong> فقط، يحدّ زر <strong>مستخدم 90 ي</strong> (مطفي افتراضيًا) البلاطات
+    على المنتجات الظاهرة في <strong>فاتورة غير ملغاة</strong> خلال <strong>آخر 90 يومًا</strong>.
+    يُجمع مع متوفر أو فئة أو البحث. بخلاف تبويب <strong>المنتجات السريعة</strong>
+    (المفضّلة + آخر 12 مبيعًا)، يصفّح هذا الفلتر <strong>كل</strong> الكتالوج المعني.
+    مسح منتج لم يُبع في الفترة يبقى ممكنًا.
+  </p>
+
+  <h3 id="ch6-s10">6.10 العميل والرصيد والأسعار</h3>
+  <p>
+    على الصندوق اللمسي، شريحة <strong>العميل</strong> (بيع) أو <strong>المورد</strong> (شراء)
+    <strong>دائمًا</strong> على التذكرة. الرصيد والولاء والأسعار التجارية لا تُضبط في
+    <strong>الإعدادات → خيارات شاشة الصندوق</strong> (§15.9): تتبع السياق.
+  </p>
+  <ul>
+    <li><strong>بلا طرف</strong>: لا رصيد ولا ولاء.</li>
+    <li><strong>عميل (بيع)</strong>: الرصيد والسقف إن وُجدا (سقف 0 = الائتمان غير مسموح)؛ الولاء إن كان البرنامج نشطًا (§6.6).</li>
+    <li><strong>مورد (شراء)</strong>: الرصيد فقط. لا ولاء.</li>
+    <li><strong>الأسعار التجارية</strong> (سعر مشطوب، شارات القائمة / العرض): في البيع فقط، عندما يُطبَّق سعر فعلًا على السطر.</li>
+  </ul>
+
+  <h3 id="ch6-s11">6.11 قفل الصندوق</h3>
+  <p>
+    هذا <strong>ليس</strong> وضع أمين الصندوق المقفل في قائمة الحساب (§2.10). تبقى الجلسة مفتوحة:
+    <strong>رقم PIN للصندوق</strong> (مضبوط على المستخدم) يخفي التذكرة أثناء الاستراحة.
+  </p>
+  <ul>
+    <li>شريط POS: زر <strong>قفل الصندوق</strong> (بجانب تحديث). على الشاشة الضيقة يكون الإجراء في قائمة ⋮ — لم يعد القفل في رأس التذكرة.</li>
+    <li>يظهر <strong>جدار الوجوه</strong> (خلفية ضبابية): المسوا ملفّكم وأدخلوا PIN. النقر على الخلفية لا يغلقه.</li>
+    <li>بدون حركة خلال مهلة الخمول (إعداد «قفل الصندوق بعد الخمول»، الافتراضي 90&nbsp;ث، 0 = أبدًا) يظهر نفس الغطاء.</li>
+    <li>إعادة تحميل الصفحة تبقي القفل حتى إدخال PIN. تسجيل الخروج يرفع القفل (لا جدار عند الدخول التالي إلا بإعداد مخالف).</li>
+  </ul>
+  <p>بدون PIN صندوق لا يقفِل الزر. يختلف عن وضع <strong>الكشك</strong> (ملء شاشة بلا كلمة مرور، §6.4).</p>
+
+</div>
+<!-- ─────────────────────────────────────────
+     CHAPITRE 7 — TRANSACTIONS DE VENTE
+───────────────────────────────────────── -->
+<div class="chapter" id="ch7">
+  <div class="chapter-header">
+    <div class="chapter-number">الفصل 7</div>
+    <h2>معاملات البيع</h2>
+    <p>دورة البيع الكاملة: من عرض السعر إلى الفاتورة</p>
+  </div>
+
+  <p>
+    يدير السليم دورة مستندية كاملة لمبيعاتكم. يمكن تحويل كل مستند
+    إلى التالي بنقرة واحدة، دون إعادة إدخال.
+  </p>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ دورة مستندات البيع</div>
+    <strong>عرض سعر</strong> → <strong>طلب</strong> → <strong>إذن تسليم</strong> → <strong>فاتورة</strong> → <strong>دفع</strong>
+    <br>يمكنكم البدء من أي مرحلة وفق عمليتكم الداخلية.
+  </div>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ التحويل من POS</div>
+    إذا تم التحويل إلى المستند التالي من شاشة <strong>POS البيع</strong> أو <strong>POS الشراء</strong>، يمكن لكل سطر مستورد أن يعرض <strong>الكمية المصدر</strong> للمستند الأصلي (انظر الفصل 6، القسم <strong>6.3</strong>).
+  </div>
+
+  <h3 id="ch7-s1">7.1 عروض أسعار البيع</h3>
+  <p>
+    <strong>عرض السعر</strong> مقترح تجاري يُرسل إلى العميل قبل أي
+    طلب نهائي. لا يؤثر على المخزون.
+  </p>
+
+  <figure class="screenshot-figure" data-shot="020"><img src="manual-screenshots-ar/shot-020.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <h4>إنشاء عرض سعر</h4>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>عرض سعر جديد</h4><p>انقروا <strong>«+ عرض سعر جديد»</strong> في قائمة عروض الأسعار.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>اختيار العميل</h4><p>اختاروا العميل من القائمة أو أنشئوا عميلًا جديدًا.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>إضافة الأسطر</h4><p>أضيفوا كل منتج بكميته وسعره. طبّقوا خصومات عند الحاجة.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body"><h4>الحفظ والإرسال</h4><p>احفظوا عرض السعر ثم اطبعوه أو أرسلوه بالبريد الإلكتروني إلى العميل.</p></div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure" data-shot="021"><img src="manual-screenshots-ar/shot-021.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <h3 id="ch7-s2">7.2 طلبات البيع</h3>
+  <p>
+    <strong>طلب البيع</strong> يؤكّد طلب العميل. يمكن إنشاؤه
+    مباشرة أو تحويله من عرض سعر مقبول.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="022"><img src="manual-screenshots-ar/shot-022.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <div class="box success">
+    <div class="box-title">✅ التحويل من عرض سعر</div>
+    افتحوا عرض سعر مقبولًا وانقروا <strong>«تحويل إلى طلب»</strong>.
+    تُستعاد كل الأسطر تلقائيًا — دون إعادة إدخال.
+  </div>
+
+  <h3 id="ch7-s3">7.3 أذونات التسليم</h3>
+  <p>
+    يوثّق <strong>إذن التسليم (BL)</strong> الخروج الفعلي للبضائع من
+    المخزون. يؤدّي اعتماده إلى إنقاص المخزون المقابل.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="023"><img src="manual-screenshots-ar/shot-023.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <div class="box warn">
+    <div class="box-title">⚠️ الأثر على المخزون</div>
+    يقلّل اعتماد إذن التسليم المخزون نهائيًا للمنتجات المعنية.
+    تحقّقوا من الكميات قبل الاعتماد.
+  </div>
+
+  <h3 id="ch7-s4">7.4 فواتير البيع</h3>
+  <p>
+    <strong>فاتورة البيع</strong> هي المستند المحاسبي الرسمي المسلَّم للعميل.
+    يمكن توليدها من طلب أو إذن تسليم.
+  </p>
+
+  <figure class="screenshot-figure" data-shot="024"><img src="manual-screenshots-ar/shot-024.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <h4>إجراءات على فاتورة</h4>
+  <ul>
+    <li><strong>طباعة</strong>: توليد PDF قابل للطباعة</li>
+    <li><strong>إرسال بالبريد الإلكتروني</strong>: إرسال الفاتورة إلى العميل</li>
+    <li><strong>تسجيل دفعة</strong>: إدخال تسديد جزئي أو كامل</li>
+    <li><strong>إرفاق ملف</strong>: إرفاق مستند (أمر شراء العميل، إلخ)</li>
+    <li><strong>إلغاء</strong>: إلغاء الفاتورة (مع تبرير)</li>
+  </ul>
+
+  <h3 id="ch7-s5">7.5 دفعات العملاء</h3>
+  <p>
+    أديروا التسديدات المستلمة من عملائكم: دفعات على الفاتورة، سلف وعربون.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="025"><img src="manual-screenshots-ar/shot-025.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <table>
+    <thead><tr><th>طريقة الدفع</th><th>الوصف</th></tr></thead>
+    <tbody>
+      <tr><td>نقد</td><td>تسديد نقدي، يؤثّر على الصندوق</td></tr>
+      <tr><td>بطاقة بنكية</td><td>دفع عبر جهاز TPE</td></tr>
+      <tr><td>شيك</td><td>شيك مقدَّم للتحصيل</td></tr>
+      <tr><td>تحويل بنكي</td><td>تحويل مستلم في الحساب</td></tr>
+      <tr><td>سلفة</td><td>عربون يُخصم من الفواتير اللاحقة</td></tr>
+    </tbody>
+  </table>
+  <p>
+    قد يُضاف <strong>حق الطابع</strong> على الجزء المحصَّل لكل وسيلة، حسب النسب
+    في §15.1 (مثل 0,25٪ على النقد في المغرب). يُقرَّب مبلغ الرسم حسب خطوة القطع
+    (0.25 → 0.30 إذا كانت الخطوة 0.10). لا يدخل في رقم معاملات الفاتورة
+    (مثل الإكرامية). يظهر على الدفعة والسلفة والإيصال وتقرير الإقفال
+    للحصة النقدية.
+  </p>
+
+  <h3 id="ch7-s6">7.6 المناقشات والمرفقات على المستند</h3>
+  <p>
+    على بطاقة <strong>عرض سعر</strong> أو <strong>طلب</strong> أو <strong>إذن تسليم</strong> أو <strong>فاتورة</strong> (وعلى شاشات مشابهة حسب صلاحياتكم)، تجدون كتلتين مفيدتين للعمل الجماعي:
+  </p>
+  <ul>
+    <li><strong>مناقشة مرتبطة بالمستند</strong>: سلسلة رسائل مخصّصة <strong>لهذه القطعة</strong> (مختلفة عن الرسائل العامة في الفصل 13). استخدموها لطلب اعتماد داخلي أو تنبيه اللوجستيك أو ترك ملاحظة يراها الزملاء الذين يفتحون الملف نفسه. باللمس: نفس الأهداف العريضة ولوحة المفاتيح كما في الرسائل.</li>
+    <li><strong>المرفقات</strong>: أضيفوا ملفات (PDF موقّع، أمر شراء عميل ممسوح، صورة، إلخ) للإبقاء على كل شيء مع المستند المحاسبي.</li>
+  </ul>
+  <p>
+    إذا لم تظهر هذه المناطق، فقد لا يملك ملفّكم الصلاحية المقابلة: اطلبوا من مسؤول.
+  </p>
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="076"><img src="manual-screenshots-ar/shot-076.png?v=4" alt="مناقشة على فاتورة" loading="eager" width="900"><figcaption class="screenshot-caption">بطاقة فاتورة — مناقشة المستند، إدخال لمسي ولوحة مفاتيح على الشاشة.</figcaption></figure>
+
+  <h3 id="ch7-s7">7.7 مرتجعات البيع — إشعار دائن للعميل</h3>
+  <p>
+    عندما يعيد عميل بضائع، تنشئون <strong>إشعارًا دائنًا للعميل</strong> مباشرة
+    من الفاتورة الأصلية.
+  </p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>فتح الفاتورة</h4><p>انتقلوا إلى <strong>المبيعات → الفواتير</strong> وافتحوا الفاتورة المعنية.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>إنشاء المرتجع</h4><p>انقروا <strong>مرتجع</strong> (أيقونة). تُفتح نسخة من الفاتورة في وضع المرتجع.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>تحديد الكميات المرتجعة</h4><p>لكل سطر، أدخلوا الكميات المرتجعة وحالتها (قابل للبيع / تالف / منتهٍ). منتج عليه <strong>حظر الإرجاع</strong> لا يُضاف إلى تذكرة الإشعار الدائن.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body"><h4>التأكيد</h4><p>يُنشأ الإشعار بالرقم <strong>AVOIR-CLI-XXXX</strong>. يُعاد إدماج المخزون ويتوفر PDF.</p></div>
+    </div>
+  </div>
+  <div class="box info">
+    <div class="box-title">📋 تقرير إشعارات العملاء</div>
+    تجدون كل إشعاراتكم في <strong>التقارير → إشعارات العملاء</strong> مع تصفية حسب الفترة وتصدير CSV.
+  </div>
+  <figure class="screenshot-figure" data-shot="077"><img src="manual-screenshots-ar/shot-077.png" alt="تقرير إشعارات العملاء" loading="eager" width="900"><figcaption class="screenshot-caption">تقرير إشعارات العملاء — قائمة AVOIR-CLI والفترة والمجاميع.</figcaption></figure>
+
+  <h3 id="ch7-s8">7.8 المشاركة عبر WhatsApp</h3>
+  <p>
+    على بطاقة <strong>فاتورة</strong> (ومستندات بيع أخرى)، يفتح زر <strong>WhatsApp</strong>
+    محادثة مسبقة التعبئة (الاسم، رقم المستند، المبلغ) نحو هاتف العميل.
+    المبدأ نفسه لـ<strong>حجز</strong> (التاريخ، الأغطية، الطاولة) و<strong>مقترح شراء</strong>
+    (أسطر + المجموع نحو المورد).
+  </p>
+  <div class="box warn">
+    <div class="box-title">⚠️ رقم مطلوب</div>
+    دون هاتف على بطاقة العميل / المورد، يشير الزر إلى عدم توفر رقم.
+    تفتح المشاركة WhatsApp Web أو التطبيق المثبّت؛ ولا ترسل الرسالة نيابة عنكم.
+  </div>
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="076"><img src="manual-screenshots-ar/shot-076.png?v=4" alt="زر WhatsApp على فاتورة" loading="eager" width="900"><figcaption class="screenshot-caption">بطاقة المستند نفسها — يعبّئ زر WhatsApp رسالة مسبقة نحو هاتف العميل.</figcaption></figure>
+
+</div>
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 8 — TRANSACTIONS D'ACHAT
+───────────────────────────────────────── -->
+<div class="chapter" id="ch8">
+  <div class="chapter-header">
+    <div class="chapter-number">الفصل 8</div>
+    <h2>معاملات الشراء</h2>
+    <p>من المقترح التلقائي إلى دفع المورد، مرورًا بعروض الأسعار والطلبات</p>
+  </div>
+
+  <p>
+    تغطي وحدة الشراء التوريد: <strong>مقترحات</strong> تلقائية، و<strong>عروض أسعار</strong> مورد محتملة، و<strong>طلبات</strong>، و<strong>استلامات</strong>، و<strong>فواتير</strong> و<strong>مدفوعات</strong>.
+  </p>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ دورة مستندات الشراء</div>
+    <strong>مقترح</strong> (اقتراح تلقائي) → اختياريًا <strong>عرض سعر مورد</strong> → <strong>طلب</strong> → <strong>إذن استلام</strong> → <strong>فاتورة مورد</strong> → <strong>دفع</strong>
+    <br>ليست كل المراحل إلزامية: يمكنكم إدخال طلب أو فاتورة مباشرة حسب عادتكم.
+  </div>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ التحويل من POS الشراء</div>
+    كما في المبيعات، يمكن لتحويل مفتوح في <strong>POS الشراء</strong> أن يعرض <strong>الكمية المصدر</strong> لكل سطر (الفصل 6، القسم <strong>6.3</strong>).
+  </div>
+
+  <h3 id="ch8-s1">8.1 مقترحات الشراء</h3>
+  <p>
+    تُولَّد <strong>مقترحات الشراء</strong> تلقائيًا من النظام عبر
+    تحليل مستويات المخزون والعتبات الدنيا المحدّدة. تشكّل مساعدة
+    على القرار لمسؤول المشتريات لديكم.
+  </p>
+
+  <figure class="screenshot-figure" data-shot="026"><img src="manual-screenshots-ar/shot-026.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <h3 id="ch8-s2">8.2 عرض سعر المورد</h3>
+  <p>
+    <strong>عرض سعر المورد</strong> طلب أسعار أو مقترح شراء <strong>موجّه إلى المورد</strong> قبل الالتزام بطلب نهائي. يقترب من <strong>عرض سعر البيع</strong> في جانب العميل، لكن هنا أنتم من تطلبون من المورد.
+  </p>
+  <p>
+    افتحوا قائمة <strong>عروض أسعار الموردين</strong> في قائمة <strong>المشتريات</strong>، أنشئوا عرض سعر جديدًا، اختاروا المورد والأسطر (منتجات، كميات، أسعار متفاوض عليها). يمكنكم بعد ذلك إرساله أو تحويله إلى <strong>طلب شراء</strong> عندما يقبل المورد.
+  </p>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="078"><img src="manual-screenshots-ar/shot-078.png" alt="عرض سعر مورد" loading="eager" width="900"><figcaption class="screenshot-caption">قائمة عروض أسعار الموردين — قبل التحويل إلى طلب شراء.</figcaption></figure>
+
+  <h3 id="ch8-s3">8.3 طلبات الشراء</h3>
+  <p>
+    أنشئوا <strong>طلب شراء</strong> (أمر شراء) لتوجيهه إلى مورد.
+    يمكن توليده من مقترح أو إنشاؤه يدويًا.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="027"><img src="manual-screenshots-ar/shot-027.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <h3 id="ch8-s4">8.4 أذونات الاستلام</h3>
+  <p>
+    عند استلام البضائع، أنشئوا <strong>إذن استلام</strong>. تحدّث هذه المرحلة
+    المخزون وتسجّل الكميات المستلمة فعليًا (وقد
+    تختلف عمّا طُلب).
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="028"><img src="manual-screenshots-ar/shot-028.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <h3 id="ch8-s5">8.5 فواتير الموردين</h3>
+  <p>
+    سجّلوا <strong>الفواتير المستلمة من مورديكم</strong> لمتابعة محاسبية
+    دقيقة لالتزاماتكم ودين المورد.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="029"><img src="manual-screenshots-ar/shot-029.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <h4>سجل أسعار الشراء</h4>
+  <p>
+    يحفظ السليم سجل أسعار الشراء لكل منتج. يمكنكم استشارة
+    تطوّر أسعار الموردين ورصد التغيّرات.
+  </p>
+
+  <h3 id="ch8-s6">8.6 دفعات الموردين</h3>
+  <p>
+    سجّلوا <strong>التسديدات المنفّذة لمورديكم</strong> وتابعوا
+    دين المورد آنيا.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="030"><img src="manual-screenshots-ar/shot-030.png" alt="لقطة" loading="eager" width="900"></figure>
+</div>
+<!-- ─────────────────────────────────────────
+     CHAPITRE 9 — STOCK & INVENTAIRE
+───────────────────────────────────────── -->
+<div class="chapter" id="ch9">
+  <div class="chapter-header">
+    <div class="chapter-number">الفصل 9</div>
+    <h2>المخزون والجرد</h2>
+    <p>متابعة آنية لمستويات مخزونكم</p>
+  </div>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ ظهور وحدة المخزون</div>
+    لا تظهر مداخل القائمة وبلاطات <strong>المخزون</strong> و<strong>الجرد</strong> إلا عندما تكون <strong>إدارة المخزون عند البيع مفعّلة</strong>: يجب أن تكون معلمة
+    <strong>«تعطيل إدارة المخزون»</strong> <strong>غير مفعّلة</strong> (غير مؤشّرة)
+    في الإعدادات العامة للمؤسسة. إذا لم تروا هذه الأقسام، اطلبوا من
+    مسؤول إلغاء هذا الإعداد.
+  </div>
+
+  <h3 id="ch9-s1">9.1 حالة المخزون</h3>
+  <p>
+    تمنحكم صفحة <strong>المخزون</strong> نظرة فورية على الكميات المتاحة
+    لكل منتج، مع رمز لوني للتنبيه.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="031"><img src="manual-screenshots-ar/shot-031.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <h4>مؤشرات المخزون</h4>
+  <table>
+    <thead><tr><th>اللون</th><th>المعنى</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge badge-green">● عادي</span></td><td>مخزون كافٍ، فوق العتبة الدنيا</td></tr>
+      <tr><td><span class="badge badge-orange">● منخفض</span></td><td>مخزون قريب من العتبة الدنيا — يجب إعادة التموين</td></tr>
+      <tr><td><span class="badge badge-red">● نفاد</span></td><td>مخزون صفر أو دون الحد الحرج</td></tr>
+    </tbody>
+  </table>
+
+  <h4>حركات المخزون</h4>
+  <p>
+    تُتتبَّع كل دخول أو خروج مخزون مع التاريخ والسبب (بيع، شراء، تسوية،
+    جرد) والمستند المصدر المرتبط.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="032"><img src="manual-screenshots-ar/shot-032.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <h3 id="ch9-s2">9.2 الجرد</h3>
+  <p>
+    تتيح لكم وحدة <strong>الجرد</strong> إجراء عدّ فعلي و
+    مطابقة الكميات النظرية مع الكميات الحقيقية.
+  </p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>إنشاء جرد</h4><p>انقروا <strong>«+ جرد جديد»</strong> واختاروا إن كان الجرد كاملًا أو جزئيًا (حسب الفئة).</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>إدخال الكميات الفعلية</h4><p>لكل منتج، أدخلوا الكمية المعدودة فعليًا. يمكنكم أيضًا استيراد البيانات عبر ملف CSV.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>التحقق من الفروقات</h4><p>يعرض التطبيق الفروقات بين المخزون النظري والمخزون المعدود.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body"><h4>الاعتماد والتسوية</h4><p>أكّدوا إنهاء الجرد. يُحدَّث المخزون تلقائيًا بالفروقات المسجّلة.</p></div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure" data-shot="033"><img src="manual-screenshots-ar/shot-033.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ استيراد CSV</div>
+    للكميات الكبيرة من المنتجات، صدّروا القائمة، املأوا الكميات
+    في جدول، ثم أعيدوا استيراد ملف CSV في السليم.
+  </div>
+
+  <h3 id="ch9-s3">9.3 تنبيهات المخزون والشراء</h3>
+  <p>
+    يمكن الوصول إلى <strong>التنبيهات</strong> من أيقونة <strong>الجرس</strong> (الإشعارات)
+    في <strong>شريط الأدوات</strong>، للمستخدمين المصرّح لهم. يشير <strong>شارة</strong>
+    إلى عدد العناصر غير المقروءة. انقروا سطرًا لفتح الشاشة المعنية
+    (مخزون، شراء، إلخ).
+  </p>
+  <p>
+    في أسفل اللوحة، تتيح اختصارات الانتقال مباشرة إلى <strong>صفحة المخزون</strong>
+    أو إلى <strong>معاملات الشراء</strong>.
+  </p>
+  <ul>
+    <li><strong>تنبيه نفاد / مخزون منخفض</strong>: منتج دون العتبة الدنيا (يمكن تجميع التنبيهات المتشابهة)</li>
+    <li><strong>تنبيه انتهاء الصلاحية</strong>: منتج يقترب من تاريخ انتهاء صلاحيته أو تجاوزه</li>
+    <li><strong>تنبيهات مهنية أخرى</strong>: حسب التهيئة، قد تظهر أيضًا تنبيهات مرتبطة بالمشتريات</li>
+  </ul>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="034"><img src="manual-screenshots-ar/shot-034.png" alt="لوحة تنبيهات المخزون" loading="eager" width="900"><figcaption class="screenshot-caption">لوحة التنبيهات (الجرس) — نفاد ومخزون منخفض وانتهاء صلاحية.</figcaption></figure>
+
+  <h3 id="ch9-s4">9.4 إدارة المنتهية صلاحيتها</h3>
+  <p>
+    تسرد صفحة <strong>المخزون → المنتهية</strong> (<code>/stock/expiry</code>) كل الدفعات التي
+    يقترب تاريخ انتهاء استهلاكها أو تجاوزه.
+  </p>
+  <h4>رموز الألوان</h4>
+  <ul>
+    <li>🔴 <strong>أحمر</strong> — دفعة منتهية أصلًا</li>
+    <li>🟠 <strong>برتقالي</strong> — تنتهي خلال الأيام السبعة القادمة (حرج)</li>
+    <li>🟢 <strong>أخضر</strong> — تنتهي ضمن المهلة المصفاة لكنها غير حرجة</li>
+  </ul>
+  <h4>التصفية</h4>
+  <p>استخدموا محدّد <strong>«عرض الدفعات التي تنتهي خلال X يومًا»</strong> لضبط نطاق التحليل (7، 30، 60، 90 يومًا).</p>
+  <h4>إتلاف دفعة</h4>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>النقر على إتلاف</h4><p>على سطر الدفعة المعنية.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>إدخال الكمية</h4><p>أدخلوا الكمية المراد إخراجها من المخزون القابل للبيع (إتلاف كلي أو جزئي).</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>التأكيد</h4><p>يُخفَّض المخزون القابل للبيع وتُسجَّل الحركة.</p></div>
+    </div>
+  </div>
+  <div class="box warn">
+    <div class="box-title">⚠️ هذا الإجراء لا رجعة فيه</div>
+    يقلّل إتلاف دفعة المخزون القابل للبيع نهائيًا. تأكّدوا من صحة الكميات قبل التأكيد.
+  </div>
+  <figure class="screenshot-figure" data-shot="079"><img src="manual-screenshots-ar/shot-079.png" alt="إدارة المنتهية" loading="eager" width="900"><figcaption class="screenshot-caption">المخزون → المنتهية — دفعات قريبة من تاريخ الانتهاء أو بعده، تصفية وإتلاف.</figcaption></figure>
+
+  <h3 id="ch9-s5">9.5 المواقع / المستودعات</h3>
+  <p>
+    تسرد <strong>المخزون → المواقع / المستودعات</strong> (<code>/stock/sites</code>) أماكن التخزين.
+    الموقع الموسوم <strong>POS</strong> (الافتراضي) هو المستخدم في الصندوق والمبيعات.
+    لا تستقبل المواقع الأخرى (مستودع، احتياطي، متجر ثانٍ) مخزونًا إلا عبر <strong>تحويل</strong>.
+  </p>
+  <figure class="screenshot-figure" data-shot="065"><img src="manual-screenshots-ar/shot-065.png" alt="مواقع ومستودعات المخزون" loading="eager" width="900"><figcaption class="screenshot-caption">قائمة المواقع — تشير شارة POS إلى موقع المبيعات الافتراضي.</figcaption></figure>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>إنشاء موقع</h4><p>انقروا <strong>موقع جديد</strong>، أدخلوا رمزًا (مثل DEPOT) واسمًا.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>استشارة مخزون موقع</h4><p>افتحوا بطاقة الموقع لرؤية الكميات القابلة للبيع والتالفة والمنتهية.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>تغيير موقع POS</h4><p>على موقع ليس الافتراضي، <strong>تعيين كـ POS</strong>: ستخصم المبيعات التالية من هذا المخزون.</p></div>
+    </div>
+  </div>
+
+  <h3 id="ch9-s6">9.6 تحويلات المخزون</h3>
+  <p>
+    تنقل <strong>المخزون → التحويلات</strong> (<code>/stock/transfers</code>) كميات من موقع إلى آخر.
+    يشمل الدورة الكاملة <strong>الشحن</strong> (خروج من موقع المصدر)، <strong>العبور</strong> إن وُجد،
+    و<strong>الاستلام</strong> في الوجهة. تُسجَّل فروق الكميات عند الاستلام؛
+    قد يتطلب التحويل فوق العتبة المُعدّة <strong>موافقة المدير</strong>.
+  </p>
+  <figure class="screenshot-figure" data-shot="066"><img src="manual-screenshots-ar/shot-066.png" alt="تحويلات المخزون" loading="eager" width="900"><figcaption class="screenshot-caption">قائمة التحويلات بين المواقع.</figcaption></figure>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>تحويل جديد</h4><p>اختاروا موقع المصدر وموقع الوجهة، ثم أضيفوا المنتجات والكميات.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>التأكيد</h4><p>أشّروا <strong>تأكيد الآن</strong> لتنفيذ الحركة فورًا، أو احفظوا ثم أكّدوا لاحقًا من البطاقة.</p></div>
+    </div>
+  </div>
+  <div class="box warn">
+    <div class="box-title">⚠️ مخزون غير كافٍ</div>
+    يُرفض التحويل إذا لم يملك موقع المصدر كمية قابلة للبيع كافية. تستخدم مبيعات POS موقع مخزون صندوق البيع.
+  </div>
+
+  <h3 id="ch9-s7">9.7 شبكة التجزئة</h3>
+  <p>
+    إصدار <strong>Retail</strong>، ملف <strong>Standard</strong> أو <strong>Advanced</strong>: قائمة
+    <strong>شبكة التجزئة</strong> تجمع لوحات التحكم متعددة المواقع (<code>/retail-network/*</code>).
+    الصلاحية المطلوبة: <strong>stock:read</strong> (مخفية في Essential أو الملف البسيط).
+  </p>
+  <table>
+    <thead><tr><th>الشاشة</th><th>المسار</th><th>الاستخدام</th></tr></thead>
+    <tbody>
+      <tr><td>لوحة الشبكة</td><td><code>/retail-network/network</code></td><td>مؤشرات قابل للبيع / محجوز / متاح لكل موقع</td></tr>
+      <tr><td>العتبات والتشكيلات</td><td><code>/retail-network/site-catalog</code></td><td>حد أدنى/أقصى، أيام التغطية، تشكيلة نشطة</td></tr>
+      <tr><td>إعادة التزويد</td><td><code>/retail-network/replenishment</code></td><td>اقتراحات حسب الموقع؛ أوامر مورد مجمّعة</td></tr>
+      <tr><td>مركز المرتجعات</td><td><code>/retail-network/returns</code></td><td>سياسات الإرجاع؛ إشعارات دائن ومرتجعات مورد</td></tr>
+      <tr><td>الموافقات</td><td><code>/retail-network/approvals</code></td><td>طلبات الموافقة المعلّقة</td></tr>
+      <tr><td>الجرد الدوري</td><td><code>/retail-network/cyclic-inventory</code></td><td>خطط حسب الموقع/المنطقة</td></tr>
+      <tr><td>التكلفة المتوسطة / الهدر</td><td><code>/retail-network/shrinkage</code></td><td>CMP لكل موقع؛ تسجيل الهدر</td></tr>
+      <tr><td>حجوزات المخزون</td><td><code>/retail-network/reservations</code></td><td>حجوزات نشطة؛ تحرير أو إنهاء</td></tr>
+    </tbody>
+  </table>
+  <p>
+    في <strong>بطاقة المنتج</strong>، لوحة الشبكة تربط عدة موردين وتحويلات وحدات.
+    في <strong>أمر الشراء</strong>، لوحة المتابعة تعرض الاستلام الجزئي والمطابقة ثلاثية الأطراف.
+    <strong>الولاء</strong> (الإعدادات + بطاقة العميل) يتضمن انتهاء النقاط وسجل الحركات.
+  </p>
+
+</div>
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 10 — CAISSE
+───────────────────────────────────────── -->
+<div class="chapter" id="ch10">
+  <div class="chapter-header">
+    <div class="chapter-number">الفصل 10</div>
+    <h2>الصندوق</h2>
+    <p>إدارة جلسات الصندوق وحركات النقد</p>
+  </div>
+
+  <p>
+    تتيح لكم وحدة <strong>الصندوق</strong> إدارة الأموال النقدية في
+    تجارتكم مع تتبّع كامل.
+  </p>
+
+  <h3 id="ch10-s1">فتح جلسة صندوق</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>الوصول إلى الصندوق</h4><p>افتحوا <strong>الصندوق</strong> من <strong>Hub</strong> (بلاطة مخصّصة) أو من <strong>القائمة الجانبية</strong>.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>التصريح برصيد الافتتاح</h4><p>أدخلوا المبلغ النقدي الموجود في الصندوق لحظة الفتح.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>فتح الجلسة</h4><p>انقروا <strong>«فتح الصندوق»</strong>. تبدأ الجلسة ويصبح POS جاهزًا للعمل.</p></div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure" data-shot="035"><img src="manual-screenshots-ar/shot-035.png?v=3" alt="جلسة الصندوق" loading="eager" width="900"><figcaption class="screenshot-caption">الصندوق — جلسة مفتوحة، الرصيد ويوميات الحركات.</figcaption></figure>
+
+  <h3 id="ch10-s2">حركات الصندوق</h3>
+  <p>
+    أثناء الجلسة، سجّلوا الحركات غير المرتبطة بالمبيعات:
+  </p>
+  <ul>
+    <li><strong>دخول نقد</strong>: إضافة فكة، استرداد مستلم…</li>
+    <li><strong>خروج نقد</strong>: سحب لمصاريف جارية، دفع مورد نقدًا…</li>
+  </ul>
+  <p><strong>اللوحة الرقمية</strong> مدمجة: أدخلوا المبلغ مباشرة، دون زر إضافي. اختاروا <strong>طريقة الدفع</strong> (نقد، بطاقة، شيك، تحويل، أخرى): النقد فقط يغيّر الصندوق النظري. الإدخال أو الإخراج يتطلب <strong>فئة</strong> (إضافة صرف، مستلزمات، نقل…). الإخراج يتطلب أيضاً سبباً. تُدار الفئات في §10.5.</p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="036"><img src="manual-screenshots-ar/shot-036.png?v=5" alt="حوار دخول الصندوق" loading="eager" width="900"><figcaption class="screenshot-caption">حوار «دخول الصندوق» — لوحة مدمجة وطريقة دفع وفئة إلزامية والمبلغ والسبب.</figcaption></figure>
+
+  <h3 id="ch10-s3">إغلاق الجلسة وتقرير الإقفال</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>عدّ النقد</h4><p>في نهاية اليوم، عدّوا محتوى صندوقكم فعليًا.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>إدخال الرصيد الفعلي</h4><p>المسوا <strong>المبلغ المحسوب</strong>، أدخلوا على <strong>اللوحة الرقمية</strong> (ظاهرة دائماً)، ثم أكّدوا نفس المبلغ. لا حاجة لزر «لوحة الأرقام».</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>إغلاق الجلسة</h4><p>انقروا <strong>«إغلاق الصندوق»</strong>. يُولَّد تقرير إقفال تلقائيًا.</p></div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure" data-shot="037"><img src="manual-screenshots-ar/shot-037.png?v=3" alt="حوار إغلاق الصندوق" loading="eager" width="900"><figcaption class="screenshot-caption">حوار «إغلاق الصندوق» — لوحة مدمجة والمبلغ المعدود والتأكيد.</figcaption></figure>
+
+  <div class="box warn">
+    <div class="box-title">⚠️ فرق الصندوق</div>
+    إذا اختلف المبلغ المعدود عن الرصيد النظري، يُشار إلى فرق في التقرير.
+    حلّلوا الحركات لتحديد السبب قبل اعتماد الإقفال.
+  </div>
+
+  <h3 id="ch10-s4">سجل الجلسات</h3>
+  <p>
+    انتقلوا إلى تبويب <strong>«السجل»</strong> لاستشارة كل الجلسات السابقة،
+    وتقارير إقفالها والحركات المرتبطة.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="038"><img src="manual-screenshots-ar/shot-038.png" alt="سجل جلسات الصندوق" loading="eager" width="900"><figcaption class="screenshot-caption">سجل الجلسات — الفتح، المبالغ النظرية، الفروقات والحالة.</figcaption></figure>
+
+  <h3 id="ch10-s5">10.5 فئات الصندوق</h3>
+  <p>
+    الوصول: <strong>الإدارة ← فئات الصندوق</strong>. يجب تصنيف كل إدخال أو إخراج نقد
+    (إضافة صرف، مستلزمات، نقل، راتب، متنوع…).
+    الكتالوج خاص بالمؤسسة: أنشئوا أو عدّلوا أو عطّلوا فئة دون تغيير بقية التطبيق.
+  </p>
+  <ul>
+    <li><strong>الرمز</strong>: معرّف فريد (مثل <code>SUPPLIES</code>).</li>
+    <li><strong>التسمية</strong> بالفرنسية، وتسمية عربية اختيارية.</li>
+    <li><strong>الاتجاه</strong>: إدخال، إخراج، أو كلاهما.</li>
+    <li>الفئة <strong>المعطّلة</strong> تختفي من قائمة الحوار، لكنها تبقى على السجل المسجّل سابقاً.</li>
+  </ul>
+  <figure class="screenshot-figure" data-shot="092"><img src="manual-screenshots-ar/shot-092.png" alt="قائمة فئات الصندوق" loading="eager" width="900"><figcaption class="screenshot-caption">الإدارة ← فئات الصندوق — القائمة والرمز والتسمية والاتجاه.</figcaption></figure>
+  <p>
+    انقروا سطراً أو <strong>+ جديد</strong> لفتح البطاقة: الرمز، التسميات، الاتجاه، الترتيب والحالة النشطة.
+  </p>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="093"><img src="manual-screenshots-ar/shot-093.png" alt="بطاقة فئة الصندوق" loading="eager" width="900"><figcaption class="screenshot-caption">بطاقة الفئة — الرمز، التسميات FR/AR، اتجاه الإدخال أو الإخراج، نشط.</figcaption></figure>
+</div>
+<!-- ─────────────────────────────────────────
+     CHAPITRE 11 — RAPPORTS & ANALYSES
+───────────────────────────────────────── -->
+<div class="chapter" id="ch11">
+  <div class="chapter-header">
+    <div class="chapter-number">الفصل 11</div>
+    <h2>التقارير والتحليلات</h2>
+    <p>استثمروا بياناتكم لقيادة نشاطكم</p>
+  </div>
+
+  <p>
+    يمنحكم قسم <strong>التقارير</strong> نظرة تحليلية على كامل نشاطكم
+    التجاري مع صادرات بصيغ مختلفة.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="039"><img src="manual-screenshots-ar/shot-039.png" alt="بوابة التقارير" loading="eager" width="900"><figcaption class="screenshot-caption">صفحة التقارير — أقسام قابلة للطي نحو التحليلات والصندوق والمشتريات والمبيعات.</figcaption></figure>
+
+  <p>
+    تُنظَّم الصفحة الأولى <strong>التقارير</strong> في <strong>أقسام قابلة للطي</strong>: وصول سريع إلى <strong>الرسوم البيانية</strong> (التحليلات) ولوحة التحكم، وروابط نحو <strong>الصندوق</strong> و<strong>POS البيع</strong>، واختصارات <strong>المشتريات</strong> (تحليلات المشتريات، دوران المخزون، الصادرات، POS الشراء، فواتير وطلبات المورد) واختصارات <strong>المبيعات</strong> (فواتير، طلبات، أذونات تسليم، عروض أسعار). افتحوا القسم الذي يهمّكم ثم الزر المقابل.
+  </p>
+
+  <h3 id="ch11-s0">11.0 صفحة التقارير: نظرة عامة</h3>
+  <p>
+    يسرد الجدول التالي <strong>أكثر التقارير شيوعًا</strong> المتاحة من قوائم هذه المنطقة وروابطها (قد تختلف التسميات الدقيقة على الشاشة قليلًا حسب الإصدار).
+  </p>
+  <table>
+    <thead><tr><th>التقرير</th><th>الوصف</th><th>التصدير</th></tr></thead>
+    <tbody>
+      <tr><td><strong>المبيعات حسب الفترة</strong></td><td>رقم المعاملات والكميات المباعة حسب اليوم / الأسبوع / الشهر</td><td>CSV، Excel، PDF</td></tr>
+      <tr><td><strong>المبيعات حسب المنتج</strong></td><td>ترتيب المقالات حسب حجم البيع</td><td>CSV، Excel</td></tr>
+      <tr><td><strong>المبيعات حسب العميل</strong></td><td>رقم المعاملات المحقَّق لكل عميل والرصيد الجاري</td><td>CSV، Excel</td></tr>
+      <tr><td><strong>الهامش الإجمالي</strong></td><td>الهامش حسب المنتج والإجمالي على الفترة</td><td>CSV، Excel، PDF</td></tr>
+      <tr><td><strong>المشتريات حسب المورد</strong></td><td>حجم الشراء والدين حسب المورد</td><td>CSV، Excel</td></tr>
+      <tr><td><strong>حالة المخزون</strong></td><td>قيمة المخزون والمنتجات النافدة</td><td>CSV، Excel، PDF</td></tr>
+      <tr><td><strong>الصندوق</strong></td><td>ملخص جلسات الصندوق</td><td>PDF</td></tr>
+      <tr><td><strong>التحليلات</strong></td><td>رسوم تفاعلية للتطوّر</td><td>—</td></tr>
+      <tr><td><strong>مستحقات العملاء / الائتمان</strong></td><td>الأرصدة المستحقة حسب العميل، سقوف الائتمان، المتبقي المتاح، العملاء المتجاوزون؛ خيار تضمين الأرصدة الصفرية</td><td>CSV</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="ch11-s1">11.1 تقرير مستحقات العملاء (الائتمان)</h3>
+  <p>
+    في صفحة <strong>التقارير</strong>، يتيح القسم المخصّص لـ<strong>مستحقات العملاء</strong>
+    تحميل حالة للذمم: مجموع المستحقات، عدد العملاء المعنيين، و
+    جدول مفصّل (الاسم، الهاتف، الرصيد، حد الائتمان، الائتمان المتاح، مؤشر
+    التجاوز). أشّروا الخيار لتضمين العملاء ذوي الرصيد الصفري إن أردتم نظرة
+    شاملة. يتيح زر <strong>تصدير البيانات بصيغة CSV</strong>.
+  </p>
+
+  <figure class="screenshot-figure" data-shot="040"><img src="manual-screenshots-ar/shot-040.png" alt="تقرير مستحقات العملاء" loading="eager" width="900"><figcaption class="screenshot-caption">مستحقات العملاء — الأرصدة وسقوف الائتمان ومؤشر التجاوز.</figcaption></figure>
+
+  <h3 id="ch11-s2">11.2 تصفية تقرير وتصديره</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>اختيار التقرير</h4><p>انقروا فئة التقرير المطلوبة في القائمة.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>تحديد الفترة</h4><p>استخدموا محدّد التاريخ لتعيين النطاق الزمني.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>تطبيق تصفية</h4><p>ضيّقوا حسب الفئة أو المنتج أو العميل أو المورد وفق التقرير.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body"><h4>التصدير</h4><p>انقروا زر التصدير المطلوب (CSV أو Excel أو PDF).</p></div>
+    </div>
+  </div>
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="080"><img src="manual-screenshots-ar/shot-080.png" alt="تصفية تقرير تحليلي" loading="eager" width="900"><figcaption class="screenshot-caption">تحليلات المبيعات — تصفية الفترة / الفئة وصادرات CSV وExcel وPDF.</figcaption></figure>
+
+  <h3 id="ch11-s3">11.3 تقادم المستحقات (Aging 30/60/90 يومًا)</h3>
+  <p>
+    يمنحكم تبويب <strong>تقادم المستحقات</strong> نظرة على كل فواتيركم غير المسدّدة،
+    مصنّفة حسب القِدم. يساعدكم ذلك على ترتيب أولوية المتابعات مع العملاء.
+  </p>
+  <table>
+    <thead><tr><th>العمود</th><th>المعنى</th></tr></thead>
+    <tbody>
+      <tr><td><strong>غير مستحق</strong></td><td>فواتير لم يبلغ تاريخ استحقاقها بعد</td></tr>
+      <tr><td><strong>0–30 يومًا</strong></td><td>تأخير أقل من شهر</td></tr>
+      <tr><td><strong>31–60 يومًا</strong></td><td>تأخير من شهر إلى شهرين</td></tr>
+      <tr><td><strong>61–90 يومًا</strong></td><td>تأخير من شهرين إلى ثلاثة أشهر</td></tr>
+      <tr><td><strong>&gt; 90 يومًا</strong></td><td>تأخير أكثر من ثلاثة أشهر — للمتابعة أولًا</td></tr>
+    </tbody>
+  </table>
+  <p>انقروا <strong>تصدير PDF</strong> أو <strong>طباعة</strong> لنسخة ورقية جاهزة للإرسال.</p>
+
+  <figure class="screenshot-figure" data-shot="041"><img src="manual-screenshots-ar/shot-041.png" alt="تقادم المستحقات" loading="eager" width="900"><figcaption class="screenshot-caption">تقادم المستحقات — فواتير غير مسدّدة مصنّفة حسب القِدم (0–30 / 31–60 / 61–90 / &gt; 90 يومًا).</figcaption></figure>
+
+  <h3 id="ch11-s4">11.4 تحليل ABC للمنتجات</h3>
+  <p>
+    يصنّف تحليل <strong>ABC</strong> منتجاتكم في ثلاث فئات حسب مساهمتها في رقم المعاملات:
+  </p>
+  <ul>
+    <li>🅰 <strong>الفئة A</strong> — أعلى 70 % من رقم المعاملات: منتجاتكم الرائدة. أولوية المخزون والتفاوض مع المورد.</li>
+    <li>🅱 <strong>الفئة B</strong> — الـ 20 % التالية: منتجات مهمة يجب مراقبتها.</li>
+    <li>🅲 <strong>الفئة C</strong> — الـ 10 % المتبقية: منتجات هامشية، يمكن ترشيدها عند الاقتضاء.</li>
+  </ul>
+  <p>اختاروا فترة تحليل (شهر، ربع، سنة) وانقروا <strong>تحليل</strong>.</p>
+  <p>تعرض بطاقات الملخص عدد المنتجات ورقم معاملاتها حسب الفئة. يظهر الجدول المفصّل الرتبة ونسبة رقم المعاملات والتراكم.</p>
+
+  <div class="box tip">
+    <div class="box-title">💡 استخدام عملي</div>
+    استخدموا هذا التحليل لتقرير أي منتجات تستحق مخزونًا احتياطيًا أعلى (الفئة A) وأيها يمكن طلبها عند الحاجة (الفئة C).
+  </div>
+  <figure class="screenshot-figure" data-shot="081"><img src="manual-screenshots-ar/shot-081.png" alt="تحليل ABC للمنتجات" loading="eager" width="900"><figcaption class="screenshot-caption">تحليل ABC — الفئات A / B / C حسب المساهمة في رقم المعاملات.</figcaption></figure>
+
+  <h3 id="ch11-s5">11.5 الإشعارات الدائنة للعملاء (تقرير)</h3>
+  <p>
+    يسرد تبويب <strong>إشعارات العملاء</strong> كل الإشعارات الصادرة في فترة معيّنة (رقم AVOIR-CLI-XXXX).
+    يعرض العميل والمبلغ والفاتورة الأصلية والتاريخ.
+  </p>
+  <ul>
+    <li>صفّوا حسب الفترة بمحدّدات التاريخ.</li>
+    <li>يُعرض مجموع الإشعارات أسفل الجدول.</li>
+    <li>صدّروا بصيغة CSV لمحاسبتكم.</li>
+  </ul>
+  <figure class="screenshot-figure" data-shot="077"><img src="manual-screenshots-ar/shot-077.png" alt="تبويب إشعارات العملاء" loading="eager" width="900"><figcaption class="screenshot-caption">تبويب إشعارات العملاء في التحليلات — الشاشة نفسها الواردة في §7.7.</figcaption></figure>
+
+  <h3 id="ch11-s6">11.6 صادرات المحاسبة DGI</h3>
+  <p>
+    يتيح تبويب <strong>صادرات المحاسبة (DGI)</strong> توليد الملفات التنظيمية
+    للمديرية العامة للضرائب في المغرب.
+  </p>
+  <table>
+    <thead><tr><th>التصدير</th><th>المحتوى</th></tr></thead>
+    <tbody>
+      <tr><td><strong>يومية القيود</strong></td><td>كل القيود المحاسبية (مبيعات، مشتريات، تحصيلات، مدفوعات) على الفترة</td></tr>
+      <tr><td><strong>دفتر الأستاذ</strong></td><td>ملخص حسب الحساب المحاسبي (3421، 4411، 7111، إلخ) مع الأرصدة</td></tr>
+      <tr><td><strong>تصريح TVA</strong></td><td>القاعدة الخاضعة وTVA المحصّلة/القابلة للخصم حسب النسبة</td></tr>
+    </tbody>
+  </table>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-body"><h4>اختيار الفترة</h4><p>اختاروا تاريخي البداية والنهاية.</p></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-body"><h4>النقر على زر التنزيل</h4><p>يُنزَّل ملف CSV تلقائيًا.</p></div></div>
+  </div>
+  <div class="box info">
+    <div class="box-title">ℹ️ المعاملات الملغاة</div>
+    تُستبعد الفواتير والإشعارات والمدفوعات الملغاة تلقائيًا من صادرات المحاسبة.
+  </div>
+  <figure class="screenshot-figure" data-shot="082"><img src="manual-screenshots-ar/shot-082.png" alt="صادرات المحاسبة DGI" loading="eager" width="900"><figcaption class="screenshot-caption">صادرات المحاسبة DGI — اليومية ودفتر الأستاذ وتصريح TVA.</figcaption></figure>
+
+</div>
+<!-- ─────────────────────────────────────────
+     CHAPITRE 12 — HORECA
+───────────────────────────────────────── -->
+<div class="chapter" id="ch12">
+  <div class="chapter-header">
+    <div class="chapter-number">الفصل 12</div>
+    <h2>HoReCa — المطاعم</h2>
+    <p>إدارة الطاولات وطلبات القاعة وشاشة المطبخ (KDS) والإحصائيات واستدعاء النادل</p>
+  </div>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ وحدة اختيارية</div>
+    وحدة HoReCa مخصّصة لمؤسسات المطاعم (مطاعم، مقاهي،
+    فنادق…). لا تُفعَّل إلا إذا شمل اشتراككم هذه الوظيفة.
+  </div>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ الوصول إلى شاشات HoReCa</div>
+    المسارات الرئيسية هي <code>/horeca/salle</code> (مخطط القاعة) و<code>/horeca/cuisine</code>
+    (شاشة المطبخ KDS). يعيد الجذر <code>/horeca</code> التوجيه تلقائيًا إلى مخطط القاعة.
+  </div>
+
+  <h3 id="ch12-s1">12.1 مخطط القاعة</h3>
+  <p>
+    يقدّم شاشة <strong>مخطط القاعة</strong> عرضًا رسوميًا لمطعمكم. كل
+    طاولة موضوعة على الخريطة وتعرض حالتها آنيا. يشير الجرس أعلى الجهة المقابلة
+    إلى <strong>استدعاءات النادل</strong> قيد الانتظار؛ ويمكن لكل طاولة عرض رمز QR قابل للطباعة.
+    زر <strong>عرض الكل</strong> يُظهر كل الطاولات والجدران في الشاشة.
+    يظهر الحجز المؤكد كشارة وقت على الطاولة (مثل 20h · 4 ش.).
+    في الإعداد، يكون وضع إعادة الترتيب مفعّلاً مباشرة (سحب، مقابض، ديكور). يبقى رمز QR لاستدعاء النادل على مخطط الاستغلال.
+    يمكن <strong>تدوير</strong> طاولة أو ديكور (45°)، و<strong>تغيير حجم</strong> الطاولات والديكور بالمقابض أثناء إعادة الترتيب، وإضافة <strong>مناطق</strong> (تراس، بار…) و<strong>ديكور</strong> (نبتة، كاونتر، مقعد، باب)، والتنقل عبر <strong>الخريطة المصغّرة</strong>.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="042"><img src="manual-screenshots-ar/shot-042.png" alt="مخطط القاعة" loading="eager" width="900"><figcaption class="screenshot-caption">مخطط القاعة — طاولات بكراسي، مفتاح ألوان، خريطة مصغّرة وتكبير.</figcaption></figure>
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="091"><img src="manual-screenshots-ar/shot-091.png?v=2" alt="إعداد مخطط القاعة" loading="eager" width="900"><figcaption class="screenshot-caption">إعداد المخطط — إعادة ترتيب، ديكور، مقابض وخريطة مصغّرة.</figcaption></figure>
+
+  <h4>حالات الطاولات</h4>
+  <table>
+    <thead><tr><th>الحالة</th><th>الوصف</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge badge-green">حرة</span></td><td>طاولة متاحة، جاهزة لاستقبال زبائن</td></tr>
+      <tr><td><span class="badge badge-orange">مشغولة</span></td><td>زبائن جالسون، طلب قيد التنفيذ</td></tr>
+      <tr><td><span class="badge badge-blue">محجوزة</span></td><td>طاولة محجوزة لساعة محدّدة</td></tr>
+      <tr><td><span class="badge badge-red">قيد الانتظار</span></td><td>طُلب أُرسل إلى المطبخ، قيد التحضير</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="ch12-s2">12.2 إدارة الطاولات</h3>
+  <p>
+    انقروا طاولة في مخطط القاعة للوصول إلى قائمة طلبها.
+  </p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>فتح الطاولة</h4><p>انقروا طاولة حرة لبدء طلب جديد.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>إضافة المقالات</h4>
+        <p>المسوا طبقًا أو امسحوا رمزه. إن كانت له <strong>إضافات</strong>، تُفتح ورقة <strong>خيارات</strong>: علّموا الإضافات وأدخلوا <strong>ملاحظة المطبخ</strong> (بدون بصل، ناضج جيدًا…) في الشاشة نفسها — لم تعد هناك أيقونة ملاحظات منفصلة. قبل الإرسال إلى المطبخ، <strong>⋯</strong> على السطر ثم <strong>خيارات</strong> تعيد فتح هذه الورقة لتعديل الإضافات أو سحبها. بعد <strong>إضافة</strong>، يعود المؤشر إلى البحث للمسح التالي.</p>
+        <p>نفس الطبق مرتين مع <strong>ملاحظات مختلفة</strong> = <strong>سطران</strong> (لكل ملاحظة، تذكرتان في KDS). نفس الطبق ونفس الإضافات ونفس الملاحظة = سطر واحد بكمية أعلى.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>الإرسال إلى المطبخ</h4><p>انقروا <strong>«إرسال إلى المطبخ»</strong>. تظهر المقالات فورًا على شاشة KDS.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body"><h4>التحصيل</h4><p>بعد انتهاء الوجبة، انقروا <strong>«تحصيل»</strong> للانتقال إلى وضع POS وتسديد الفاتورة.</p></div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure" data-shot="043"><img src="manual-screenshots-ar/shot-043.png?v=2" alt="جلسة طاولة" loading="eager" width="900"><figcaption class="screenshot-caption">جلسة طاولة — صندوق لمسي، خيارات المطبخ (ضبط) والإرسال إلى المطبخ.</figcaption></figure>
+
+  <h4>أنماط الخدمة</h4>
+  <ul>
+    <li><strong>في المكان (Dine-in)</strong>: خدمة في القاعة مع طاولة مرتبطة</li>
+    <li><strong>للأخذ (Takeaway)</strong>: طلب دون طاولة</li>
+    <li><strong>توصيل (Delivery)</strong>: طلب مع عنوان توصيل</li>
+  </ul>
+
+  <h4>نقل طاولة</h4>
+  <p>
+    لنقل زبون من طاولة إلى أخرى (تحرير طاولة، إعادة تنظيم…)،
+    استخدموا وظيفة <strong>«نقل الطاولة»</strong> من قائمة طاولة المصدر.
+  </p>
+
+  <h3 id="ch12-s3">12.3 شاشة المطبخ (KDS)</h3>
+  <p>
+    <strong>KDS (Kitchen Display System)</strong> هي الشاشة المخصّصة للمطبخ. تعرض
+    آنيا كل الطلبات المرسلة من الطاولات.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="044"><img src="manual-screenshots-ar/shot-044.png" alt="شاشة المطبخ KDS" loading="eager" width="900"><figcaption class="screenshot-caption">KDS — تذاكر المطبخ (مقالات، إضافات، ملاحظات، طاولة، ساعة الإرسال).</figcaption></figure>
+
+  <h4>استخدام KDS</h4>
+  <ul>
+    <li>تعرض كل تذكرة الطاولة والمقالات و<strong>الإضافات</strong> و<strong>ملاحظة المطبخ</strong>، إضافة إلى ساعة الإرسال</li>
+    <li>يؤشّر الطبّاخ كل مقال تباعًا مع تقدّم التحضير</li>
+    <li>عندما تصبح كل المقالات جاهزة، تُوسَم التذكرة <strong>«جاهز»</strong></li>
+    <li>يُرسل إشارة إلى النادل للخدمة</li>
+  </ul>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ محطات المطبخ</div>
+    إذا كان مطبخكم منظّمًا في محطات (مقبّلات، أطباق ساخنة، حلويات، بار…)،
+    يمكن لكل محطة أن تملك شاشة KDS خاصة ولا ترى إلا المقالات التي تخصّها.
+  </div>
+
+  <h3 id="ch12-s4">12.4 الحجوزات</h3>
+  <p>
+    أديروا حجوزات زبائنكم مباشرة من السليم.
+  </p>
+
+  <figure class="screenshot-figure" data-shot="045"><img src="manual-screenshots-ar/shot-045.png" alt="تقويم الحجوزات" loading="eager" width="900"><figcaption class="screenshot-caption">الحجوزات — تقويم أسبوعي وزر «حجز جديد».</figcaption></figure>
+
+  <h4>إنشاء حجز</h4>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>النقر على «حجز جديد»</h4><p>من صفحة الحجوزات أو من طاولة في مخطط القاعة.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>تعبئة المعلومات</h4><p>اسم الزبون، التاريخ والساعة، عدد الأغطية، الطاولة المطلوبة (اختياري) وملاحظات خاصة.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>التأكيد</h4><p>احفظوا الحجز. تظهر شارة وقت (مثل 20h · 4 ش.) على الطاولة في مخطط القاعة.</p></div>
+    </div>
+  </div>
+
+  <h3 id="ch12-s5">12.5 إحصائيات القاعة</h3>
+  <p>
+    الوصول: قائمة <strong>إحصائيات القاعة</strong> (<code>/horeca/stats</code>) أو عبر Hub <strong>التقارير</strong>.
+  </p>
+  <ul>
+    <li><strong>مؤشرات KPI:</strong> رقم المعاملات الإجمالي، الجلسات، متوسط الأغطية، المدة المتوسطة، معدل الدوران.</li>
+    <li><strong>خريطة حرارية زمنية:</strong> مدرج لرقم المعاملات حسب الشريحة الساعية (ساعات الذروة).</li>
+    <li><strong>أداء حسب الطاولة:</strong> ترتيب حسب رقم المعاملات والجلسات ومدة الإشغال.</li>
+    <li><strong>رقم المعاملات حسب النادل:</strong> ترتيب المستخدمين حسب رقم المعاملات المحقَّق.</li>
+    <li><strong>الفترة:</strong> 7 أيام، 30 يومًا، 90 يومًا أو تواريخ مخصّصة.</li>
+    <li><strong>تصدير PDF:</strong> زر «تصدير PDF» → طباعة عبر المتصفح.</li>
+  </ul>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="055"><img src="manual-screenshots-ar/shot-055.png" alt="لقطة" loading="eager" width="900"><figcaption class="screenshot-caption">إحصائيات القاعة — مؤشرات KPI وخريطة حرارية زمنية وترتيب حسب الطاولة / النادل.</figcaption></figure>
+
+  <h3 id="ch12-s6">12.6 تقسيم الفاتورة (split bill)</h3>
+  <p>
+    من <strong>جلسة الطاولة</strong>، يتيح زر <strong>«تقسيم الفاتورة»</strong> توزيع
+    المقالات على حصتين (مثل مجموعتين من الضيوف).
+  </p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>فتح الحوار</h4><p>انقروا «تقسيم الفاتورة» من أسفل صفحة الجلسة.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>توزيع الكميات</h4><p>لكل مقال، حدّدوا كم يذهب إلى الفاتورة 1 والفاتورة 2. استخدموا «توزيع بالتساوي» للتقسيم بنقرة.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>تحصيل كل حصة</h4><p>عند التأكيد، يُنشأ طلب فرعي لكل حصة ويُفتح POS لتحصيل الأولى.</p></div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure" data-shot="056"><img src="manual-screenshots-ar/shot-056.png" alt="لقطة" loading="eager" width="900"><figcaption class="screenshot-caption">حوار «تقسيم الفاتورة» — توزيع الكميات على حصتين.</figcaption></figure>
+
+  <h3 id="ch12-s7">12.7 طلب الكاونتر (أخذ / توصيل)</h3>
+  <p>
+    للطلبات دون طاولة معيّنة، استخدموا زر <strong>«الكاونتر»</strong> على مخطط القاعة.
+    اختاروا <strong>أخذ</strong> أو <strong>توصيل</strong> — تُفتح الصفحة <code>/horeca/comptoir</code>
+    بالواجهة نفسها لجلسة الطاولة (بحث منتجات، إرسال إلى المطبخ، تحصيل).
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="057"><img src="manual-screenshots-ar/shot-057.png" alt="لقطة" loading="eager" width="900"><figcaption class="screenshot-caption">جلسة الكاونتر — طلب أخذ دون طاولة معيّنة.</figcaption></figure>
+
+  <h3 id="ch12-s8">12.8 استدعاء النادل (QR)</h3>
+  <p>
+    لكل طاولة <strong>رمز QR فريد</strong> يتيح للزبائن استدعاء نادل من
+    هاتفهم، دون حساب ولا تطبيق.
+  </p>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ صفحة عامة</div>
+    الرابط <code>/call/{token}</code> متاح دون تسجيل دخول. يمسح الزبون QR ويرى اسم طاولته
+    ويضغط <strong>«استدعاء النادل»</strong>. يمكن أن ترافق الاستدعاء رسالة اختيارية.
+  </div>
+
+  <h4>التهيئة (العاملون)</h4>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>عرض رمز QR</h4><p>على مخطط القاعة، انقروا أيقونة QR الخاصة بالطاولة (ظاهرة دائمًا، بما في ذلك على الشاشات اللمسية).</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>الطباعة أو النسخ</h4><p>اطبعوا QR (زر «طباعة») لتغليفه على الطاولة، أو انسخوا الرابط.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>معالجة الاستدعاءات</h4><p>يعرض جرس مخطط القاعة الاستدعاءات قيد الانتظار. أكّدوا استلامها من اللوحة الجانبية.</p></div>
+    </div>
+  </div>
+
+  <div class="box warn">
+    <div class="box-title">⚠️ استدعاء نشط واحد لكل طاولة</div>
+    ما دام استدعاء غير مؤكَّد، يعرض استدعاء ثانٍ من الطاولة نفسها «النادل في الطريق» للزبون.
+  </div>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="058"><img src="manual-screenshots-ar/shot-058.png" alt="لقطة" loading="eager" width="900"><figcaption class="screenshot-caption">الصفحة العامة <code>/call/{token}</code> — يستدعي الزبون نادلًا دون تسجيل دخول.</figcaption></figure>
+
+  <figure class="screenshot-figure" data-shot="059"><img src="manual-screenshots-ar/shot-059.png" alt="لقطة" loading="eager" width="900"><figcaption class="screenshot-caption">حوار رمز QR لكل طاولة — رابط قابل للطباعة يُوضع على الطاولة.</figcaption></figure>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="060"><img src="manual-screenshots-ar/shot-060.png" alt="لقطة" loading="eager" width="900"><figcaption class="screenshot-caption">لوحة استدعاءات النادل قيد الانتظار على مخطط القاعة.</figcaption></figure>
+
+  <h3 id="ch12-s9">12.9 التوصيل هاتفًا / Glovo / Uber</h3>
+  <p>
+    تتابع لوحة <strong>HoReCa → التوصيل</strong> (<code>/horeca/livraisons</code>) الطلبات
+    المراد توصيلها. <strong>لا توجد واجهة شريك API</strong>: يعيد العاملون نسخ تذكرة Glovo / Uber
+    (رقم المنصّة، الزبون، العنوان) أو يدخلون طلبًا هاتفيًا.
+  </p>
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="063"><img src="manual-screenshots-ar/shot-063.png" alt="لوحة التوصيل" loading="eager" width="900"><figcaption class="screenshot-caption">لوحة التوصيل — أعمدة مستلم، قيد التحضير، جاهز، في الطريق.</figcaption></figure>
+  <h4>إنشاء توصيل</h4>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>توصيل جديد</h4><p>من اللوحة، أو من مخطط القاعة → الكاونتر → توصيل.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>القناة</h4><p><strong>هاتف</strong> (رقم الزبون مطلوب)، <strong>Glovo</strong> / <strong>Uber Eats</strong> (رقم طلب المنصّة مطلوب)، أو <strong>أخرى</strong>.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>أخذ الطلب</h4><p>بعد التسجيل يُفتح الكاونتر لإضافة المقالات. لا يتم الإرسال إلى المطبخ إلا إذا ذهب سطر واحد على الأقل إلى المطبخ؛ عندئذ تنتقل التذكرة إلى <strong>قيد التحضير</strong>.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body"><h4>تقديم الحالة</h4><p>على البطاقة: مستلم → قيد التحضير → جاهز → في الطريق → تم التوصيل. يُقترح WhatsApp إذا كانت القناة هاتفًا ووُجد رقم.</p></div>
+    </div>
+  </div>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="064"><img src="manual-screenshots-ar/shot-064.png" alt="توصيل جديد" loading="eager" width="900"><figcaption class="screenshot-caption">حوار «توصيل جديد» — القناة، رقم المنصّة، الزبون، العنوان.</figcaption></figure>
+  <div class="box info">
+    <div class="box-title">ℹ️ المطبخ</div>
+    على KDS تُعنوَن التذكرة <strong>توصيل</strong> مع رقم الطلب كعنوان فرعي.
+  </div>
+
+</div>
+<!-- ─────────────────────────────────────────
+     CHAPITRE 13 — MESSAGERIE
+───────────────────────────────────────── -->
+<div class="chapter" id="ch13">
+  <div class="chapter-header">
+    <div class="chapter-number">الفصل 13</div>
+    <h2>الرسائل الداخلية</h2>
+    <p>تواصلوا مع زملائكم مباشرة من السليم</p>
+  </div>
+
+  <p>
+    تتيح وحدة <strong>الرسائل الداخلية</strong> لمستخدمي مؤسستكم
+    التواصل فيما بينهم دون مغادرة التطبيق. افتحوا صفحة <strong>الرسائل</strong>
+    من <strong>القائمة الجانبية</strong> أو بلاطة في <strong>Hub</strong> (العنوان <code>/messages</code>).
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="046"><img src="manual-screenshots-ar/shot-046.png?v=4" alt="قائمة المحادثات" loading="eager" width="900"><figcaption class="screenshot-caption">الرسائل — قائمة المحادثات وزر «محادثة جديدة» وأهداف لمسية.</figcaption></figure>
+
+  <h3 id="ch13-s1">وظائف الرسائل</h3>
+  <ul>
+    <li><strong>المحادثات</strong>: ابدأوا نقاشًا ثنائيًا أو مجموعة من قائمة الرسائل</li>
+    <li><strong>الرسائل</strong>: أرسلوا نصوصًا مع مرفقات</li>
+    <li><strong>البحث</strong>: اعثروا بسرعة على محادثة أو رسالة</li>
+    <li><strong>الإشعارات</strong>: تلقّوا تنبيهات آنية للرسائل الجديدة</li>
+    <li><strong>الفتح</strong>: بالنقر على محادثة ينزل الخيط إلى آخر رسالة (فوق حقل الإدخال)</li>
+    <li><strong>لمسي</strong>: القوائم والفقاعات والإدخال تُلمس بالإصبع. في الوضع اللمسي أو عند نقطة البيع يظهر لوحة المفاتيح على الشاشة تحت حقل الإدخال دون زر إضافي</li>
+  </ul>
+
+  <h3 id="ch13-s2">بدء محادثة</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>فتح الرسائل</h4><p>انقروا أيقونة الرسائل في القائمة أو انتقلوا إلى <strong>الرسائل</strong>.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>محادثة جديدة</h4><p>انقروا <strong>«محادثة جديدة»</strong>، أشّروا زميلًا لتبادل ثنائي، أو عدة أشخاص (شخصين آخرين على الأقل) لمجموعة. يمكنكم إعطاء اسم للمجموعة (اختياري).</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>إرسال رسالة</h4><p>المسوا منطقة الإدخال (أو <strong>لوحة المفاتيح اللمسية</strong> إن ظهرت)، ثم زر الإرسال. إجراءات التعديل/الحذف ظاهرة للإصبع دون تمرير المؤشر.</p></div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="047"><img src="manual-screenshots-ar/shot-047.png?v=4" alt="محادثة داخلية مع رسائل" loading="eager" width="900"><figcaption class="screenshot-caption">سلسلة المحادثة — رسائل، إدخال لمسي ولوحة مفاتيح على الشاشة.</figcaption></figure>
+
+  <h3 id="ch13-s3">13.3 فتح محادثة</h3>
+  <p>
+    من القائمة، انقروا محادثة: يُفتح الخيط <strong>في الأسفل</strong> على آخر رسالة
+    (نص أو صوت أو صورة). لا حاجة للتمرير يدويًا. إذا حُمّلت صورة بعد ذلك يبقى الخيط ملصقًا بالأسفل
+    ما لم تصعدوا لقراءة السجل. «تحميل الأقدم» يحافظ على موضعكم في الخيط.
+  </p>
+</div>
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 14 — COMMERCIAL
+───────────────────────────────────────── -->
+<div class="chapter" id="ch14">
+  <div class="chapter-header">
+    <div class="chapter-number">الفصل 14</div>
+    <h2>التجاري</h2>
+    <p>الولاء والعروض وقوائم الأسعار</p>
+  </div>
+
+  <p>
+    تجمع القائمة الجانبية <strong>التجاري</strong> القواعد التجارية للمؤسسة:
+    الولاء والعروض وقوائم الأسعار. وهي منفصلة عن قائمة <strong>الإدارة</strong> (المستخدمون، المؤسسة، فئات الصندوق، النسخ الاحتياطي…).
+  </p>
+
+  <h3 id="ch14-s1">14.1 الولاء</h3>
+  <p>
+    هيّئوا البرنامج من <strong>التجاري → الولاء</strong>.
+    يُوصف الاستخدام في الصندوق (ودجة النقاط، الاسترداد) في <strong>القسم 6.6</strong>.
+  </p>
+  <table>
+    <thead><tr><th>المعلمة</th><th>الوصف</th></tr></thead>
+    <tbody>
+      <tr><td><strong>تفعيل البرنامج</strong></td><td>يفعّل أو يعطّل ودجة الولاء في POS</td></tr>
+      <tr><td><strong>نقاط لكل MAD مُنفَق</strong></td><td>عدد النقاط المضافة مقابل 1 MAD من البيع</td></tr>
+      <tr><td><strong>قيمة النقطة (بـ MAD)</strong></td><td>التحويل عند الاسترداد (مثال: 1 نقطة = 0.1 MAD)</td></tr>
+      <tr><td><strong>الحد الأقصى لنسبة الخصم لكل استرداد</strong></td><td>يسقّف خصم الولاء (مثال: 20% كحد أقصى من الفاتورة)</td></tr>
+      <tr><td><strong>عتبة برونزي / فضي / ذهبي</strong></td><td>النقاط اللازمة لبلوغ كل مستوى</td></tr>
+    </tbody>
+  </table>
+  <p>انقروا <strong>حفظ</strong> لتطبيق التعديلات. تسري التغييرات فورًا في POS.</p>
+  <figure class="screenshot-figure" data-shot="083"><img src="manual-screenshots-ar/shot-083.png" alt="الولاء" loading="eager" width="900"><figcaption class="screenshot-caption">التجاري → الولاء — التفعيل، النقاط لكل MAD، عتبات برونزي / فضي / ذهبي.</figcaption></figure>
+
+  <h3 id="ch14-s2">14.2 العروض</h3>
+  <p>
+    الوصول: <strong>التجاري → العروض</strong>. أنشئوا حملات محدودة زمنيًا
+    (٪، مبلغ، سعر مشطوب أو عرض 2+1). في POS يُشطب سعر الكتالوج وتظهر شارة العرض.
+  </p>
+  <table>
+    <thead><tr><th>النوع</th><th>الأثر في POS</th></tr></thead>
+    <tbody>
+      <tr><td><strong>خصم ٪</strong></td><td>نسبة على السعر الوحدوي</td></tr>
+      <tr><td><strong>مبلغ</strong></td><td>خصم بـ MAD على السعر الوحدوي</td></tr>
+      <tr><td><strong>سعر مشطوب</strong></td><td>سعر مفروض (ملصق «سعر مشطوب»)</td></tr>
+      <tr><td><strong>2+1 / X+Y</strong></td><td>حزمة: اشترِ X واحصل على Y مجانًا</td></tr>
+    </tbody>
+  </table>
+  <ul>
+    <li>استهدفوا <strong>منتجات</strong> و/أو <strong>فئات</strong>. بلا هدف = الكتالوج كله.</li>
+    <li>إذا انطبقت عدة عروض، يُحتفظ بواحد فقط (الأولوية الأعلى).</li>
+    <li>تراكم الأسعار في POS: الكتالوج → قائمة أسعار العميل → عرض واحد → ٪ مستوى الولاء، ثم استرداد النقاط.</li>
+  </ul>
+  <figure class="screenshot-figure" data-shot="087"><img src="manual-screenshots-ar/shot-087.png" alt="قائمة العروض" loading="eager" width="900"><figcaption class="screenshot-caption">التجاري → العروض — الحملات والنوع والهدف والفترة.</figcaption></figure>
+  <p>
+    انقروا سطرًا أو أيقونة <strong>العين</strong> لفتح البطاقة: النوع، القيمة، التواريخ، الأولوية، الفئات والمنتجات المستهدفة، ثم تعديل أو حذف.
+  </p>
+  <figure class="screenshot-figure" data-shot="089"><img src="manual-screenshots-ar/shot-089.png" alt="تفصيل عرض" loading="eager" width="900"><figcaption class="screenshot-caption">بطاقة عرض — النوع والفترة والهدف والفئات والمنتجات.</figcaption></figure>
+
+  <h3 id="ch14-s3">14.3 قوائم الأسعار</h3>
+  <p>
+    الوصول: <strong>التجاري → قوائم الأسعار</strong>. تعرّف قائمة أسعارًا حسب المنتج
+    (وربما عتبة كمية دنيا). <strong>تُسند إلى العميل</strong> من بطاقته
+    (قائمة منسدلة)، وليس من POS.
+  </p>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-body"><h4>إنشاء القائمة</h4><p>سمّوها، أضيفوا أسطرًا (منتج، كمية دنيا، سعر).</p></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-body"><h4>إسنادها إلى العميل</h4><p>افتحوا بطاقة العميل واختاروا القائمة في الحقل المخصّص.</p></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-body"><h4>البيع في POS</h4><p>بمجرد اختيار هذا العميل، يُطبَّق سعر القائمة (قبل العرض والولاء).</p></div></div>
+  </div>
+  <figure class="screenshot-figure" data-shot="088"><img src="manual-screenshots-ar/shot-088.png" alt="قوائم الأسعار" loading="eager" width="900"><figcaption class="screenshot-caption">التجاري → قوائم الأسعار — قوائم أسعار تُسند إلى العملاء.</figcaption></figure>
+  <p>
+    تفتح أيقونة <strong>العين</strong> التفصيل: الاسم، الحالة النشطة، والأسطر (منتج، كمية دنيا، سعر وحدوي).
+  </p>
+  <figure class="screenshot-figure" data-shot="090"><img src="manual-screenshots-ar/shot-090.png" alt="تفصيل قائمة أسعار" loading="eager" width="900"><figcaption class="screenshot-caption">بطاقة قائمة أسعار — أسطر المنتج والكمية الدنيا والسعر.</figcaption></figure>
+</div>
+<!-- ─────────────────────────────────────────
+     CHAPITRE 15 — PARAMÈTRES
+───────────────────────────────────────── -->
+<div class="chapter" id="ch15">
+  <div class="chapter-header">
+    <div class="chapter-number">الفصل 15</div>
+    <h2>الإعدادات</h2>
+    <p>تهيئة التطبيق والمستخدمين والترخيص ونسخ قاعدة البيانات احتياطيًا</p>
+  </div>
+
+  <div class="box warn">
+    <div class="box-title">⚠️ وصول مقيّد</div>
+    معظم الإعدادات محصورة بالمستخدمين ذوي دور <strong>مسؤول</strong>.
+    اتصلوا بمسؤولكم إذا لم يكن لديكم وصول إلى بعض الأقسام.
+  </div>
+
+  <h3 id="ch15-s1">15.1 الإعدادات العامة</h3>
+  <p>
+    هيّئوا معلومات مؤسستكم ومظهر المستندات و
+    الإعدادات العامة للتطبيق.
+  </p>
+
+  <figure class="screenshot-figure" data-shot="048"><img src="manual-screenshots-ar/shot-048.png?v=5" alt="الإعدادات العامة" loading="eager" width="900"><figcaption class="screenshot-caption">الإعدادات العامة — العملة، خطوة المبالغ، حق الطابع حسب الوسيلة.</figcaption></figure>
+
+  <table>
+    <thead><tr><th>المعلمة</th><th>الوصف</th></tr></thead>
+    <tbody>
+      <tr><td><strong>اسم الشركة</strong></td><td>الاسم الذي يظهر على فواتيركم وإيصالاتكم</td></tr>
+      <tr><td><strong>الشعار</strong></td><td>الشعار المطبوع على المستندات</td></tr>
+      <tr><td><strong>العنوان</strong></td><td>العنوان الكامل للمؤسسة</td></tr>
+      <tr><td><strong>الهاتف / البريد الإلكتروني</strong></td><td>بيانات الاتصال المعروضة على المستندات</td></tr>
+      <tr><td><strong>العملة</strong></td><td>العملة المستخدمة (مثل: MAD، EUR، USD)</td></tr>
+      <tr><td><strong>خطوة المبالغ</strong></td><td>تقريب HALF_UP لكل المبالغ (الأسطر، ملخص المبيعات / المرتجعات / تخفيضات الأسطر، التذكرة، رسم الطابع، الإكرامية، النقد، الباقي). الافتراضي 0.10 للدرهم. نسبة التخفيض لا تُقرَّب حسب الخطوة. سعر الكتالوج لا يُعاد كتابته (14.50 مشطوب، المجموع 13.10؛ طابع 0.25٪ على 100 → 0.30).</td></tr>
+      <tr><td><strong>TVA الافتراضية</strong></td><td>نسبة TVA المطبّقة افتراضيًا على المنتجات</td></tr>
+      <tr><td><strong>تذييل الإيصال</strong></td><td>رسالة مخصّصة على إيصالات الصندوق</td></tr>
+      <tr><td><strong>مهلة المسح</strong></td><td>وقت الانتظار بعد مسح الرمز الشريطي (مللي ثانية)</td></tr>
+      <tr><td><strong>تعطيل إدارة المخزون</strong></td><td>إذا فُعّل: لا متابعة للمخزون عند البيع (الصندوق، BL، الفواتير) وتُخفى وحدتا المخزون / الجرد؛ إذا عُطّل: السلوك المعتاد</td></tr>
+      <tr><td><strong>السماح بالمخزون السالب</strong></td><td>إذا فُعّل (إدارة المخزون مفعّلة): يمكن للبيع أو إيصال التسليم أن يجعل المخزون القابل للبيع تحت الصفر بعد تأكيد في الصندوق. معطّل افتراضيًا. بلا أثر إذا عُطّلت إدارة المخزون. انظروا §6.9.</td></tr>
+      <tr><td><strong>قفل الصندوق بعد الخمول</strong></td><td>المهلة بالثواني قبل جدار الوجوه في POS (الافتراضي 90، 0 = أبدًا، الحد 3600). انظروا §6.11.</td></tr>
+      <tr><td><strong>حق الطابع حسب الوسيلة</strong></td><td>نسبة٪ على الجزء المحصَّل (خارج الطابع). الافتراضي 0. خارج رقم المعاملات، مثل الإكرامية. انظروا §7.5.</td></tr>
+      <tr><td><strong>الإكراميات</strong></td><td>إذا فُعّل: سطر إكرامية (مبلغ بالدرهم) أسفل كتلة الدفع في POS (تحت الوسائل أو المختلط). خارج مجموع الفاتورة؛ يُدرج في التحصيل (نقدًا أو بطاقة). يُحفظ المبلغ والوضع على الفاتورة وفي المسودة. معطّل افتراضيًا.</td></tr>
+      <tr><td><strong>السعر على الملصقات</strong></td><td>يعرض سعر البيع على ملصقات الرف (A4 أو رول). انظروا §4.1.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ البريد (SMTP) — مسؤول المنصّة</div>
+    في عمليات النشر متعددة المستأجرين، يمكن لحساب <strong>مسؤول المنصّة</strong>
+    تهيئة خادم SMTP العام لرسائل النظام (إعادة تعيين كلمة المرور، إلخ)
+    في إعدادات النسخة. هذا الإعداد خارج نطاق مستخدمي مؤسسة واحدة.
+  </div>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="049"><img src="manual-screenshots-ar/shot-049.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <h3 id="ch15-s2">15.2 إدارة المستخدمين</h3>
+  <p>
+    أنشئوا وأديروا حسابات كل المستخدمين الذين يصلون إلى السليم في
+    مؤسستكم.
+  </p>
+
+  <figure class="screenshot-figure" data-shot="050"><img src="manual-screenshots-ar/shot-050.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <h4>إنشاء مستخدم</h4>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>النقر على «+ مستخدم جديد»</h4><p>من قسم <strong>الإعدادات → المستخدمون</strong>.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>تعبئة المعلومات</h4><p>الاسم الأول، اللقب، عنوان البريد الإلكتروني (سيُستخدم معرّفًا لتسجيل الدخول) وكلمة المرور الأولية.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>منح دور</h4><p>اختاروا الدور المناسب: مسؤول، مدير، صيدلي، أمين صندوق أو مطبخ.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body"><h4>الحفظ</h4><p>يمكن للمستخدم الآن تسجيل الدخول ببياناته.</p></div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="051"><img src="manual-screenshots-ar/shot-051.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ إعادة تعيين كلمة المرور</div>
+    يمكن لمسؤول إعادة تعيين كلمة مرور أي مستخدم
+    من بطاقة المستخدم، دون معرفة كلمة المرور القديمة.
+  </div>
+
+  <h3 id="ch15-s3">15.3 الأدوار والصلاحيات</h3>
+  <p>
+    نظام صلاحيات السليم دقيق جدًا. يمكنكم تحديد بدقة
+    ما يمكن لدور فعله وما لا يمكنه.
+  </p>
+
+  <figure class="screenshot-figure" data-shot="052"><img src="manual-screenshots-ar/shot-052.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <h4>الصلاحيات المتاحة</h4>
+  <table>
+    <thead><tr><th>المورد</th><th>الإجراءات</th></tr></thead>
+    <tbody>
+      <tr><td>لوحة التحكم</td><td>قراءة</td></tr>
+      <tr><td>POS البيع</td><td>قراءة / كتابة</td></tr>
+      <tr><td>POS الشراء</td><td>قراءة / كتابة</td></tr>
+      <tr><td>المبيعات (عروض أسعار، طلبات، BL، فواتير)</td><td>قراءة / إنشاء / تعديل / حذف</td></tr>
+      <tr><td>دفعات العملاء</td><td>قراءة / كتابة</td></tr>
+      <tr><td>المشتريات (كل المراحل)</td><td>قراءة / إنشاء / تعديل</td></tr>
+      <tr><td>دفعات الموردين</td><td>قراءة / كتابة</td></tr>
+      <tr><td>المخزون</td><td>قراءة / كتابة</td></tr>
+      <tr><td>الجرد</td><td>قراءة / كتابة</td></tr>
+      <tr><td>المنتجات / الفئات</td><td>قراءة / كتابة</td></tr>
+      <tr><td>العملاء / الموردون</td><td>قراءة / كتابة</td></tr>
+      <tr><td>الصندوق</td><td>قراءة / كتابة</td></tr>
+      <tr><td>التقارير</td><td>قراءة</td></tr>
+      <tr><td>المستخدمون</td><td>قراءة / إنشاء / تعديل</td></tr>
+      <tr><td>الإعدادات</td><td>قراءة / كتابة</td></tr>
+      <tr><td>المطبخ (KDS)</td><td>قراءة / كتابة</td></tr>
+    </tbody>
+  </table>
+
+  <h4>صلاحيات فردية (تجاوزات)</h4>
+  <p>
+    إضافة إلى الأدوار، يمكنكم منح صلاحية معيّنة لمستخدم فردي أو سحبها منه،
+    دون تعديل دوره العام.
+    انتقلوا إلى بطاقة المستخدم → تبويب <strong>«الصلاحيات»</strong>.
+  </p>
+
+  <h3 id="ch15-s4">15.4 إدارة الترخيص</h3>
+  <p>
+    يتيح لكم قسم الترخيص استشارة حالة ترخيص السليم و
+    تفعيله أو تجديده.
+  </p>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ لافتات أعلى الشاشة</div>
+    إذا ظهر شريط أصفر أو برتقالي تحت شريط الأدوات (تجربة مجانية، ترخيص يجب تفعيله، اشتراك)، اقرأوا الرسالة واستخدموا رابط <strong>تفعيل</strong> أو اتصلوا بمسؤولكم. هذا ليس خطأ في التطبيق: إنه تذكير لتفادي انقطاع الخدمة.
+  </div>
+
+  <figure class="screenshot-figure" data-shot="053"><img src="manual-screenshots-ar/shot-053.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <h4>تفعيل ترخيص</h4>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>الحصول على مفتاح الترخيص</h4><p>يزوّدكم موزّعكم بمفتاح تفعيل فريد.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>الانتقال إلى الإعدادات → الترخيص</h4><p>افتحوا قسم إدارة الترخيص.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>إدخال المفتاح</h4><p>الصقوا مفتاحكم في الحقل المخصّص وانقروا <strong>«تفعيل»</strong>.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body"><h4>التأكيد</h4><p>تؤكّد رسالة نجاح التفعيل. يُحدَّث تاريخ الانتهاء.</p></div>
+    </div>
+  </div>
+
+  <div class="box danger">
+    <div class="box-title">🚫 ترخيص منتهٍ</div>
+    إذا انتهت صلاحية ترخيصكم، سيُقيَّد الوصول إلى التطبيق. جدّدوا ترخيصكم
+    لدى موزّعكم قبل تاريخ الانتهاء لتفادي أي انقطاع.
+  </div>
+
+  <h3 id="ch15-s5">15.5 سجل الاتصالات</h3>
+  <p>
+    يسجّل سجل الاتصالات كل دخول إلى التطبيق: المستخدم، التاريخ،
+    الساعة، عنوان IP والجهاز المستخدم. يتيح ذلك رصد اتصالات مشبوهة.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="054"><img src="manual-screenshots-ar/shot-054.png" alt="لقطة" loading="eager" width="900"></figure>
+
+  <h3 id="ch15-s6">15.6 المصادقة الثنائية (MFA)</h3>
+  <p>
+    تضيف <strong>MFA (Multi-Factor Authentication)</strong> طبقة أمان إلى حسابكم.
+    إضافة إلى كلمة مروركم، سيُطلب رمز من 6 أرقام تولّده تطبيق مثل
+    <strong>Google Authenticator</strong> أو <strong>Authy</strong> عند كل تسجيل دخول.
+  </p>
+  <h4>تفعيل MFA</h4>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-body"><h4>فتح إعدادات MFA</h4><p>انتقلوا إلى <strong>الإعدادات → الأمان (MFA)</strong>.</p></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-body"><h4>مسح رمز QR</h4><p>افتحوا Google Authenticator على هاتفكم → <strong>+</strong> → مسح رمز QR → وجّهوا الكاميرا نحو الرمز المعروض.</p></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-body"><h4>إدخال رمز التحقق</h4><p>أدخلوا الرمز ذا الستة أرقام المعروض في التطبيق → انقروا <strong>تحقق وتفعيل</strong>.</p></div></div>
+  </div>
+  <div class="box tip">
+    <div class="box-title">🔑 مفتاح يدوي</div>
+    إذا تعذّر مسح رمز QR، يُعرض أيضًا مفتاح نصي للإدخال اليدوي في تطبيق المصادقة.
+  </div>
+  <h4>تعطيل MFA</h4>
+  <p>في الصفحة نفسها، انقروا <strong>تعطيل</strong>، وأدخلوا رمز TOTP الحالي للتأكيد.</p>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="084"><img src="manual-screenshots-ar/shot-084.png" alt="إعدادات MFA" loading="eager" width="900"><figcaption class="screenshot-caption">المصادقة الثنائية — رمز QR وتفعيل TOTP.</figcaption></figure>
+
+  <h3 id="ch15-s7">15.7 المعرّفات الضريبية DGI</h3>
+  <p>
+    أدخلوا معرّفاتكم الضريبية في <strong>الإعدادات → المؤسسة</strong>، قسم
+    <em>«المعرّفات الضريبية DGI المغرب»</em>. تظهر هذه المعلومات تلقائيًا على
+    كل ملفات PDF لديكم (فواتير، إشعارات، أذونات تسليم).
+  </p>
+  <table>
+    <thead><tr><th>الحقل</th><th>الوصف</th></tr></thead>
+    <tbody>
+      <tr><td><strong>ICE</strong></td><td>المعرّف المشترك للمؤسسة (15 رقمًا)</td></tr>
+      <tr><td><strong>IF</strong></td><td>المعرّف الضريبي (رقم الضريبة)</td></tr>
+      <tr><td><strong>RC</strong></td><td>السجل التجاري</td></tr>
+      <tr><td><strong>البراءة</strong></td><td>رقم البراءة</td></tr>
+      <tr><td><strong>رأس المال</strong></td><td>رأس المال بـ MAD (يُعرض على الفواتير)</td></tr>
+    </tbody>
+  </table>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="049"><img src="manual-screenshots-ar/shot-049.png" alt="المعرّفات الضريبية للمؤسسة" loading="eager" width="900"><figcaption class="screenshot-caption">إعدادات المؤسسة — ICE وIF وRC ومعرّفات DGI الأخرى (الشاشة نفسها الواردة في §15.1).</figcaption></figure>
+
+  <h3 id="ch15-s8">15.8 نسخ احتياطي لقاعدة البيانات</h3>
+  <p>
+    الوصول: <strong>الإعدادات → نسخ احتياطي لقاعدة البيانات</strong> (<code>/settings/backup</code>).
+    محصور بـ<strong>المسؤولين</strong>.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="061"><img src="manual-screenshots-ar/shot-061.png" alt="لقطة" loading="eager" width="900"><figcaption class="screenshot-caption">صفحة النسخ الاحتياطي — تنزيل قاعدة PostgreSQL واستعادتها.</figcaption></figure>
+
+  <div class="box warn">
+    <div class="box-title">⚠️ عملية حسّاسة</div>
+    تمحو <strong>الاستعادة</strong> قاعدة PostgreSQL الحالية بالكامل.
+    نفّذوا دائمًا نسخًا احتياطيًا قبل أي استعادة.
+  </div>
+
+  <h4>تنزيل نسخة احتياطية</h4>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>فتح صفحة النسخ الاحتياطي</h4><p>من <strong>الإعدادات</strong>، انقروا الرابط الأحمر «نسخ احتياطي لقاعدة البيانات».</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>التنزيل</h4><p>انقروا <strong>«تنزيل النسخة الاحتياطية»</strong>. يُولَّد ملف <code>.sql</code> ويُنزَّل.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>الحفظ في مكان آمن</h4><p>احفظوا الملف على وسيط خارجي أو سحابة مشفّرة.</p></div>
+    </div>
+  </div>
+
+  <h4>الاستعادة من نسخة احتياطية</h4>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>اختيار الملف</h4><p>اختاروا ملف <code>.sql</code> لنسخة احتياطية صدّرتموها سابقًا.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>التأكيد</h4><p>اكتبوا بالضبط <strong>RESTAURER</strong> في حقل التأكيد.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>إعادة تشغيل الخادم</h4><p>بعد الاستعادة، أعيدوا تشغيل الخلفية لضمان اتساق البيانات.</p></div>
+    </div>
+  </div>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ متطلّب تقني</div>
+    يجب أن يتوفر على خادم الخلفية أداتا PostgreSQL <code>pg_dump</code> و<code>psql</code>
+    في PATH النظام (أو مهيأتين عبر <code>pg.tools.path</code>).
+  </div>
+
+  <h3 id="ch15-s9">15.9 خيارات شاشة الصندوق</h3>
+  <p>
+    الوصول: <strong>الإعدادات → خيارات شاشة الصندوق</strong>. المفتاح يمكنه فقط
+    <strong>إخفاء</strong> كتلة يوفّرها الملف الشخصي أصلًا (متجر، كاونتر، صيدلية، مطعم):
+    الخصومات والمرتجعات والإكرامية والبحث والمرفقات والمحادثة وغيرها.
+  </p>
+  <ul>
+    <li><strong>ظاهرة دائمًا</strong> (بلا مفتاح): شريحة العميل / المورد.</li>
+    <li><strong>حسب السياق</strong> (بلا مفتاح): الرصيد والسقف، الولاء، الأسعار التجارية — انظروا §6.10.</li>
+    <li><strong>«إظهار الكل»</strong> يعيد الكتل التي أخفيتموها يدويًا.</li>
+    <li><strong>الكتالوج (التصنيفات والبلاطات)</strong>: عند إخفائه لا يظهر الرواق؛ يبقى المسح والبحث (قائمة مؤقتة). تتّسع التذكرة (§6.1).</li>
+  </ul>
+  <p>تنطبق الخيارات نفسها على POS البيع وPOS الشراء. الولاء والأسعار التجارية يبقيان للبيع فقط.</p>
+
+</div>
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 16 — APP MANAGER MOBILE
+───────────────────────────────────────── -->
+<div class="chapter" id="ch16">
+  <div class="chapter-header">
+    <div class="chapter-number">الفصل 16</div>
+    <h2>تطبيق المدير على الجوال</h2>
+    <p>قيادة النشاط من هاتف (PWA أو APK أندرويد)</p>
+  </div>
+
+  <p>
+    <strong>تطبيق المدير</strong> عرض منسّق للمدير أثناء التنقّل: رقم اليوم،
+    حالة الصندوق، تنبيهات المخزون / تاريخ الانتهاء، اختصارات. لا يتضمّن POS كاملًا
+    (افتحوا POS من تبويب المزيد عند الحاجة).
+  </p>
+
+  <h3 id="ch16-s1">16.1 PWA على العنوان /m</h3>
+  <p>
+    بعد تسجيل الدخول، افتحوا <code>/m</code> أو المسوا شريط <strong>«فتح تطبيق المدير»</strong> على Hub.
+    ثلاثة تبويبات في الأسفل: <strong>الرئيسية</strong> (رقم المعاملات، الصندوق، مؤشرات KPI)، <strong>التنبيهات</strong> (خطة العمل نفسها للوحة التحكم)،
+    <strong>المزيد</strong> (POS، Hub، المخزون، التقارير، الإعدادات، تسجيل الخروج).
+  </p>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="062"><img src="manual-screenshots-ar/shot-062.png" alt="تطبيق المدير على الجوال" loading="eager" width="900"><figcaption class="screenshot-caption">تطبيق المدير — الرئيسية: رقم معاملات اليوم والصندوق ومؤشرات المخزون.</figcaption></figure>
+  <ul>
+    <li><strong>السحب للتحديث</strong>: اسحبوا نحو الأسفل للتحديث. يتم تحديث تلقائي كل 45 ثانية إذا كان التبويب ظاهرًا.</li>
+    <li><strong>دون اتصال</strong>: شريط + بيانات قد تكون في الذاكرة المؤقتة (حداثة نحو 10 دقائق).</li>
+    <li><strong>التثبيت</strong>: آيفون → مشاركة → على الشاشة الرئيسية. أندرويد Chrome → أولًا إلغاء قفل تخطيط الشاشة الرئيسية، ثم القائمة → إضافة إلى الشاشة الرئيسية. عبر HTTP على عنوان IP محلي (مثل <code>192.168.x.x</code>)، ينشئ Chrome اختصارًا وليس تطبيق «متاجر».</li>
+  </ul>
+  <div class="box info">
+    <div class="box-title">ℹ️ الحقوق</div>
+    يتطلّب تطبيق المدير الحق <strong>dashboard:read</strong> (والحواجز نفسها لبقية التطبيق: اتصال، ترخيص، تهيئة، وضع مقفل).
+  </div>
+
+  <h3 id="ch16-s2">16.2 تطبيق أندرويد (APK)</h3>
+  <p>
+    يفتح APK Capacitor (<code>com.assalim.app</code>) العرض نفسه <code>/m</code> بملء الشاشة، مع أيقونة Assalim.
+    في وضع تجريبي / شبكة محلية، يحمّل التطبيق عنوان الخادم (Mac أو PC الذي يشغّل السليم): يجب أن يكون الهاتف والخادم
+    على <strong>شبكة Wi‑Fi نفسها</strong>. متجر Play ليس بعد قناة التوزيع.
+  </p>
+  <div class="box warn">
+    <div class="box-title">⚠️ التثبيت</div>
+    اسمحوا بـ«مصادر غير معروفة» لتثبيت APK التصحيح. إذا تغيّر عنوان IP للخادم، يجب إعادة مزامنة تهيئة الشبكة المحلية للتطبيق.
+  </div>
+
+</div>
+
+<!-- ─────────────────────────────────────────
+     الفصل 17 — السليم الأساسي (حانوت)
+───────────────────────────────────────── -->
+<div class="chapter" id="ch17">
+  <div class="chapter-header">
+    <div class="chapter-number">الفصل 17</div>
+    <h2>السليم الأساسي (حانوت)</h2>
+    <p>بقالة الحي: واجهة بسيطة، دين الزبون، مخزون موقع واحد</p>
+  </div>
+
+  <p>
+    <strong>السليم الأساسي</strong> يطابق الثلاثي <code>GROCERY</code> + ملف التجربة <strong>بسيط</strong>
+    + إصدار <strong>أساسي</strong>. تعرض القائمة أربع بلاطات: <strong>بيع</strong>، <strong>الدفتر</strong>،
+    <strong>المخزون</strong>، <strong>اليوم</strong>. عروض الأسعار والطلبات وHoReCa ووحدات ERP المتقدمة مخفية
+    (البيانات تبقى في القاعدة عند العودة إلى Retail).
+  </p>
+
+  <h3 id="ch17-s1">17.1 الملف البسيط والواجهة</h3>
+  <ul>
+    <li>إعداد موجّه: المحل، صندوق <code>CAISSE1</code>، استيراد CSV اختياري، أول بيع.</li>
+    <li>الخطوة 2 تسأل عن الماسح والبيع بالوزن (تفضيلات تُحفظ للمحل).</li>
+    <li>POS بيع: فاتورة مباشرة، نقد أو دين زبون، ماسح USB دون إعداد.</li>
+    <li>شراء: استلام مباشر من المورد (مدفوع / باقي).</li>
+    <li>الصندوق: فتح، حركات، إغلاق موجّه (عد قبل المبلغ النظري).</li>
+    <li>دون اتصال معتمد: فواتير بيع/شراء مباشرة في قائمة الانتظار؛ الجرد والإغلاق والمدفوعات اللاحقة محظورة مع رسالة.</li>
+  </ul>
+
+  <h3 id="ch17-s2">17.2 الدفتر والكشف</h3>
+  <p>
+    قائمة <strong>الزبائن</strong> تصبح <strong>الدفتر</strong>: أرصدة، فرز، تحصيل سريع دون فاتورة جديدة،
+    سجل قابل للتدقيق (الأسطر الملغاة محفوظة).
+  </p>
+  <ul>
+    <li><strong>تحصيل</strong>: الدفتر → زبون → مبلغ → وسيلة → إيصال.</li>
+    <li><strong>مشاركة الكشف</strong>: قائمة مع واتساب (نص FR/AR عبر <code>wa.me</code>)،
+      تصدير PDF (طباعة «حفظ بصيغة PDF») أو صورة PNG للتنزيل.</li>
+    <li>لا إرسال تلقائي: أنتم تضغطون إرسال في واتساب.</li>
+  </ul>
+
+  <h3 id="ch17-s3">17.3 الترقية إلى Retail</h3>
+  <p>
+    إعدادات المؤسسة: التبديل إلى إصدار <strong>Retail</strong> وملف <strong>قياسي</strong>.
+    تظهر قائمة تحقق (نسخ احتياطي، تشخيص، وحدات، موقع ثانٍ، جرد، تدريب).
+    العودة إلى الأساسي يخفي دون حذف.
+  </p>
+
+  <h3 id="ch17-s4">17.4 مقاييس التجربة والعتاد</h3>
+  <p>
+    في <strong>اليوم</strong>، يرى المدير جدول <strong>مسارات التجربة (30 يومًا)</strong>: الإعداد، أول بيع،
+    بيع نقدي بالماسح، إغلاق الصندوق، تحصيل الدفتر، مشاركة الكشف وإعادة التشغيل دون اتصال — مع الوسيط وأهداف SLA.
+  </p>
+  <p>
+    إعدادات الصندوق تعرض الطابعات المعتمدة 80 مم USB (Xprinter XP-N160I، Epson TM-T20III) مع التوصيل والاختبارات.
+    تحققوا من العربية RTL على تذكرة حقيقية قبل الإطلاق.
+  </p>
+</div>
+
+<!-- ─────────────────────────────────────────
+     ANNEXE — GLOSSAIRE
+───────────────────────────────────────── -->
+<div class="chapter" id="annexe-glossaire">
+  <div class="chapter-header">
+    <div class="chapter-number">الملحق</div>
+    <h2>المسرد — مصطلحات شائعة</h2>
+    <p>تعريفات قصيرة لتجدوا طريقكم في الدليل وعلى الشاشة</p>
+  </div>
+
+  <table>
+    <thead><tr><th>المصطلح</th><th>المعنى المبسّط</th></tr></thead>
+    <tbody>
+      <tr><td><strong>BL (إذن التسليم)</strong></td><td>مستند يثبت أن البضائع غادرت نحو العميل؛ يخفض المخزون عند اعتماده.</td></tr>
+      <tr><td><strong>Hub</strong></td><td>الصفحة الرئيسية ببلاطات ملوّنة لفتح الوحدات (المبيعات، المشتريات، إلخ).</td></tr>
+      <tr><td><strong>POS</strong></td><td>«Point of sale»: شاشة الصندوق للبيع أو، في POS الشراء، لتسجيل استلام مورد.</td></tr>
+      <tr><td><strong>عرض السعر</strong></td><td>مقترح أسعار؛ يصبح طلبًا أو فاتورة بعد القبول (في جانب البيع أو الشراء).</td></tr>
+      <tr><td><strong>الطلب</strong></td><td>التزام بالكميات والأسعار؛ يجسّد إذن التسليم أو الاستلام خروج المخزون أو دخوله.</td></tr>
+      <tr><td><strong>الفاتورة</strong></td><td>مستند محاسبي يثبت البيع أو الشراء والمبلغ المستحق.</td></tr>
+      <tr><td><strong>المستحقات / ائتمان العميل</strong></td><td>المبلغ الذي ما زال العميل مدينًا به على مجموع فواتيره.</td></tr>
+      <tr><td><strong>دين المورد</strong></td><td>المبلغ الذي ما زلتم مدينين به للمورد.</td></tr>
+      <tr><td><strong>جلسة الصندوق</strong></td><td>فترة تُتتبَّع خلالها المدفوعات النقدية؛ تُفتح صباحًا وتُغلق في نهاية اليوم أو الخدمة.</td></tr>
+      <tr><td><strong>الجرد</strong></td><td>عملية يُعدّ فيها المخزون فعليًا وتُصحَّح الفروقات في التطبيق.</td></tr>
+      <tr><td><strong>مقترح الشراء</strong></td><td>اقتراح تلقائي لإعادة التموين حسب مستويات المخزون.</td></tr>
+      <tr><td><strong>RTL</strong></td><td>اتجاه القراءة من اليمين إلى اليسار؛ يُستخدم بالعربية للقائمة والنصوص.</td></tr>
+      <tr><td><strong>KDS</strong></td><td>«Kitchen Display»: شاشة المطبخ التي تعرض الطلبات المراد تحضيرها (HoReCa).</td></tr>
+      <tr><td><strong>استدعاء النادل (QR)</strong></td><td>صفحة عامة <code>/call/{token}</code> تتيح للزبون استدعاء نادل بمسح رمز QR على الطاولة.</td></tr>
+      <tr><td><strong>Split bill</strong></td><td>تقسيم الفاتورة على عدة حصص لتحصيل منفصل في POS.</td></tr>
+      <tr><td><strong>لوحة التوصيل</strong></td><td>لوحة Kanban في HoReCa لطلبات الهاتف / Glovo / Uber (إدخال يدوي، دون واجهة شريك API).</td></tr>
+      <tr><td><strong>موقع / مستودع</strong></td><td>مكان مخزون؛ يُخصم موقع POS (الافتراضي) بالمبيعات؛ وتُملأ الأخرى بالتحويل.</td></tr>
+      <tr><td><strong>GS1 DataMatrix</strong></td><td>رمز ثنائي الأبعاد يُمسح في POS وقد يحتوي GTIN والدفعة وتاريخ الانتهاء إضافة إلى الرمز الشريطي.</td></tr>
+      <tr><td><strong>تطبيق المدير</strong></td><td>عرض الهاتف <code>/m</code> (PWA أو APK) لرقم المعاملات والصندوق وتنبيهات المدير.</td></tr>
+      <tr><td><strong>الوضع المقفل</strong></td><td>ملء شاشة لأمين الصندوق (POS) أو النادل (القاعة)؛ يتطلّب الخروج كلمة مرور المدير.</td></tr>
+      <tr><td><strong>قفل الصندوق (PIN)</strong></td><td>جدار وجوه + PIN أثناء جلسة POS (استراحة)؛ يختلف عن الوضع المقفل في قائمة الحساب.</td></tr>
+      <tr><td><strong>حق الطابع</strong></td><td>نسبة على الجزء المحصَّل من دفعة (غالبًا نقد)؛ خارج رقم معاملات الفاتورة، مثل الإكرامية.</td></tr>
+      <tr><td><strong>شاشة العميل</strong></td><td>شاشة ثانية <code>/pos/customer-display</code> تعرض السلة للعميل أثناء التحصيل.</td></tr>
+      <tr><td><strong>الترخيص</strong></td><td>حق استخدام السليم في مؤسستكم؛ قد يعرض تاريخ انتهاء.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ─────────────────────────────────────────
+     PIED DE PAGE
+───────────────────────────────────────── -->
+<div class="page-footer">
+  <p><strong>السليم</strong> — دليل الاستخدام الإصدار 1.9 — أغسطس 2026</p>
+  <p>وثيقة سرية — يُمنع النسخ والتوزيع دون ترخيص</p>
+</div>
+
+</div><!-- /content -->
+
+<script>
+  (function prepareManualForViewAndPrint() {
+    function eagerImages() {
+      document.querySelectorAll('img').forEach(function (img) {
+        img.setAttribute('loading', 'eager');
+        img.loading = 'eager';
+      });
+    }
+    eagerImages();
+    window.addEventListener('beforeprint', eagerImages);
+    try {
+      if (window.parent === window) {
+        return;
+      }
+      var parentRoot = window.parent.document.documentElement;
+      var dark = parentRoot.classList.contains('assalim-dark-theme');
+      document.documentElement.classList.toggle('assalim-dark-theme', dark);
+      document.documentElement.classList.toggle('assalim-light-theme', !dark);
+    } catch (error) {
+      /* ignore cross-origin */
+    }
+  })();
+</script>
+
+</body></html>

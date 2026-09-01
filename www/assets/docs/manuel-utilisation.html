@@ -1,0 +1,3146 @@
+<!DOCTYPE html><html lang="fr"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assalim — Manuel d'utilisation</title>
+  <style>
+    /* ── VARIABLES (clair — impression / lecture jour) ── */
+    :root {
+      color-scheme: light dark;
+      --primary: #1a5276;
+      --primary-light: #2980b9;
+      --accent: #27ae60;
+      --warn: #e67e22;
+      --danger: #c0392b;
+      --bg: #f4f6f9;
+      --surface: #ffffff;
+      --border: #dce3ec;
+      --text: #2c3e50;
+      --muted: #7f8c8d;
+      --code-bg: #eaf2ff;
+      --code-border: #c5d9f0;
+      --screenshot-bg: #e8ecf2;
+      --screenshot-border: #b0bec5;
+      --table-stripe: #f1f4f8;
+      --kbd-bg: #eee;
+      --kbd-border: #bbb;
+      --box-info-bg: #eaf4ff;
+      --box-info-title: #1a5276;
+      --box-success-bg: #eafaf1;
+      --box-success-title: #1e8449;
+      --box-warn-bg: #fef5e7;
+      --box-warn-title: #935116;
+      --box-danger-bg: #fdedec;
+      --box-danger-title: #922b21;
+      --box-tip-bg: #f1f8e9;
+      --box-tip-title: #2e7d32;
+      --box-tip-border: #a5d6a7;
+      --badge-green-bg: #d5f5e3;
+      --badge-green-text: #1e8449;
+      --badge-blue-bg: #d6eaf8;
+      --badge-blue-text: #1a5276;
+      --badge-orange-bg: #fde8d8;
+      --badge-orange-text: #935116;
+      --badge-red-bg: #fadbd8;
+      --badge-red-text: #922b21;
+      --badge-gray-bg: #e5e8e8;
+      --badge-gray-text: #566573;
+      --screenshot-missing-bg: #fffbf0;
+      --cover-gradient: linear-gradient(135deg, #1a5276 0%, #2980b9 60%, #27ae60 100%);
+      --chapter-header-gradient: linear-gradient(90deg, #1a5276, #2980b9);
+      --table-head-gradient: linear-gradient(90deg, #1a5276, #2980b9);
+      --step-num-bg: #2980b9;
+    }
+
+    /* ── Thème sombre (aligné application Assalim : fond #121212, cartes #2a2a2a) ── */
+    @media (prefers-color-scheme: dark) {
+      :root:not(.assalim-light-theme) {
+        --primary: #90caf9;
+        --primary-light: #64b5f6;
+        --accent: #81c784;
+        --warn: #ffb74d;
+        --danger: #ef9a9a;
+        --bg: #121212;
+        --surface: #2a2a2a;
+        --border: rgba(255, 255, 255, 0.12);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.55);
+        --code-bg: rgba(102, 126, 234, 0.18);
+        --code-border: rgba(159, 168, 218, 0.35);
+        --screenshot-bg: #323232;
+        --screenshot-border: rgba(255, 255, 255, 0.22);
+        --table-stripe: rgba(255, 255, 255, 0.05);
+        --kbd-bg: #3a3a3a;
+        --kbd-border: rgba(255, 255, 255, 0.2);
+        --box-info-bg: rgba(33, 150, 243, 0.18);
+        --box-info-title: #90caf9;
+        --box-success-bg: rgba(76, 175, 80, 0.16);
+        --box-success-title: #a5d6a7;
+        --box-warn-bg: rgba(255, 152, 0, 0.16);
+        --box-warn-title: #ffcc80;
+        --box-danger-bg: rgba(239, 83, 80, 0.16);
+        --box-danger-title: #ef9a9a;
+        --box-tip-bg: rgba(76, 175, 80, 0.14);
+        --box-tip-title: #a5d6a7;
+        --box-tip-border: #81c784;
+        --badge-green-bg: rgba(76, 175, 80, 0.22);
+        --badge-green-text: #c8e6c9;
+        --badge-blue-bg: rgba(33, 150, 243, 0.2);
+        --badge-blue-text: #bbdefb;
+        --badge-orange-bg: rgba(255, 152, 0, 0.18);
+        --badge-orange-text: #ffe0b2;
+        --badge-red-bg: rgba(239, 83, 80, 0.2);
+        --badge-red-text: #ffcdd2;
+        --badge-gray-bg: rgba(255, 255, 255, 0.08);
+        --badge-gray-text: rgba(255, 255, 255, 0.65);
+        --screenshot-missing-bg: rgba(255, 152, 0, 0.12);
+        --cover-gradient: linear-gradient(135deg, #1e1e2d 0%, #2a2438 45%, #311b92 100%);
+        --chapter-header-gradient: linear-gradient(90deg, #3949ab 0%, #5c6bc0 55%, #00897b 100%);
+        --table-head-gradient: linear-gradient(90deg, #3949ab, #5c6bc0);
+        --step-num-bg: #5c6bc0;
+      }
+    }
+
+    html.assalim-dark-theme {
+      --primary: #90caf9;
+      --primary-light: #64b5f6;
+      --accent: #81c784;
+      --warn: #ffb74d;
+      --danger: #ef9a9a;
+      --bg: #121212;
+      --surface: #2a2a2a;
+      --border: rgba(255, 255, 255, 0.12);
+      --text: rgba(255, 255, 255, 0.92);
+      --muted: rgba(255, 255, 255, 0.55);
+      --code-bg: rgba(102, 126, 234, 0.18);
+      --code-border: rgba(159, 168, 218, 0.35);
+      --screenshot-bg: #323232;
+      --screenshot-border: rgba(255, 255, 255, 0.22);
+      --table-stripe: rgba(255, 255, 255, 0.05);
+      --kbd-bg: #3a3a3a;
+      --kbd-border: rgba(255, 255, 255, 0.2);
+      --box-info-bg: rgba(33, 150, 243, 0.18);
+      --box-info-title: #90caf9;
+      --box-success-bg: rgba(76, 175, 80, 0.16);
+      --box-success-title: #a5d6a7;
+      --box-warn-bg: rgba(255, 152, 0, 0.16);
+      --box-warn-title: #ffcc80;
+      --box-danger-bg: rgba(239, 83, 80, 0.16);
+      --box-danger-title: #ef9a9a;
+      --box-tip-bg: rgba(76, 175, 80, 0.14);
+      --box-tip-title: #a5d6a7;
+      --box-tip-border: #81c784;
+      --badge-green-bg: rgba(76, 175, 80, 0.22);
+      --badge-green-text: #c8e6c9;
+      --badge-blue-bg: rgba(33, 150, 243, 0.2);
+      --badge-blue-text: #bbdefb;
+      --badge-orange-bg: rgba(255, 152, 0, 0.18);
+      --badge-orange-text: #ffe0b2;
+      --badge-red-bg: rgba(239, 83, 80, 0.2);
+      --badge-red-text: #ffcdd2;
+      --badge-gray-bg: rgba(255, 255, 255, 0.08);
+      --badge-gray-text: rgba(255, 255, 255, 0.65);
+      --screenshot-missing-bg: rgba(255, 152, 0, 0.12);
+      --cover-gradient: linear-gradient(135deg, #1e1e2d 0%, #2a2438 45%, #311b92 100%);
+      --chapter-header-gradient: linear-gradient(90deg, #3949ab 0%, #5c6bc0 55%, #00897b 100%);
+      --table-head-gradient: linear-gradient(90deg, #3949ab, #5c6bc0);
+      --step-num-bg: #5c6bc0;
+    }
+
+    html.assalim-dark-theme .screenshot-figure img {
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+      border-color: var(--border);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not(.assalim-light-theme) .screenshot-figure img {
+        box-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+        border-color: var(--border);
+      }
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── BODY ── */
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 13.5pt;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    a { color: var(--primary-light); }
+    a:hover { color: var(--primary); }
+
+    /* ── COVER PAGE ── */
+    .cover {
+      width: 100%;
+      min-height: 100vh;
+      background: var(--cover-gradient);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 40px;
+      page-break-after: always;
+    }
+    .cover .logo-placeholder {
+      width: 160px; height: 160px;
+      background: rgba(255,255,255,0.15);
+      border: 3px solid rgba(255,255,255,0.4);
+      border-radius: 24px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 56px; color: #fff;
+      margin-bottom: 40px;
+    }
+    .cover h1 { font-size: 48pt; color: #fff; font-weight: 700; letter-spacing: 2px; }
+    .cover h2 { font-size: 22pt; color: rgba(255,255,255,0.85); font-weight: 300; margin-top: 12px; }
+    .cover .subtitle {
+      margin-top: 30px;
+      font-size: 14pt;
+      color: rgba(255,255,255,0.75);
+      max-width: 600px;
+    }
+    .cover .version-badge {
+      margin-top: 50px;
+      padding: 10px 28px;
+      border: 2px solid rgba(255,255,255,0.5);
+      border-radius: 30px;
+      color: #fff;
+      font-size: 11pt;
+      letter-spacing: 1px;
+    }
+    .cover .date { margin-top: 16px; color: rgba(255,255,255,0.6); font-size: 10pt; }
+
+    /* ── TOC ── */
+    .toc-page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 50px;
+      page-break-after: always;
+    }
+    .toc-page h2 { font-size: 22pt; color: var(--primary); border-bottom: 3px solid var(--primary); padding-bottom: 12px; margin-bottom: 30px; }
+    .toc-list { list-style: none; }
+    .toc-list li { display: flex; align-items: baseline; gap: 8px; padding: 7px 0; border-bottom: 1px dotted var(--border); }
+    .toc-list li .toc-num { color: var(--primary); font-weight: 700; min-width: 36px; }
+    .toc-list li .toc-title { flex: 1; color: var(--text); }
+    .toc-list li .toc-page-num { color: var(--muted); font-size: 10pt; }
+    .toc-list li.sub { padding-left: 30px; }
+    .toc-list li.sub .toc-num { color: var(--primary-light); font-size: 10pt; }
+
+    .toc-list a.toc-link {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex: 1;
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .toc-list a.toc-link:hover .toc-title {
+      color: var(--primary-light);
+      text-decoration: underline;
+    }
+    .toc-list a.toc-link:focus-visible {
+      outline: 2px solid var(--primary-light);
+      outline-offset: 2px;
+    }
+
+    .chapter, h3[id^="ch"] {
+      scroll-margin-top: 12px;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 50px;
+    }
+
+    /* ── CHAPTER ── */
+    .chapter {
+      page-break-before: always;
+      padding-top: 20px;
+    }
+    .chapter-header {
+      background: var(--chapter-header-gradient);
+      color: #fff;
+      padding: 28px 36px;
+      border-radius: 12px;
+      margin-bottom: 36px;
+    }
+    .chapter-header .chapter-number { font-size: 12pt; opacity: 0.75; letter-spacing: 2px; text-transform: uppercase; }
+    .chapter-header h2 { font-size: 26pt; font-weight: 700; margin-top: 6px; }
+    .chapter-header p { margin-top: 8px; opacity: 0.85; font-size: 11pt; }
+
+    /* ── SECTIONS ── */
+    h3 {
+      font-size: 16pt;
+      color: var(--primary);
+      margin: 36px 0 14px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--border);
+    }
+    h4 {
+      font-size: 13pt;
+      color: var(--primary-light);
+      margin: 24px 0 10px;
+    }
+    p { margin-bottom: 14px; }
+    ul, ol { margin: 10px 0 16px 26px; }
+    li { margin-bottom: 6px; }
+
+    /* ── SCREENSHOT PLACEHOLDER ── */
+    .screenshot {
+      width: 100%;
+      min-height: 280px;
+      background: var(--screenshot-bg);
+      border: 2px dashed var(--screenshot-border);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 24px 0;
+      padding: 30px;
+      text-align: center;
+      color: var(--muted);
+      gap: 10px;
+    }
+    .screenshot .icon { font-size: 48px; opacity: 0.4; }
+    .screenshot .label { font-size: 12pt; font-weight: 600; color: var(--primary); }
+    .screenshot .hint { font-size: 9.5pt; color: var(--muted); max-width: 400px; }
+    .screenshot.tall { min-height: 380px; }
+    .screenshot.small { min-height: 180px; }
+
+    /* Figures générées (capture manuel) */
+    .screenshot-figure {
+      margin: 24px 0;
+      text-align: center;
+    }
+    .screenshot-figure img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    }
+    .screenshot-figure--tall img {
+      min-height: 200px;
+      object-fit: contain;
+    }
+    .screenshot-figure--small img {
+      max-height: 300px;
+      object-fit: contain;
+    }
+    .screenshot-caption {
+      font-size: 9.5pt;
+      color: var(--muted);
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+    .screenshot-missing {
+      border: 2px dashed var(--warn);
+      border-radius: 10px;
+      padding: 22px;
+      background: var(--screenshot-missing-bg);
+      color: var(--text);
+      font-size: 10pt;
+      text-align: left;
+    }
+    .screenshot-missing code {
+      font-size: 9pt;
+    }
+
+    /* ── INFO BOXES ── */
+    .box {
+      border-left: 5px solid;
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: 10.5pt;
+      color: var(--text);
+    }
+    .box-title { font-weight: 700; margin-bottom: 6px; font-size: 11pt; }
+    .box.info { border-color: var(--primary-light); background: var(--box-info-bg); }
+    .box.info .box-title { color: var(--box-info-title); }
+    .box.success { border-color: var(--accent); background: var(--box-success-bg); }
+    .box.success .box-title { color: var(--box-success-title); }
+    .box.warn { border-color: var(--warn); background: var(--box-warn-bg); }
+    .box.warn .box-title { color: var(--box-warn-title); }
+    .box.danger { border-color: var(--danger); background: var(--box-danger-bg); }
+    .box.danger .box-title { color: var(--box-danger-title); }
+    .box.tip { border-color: var(--box-tip-border); background: var(--box-tip-bg); }
+    .box.tip .box-title { color: var(--box-tip-title); }
+
+    /* ── STEP CARDS ── */
+    .steps { counter-reset: step; margin: 20px 0; }
+    .step {
+      counter-increment: step;
+      display: flex;
+      gap: 18px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+    .step-num {
+      min-width: 38px; height: 38px;
+      background: var(--step-num-bg);
+      color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 14pt;
+      flex-shrink: 0;
+    }
+    .step-body h4 { margin: 2px 0 6px; color: var(--text); font-size: 12pt; }
+    .step-body p { margin: 0; font-size: 10.5pt; }
+
+    /* ── ROLE TABLE ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 10.5pt;
+    }
+    thead tr { background: var(--table-head-gradient); color: #fff; }
+    thead th { padding: 12px 14px; text-align: left; }
+    tbody tr:nth-child(even) { background: var(--table-stripe); }
+    tbody td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 8.5pt;
+      font-weight: 600;
+    }
+    .badge-green { background: var(--badge-green-bg); color: var(--badge-green-text); }
+    .badge-blue { background: var(--badge-blue-bg); color: var(--badge-blue-text); }
+    .badge-orange { background: var(--badge-orange-bg); color: var(--badge-orange-text); }
+    .badge-red { background: var(--badge-red-bg); color: var(--badge-red-text); }
+    .badge-gray { background: var(--badge-gray-bg); color: var(--badge-gray-text); }
+
+    /* ── KEYBOARD SHORTCUT ── */
+    kbd {
+      background: var(--kbd-bg);
+      border: 1px solid var(--kbd-border);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-family: monospace;
+      font-size: 10pt;
+    }
+    code {
+      font-family: ui-monospace, Consolas, monospace;
+      font-size: 10.5pt;
+      background: var(--code-bg);
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--code-border);
+    }
+
+    /* ── FOOTER ── */
+    .page-footer {
+      text-align: center;
+      font-size: 8.5pt;
+      color: var(--muted);
+      margin-top: 60px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── PRINT / PDF ── */
+    @page { size: A4; margin: 12mm; }
+    @media print {
+      :root,
+      html,
+      html.assalim-dark-theme {
+        --bg: #ffffff;
+        --surface: #ffffff;
+        --text: #2c3e50;
+        --muted: #5d6d7e;
+        --border: #dce3ec;
+        --primary: #1a5276;
+        --primary-light: #2980b9;
+        --screenshot-bg: #e8ecf2;
+        --screenshot-border: #b0bec5;
+        --table-stripe: #f1f4f8;
+        --code-bg: #eaf2ff;
+        --code-border: #c5d9f0;
+        --box-info-bg: #eaf4ff;
+        --box-info-title: #1a5276;
+        --box-success-bg: #eafaf1;
+        --box-success-title: #1e8449;
+        --box-warn-bg: #fef5e7;
+        --box-warn-title: #935116;
+        --box-danger-bg: #fdedec;
+        --box-danger-title: #922b21;
+        --box-tip-bg: #f1f8e9;
+        --box-tip-title: #2e7d32;
+        --box-tip-border: #a5d6a7;
+        --cover-gradient: linear-gradient(135deg, #1a5276 0%, #2980b9 60%, #27ae60 100%);
+        --chapter-header-gradient: linear-gradient(90deg, #1a5276, #2980b9);
+        --table-head-gradient: linear-gradient(90deg, #1a5276, #2980b9);
+        --step-num-bg: #2980b9;
+      }
+      body { background: #fff; color: #2c3e50; font-size: 11pt; height: auto !important; overflow: visible !important; }
+      html { height: auto !important; overflow: visible !important; }
+      .content { height: auto !important; overflow: visible !important; max-height: none !important; }
+      .cover {
+        min-height: 0;
+        height: auto;
+        padding: 48px 28px;
+        page-break-after: always;
+        break-after: page;
+      }
+      .toc-page { page-break-after: always; break-after: page; }
+      .chapter { page-break-before: always; break-before: page; }
+      .screenshot, .screenshot-figure, .screenshot-figure img, .chapter-header, thead tr, .box {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .screenshot-figure img,
+      .screenshot-figure--small img,
+      .screenshot-figure--tall img {
+        max-width: 100% !important;
+        max-height: 170mm !important;
+        width: auto !important;
+        height: auto !important;
+        min-height: 0 !important;
+        object-fit: contain;
+        page-break-inside: auto;
+        break-inside: auto;
+      }
+      .no-print { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     PAGE DE COUVERTURE
+══════════════════════════════════════════ -->
+<div class="cover">
+  <div class="logo-placeholder">🏪</div>
+  <h1>ASSALIM</h1>
+  <h2>Manuel d'Utilisation</h2>
+  <p class="subtitle">
+    Guide complet à l'intention des utilisateurs de la solution de gestion commerciale Assalim —
+    Vente, Achat, Stocks, Caisse, Rapports et bien plus.
+  </p>
+  <div class="version-badge">Version 1.9 — Édition Française</div>
+  <div class="date">Août 2026</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     TABLE DES MATIÈRES
+══════════════════════════════════════════ -->
+<div class="toc-page">
+  <h2>Table des Matières</h2>
+  <ul class="toc-list">
+    <li><a class="toc-link" href="#ch1"><span class="toc-num">1</span><span class="toc-title">Présentation de l'application</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch1-s1"><span class="toc-num">1.1</span><span class="toc-title">Fonctionnalités principales</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch1-s2"><span class="toc-num">1.2</span><span class="toc-title">Rôles et profils utilisateurs</span></a></li>
+
+    <li><a class="toc-link" href="#ch2"><span class="toc-num">2</span><span class="toc-title">Connexion &amp; Navigation</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch2-s1"><span class="toc-num">2.1</span><span class="toc-title">Se connecter</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch2-s2"><span class="toc-num">2.2</span><span class="toc-title">Mot de passe oublié</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch2-s3"><span class="toc-num">2.3</span><span class="toc-title">Interface générale</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch2-s4"><span class="toc-num">2.4</span><span class="toc-title">Hub (centre d'applications)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch2-s5"><span class="toc-num">2.5</span><span class="toc-title">Thème d'affichage (clair / sombre)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch2-s6"><span class="toc-num">2.6</span><span class="toc-title">Menu Aide : visite, navigation rapide, manuel</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch2-s7"><span class="toc-num">2.7</span><span class="toc-title">Recherche universelle (Ctrl+K)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch2-s8"><span class="toc-num">2.8</span><span class="toc-title">Raccourcis clavier</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch2-s9"><span class="toc-num">2.9</span><span class="toc-title">Typographie paramétrable</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch2-s10"><span class="toc-num">2.10</span><span class="toc-title">Modes verrouillés (caissier / serveur)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch2-s11"><span class="toc-num">2.11</span><span class="toc-title">Mode tactile</span></a></li>
+
+    <li><a class="toc-link" href="#ch3"><span class="toc-num">3</span><span class="toc-title">Tableau de Bord</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch3-s1"><span class="toc-num">3.1</span><span class="toc-title">Dashboard personnalisable</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch3-s2"><span class="toc-num">3.2</span><span class="toc-title">Plan d'action « Quoi faire demain »</span></a></li>
+
+    <li><a class="toc-link" href="#ch4"><span class="toc-num">4</span><span class="toc-title">Référentiel Produits</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch4-s1"><span class="toc-num">4.1</span><span class="toc-title">Produits</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch4-s2"><span class="toc-num">4.2</span><span class="toc-title">Catégories</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch4-s3"><span class="toc-num">4.3</span><span class="toc-title">Unités de mesure</span></a></li>
+
+    <li><a class="toc-link" href="#ch5"><span class="toc-num">5</span><span class="toc-title">Clients &amp; Fournisseurs</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch5-s1"><span class="toc-num">5.1</span><span class="toc-title">Gestion des clients</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch5-s2"><span class="toc-num">5.2</span><span class="toc-title">Gestion des fournisseurs</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch5-s3"><span class="toc-num">5.3</span><span class="toc-title">Conditions de paiement</span></a></li>
+
+    <li><a class="toc-link" href="#ch6"><span class="toc-num">6</span><span class="toc-title">Point de Vente (POS)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch6-s1"><span class="toc-num">6.1</span><span class="toc-title">POS Vente</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch6-s2"><span class="toc-num">6.2</span><span class="toc-title">POS Achat</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch6-s3"><span class="toc-num">6.3</span><span class="toc-title">Remises, marge et conversion au POS</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch6-s4"><span class="toc-num">6.4</span><span class="toc-title">Mode kiosk (plein écran tablette)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch6-s5"><span class="toc-num">6.5</span><span class="toc-title">Mode hors-ligne</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch6-s6"><span class="toc-num">6.6</span><span class="toc-title">Programme de fidélité au POS</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch6-s7"><span class="toc-num">6.7</span><span class="toc-title">Scan code-barres et GS1 DataMatrix</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch6-s8"><span class="toc-num">6.8</span><span class="toc-title">Affiche client</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch6-s9"><span class="toc-num">6.9</span><span class="toc-title">Catalogue : filtres En stock et Utilisés</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch6-s10"><span class="toc-num">6.10</span><span class="toc-title">Client, solde et tarifs</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch6-s11"><span class="toc-num">6.11</span><span class="toc-title">Verrouiller la caisse</span></a></li>
+
+    <li><a class="toc-link" href="#ch7"><span class="toc-num">7</span><span class="toc-title">Transactions de Vente</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch7-s1"><span class="toc-num">7.1</span><span class="toc-title">Devis de vente</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch7-s2"><span class="toc-num">7.2</span><span class="toc-title">Commandes de vente</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch7-s3"><span class="toc-num">7.3</span><span class="toc-title">Bons de livraison</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch7-s4"><span class="toc-num">7.4</span><span class="toc-title">Factures de vente</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch7-s5"><span class="toc-num">7.5</span><span class="toc-title">Paiements clients</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch7-s6"><span class="toc-num">7.6</span><span class="toc-title">Discussions et pièces jointes sur un document</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch7-s7"><span class="toc-num">7.7</span><span class="toc-title">Retours vente — Avoir client</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch7-s8"><span class="toc-num">7.8</span><span class="toc-title">Partage WhatsApp</span></a></li>
+
+    <li><a class="toc-link" href="#ch8"><span class="toc-num">8</span><span class="toc-title">Transactions d'Achat</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch8-s1"><span class="toc-num">8.1</span><span class="toc-title">Propositions d'achat</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch8-s2"><span class="toc-num">8.2</span><span class="toc-title">Devis fournisseur</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch8-s3"><span class="toc-num">8.3</span><span class="toc-title">Commandes d'achat</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch8-s4"><span class="toc-num">8.4</span><span class="toc-title">Bons de réception</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch8-s5"><span class="toc-num">8.5</span><span class="toc-title">Factures fournisseur</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch8-s6"><span class="toc-num">8.6</span><span class="toc-title">Paiements fournisseurs</span></a></li>
+
+    <li><a class="toc-link" href="#ch9"><span class="toc-num">9</span><span class="toc-title">Stock &amp; Inventaire</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch9-s1"><span class="toc-num">9.1</span><span class="toc-title">État des stocks</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch9-s2"><span class="toc-num">9.2</span><span class="toc-title">Inventaires</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch9-s3"><span class="toc-num">9.3</span><span class="toc-title">Alertes de stock</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch9-s4"><span class="toc-num">9.4</span><span class="toc-title">Gestion des périmés</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch9-s5"><span class="toc-num">9.5</span><span class="toc-title">Sites / dépôts</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch9-s6"><span class="toc-num">9.6</span><span class="toc-title">Transferts de stock</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch9-s7"><span class="toc-num">9.7</span><span class="toc-title">Réseau retail</span></a></li>
+
+    <li><a class="toc-link" href="#ch10"><span class="toc-num">10</span><span class="toc-title">Caisse</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch10-s1"><span class="toc-num">10.1</span><span class="toc-title">Ouvrir une session de caisse</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch10-s2"><span class="toc-num">10.2</span><span class="toc-title">Mouvements de caisse</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch10-s3"><span class="toc-num">10.3</span><span class="toc-title">Fermer la session</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch10-s4"><span class="toc-num">10.4</span><span class="toc-title">Historique des sessions</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch10-s5"><span class="toc-num">10.5</span><span class="toc-title">Catégories de caisse</span></a></li>
+
+    <li><a class="toc-link" href="#ch11"><span class="toc-num">11</span><span class="toc-title">Rapports &amp; Analyses</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch11-s0"><span class="toc-num">11.0</span><span class="toc-title">Page Rapports : vue d'ensemble</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch11-s1"><span class="toc-num">11.1</span><span class="toc-title">Encours clients (crédits)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch11-s2"><span class="toc-num">11.2</span><span class="toc-title">Filtrer et exporter un rapport</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch11-s3"><span class="toc-num">11.3</span><span class="toc-title">Vieillissement créances (Aging 30/60/90j)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch11-s4"><span class="toc-num">11.4</span><span class="toc-title">Analyse ABC produits</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch11-s5"><span class="toc-num">11.5</span><span class="toc-title">Avoirs clients (rapport)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch11-s6"><span class="toc-num">11.6</span><span class="toc-title">Exports comptables DGI</span></a></li>
+
+    <li><a class="toc-link" href="#ch12"><span class="toc-num">12</span><span class="toc-title">HoReCa — Restauration</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch12-s1"><span class="toc-num">12.1</span><span class="toc-title">Plan de salle</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch12-s2"><span class="toc-num">12.2</span><span class="toc-title">Gestion des tables</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch12-s3"><span class="toc-num">12.3</span><span class="toc-title">Écran cuisine (KDS)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch12-s4"><span class="toc-num">12.4</span><span class="toc-title">Réservations</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch12-s5"><span class="toc-num">12.5</span><span class="toc-title">Statistiques salle</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch12-s6"><span class="toc-num">12.6</span><span class="toc-title">Partager l'addition (split bill)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch12-s7"><span class="toc-num">12.7</span><span class="toc-title">Commande comptoir</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch12-s8"><span class="toc-num">12.8</span><span class="toc-title">Appel serveur (QR code)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch12-s9"><span class="toc-num">12.9</span><span class="toc-title">Livraisons téléphone / Glovo / Uber</span></a></li>
+
+    <li><a class="toc-link" href="#ch13"><span class="toc-num">13</span><span class="toc-title">Messagerie Interne</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch13-s3"><span class="toc-num">13.3</span><span class="toc-title">Ouvrir une conversation</span></a></li>
+
+    <li><a class="toc-link" href="#ch14"><span class="toc-num">14</span><span class="toc-title">Commercial</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch14-s1"><span class="toc-num">14.1</span><span class="toc-title">Fidélité</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch14-s2"><span class="toc-num">14.2</span><span class="toc-title">Promotions</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch14-s3"><span class="toc-num">14.3</span><span class="toc-title">Grilles tarifaires</span></a></li>
+
+    <li><a class="toc-link" href="#ch15"><span class="toc-num">15</span><span class="toc-title">Paramètres</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch15-s1"><span class="toc-num">15.1</span><span class="toc-title">Paramètres généraux</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch15-s2"><span class="toc-num">15.2</span><span class="toc-title">Utilisateurs</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch15-s3"><span class="toc-num">15.3</span><span class="toc-title">Rôles &amp; Permissions</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch15-s4"><span class="toc-num">15.4</span><span class="toc-title">Gestion de la licence</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch15-s5"><span class="toc-num">15.5</span><span class="toc-title">Historique des connexions</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch15-s6"><span class="toc-num">15.6</span><span class="toc-title">Double authentification (MFA)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch15-s7"><span class="toc-num">15.7</span><span class="toc-title">Identifiants fiscaux DGI</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch15-s8"><span class="toc-num">15.8</span><span class="toc-title">Backup base de données</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch15-s9"><span class="toc-num">15.9</span><span class="toc-title">Options de l'écran caisse</span></a></li>
+
+    <li><a class="toc-link" href="#ch16"><span class="toc-num">16</span><span class="toc-title">App manager mobile</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch16-s1"><span class="toc-num">16.1</span><span class="toc-title">PWA /m (téléphone)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch16-s2"><span class="toc-num">16.2</span><span class="toc-title">Application Android (APK)</span></a></li>
+
+    <li><a class="toc-link" href="#ch17"><span class="toc-num">17</span><span class="toc-title">Assalim Essentiel (Hanout)</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch17-s1"><span class="toc-num">17.1</span><span class="toc-title">Profil Simple et hub</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch17-s2"><span class="toc-num">17.2</span><span class="toc-title">Carnet et relevé</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch17-s3"><span class="toc-num">17.3</span><span class="toc-title">Montée vers Retail</span></a></li>
+    <li class="sub"><a class="toc-link" href="#ch17-s4"><span class="toc-num">17.4</span><span class="toc-title">Métriques pilote et matériel</span></a></li>
+
+    <li><a class="toc-link" href="#annexe-glossaire"><span class="toc-num">A</span><span class="toc-title">Glossaire (termes courants)</span></a></li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════════════
+     CONTENU PRINCIPAL
+══════════════════════════════════════════ -->
+<div class="content">
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 1 — PRÉSENTATION
+───────────────────────────────────────── -->
+<div class="chapter" id="ch1">
+  <div class="chapter-header">
+    <div class="chapter-number">Chapitre 1</div>
+    <h2>Présentation de l'application</h2>
+    <p>Découvrez ce qu'est Assalim et ses grandes fonctionnalités</p>
+  </div>
+
+  <p>
+    <strong>Assalim</strong> est une solution de gestion commerciale complète, conçue pour les
+    commerces de détail, parapharmacies et établissements de restauration. Elle intègre dans une
+    seule interface web tous les outils nécessaires au pilotage de votre activité au quotidien :
+    vente, achat, stocks, caisse, rapports et bien plus.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="001"><img src="manual-screenshots/shot-001.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <h3 id="ch1-s1">1.1 Fonctionnalités principales</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Module</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Hub</strong></td><td>Centre d'applications : tuiles d'accès rapide aux modules (ventes, achats, stock, etc.) selon vos droits</td></tr>
+      <tr><td><strong>Tableau de bord</strong></td><td>Vue synthétique des KPI (chiffre d'affaires, marges, top produits, ventes du jour)</td></tr>
+      <tr><td><strong>Point de Vente (POS)</strong></td><td>Caisse tactile unique (vente et achat) : tuiles, ticket, pavé Encaisser, paiement mixte, scanner code-barres / GS1, affiche client, verrou PIN</td></tr>
+      <tr><td><strong>Vente</strong></td><td>Cycle complet : devis → commande → bon de livraison → facture → paiement</td></tr>
+      <tr><td><strong>Achat</strong></td><td>Cycle complet : proposition → commande → réception → facture fournisseur → paiement</td></tr>
+      <tr><td><strong>Stocks &amp; Inventaire</strong></td><td>Suivi en temps réel, sites / dépôts, transferts, inventaires physiques, alertes de rupture</td></tr>
+      <tr><td><strong>Caisse</strong></td><td>Ouverture/fermeture de caisse, mouvements d'espèces, rapport de clôture</td></tr>
+      <tr><td><strong>Rapports</strong></td><td>Rapports de vente, achat, marge, stocks, exports CSV / Excel / PDF</td></tr>
+      <tr><td><strong>HoReCa</strong></td><td>Plan de salle, commandes par table, écran cuisine (KDS), réservations, statistiques, appel serveur QR, board livraisons (téléphone / Glovo / Uber)</td></tr>
+      <tr><td><strong>App mobile</strong></td><td>Vue manager sur téléphone (<code>/m</code>) : CA du jour, caisse, alertes, raccourcis — PWA ou APK Android</td></tr>
+      <tr><td><strong>Messagerie</strong></td><td>Messagerie interne entre les utilisateurs de votre établissement</td></tr>
+      <tr><td><strong>Paramètres</strong></td><td>Configuration de la société, utilisateurs, rôles, permissions, licence, backup base de données</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="ch1-s2">1.2 Rôles et profils utilisateurs</h3>
+  <p>
+    Assalim gère plusieurs niveaux d'accès. Un administrateur peut attribuer un rôle à chaque
+    utilisateur selon ses responsabilités.
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Rôle</th>
+        <th>Description</th>
+        <th>Accès type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-red">Administrateur</span></td>
+        <td>Accès complet à toutes les fonctionnalités et paramètres</td>
+        <td>Tout</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">Gérant</span></td>
+        <td>Supervision des ventes, achats, rapports et stocks</td>
+        <td>Vente, Achat, Stock, Rapports</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">Pharmacien / Vendeur</span></td>
+        <td>Opérations de vente, consultation des stocks</td>
+        <td>POS, Vente, Stock (lecture)</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-orange">Caissier</span></td>
+        <td>Encaissements et opérations de caisse</td>
+        <td>POS, Caisse</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-gray">Cuisine (KDS)</span></td>
+        <td>Consultation et mise à jour des commandes en cuisine</td>
+        <td>Écran cuisine uniquement</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-gray">Admin. plateforme</span></td>
+        <td>Rôle technique SaaS : configuration globale (ex. messagerie système), sans accès métier par défaut</td>
+        <td>Paramètres d'instance, pas le parcours vente/achat classique</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ Permissions personnalisées</div>
+    Un administrateur peut affiner les droits de chaque utilisateur individuellement, en accordant
+    ou retirant des permissions spécifiques indépendamment de son rôle général.
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 2 — CONNEXION & NAVIGATION
+───────────────────────────────────────── -->
+<div class="chapter" id="ch2">
+  <div class="chapter-header">
+    <div class="chapter-number">Chapitre 2</div>
+    <h2>Connexion &amp; Navigation</h2>
+    <p>Comment accéder à l'application et s'y repérer</p>
+  </div>
+
+  <p class="screenshot-caption">
+    <strong>Captures pour la documentation</strong> : pour éviter la fenêtre de visite guidée (tableau de bord, POS), ouvrez l'application avec <code>?noTour=1</code> dans l'URL au moins une fois par session navigateur. Le script Playwright du dossier <code>docs/scripts</code> utilise un viewport 1920×1080, ajoute <code>noTour=1</code>, et pour les écrans POS recharge la première transaction de l’historique récent (il faut au moins une facture vente / achat selon l’écran, selon le type de document courant du POS).
+  </p>
+
+  <h3 id="ch2-s1">2.1 Se connecter</h3>
+  <p>
+    Ouvrez votre navigateur web (Chrome, Firefox, Edge…) et saisissez l'adresse de votre instance
+    Assalim (fournie par votre administrateur). La page de connexion s'affiche automatiquement.
+  </p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>Saisir vos identifiants</h4>
+        <p>Entrez votre <strong>adresse e-mail</strong> et votre <strong>mot de passe</strong> dans les champs correspondants.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>Cliquer sur "Se connecter"</h4>
+        <p>Appuyez sur le bouton ou utilisez la touche <kbd>Entrée</kbd> de votre clavier.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>Accès à l'application</h4>
+        <p>Si vos identifiants sont corrects, vous êtes redirigé vers l'<strong>accueil</strong> (grille du <strong>Hub</strong>) ou vers la première page autorisée par votre profil. Le <strong>tableau de bord</strong> reste accessible depuis le Hub ou le menu latéral. Le <strong>menu de navigation latéral</strong> se présente par défaut <strong>replié</strong> après la connexion (ou l'inscription) : utilisez le bouton <strong>menu</strong> (<span style="font-family:monospace">menu</span> / <span style="font-family:monospace">menu_open</span>) dans la barre du haut pour l'afficher ou le masquer ; votre choix est mémorisé sur cet appareil.</p>
+      </div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure" data-shot="002"><img src="manual-screenshots/shot-002.png" alt="Page de connexion avec profils mémorisés" loading="eager" width="900"><figcaption class="screenshot-caption">Connexion — profils mémorisés sur le poste, ou saisie e-mail / mot de passe.</figcaption></figure>
+
+  <p>
+    Sur un poste déjà utilisé, la page peut afficher les <strong>profils mémorisés</strong> (initiales et prénom).
+    Touchez un visage : si un <strong>PIN caisse</strong> est défini pour ce compte, un pavé numérique s’ouvre ;
+    sinon saisissez le mot de passe. <strong>Autre compte</strong> ramène au formulaire e-mail / mot de passe.
+  </p>
+
+  <div class="box warn">
+    <div class="box-title">⚠️ Sécurité</div>
+    Ne partagez jamais votre mot de passe. En cas de connexion partagée sur un poste commun,
+    pensez à vous déconnecter après chaque session via le menu utilisateur en haut à droite.
+  </div>
+
+  <h3 id="ch2-s2">2.2 Mot de passe oublié</h3>
+  <p>
+    Si vous avez oublié votre mot de passe, cliquez sur le lien <strong>"Mot de passe oublié ?"</strong>
+    en bas du formulaire de connexion.
+  </p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>Saisir votre adresse e-mail</h4>
+        <p>Entrez l'e-mail associé à votre compte Assalim.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>Recevoir le code OTP</h4>
+        <p>Un code de vérification à usage unique (OTP) vous est envoyé par e-mail.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>Saisir le code OTP</h4>
+        <p>Entrez le code reçu sur la page de vérification.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>Définir un nouveau mot de passe</h4>
+        <p>Choisissez un nouveau mot de passe sécurisé et confirmez-le.</p>
+      </div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="003"><img src="manual-screenshots/shot-003.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <h3 id="ch2-s3">2.3 Interface générale</h3>
+  <p>
+    L'interface d'Assalim combine une <strong>barre de navigation latérale</strong> (menu, à gauche
+    en français — à droite en arabe RTL), une <strong>barre d'outils supérieure</strong> et une
+    <strong>zone de contenu principale</strong>.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="004"><img src="manual-screenshots/shot-004.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <h4>Éléments de l'interface</h4>
+  <ul>
+    <li><strong>Menu latéral</strong> : accès aux modules (regroupés par thèmes : ventes, achats, données de base, etc.). Il peut être masqué ou affiché via le bouton dédié dans la barre d'outils ; à l'issue d'une <strong>connexion</strong> ou d'un <strong>changement d'utilisateur</strong>, il est masqué par défaut pour laisser plus de place au contenu.</li>
+    <li><strong>Barre d'outils (en-tête)</strong> : logo ou nom de l'établissement, puis à droite : icône <strong>applications</strong> (retour au Hub), <strong>centre de notifications / alertes</strong> (cloche), menu <strong>Aide</strong> (visite guidée, navigation rapide, <strong>manuel d'utilisation</strong> intégré), icône <strong>soleil ou lune</strong> (choix du thème clair, sombre ou automatique), <strong>langue</strong> (FR / EN / AR), <strong>changement d'utilisateur</strong>, menu <strong>compte</strong> (mot de passe, paramètres, mode kiosque, modes verrouillés, déconnexion). Sur un petit écran, plusieurs de ces actions sont regroupées sous le menu <strong>Plus</strong> (<span style="font-family:monospace">more_vert</span>).</li>
+    <li><strong>Bannières</strong> : selon votre déploiement, des bandeaux peuvent s'afficher (essai, licence à activer, licence expirée, mode hors ligne)</li>
+    <li><strong>Bandeau de contexte documentaire</strong> : lorsque vous consultez un document vente ou achat, une barre colorée rappelle le flux (vente / achat), le type de document et des actions rapides</li>
+    <li><strong>Zone de contenu</strong> : affiche la page ou le module sélectionné</li>
+    <li><strong>Pied du menu latéral</strong> : rappel de l'utilisateur connecté et bouton de déconnexion</li>
+  </ul>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ Interface trilingue</div>
+    Assalim supporte le <strong>français</strong>, l'<strong>anglais</strong> et l'<strong>arabe</strong>. Le changement de langue se fait depuis l'icône <strong>langue</strong> dans la barre d'outils (ou le menu « Plus » sur petits écrans). L'interface passe en lecture <strong>de droite à gauche (RTL)</strong> lorsque l'arabe est sélectionné. Les tickets, PDF et exports suivent la langue et la <strong>devise</strong> configurées dans les paramètres de l'établissement.
+  </div>
+
+  <h3 id="ch2-s4">2.4 Hub (centre d'applications)</h3>
+  <p>
+    Le <strong>Hub</strong> est la grille d'accueil : des <strong>tuiles colorées</strong> représentent
+    les familles de fonctionnalités (ventes, achats, stock, rapports, etc.). Cliquez sur une tuile
+    parent pour afficher les sous-modules, ou sur une tuile simple pour ouvrir directement une page
+    (ex. tableau de bord, caisse).
+  </p>
+  <p>
+    L'icône <strong>applications</strong> (<span style="font-family:monospace">apps</span>) dans
+    la barre d'outils ramène toujours au Hub. Les tuiles affichées dépendent de vos <strong>droits</strong>
+    et, pour le stock, du paramètre <strong>Désactiver la gestion de stock</strong> de l'établissement.
+  </p>
+  <p>
+    En haut du Hub, une bande d'<strong>actions rapides</strong> (caisse, POS, alertes…) dépend du type d'établissement.
+    Un bandeau <strong>« Ouvrir l'app manager »</strong> mène à la vue téléphone <code>/m</code> (chapitre 16).
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="005"><img src="manual-screenshots/shot-005.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <figure class="screenshot-figure" data-shot="006"><img src="manual-screenshots/shot-006.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <h3 id="ch2-s5">2.5 Thème d'affichage (clair ou sombre)</h3>
+  <p>
+    Vous pouvez adapter l'application à votre confort visuel ou à la luminosité du local.
+    Cliquez sur l'icône <strong>soleil</strong> ou <strong>lune</strong> dans la barre d'outils (ou ouvrez le menu <strong>Plus</strong> sur téléphone ou tablette, puis la rubrique du thème).
+  </p>
+  <ul>
+    <li><strong>Clair</strong> : fond clair, texte foncé.</li>
+    <li><strong>Sombre</strong> : fond sombre, texte clair.</li>
+    <li><strong>Système</strong> : Assalim suit le réglage jour / nuit de votre navigateur ou de votre appareil ; si vous changez le thème Windows ou macOS, l'application peut suivre automatiquement.</li>
+  </ul>
+  <p>
+    Votre choix est <strong>enregistré sur cet appareil</strong> : en vous reconnectant depuis le même navigateur, le thème revient comme vous l'aviez laissé.
+  </p>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="069"><img src="manual-screenshots/shot-069.png" alt="Menu thème clair / sombre" loading="eager" width="900"><figcaption class="screenshot-caption">Menu thème — Clair, Sombre, Système, et taille de texte (Compact / Normal / Large).</figcaption></figure>
+
+  <h3 id="ch2-s6">2.6 Menu Aide : visite guidée, navigation rapide, manuel</h3>
+  <p>
+    Le bouton <strong>Aide</strong> (point d'interrogation) ouvre un menu avec trois entrées utiles au quotidien :
+  </p>
+  <ul>
+    <li><strong>Découvrir l'interface</strong> : courte visite guidée des écrans principaux (tableau de bord, POS, etc.). Vous pouvez la quitter à tout moment.</li>
+    <li><strong>Navigation rapide (Ctrl+K)</strong> : boîte de dialogue pour aller vite vers un module en tapant quelques lettres.</li>
+    <li><strong>Manuel d'utilisation</strong> : ouvre ce guide <strong>dans l'application</strong>, pratique pour consulter une procédure sans quitter votre session. Le manuel suit la <strong>langue de l'interface</strong> (français ou arabe). Le bouton <strong>Exporter en PDF</strong> enregistre le guide dans cette même langue : dans la fenêtre d'impression, choisissez « Enregistrer au format PDF ».</li>
+  </ul>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="070"><img src="manual-screenshots/shot-070.png" alt="Menu Aide" loading="eager" width="900"><figcaption class="screenshot-caption">Menu Aide — visite guidée, manuel intégré, navigation rapide (Ctrl+K) et raccourcis clavier.</figcaption></figure>
+
+  <h3 id="ch2-s7">2.7 Recherche universelle (Ctrl+K)</h3>
+  <p>
+    Appuyez sur <kbd>Ctrl</kbd>+<kbd>K</kbd> (ou <kbd>⌘K</kbd> sur Mac) depuis n'importe quelle page
+    pour ouvrir la palette de recherche. Saisissez quelques lettres pour trouver instantanément :
+  </p>
+  <ul>
+    <li>Un <strong>produit</strong> par nom ou code-barres</li>
+    <li>Un <strong>client</strong> ou <strong>fournisseur</strong></li>
+    <li>Une <strong>facture</strong> par numéro</li>
+    <li>Un <strong>module</strong> de l'application</li>
+  </ul>
+  <p>Naviguez avec les touches <kbd>↑</kbd> <kbd>↓</kbd>, validez avec <kbd>Entrée</kbd>, fermez avec <kbd>Échap</kbd>.</p>
+
+  <div class="box tip">
+    <div class="box-title">💡 Astuce</div>
+    La recherche universelle est le moyen le plus rapide de naviguer : moins de 2 secondes pour atteindre n'importe quel écran ou document.
+  </div>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="071"><img src="manual-screenshots/shot-071.png" alt="Recherche universelle Ctrl+K" loading="eager" width="900"><figcaption class="screenshot-caption">Palette Ctrl+K — recherche de modules, produits, clients, fournisseurs et factures.</figcaption></figure>
+
+  <h3 id="ch2-s8">2.8 Raccourcis clavier</h3>
+  <p>
+    Appuyez sur <kbd>?</kbd> depuis n'importe quelle page (hors champ de saisie) pour afficher la liste
+    des raccourcis disponibles. Vous pouvez aussi y accéder via <strong>Menu Aide → Raccourcis clavier (?)</strong>.
+  </p>
+  <table>
+    <thead><tr><th>Raccourci</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>K</kbd></td><td>Ouvrir la recherche universelle</td></tr>
+      <tr><td><kbd>?</kbd></td><td>Panneau des raccourcis clavier</td></tr>
+      <tr><td><kbd>Échap</kbd></td><td>Quitter le mode kiosk / fermer les dialogues</td></tr>
+      <tr><td><kbd>F1</kbd></td><td>Aide contextuelle du POS</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>Entrée</kbd></td><td>Valider un formulaire</td></tr>
+    </tbody>
+  </table>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="072"><img src="manual-screenshots/shot-072.png" alt="Panneau raccourcis clavier" loading="eager" width="900"><figcaption class="screenshot-caption">Panneau des raccourcis — touche <kbd>?</kbd> depuis n'importe quelle page.</figcaption></figure>
+
+  <h3 id="ch2-s9">2.9 Typographie paramétrable</h3>
+  <p>
+    Vous pouvez ajuster la taille du texte depuis le <strong>menu Thème</strong> (icône palette en haut à droite).
+    Trois niveaux sont disponibles :
+  </p>
+  <ul>
+    <li><strong>Compact</strong> : texte plus petit, plus d'informations à l'écran — idéal sur grandes tables et monitors.</li>
+    <li><strong>Normal</strong> : taille standard recommandée.</li>
+    <li><strong>Large</strong> : texte plus grand — idéal pour l'accessibilité ou les écrans distants.</li>
+  </ul>
+  <p>Le choix est sauvegardé automatiquement et s'applique sur toute l'application.</p>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="085"><img src="manual-screenshots/shot-085.png" alt="Tailles de texte du menu thème" loading="eager" width="900"><figcaption class="screenshot-caption">Même menu thème — Compact, Normal et Large en bas de la liste.</figcaption></figure>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ Première connexion ou nouveau poste</div>
+    Selon votre organisation, un <strong>assistant de configuration</strong> peut s'afficher au premier accès pour vous guider (société, utilisateurs, etc.). Des <strong>bannières</strong> en haut de l'écran peuvent aussi vous inviter à activer la licence ou à contacter votre administrateur : suivez les liens proposés sur la bannière.
+  </div>
+
+  <h3 id="ch2-s10">2.10 Modes verrouillés (caissier / serveur)</h3>
+  <p>
+    En plus du <strong>mode kiosque</strong> (plein écran, sortie libre — voir §6.4), le menu compte
+    (icône 👤) propose deux modes <strong>verrouillés</strong> destinés au personnel en salle ou en caisse.
+    La sortie demande le <strong>mot de passe d'un gérant</strong> (sauf si un administrateur, gérant ou pharmacien est déjà connecté).
+  </p>
+  <table>
+    <thead><tr><th>Mode</th><th>Écrans autorisés</th><th>Sortie</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Mode caissier verrouillé</strong></td><td>POS et caisse uniquement (pas de menu latéral)</td><td>Échap ou bouton de sortie → mot de passe gérant</td></tr>
+      <tr><td><strong>Mode serveur verrouillé</strong></td><td>Plan de salle, tables, comptoir (cloche notifications visible)</td><td>Idem</td></tr>
+      <tr><td><strong>Mode kiosque</strong></td><td>Plein écran libre</td><td>Sans PIN</td></tr>
+    </tbody>
+  </table>
+  <p>Une <strong>déconnexion</strong> lève aussi le verrou. Ces modes évitent qu'un caissier ou un serveur n'ouvre les paramètres, les rapports ou d'autres modules pendant le service.</p>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="068"><img src="manual-screenshots/shot-068.png" alt="Menu compte : modes kiosque et verrouillés" loading="eager" width="900"><figcaption class="screenshot-caption">Menu compte — kiosque, mode caissier verrouillé, mode serveur verrouillé.</figcaption></figure>
+
+  <h3 id="ch2-s11">2.11 Mode tactile</h3>
+  <p>
+    Le <strong>mode tactile</strong> agrandit les boutons, les lignes de tableau et les champs (cibles d’environ 48&nbsp;px)
+    sur toute l’application — listes, factures, stock, menu — pas seulement la caisse.
+    Il est <strong>activé par défaut</strong> sur chaque poste (caisse, tablette ou bureau).
+  </p>
+  <ul>
+    <li>Le clavier et les pavés numériques (login PIN, OTP, caisse, clôture, quantités) ont le même style partout&nbsp;: touches claires, cibles 48&nbsp;px, actions en couleur primaire.</li>
+    <li>Menu compte (icône 👤) → <strong>Quitter le mode tactile</strong> pour un affichage compact à la souris, uniquement sur ce poste.</li>
+    <li>Même menu → <strong>Mode tactile</strong> pour le réactiver.</li>
+  </ul>
+</div>
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 3 — TABLEAU DE BORD
+───────────────────────────────────────── -->
+<div class="chapter" id="ch3">
+  <div class="chapter-header">
+    <div class="chapter-number">Chapitre 3</div>
+    <h2>Tableau de Bord</h2>
+    <p>Vue d'ensemble de vos indicateurs clés de performance</p>
+  </div>
+
+  <div class="box info">
+    <div class="box-title">En bref</div>
+    Le tableau de bord répond à : <strong>« Comment vont mes ventes aujourd'hui et ce mois-ci ? »</strong> — chiffre du jour, total du mois, marge, produits les plus vendus et graphiques. Ouvrez-le depuis le <strong>Hub</strong> ou le menu latéral lorsque vous avez besoin d'un coup d'œil rapide, sans passer par les rapports détaillés.
+  </div>
+
+  <p>
+    Après la connexion, vous arrivez en général sur le <strong>Hub</strong> (voir chapitre 2).
+    Le <strong>tableau de bord</strong> s'ouvre depuis une tuile du Hub ou depuis le menu latéral.
+    Il offre une vue synthétique et immédiate de l'état de votre activité commerciale.
+  </p>
+
+  <p class="screenshot-caption">
+    <strong>Vue après défilement</strong> : bas du tableau de bord (même page qu’à la figure du chapitre 2 « Interface générale »),
+    pour montrer graphiques et blocs situés sous la première hauteur d’écran. La capture est produite en <strong>viewport 1920×1080</strong> après défilement automatique lors de la génération des images.
+  </p>
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="007"><img src="manual-screenshots/shot-007.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <h3 id="ch3-kpis">Indicateurs affichés</h3>
+  <table>
+    <thead>
+      <tr><th>Indicateur</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Chiffre d'affaires du jour</strong></td><td>Total des ventes encaissées aujourd'hui</td></tr>
+      <tr><td><strong>Ventes du mois</strong></td><td>Cumul des ventes sur le mois en cours</td></tr>
+      <tr><td><strong>Marge brute</strong></td><td>Différence entre le chiffre d'affaires et le coût des achats</td></tr>
+      <tr><td><strong>Clients actifs</strong></td><td>Nombre de clients ayant réalisé des achats récents</td></tr>
+      <tr><td><strong>Top produits</strong></td><td>Les produits les plus vendus sur la période</td></tr>
+      <tr><td><strong>Ventes par catégorie</strong></td><td>Répartition du CA par famille de produits (graphique)</td></tr>
+      <tr><td><strong>Évolution des ventes</strong></td><td>Graphique d'évolution journalière ou mensuelle</td></tr>
+      <tr><td><strong>Avances récentes</strong></td><td>Liste des derniers acomptes reçus</td></tr>
+    </tbody>
+  </table>
+
+  <figure class="screenshot-figure" data-shot="008"><img src="manual-screenshots/shot-008.png" alt="Indicateurs du tableau de bord" loading="eager" width="900"><figcaption class="screenshot-caption">Indicateurs du tableau de bord — CA du jour, ventes, marge et cartes KPI (pas la page Rapports).</figcaption></figure>
+
+  <div class="box success">
+    <div class="box-title">✅ Actualisation</div>
+    Les données du tableau de bord sont actualisées en temps réel. Vous pouvez forcer un
+    rechargement en appuyant sur le bouton d'actualisation en haut de la page.
+  </div>
+
+  <h3 id="ch3-s1">3.1 Dashboard personnalisable</h3>
+  <p>
+    Vous pouvez choisir quels widgets afficher sur le tableau de bord en cliquant sur l'icône
+    <strong>Personnaliser</strong> (🔧) à côté du bouton Actualiser.
+  </p>
+  <p>Un panneau s'ouvre avec la liste de tous les widgets disponibles :</p>
+  <ul>
+    <li><strong>KPIs</strong> — ventes/achats du jour, marge mensuelle</li>
+    <li><strong>Session de caisse</strong> — état de la caisse ouverte</li>
+    <li><strong>Ventes journalières</strong> — graphique en courbes sur 30 jours</li>
+    <li><strong>Ventes par catégorie</strong> — graphique en secteurs (camembert)</li>
+    <li><strong>Top produits</strong> — palmarès des produits les plus vendus</li>
+    <li><strong>Ventes vs Achats</strong> — comparaison mensuelle</li>
+    <li><strong>Alertes stock</strong> — produits en rupture ou faible stock</li>
+    <li><strong>Propositions d'achat</strong> — compteur de réapprovisionnements à valider</li>
+  </ul>
+  <p>Cochez/décochez librement. Cliquez <strong>Réinitialiser</strong> pour retrouver la configuration par défaut. Vos préférences sont sauvegardées automatiquement.</p>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="073"><img src="manual-screenshots/shot-073.png" alt="Personnaliser le tableau de bord" loading="eager" width="900"><figcaption class="screenshot-caption">Panneau Personnaliser — afficher ou masquer les widgets du tableau de bord.</figcaption></figure>
+
+  <h3 id="ch3-s2">3.2 Plan d'action « Quoi faire demain »</h3>
+  <p>
+    Sous les indicateurs du jour, le tableau de bord affiche une liste classée <strong>« Quoi faire demain »</strong>
+    lorsque des points d'attention existent. Chaque ligne ouvre l'écran utile (caisse, stock, périmés, créances, etc.).
+  </p>
+  <p>Ordre de priorité typique :</p>
+  <ol>
+    <li>Caisse fermée</li>
+    <li>Rupture de stock</li>
+    <li>Péremption dans les 7 jours</li>
+    <li>Créances de plus de 30 jours</li>
+    <li>Stock faible</li>
+    <li>Produits à marge négative</li>
+    <li>Propositions d'achat à traiter</li>
+  </ol>
+  <div class="box tip">
+    <div class="box-title">💡 Même liste sur téléphone</div>
+    L'onglet <strong>Alertes</strong> de l'app manager (<code>/m</code>, chapitre 16) reprend exactement ce plan d'action.
+  </div>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="074"><img src="manual-screenshots/shot-074.png" alt="Plan d'action Quoi faire demain" loading="eager" width="900"><figcaption class="screenshot-caption">Plan d'action « Quoi faire demain » — priorités cliquables sous les indicateurs.</figcaption></figure>
+
+</div>
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 4 — RÉFÉRENTIEL PRODUITS
+───────────────────────────────────────── -->
+<div class="chapter" id="ch4">
+  <div class="chapter-header">
+    <div class="chapter-number">Chapitre 4</div>
+    <h2>Référentiel Produits</h2>
+    <p>Gestion des produits, catégories et unités de mesure</p>
+  </div>
+
+  <h3 id="ch4-s1">4.1 Produits</h3>
+  <p>
+    La section <strong>Produits</strong> vous permet de gérer l'ensemble de votre catalogue :
+    créer, modifier, rechercher et supprimer des articles.
+  </p>
+
+  <figure class="screenshot-figure" data-shot="009"><img src="manual-screenshots/shot-009.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <h4>Créer un nouveau produit</h4>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>Ouvrir le formulaire</h4>
+        <p>Cliquez sur le bouton <strong>"+ Nouveau produit"</strong> en haut de la liste.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>Renseigner les informations</h4>
+        <p>Saisissez le nom, le code-barres (ou laissez générer automatiquement), la catégorie, l'unité, les prix d'achat et de vente, et le stock minimum.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>Ajouter une image (optionnel)</h4>
+        <p>Importez une photo du produit pour faciliter son identification en POS.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>Enregistrer</h4>
+        <p>Cliquez sur <strong>"Enregistrer"</strong>. Le produit apparaît immédiatement dans la liste.</p>
+      </div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure" data-shot="010"><img src="manual-screenshots/shot-010.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <h4>Champs du produit</h4>
+  <table>
+    <thead><tr><th>Champ</th><th>Description</th><th>Requis</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>Désignation commerciale du produit</td><td>✅</td></tr>
+      <tr><td>Référence / Code-barres</td><td>Code unique d'identification (EAN, QR…)</td><td>—</td></tr>
+      <tr><td>Catégorie</td><td>Famille de produits</td><td>✅</td></tr>
+      <tr><td>Unité</td><td>Unité de vente (pièce, kg, litre…)</td><td>✅</td></tr>
+      <tr><td>Prix d'achat (HT)</td><td>Coût d'achat auprès du fournisseur</td><td>✅</td></tr>
+      <tr><td>Prix de vente (TTC)</td><td>Prix affiché au client</td><td>✅</td></tr>
+      <tr><td>Bloquer remise</td><td>Interdit la remise ligne en vente (%, montant, prix forcé). La remise globale du ticket reste possible. Désactivé par défaut.</td><td>—</td></tr>
+      <tr><td>Bloquer retour</td><td>Interdit le retour vente (quantités retournées sur le ticket ou avoir). Les retours achat restent possibles. Désactivé par défaut.</td><td>—</td></tr>
+      <tr><td>Bloquer modification de prix</td><td>Interdit de modifier le prix de vente catalogue depuis la caisse (⋯ Modifier le prix). La fiche produit reste modifiable. Désactivé par défaut.</td><td>—</td></tr>
+      <tr><td>TVA</td><td>Taux de taxe applicable</td><td>—</td></tr>
+      <tr><td>Stock minimum</td><td>Seuil d'alerte en cas de rupture imminente</td><td>—</td></tr>
+      <tr><td>Date de péremption</td><td>Gestion des produits périssables</td><td>—</td></tr>
+      <tr><td>Description</td><td>Notes internes ou description détaillée</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Imprimer des étiquettes</h4>
+  <p>
+    Depuis la <strong>liste des produits</strong> : bouton <strong>Étiquettes A4 (page)</strong> (une étiquette 50×30&nbsp;mm par unité de stock vendable de la page, stock 0 ignoré),
+    bouton <strong>Codes-barres A4 (tous)</strong> (liste filtrée, deux codes par ligne, pastille 92×65&nbsp;mm, photo si disponible)
+    et, sur chaque ligne, l’icône étiquette pour un <strong>rouleau</strong> unitaire. Depuis la <strong>fiche produit</strong> : imprimer le code-barres principal ou secondaire.
+    L’affichage du prix sur l’étiquette se règle dans les paramètres généraux (« Prix sur les étiquettes »).
+  </p>
+
+  <h4>Suppléments / options cuisine (HoReCa)</h4>
+  <p>
+    Sur la <strong>fiche produit</strong> (sans passer par Modifier), la carte <strong>Suppléments / options cuisine</strong>
+    permet d’ajouter des extras (fromage, double viande, cuisson…) avec un éventuel supplément de prix.
+    Ces options apparaissent ensuite à la caisse table ou comptoir. Réservé aux profils qui administrent le plan de salle (gérant, admin).
+  </p>
+
+  <h3 id="ch4-s2">4.2 Catégories</h3>
+  <p>
+    Les catégories permettent d'organiser votre catalogue en familles logiques (ex. : Médicaments,
+    Cosmétiques, Hygiène, Compléments alimentaires…).
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="011"><img src="manual-screenshots/shot-011.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <p>
+    Pour créer une catégorie, cliquez sur <strong>"+ Nouvelle catégorie"</strong>, saisissez le nom
+    et validez. Vous pouvez également modifier ou supprimer une catégorie existante via les
+    icônes d'action à droite de chaque ligne.
+  </p>
+
+  <div class="box warn">
+    <div class="box-title">⚠️ Suppression de catégorie</div>
+    Une catégorie ne peut être supprimée que si aucun produit ne lui est rattaché.
+    Réaffectez les produits avant de supprimer la catégorie.
+  </div>
+
+  <h3 id="ch4-s3">4.3 Unités de mesure</h3>
+  <p>
+    Définissez toutes les unités utilisées dans votre activité : pièce, boîte, gramme, litre, etc.
+    Ces unités sont sélectionnées lors de la création de chaque produit.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="012"><img src="manual-screenshots/shot-012.png" alt="Capture" loading="eager" width="900"></figure>
+</div>
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 5 — CLIENTS & FOURNISSEURS
+───────────────────────────────────────── -->
+<div class="chapter" id="ch5">
+  <div class="chapter-header">
+    <div class="chapter-number">Chapitre 5</div>
+    <h2>Clients &amp; Fournisseurs</h2>
+    <p>Gestion de votre carnet d'adresses commercial</p>
+  </div>
+
+  <h3 id="ch5-s1">5.1 Gestion des clients</h3>
+  <p>
+    La section <strong>Clients</strong> centralise toutes les informations sur vos acheteurs :
+    coordonnées, historique des achats, solde et avances.
+  </p>
+
+  <figure class="screenshot-figure" data-shot="013"><img src="manual-screenshots/shot-013.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <h4>Créer un client</h4>
+  <p>Cliquez sur <strong>"+ Nouveau client"</strong> et remplissez les informations suivantes :</p>
+  <ul>
+    <li><strong>Nom / Raison sociale</strong> (obligatoire)</li>
+    <li>Téléphone et adresse e-mail</li>
+    <li>Adresse postale</li>
+    <li>Condition de paiement par défaut</li>
+    <li>Plafond de crédit (0 = crédit non autorisé ; vide = pas de plafond)</li>
+    <li>Notes internes</li>
+  </ul>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="014"><img src="manual-screenshots/shot-014.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <h4>Fiche client — détail</h4>
+  <p>
+    En cliquant sur un client dans la liste, vous accédez à sa fiche détaillée, qui affiche :
+  </p>
+  <ul>
+    <li>Ses coordonnées complètes</li>
+    <li>Son historique de commandes et factures</li>
+    <li>Ses paiements effectués et son solde en cours</li>
+    <li>Ses avances et acomptes</li>
+  </ul>
+
+  <h3 id="ch5-s2">5.2 Gestion des fournisseurs</h3>
+  <p>
+    La section <strong>Fournisseurs</strong> fonctionne de manière identique à celle des clients,
+    mais orientée vers vos partenaires d'approvisionnement.
+  </p>
+
+  <figure class="screenshot-figure" data-shot="015"><img src="manual-screenshots/shot-015.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <p>Les informations spécifiques à un fournisseur incluent :</p>
+  <ul>
+    <li>Nom commercial et raison sociale</li>
+    <li>ICE, numéro de registre de commerce (Maroc)</li>
+    <li>Contacts (téléphone, e-mail)</li>
+    <li>Historique des achats et factures fournisseur</li>
+    <li>Solde dû et historique de paiements</li>
+  </ul>
+
+  <h3 id="ch5-s3">5.3 Conditions de paiement</h3>
+  <p>
+    Définissez les conditions de paiement standards de votre commerce (comptant, 30 jours,
+    60 jours net, etc.) et associez-les à vos clients et fournisseurs.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="016"><img src="manual-screenshots/shot-016.png" alt="Capture" loading="eager" width="900"></figure>
+</div>
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 6 — POINT DE VENTE (POS)
+───────────────────────────────────────── -->
+<div class="chapter" id="ch6">
+  <div class="chapter-header">
+    <div class="chapter-number">Chapitre 6</div>
+    <h2>Point de Vente (POS)</h2>
+    <p>Caisse rapide pour la vente et l'achat</p>
+  </div>
+
+  <div class="box info">
+    <div class="box-title">En bref</div>
+    Un <strong>seul écran tactile</strong> sert à la vente et à l’achat : catalogue à tuiles, ticket, pavé.
+    Il n’y a plus de caisse « classique » à quatre colonnes. Le <strong>POS Vente</strong> encaisse ; le
+    <strong>POS Achat</strong> enregistre une réception fournisseur. Remises et conversion : §6.3.
+    Une <strong>session de caisse ouverte</strong> est en général nécessaire (chapitre 10).
+  </div>
+
+  <h3 id="ch6-s1">6.1 POS Vente</h3>
+  <p>
+    Ouvrez <strong>Point de vente</strong> (<code>/pos</code>). La caisse s’ouvre <strong>sans le menu latéral ERP</strong>
+    (tableau de bord masqué) : <strong>catégories</strong> (nom + second nom s’il est renseigné, comme les tuiles) et <strong>tuiles produit</strong> à gauche,
+    <strong>ticket</strong> et <strong>pavé</strong> (reçu, quantité, remise) à droite. Dans <strong>Paramètres → Options de l'écran caisse</strong> (§15.9), vous pouvez masquer le <strong>catalogue</strong> (catégories et tuiles) : il reste le <strong>scan code-barres</strong> et la <strong>recherche</strong>, calés sur la largeur du ticket ; dès deux caractères, une <strong>liste temporaire</strong> permet de choisir le produit, puis le ticket occupe toute la largeur à gauche (colonnes alignées, boutons d’action visibles). Sans article, le ticket ne montre que le chip <strong>client</strong> (ou fournisseur en POS achat) et le pavé sert de <strong>calculatrice</strong> (+ − × ÷ =) ; dès qu’un produit est ajouté, le pavé redevient Reçu / Qté / Remise. Le bouton <strong>Calculatrice</strong> du bandeau (et du menu ⋮) ouvre une <strong>modale</strong> (pavé + − × ÷ =) sans masquer Encaisser ; fermez-la par la croix, le fond ou Échap. Le bouton
+    <strong>Menu ERP</strong> réaffiche la barre et la sidenav. Sur téléphone ou tablette portrait, le ticket
+    s’ouvre en feuille depuis la barre <strong>Ticket</strong>. L’historique (F8) est dans le <strong>bandeau</strong> du haut
+    (pas dans l’en-tête du ticket). Un produit en <strong>rupture</strong> (stock vendable 0) peut être ajouté :
+    une pastille « Rupture » s’affiche ; à l’encaissement, un dialogue demande de <strong>valider quand même</strong>.
+    Le clavier tactile s’ouvre via l’icône clavier, pas au simple focus.
+    Le bandeau propose aussi <strong>Actualiser</strong>, <strong>Calculatrice</strong>, <strong>Verrouiller la caisse</strong> (§6.11),
+    restaurer le dernier ticket (F9) et vider le panier (F10) — pas de second bouton « vider » sur l’en-tête du ticket.
+    Chaque ajout au ticket est enregistré tout de suite dans le navigateur : après un F5, le bouton
+    <strong>Restaurer la dernière facture</strong> reste dans le bandeau (le ticket s’affiche vide tant que vous ne restaurez pas).
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="017"><img src="manual-screenshots/shot-017.png" alt="Caisse tactile vente" loading="eager" width="900"><figcaption class="screenshot-caption">Caisse tactile vente — recherche, tuiles, ticket (nom, −/+/⋯) et pavé Encaisser. Le bouton Scanner (caméra) n’apparaît que sur téléphone / tablette.</figcaption></figure>
+
+  <h4>Effectuer une vente</h4>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>Sélectionner ou scanner les produits</h4>
+        <p>Touchez une tuile, ou scannez le code-barres (pistolet USB : pas besoin de toucher l’écran). Un code EAN collé dans la <strong>recherche</strong> est ajouté tout seul ; le champ se vide et le curseur y revient. Un seul <strong>X</strong> efface la recherche (pas le X du navigateur). Sur <strong>téléphone ou tablette</strong>, le bouton <strong>Scanner</strong> (icône appareil photo) ouvre la <strong>caméra</strong> — il est masqué sur une caisse 15–24″ (pistolet USB) et ne pilote pas le pistolet. Filtrez par catégorie ou favoris. Le filtre <strong>En stock</strong> est <strong>déjà actif</strong> à l’ouverture (§6.9) : les ruptures n’apparaissent pas dans les tuiles (le scan reste possible). Le bouton <strong>Utilisés 90 j</strong> (éteint par défaut) ne garde que les produits vendus au moins une fois sur les 90 derniers jours — tout le catalogue paginé, pas seulement les 12 produits rapides.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>Ajuster les quantités</h4>
+        <p>Sur le ticket, le nom occupe toute la largeur à côté de la vignette. En dessous : <strong>−</strong> / qté / <strong>+</strong>, le total, la croix puis <strong>⋯</strong>, alignés d’une ligne à l’autre. Si le catalogue est masqué (§15.9), la barre de recherche s’aligne sur le ticket ; chaque ligne aligne les colonnes (prix, quantité, total) et affiche les boutons <strong>remise</strong>, <strong>retour</strong>, <strong>note</strong> et <strong>prix</strong> (le menu <strong>⋯</strong> reste en mode catalogue). Ou le pavé <strong>Qté</strong>. Toucher une ligne affiche son panneau remise et/ou retour (s’il y en a) et masque ceux des autres produits. Retoucher la ligne déjà sélectionnée la désélectionne. Remise, retour et options cuisine : <strong>⋯</strong> (mode catalogue) ou les boutons de la ligne (catalogue masqué) — menu du même style que Langue / Thème (§6.3).</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>Sélectionner un client (optionnel)</h4>
+        <p>Le chip <strong>Client</strong> est toujours visible sur le ticket. Recherchez et associez un client : le solde, le plafond et la fidélité n’apparaissent qu’à ce moment-là (§6.10).</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>Encaisser</h4>
+        <p>Choisissez le moyen (Espèces, Carte, Chèque, Crédit) sur le pavé, saisissez le reçu (ou <strong>Exact</strong>), puis <strong>Encaisser</strong>. Si les pourboires sont activés (§15.1), une ligne <strong>Pourboire</strong> apparaît <strong>en bas</strong> du bloc paiement (sous les moyens ou le mixte) : touchez-la et saisissez un montant MAD au pavé. Choisissez <strong>Espèces</strong> (tiroir) ou <strong>Inclus carte</strong> (le TPE prend facture + pourboire). Le montant et le mode sont conservés dans le brouillon (F5 / Restaurer) et enregistrés sur la facture. Le <strong>total facture</strong> ne change pas. Pour plusieurs moyens sur la même vente, utilisez <strong>Paiement mixte</strong> : toucher une ligne la sélectionne et le pavé <strong>Reçu</strong> en saisit le montant ; <strong>+ Espèces / + Carte / + Chèque / + Crédit</strong> ajoute une part. Le <strong>crédit</strong> est le reliquat sur le compte client (pas un encaissement) : un client est obligatoire. Un <strong>droit de timbre</strong> peut s’ajouter selon les taux du §15.1 (hors CA, comme le pourboire). <strong>Encaisser + ticket</strong> imprime en même temps si l’option est visible.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <h4>Imprimer ou envoyer le reçu</h4>
+        <p>Si une imprimante ticket réseau est renseignée sur le <strong>poste de caisse</strong> (hôte, port 9100), le ticket part en ESC/POS ; sinon l’aperçu navigateur. Un encaissement espèces peut ouvrir le tiroir si l’option est cochée. Un reçu peut aussi être envoyé par e-mail.</p>
+      </div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="018"><img src="manual-screenshots/shot-018.png" alt="Aperçu du reçu POS" loading="eager" width="900"><figcaption class="screenshot-caption">Aperçu du reçu — après Encaisser + ticket, ou depuis l’historique.</figcaption></figure>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ Session de caisse</div>
+    Pour utiliser le POS, une session de caisse doit être ouverte au préalable (voir Chapitre 10 — Caisse).
+    Si aucune session n'est active, l'application vous invite à en ouvrir une.
+  </div>
+
+  <h3 id="ch6-s2">6.2 POS Achat</h3>
+  <p>
+    Le <strong>POS Achat</strong> (<code>/purchase-pos</code> ou menu <strong>POS Fournisseur</strong>)
+    est le <strong>même écran tactile</strong> que la vente, avec un badge <strong>Achat</strong>
+    et le chip fournisseur. Il enregistre une réception et met les stocks à jour.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="019"><img src="manual-screenshots/shot-019.png" alt="Caisse tactile achat" loading="eager" width="900"><figcaption class="screenshot-caption">Caisse tactile achat — même écran immersif que la vente, chip Fournisseur, pas de fidélité.</figcaption></figure>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>Sélectionner le fournisseur</h4>
+        <p>Le chip <strong>Fournisseur</strong> est toujours visible. Recherchez et sélectionnez le fournisseur : son solde s’affiche s’il est renseigné. Pas de fidélité ni de tarifs commerciaux à l’achat.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>Scanner ou ajouter les produits reçus</h4>
+        <p>Scannez chaque article ou sélectionnez-le dans la liste et saisissez la quantité reçue. Le bouton <strong>À commander</strong> (équivalent d’« En stock » en vente) est <strong>éteint</strong> par défaut : activez-le pour n’afficher que les ruptures et sous-seuils.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>Vérifier les prix d'achat</h4>
+        <p>Confirmez ou ajustez le prix d'achat de chaque article. L'historique de prix est conservé.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>Valider la réception</h4>
+        <p>Touchez <strong>Encaisser</strong> (ou l’équivalent Valider). Les stocks sont mis à jour immédiatement.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ Conversion documentaire dans le POS Achat</div>
+    Lorsque vous chargez un document (ex. commande fournisseur) en <strong>conversion</strong> dans le POS achat, la <strong>quantité source</strong> de chaque ligne s'affiche sous le sélecteur de quantité, comme en POS vente — détaillé en <strong>section 6.3</strong> ci-dessous.
+  </div>
+
+  <h3 id="ch6-s3">6.3 Remises, marge et conversion au POS</h3>
+  <p>
+    Les paragraphes ci-dessous complètent le <strong>POS Vente</strong> et le <strong>POS Achat</strong> lorsque vous transformez un document existant (devis, commande, bon de livraison / bon de réception, etc.) en un autre document depuis l'écran caisse, ou lorsque vous ajustez les prix au moment de l'encaissement.
+  </p>
+
+  <h4>Remise sur une ligne (POS Vente)</h4>
+  <ul>
+    <li>Toucher une <strong>ligne</strong> du ticket ouvre son panneau remise (si une remise est posée) et/ou retour, et masque les panneaux des autres produits. Retoucher la ligne déjà sélectionnée la désélectionne (panneaux fermés).</li>
+    <li>Si votre rôle peut modifier les produits (administrateur, pharmacien, gérant), <strong>⋯</strong> propose aussi <strong>Modifier le prix</strong> : un écran dédié enregistre le <strong>prix de vente catalogue</strong> du produit (pas seulement une remise sur le ticket). Si le produit a <strong>Bloquer modification de prix</strong>, l’entrée reste visible mais <strong>barrée et grisée</strong>.</li>
+    <li>Sur le ticket, touchez <strong>⋯</strong> sur la ligne puis <strong>Remise</strong> (ou le mode Remise du pavé) : pourcentage, montant ou <strong>prix forcé</strong>. Si le catalogue est masqué (§15.9), le bouton <strong>Remise</strong> est déjà sur la ligne. Si le produit a <strong>Bloquer remise</strong>, l’entrée Remise reste visible mais <strong>barrée et grisée</strong> ; la remise globale du ticket reste possible.</li>
+    <li>De même, <strong>⋯ → Retour</strong> (ou le bouton <strong>Retour</strong> sur la ligne, catalogue masqué) saisit les quantités vendable / abîmé / périmé. Si le produit a <strong>Bloquer retour</strong>, l’entrée Retour reste visible mais <strong>barrée et grisée</strong> ; les retours achat restent possibles.</li>
+    <li>En mode <strong>pourcentage</strong>, le point du pavé saisit les décimales du taux (ex. 10,5&nbsp;%). Le montant de <strong>ligne</strong> reste exact (14,50 − 10&nbsp;% = <strong>13,05</strong>). Seuls les totaux ticket (sous-total, dû, timbre, reçu, rendu) sont arrondis au pas des pièces (§15.1) : 13,05 → <strong>13,10</strong> si pas 0,10.</li>
+    <li>Le <strong>prix d'achat (PPH)</strong> de référence s’affiche s’il est renseigné : ne descendez pas trop bas.</li>
+    <li>Si le prix de vente effectif passe <strong>sous le PPH</strong>, une pastille <strong>sous PPH</strong> apparaît sur la ligne.</li>
+  </ul>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="086"><img src="manual-screenshots/shot-086.png" alt="Remise ligne au POS" loading="eager" width="900"><figcaption class="screenshot-caption">Menu ⋯ d’une ligne, puis remise — pourcentage, montant ou prix forcé au pavé.</figcaption></figure>
+
+  <h4>Conversion vers un autre document (quantité source)</h4>
+  <p>
+    Lorsque le POS est ouvert en <strong>mode conversion</strong> (par exemple devis → commande, commande → facture, bon de livraison → facture, ou équivalents <strong>côté achat</strong>), chaque ligne issue du document source affiche sous le sélecteur de quantité la mention <strong>« Qté source »</strong> : il s'agit de la quantité sur le document d'origine. Vous pouvez modifier la quantité sur le nouveau document tout en gardant cette référence visible.
+  </p>
+  <ul>
+    <li><strong>POS Vente</strong> : conversion commande → facture ou bon de livraison ; affichage de la quantité source pour toutes les lignes importées.</li>
+    <li><strong>POS Achat</strong> : même principe lors du chargement d'un document fournisseur en conversion dans le POS achat.</li>
+  </ul>
+
+  <h4>Commande restaurant / cuisine et facturation (POS Vente)</h4>
+  <p>
+    Si vous utilisez le module <strong>Horeca</strong> : une ligne de commande marquée <strong>annulée en cuisine</strong> peut être reprise lors de la conversion en <strong>facture</strong> depuis le POS. Une pastille indique ce statut ; la <strong>quantité à facturer</strong> est proposée à <strong>0</strong> (vous pouvez l'augmenter si une facturation partielle est nécessaire). La <strong>quantité source</strong> sur le document de commande reste affichée comme ci-dessus.
+  </p>
+
+  <h3 id="ch6-s4">6.4 Mode kiosk (plein écran tablette)</h3>
+  <p>
+    Le <strong>mode kiosk</strong> masque la sidebar et la barre d'outils pour transformer le POS en
+    application plein écran — idéal sur tablette en caisse ou en libre-service.
+  </p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>Activer</h4><p>Menu compte (icône 👤) → <strong>Mode kiosque</strong>. L'écran passe en plein écran, la sidebar disparaît.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>Quitter</h4><p>Appuyez sur <kbd>Échap</kbd> ou survolez le coin supérieur droit pour faire apparaître le bouton <strong>Quitter le kiosque</strong>.</p></div>
+    </div>
+  </div>
+  <div class="box info">
+    <div class="box-title">ℹ️ Kiosque ou mode verrouillé ?</div>
+    Le kiosque est un plein écran <strong>sans mot de passe</strong>. Pour limiter un caissier au POS (sortie gérant), utilisez le <strong>mode caissier verrouillé</strong> du menu compte (§2.10).
+  </div>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="068"><img src="manual-screenshots/shot-068.png" alt="Menu compte mode kiosque" loading="eager" width="900"><figcaption class="screenshot-caption">Menu compte — entrée Mode kiosque (plein écran) et modes verrouillés.</figcaption></figure>
+
+  <h3 id="ch6-s5">6.5 Mode hors-ligne</h3>
+  <p>
+    Assalim détecte automatiquement la perte de connexion Internet. Lorsque vous êtes hors-ligne :
+  </p>
+  <ul>
+    <li>Une <strong>bannière rouge</strong> s'affiche en haut de l'écran.</li>
+    <li>Les ventes POS continuent de fonctionner normalement et sont sauvegardées localement.</li>
+    <li>Le nombre de ventes en attente de synchronisation est affiché sur la bannière.</li>
+    <li>Au retour de la connexion, une <strong>bannière orange</strong> indique la synchronisation en cours, puis disparaît automatiquement.</li>
+  </ul>
+  <div class="box warn">
+    <div class="box-title">⚠️ Attention</div>
+    Les achats, retours et modifications d'inventaire nécessitent une connexion active. Seules les ventes POS fonctionnent en mode hors-ligne.
+  </div>
+
+  <h3 id="ch6-s6">6.6 Programme de fidélité au POS</h3>
+  <p>
+    Si le <strong>programme de fidélité</strong> est activé (<strong>Commercial → Fidélité</strong>, §14.1), un widget apparaît automatiquement
+    dans le ticket dès qu'un <strong>client est sélectionné</strong> sur une facture.
+    Ce n’est <strong>pas</strong> un interrupteur dans les options de l’écran caisse : sans client, rien n’est affiché.
+  </p>
+  <ul>
+    <li>Affiche les points cumulés et le niveau (Bronze / Argent / Or).</li>
+    <li>Affiche la progression vers le niveau suivant.</li>
+    <li>Permet de saisir un nombre de points à utiliser → une remise correspondante est appliquée automatiquement.</li>
+  </ul>
+  <p>Les points sont crédités automatiquement après chaque vente validée.</p>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="075"><img src="manual-screenshots/shot-075.png" alt="Widget fidélité au POS" loading="eager" width="900"><figcaption class="screenshot-caption">Widget fidélité — points, niveau et rachat, dès qu'un client est sélectionné sur une facture.</figcaption></figure>
+
+  <h3 id="ch6-s7">6.7 Scan code-barres et GS1 DataMatrix</h3>
+  <p>
+    Trois façons d’ajouter un article par code :
+  </p>
+  <ul>
+    <li><strong>Pistolet USB</strong> : tape dans la caisse comme un clavier. Un EAN (≥ 6 chiffres) part au panier sans rester coincé dans la recherche ni dans le pavé Reçu.</li>
+    <li><strong>Barre de recherche</strong> : coller ou scanner un EAN ajoute le produit ; un nom (ex. ZIAJA) filtre le catalogue.</li>
+    <li><strong>Bouton Scanner</strong> : visible seulement sur téléphone / tablette ; ouvre la caméra, puis le même lookup produit. Absent sur une caisse bureau (pistolet USB).</li>
+  </ul>
+  <p>
+    Le champ accepte un code EAN classique <strong>et</strong> un <strong>DataMatrix GS1</strong>
+    (souvent imprimé sur les cartons et les produits à lots). Le scan extrait automatiquement :
+  </p>
+  <ul>
+    <li>le <strong>GTIN</strong> (identifiant produit) pour retrouver l'article ;</li>
+    <li>le <strong>numéro de lot</strong> s'il est présent dans le code ;</li>
+    <li>la <strong>date limite de consommation (DLC)</strong> s'il est présente.</li>
+  </ul>
+  <p>
+    Ces informations sont proposées à l'ajout au panier (sélection de lot / DLC). Un code-barres simple (EAN-13)
+    continue de fonctionner comme avant.
+  </p>
+
+  <h3 id="ch6-s8">6.8 Affiche client</h3>
+  <p>
+    Sur un second écran (tablette face au client, écran caisse), ouvrez <strong>Affiche client</strong>
+    depuis la barre d'actions du POS. Une fenêtre <code>/pos/customer-display</code> affiche en temps réel
+    le panier, les quantités, le total à payer, les retours et les points de fidélité.
+  </p>
+  <figure class="screenshot-figure" data-shot="067"><img src="manual-screenshots/shot-067.png" alt="Affiche client POS" loading="eager" width="900"><figcaption class="screenshot-caption">Affiche client — second écran face au client pendant l'encaissement.</figcaption></figure>
+  <p>L'affiche se met à jour toute seule tant que le POS reste ouvert sur le poste principal. Un message promotionnel et un QR code (fidélité, avis, menu) peuvent être configurés dans les paramètres.</p>
+
+  <h3 id="ch6-s9">6.9 Catalogue : filtres En stock et Utilisés</h3>
+  <p>
+    Au-dessus des tuiles catalogue, à côté de la recherche, le bouton <strong>En stock</strong> n’apparaît que si la
+    <strong>gestion de stock</strong> est activée (paramètre « Désactiver la gestion de stock » non coché, §15.1).
+    À l’ouverture de la <strong>caisse vente</strong>, le filtre est <strong>déjà actif</strong>.
+  </p>
+  <ul>
+    <li>Activé (défaut vente) : seules les tuiles avec un <strong>stock vendable &gt; 0</strong> restent (toutes les catégories, recherche et favoris).</li>
+    <li>Désactivé : le catalogue complet revient, y compris les ruptures. Vous pouvez alors ajouter un article à 0. L’encaissement n’est possible que si <strong>Autoriser le stock négatif</strong> est activé (§15.1) : un dialogue demande confirmation, puis le stock vendable passe sous zéro. Sinon <strong>Encaisser</strong> reste bloqué.</li>
+    <li>Un <strong>scan code-barres</strong> d’un produit à stock 0 reste possible : le filtre ne concerne que les tuiles (et la liste de recherche si le catalogue est masqué, §15.9).</li>
+    <li>En <strong>POS Achat</strong>, le même emplacement affiche <strong>À commander</strong> (rupture et sous-seuil), <strong>éteint</strong> par défaut.</li>
+  </ul>
+  <p>
+    À côté, en <strong>POS vente</strong> seulement, le bouton <strong>Utilisés 90 j</strong> (éteint par défaut) limite les tuiles
+    aux produits apparus sur une <strong>facture non annulée</strong> des <strong>90 derniers jours</strong>.
+    Combinable avec En stock, une catégorie ou la recherche. Contrairement à l’onglet <strong>Produits rapides</strong>
+    (favoris + 12 derniers vendus), ce filtre pagine <strong>tout</strong> le catalogue concerné.
+    Le scan d’un produit jamais vendu sur la période reste possible.
+  </p>
+
+  <h3 id="ch6-s10">6.10 Client, solde et tarifs</h3>
+  <p>
+    Sur la caisse tactile, le chip <strong>Client</strong> (vente) ou <strong>Fournisseur</strong> (achat) est
+    <strong>toujours</strong> sur le ticket. Le solde, la fidélité et les tarifs commerciaux ne se règlent pas
+    dans <strong>Paramètres → Options de l'écran caisse</strong> (§15.9) : ils suivent le contexte.
+  </p>
+  <ul>
+    <li><strong>Aucun tiers</strong> : pas de solde, pas de fidélité.</li>
+    <li><strong>Client (vente)</strong> : solde et plafond s’il y en a (plafond 0 = crédit non autorisé) ; fidélité si le programme est actif (§6.6).</li>
+    <li><strong>Fournisseur (achat)</strong> : solde seulement. Pas de fidélité.</li>
+    <li><strong>Tarifs commerciaux</strong> (prix barré, badges grille / promo) : uniquement en vente, lorsqu’un tarif s’applique vraiment à la ligne.</li>
+  </ul>
+
+  <h3 id="ch6-s11">6.11 Verrouiller la caisse</h3>
+  <p>
+    Ce n’est <strong>pas</strong> le mode caissier verrouillé du menu compte (§2.10). Ici, la session reste ouverte :
+    un <strong>PIN caisse</strong> (défini sur l’utilisateur) permet de masquer le ticket pendant une pause.
+  </p>
+  <ul>
+    <li>Bandeau POS : bouton <strong>Verrouiller la caisse</strong> (à côté d’Actualiser). Sur écran étroit, l’action est dans le menu ⋮ du bandeau — plus de cadenas dans l’en-tête du ticket.</li>
+    <li>Un <strong>mur de visages</strong> s’affiche (fond flou) : touchez votre profil, saisissez le PIN. Le fond n’est pas refermable d’un tap.</li>
+    <li>Sans geste pendant le délai d’inactivité (paramètre « Verrouillage caisse après inactivité », défaut 90&nbsp;s, 0 = jamais), le même overlay apparaît.</li>
+    <li>Recharger la page conserve le verrou jusqu’au PIN. Une déconnexion lève le verrou (pas de mur à la reconnexion, sauf réglage contraire).</li>
+  </ul>
+  <p>Sans PIN caisse, le bouton ne verrouille pas. Distinct du <strong>kiosque</strong> (plein écran sans mot de passe, §6.4).</p>
+
+</div>
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 7 — TRANSACTIONS DE VENTE
+───────────────────────────────────────── -->
+<div class="chapter" id="ch7">
+  <div class="chapter-header">
+    <div class="chapter-number">Chapitre 7</div>
+    <h2>Transactions de Vente</h2>
+    <p>Cycle complet de la vente : du devis à la facture</p>
+  </div>
+
+  <p>
+    Assalim gère un cycle documentaire complet pour vos ventes. Chaque document peut être
+    converti au suivant d'un simple clic, évitant toute ressaisie.
+  </p>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ Cycle documentaire de vente</div>
+    <strong>Devis</strong> → <strong>Commande</strong> → <strong>Bon de livraison</strong> → <strong>Facture</strong> → <strong>Paiement</strong>
+    <br>Vous pouvez commencer à n'importe quelle étape selon votre processus interne.
+  </div>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ Conversion depuis le POS</div>
+    Si la conversion vers le document suivant s'effectue depuis l'écran <strong>POS Vente</strong> ou <strong>POS Achat</strong>, chaque ligne importée peut afficher la <strong>quantité source</strong> du document d'origine (voir chapitre 6, section <strong>6.3</strong>).
+  </div>
+
+  <h3 id="ch7-s1">7.1 Devis de vente</h3>
+  <p>
+    Un <strong>devis</strong> est une proposition commerciale envoyée au client avant toute
+    commande ferme. Il n'a aucun impact sur les stocks.
+  </p>
+
+  <figure class="screenshot-figure" data-shot="020"><img src="manual-screenshots/shot-020.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <h4>Créer un devis</h4>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>Nouveau devis</h4><p>Cliquez sur <strong>"+ Nouveau devis"</strong> dans la liste des devis.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>Sélectionner le client</h4><p>Choisissez le client dans la liste ou créez-en un nouveau.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>Ajouter les lignes</h4><p>Ajoutez chaque produit avec sa quantité et son prix. Appliquez des remises si nécessaire.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body"><h4>Enregistrer et envoyer</h4><p>Enregistrez le devis, puis imprimez-le ou envoyez-le par e-mail au client.</p></div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure" data-shot="021"><img src="manual-screenshots/shot-021.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <h3 id="ch7-s2">7.2 Commandes de vente</h3>
+  <p>
+    Une <strong>commande de vente</strong> confirme la demande du client. Elle peut être créée
+    directement ou convertie depuis un devis accepté.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="022"><img src="manual-screenshots/shot-022.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <div class="box success">
+    <div class="box-title">✅ Conversion depuis un devis</div>
+    Ouvrez un devis accepté et cliquez sur <strong>"Convertir en commande"</strong>. 
+    Toutes les lignes sont reprises automatiquement — aucune ressaisie nécessaire.
+  </div>
+
+  <h3 id="ch7-s3">7.3 Bons de livraison</h3>
+  <p>
+    Le <strong>bon de livraison (BL)</strong> documente la sortie physique des marchandises du
+    stock. Sa validation déclenche la diminution du stock correspondant.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="023"><img src="manual-screenshots/shot-023.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <div class="box warn">
+    <div class="box-title">⚠️ Impact sur le stock</div>
+    La validation d'un bon de livraison réduit définitivement le stock des produits concernés.
+    Vérifiez les quantités avant validation.
+  </div>
+
+  <h3 id="ch7-s4">7.4 Factures de vente</h3>
+  <p>
+    La <strong>facture de vente</strong> est le document comptable officiel remis au client.
+    Elle peut être générée depuis une commande ou un bon de livraison.
+  </p>
+
+  <figure class="screenshot-figure" data-shot="024"><img src="manual-screenshots/shot-024.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <h4>Actions sur une facture</h4>
+  <ul>
+    <li><strong>Imprimer</strong> : générer un PDF imprimable</li>
+    <li><strong>Envoyer par e-mail</strong> : transmettre la facture au client</li>
+    <li><strong>Enregistrer un paiement</strong> : saisir un règlement partiel ou total</li>
+    <li><strong>Joindre un fichier</strong> : attacher un document (bon de commande client, etc.)</li>
+    <li><strong>Annuler</strong> : annuler la facture (avec justification)</li>
+  </ul>
+
+  <h3 id="ch7-s5">7.5 Paiements clients</h3>
+  <p>
+    Gérez les règlements reçus de vos clients : paiements sur facture, avances et acomptes.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="025"><img src="manual-screenshots/shot-025.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <table>
+    <thead><tr><th>Mode de paiement</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td>Espèces</td><td>Règlement en numéraire, impacte la caisse</td></tr>
+      <tr><td>Carte bancaire</td><td>Paiement par TPE</td></tr>
+      <tr><td>Chèque</td><td>Chèque remis à l'encaissement</td></tr>
+      <tr><td>Virement bancaire</td><td>Virement reçu sur le compte</td></tr>
+      <tr><td>Avance</td><td>Acompte déduit des prochaines factures</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Un <strong>droit de timbre</strong> peut s’ajouter sur la part encaissée de chaque mode, selon les taux
+    saisis en §15.1 (ex. 0,25&nbsp;% sur les espèces au Maroc). Le montant du timbre est arrondi au pas
+    des pièces (0,25 → 0,30 si pas 0,10). Il n’entre pas dans le CA de la facture
+    (comme le pourboire). Il s’affiche sur le paiement, l’avance, le ticket et le rapport de clôture
+    pour la part espèces.
+  </p>
+
+  <h3 id="ch7-s6">7.6 Discussions et pièces jointes sur un document</h3>
+  <p>
+    Sur la fiche d'un <strong>devis</strong>, d'une <strong>commande</strong>, d'un <strong>bon de livraison</strong> ou d'une <strong>facture</strong> (et sur d'autres écrans similaires, selon vos droits), vous pouvez trouver deux blocs utiles pour le travail d'équipe :
+  </p>
+  <ul>
+    <li><strong>Discussion liée au document</strong> : fil de messages réservé à <strong>cette pièce</strong> (différent de la messagerie générale du chapitre 13). Servez-vous-en pour demander une validation interne, prévenir la logistique ou laisser une note visible par les collègues qui ouvrent le même dossier. Au doigt : mêmes cibles et clavier tactile que dans Messages.</li>
+    <li><strong>Pièces jointes</strong> : ajoutez des fichiers (PDF signé, bon de commande client scanné, photo, etc.) pour tout garder au même endroit que le document comptable.</li>
+  </ul>
+  <p>
+    Si vous ne voyez pas ces zones, votre profil n'a peut-être pas la permission correspondante : demandez à un administrateur.
+  </p>
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="076"><img src="manual-screenshots/shot-076.png" alt="Discussion sur une facture" loading="eager" width="900"><figcaption class="screenshot-caption">Fiche facture — discussion liée au document, saisie tactile et clavier à l’écran.</figcaption></figure>
+
+  <h3 id="ch7-s7">7.7 Retours vente — Avoir client</h3>
+  <p>
+    Lorsqu'un client retourne des marchandises, vous créez un <strong>avoir client</strong> directement
+    depuis la facture d'origine.
+  </p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>Ouvrir la facture</h4><p>Allez dans <strong>Ventes → Factures</strong>, ouvrez la facture concernée.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>Créer le retour</h4><p>Cliquez sur <strong>Retour</strong> (icône). Une copie de la facture s'ouvre en mode retour.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>Indiquer les quantités retournées</h4><p>Pour chaque ligne, saisissez les quantités retournées et leur état (vendable / abîmé / périmé). Un produit avec <strong>Bloquer retour</strong> n’est pas ajouté au ticket avoir.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body"><h4>Valider</h4><p>L'avoir est créé avec le numéro <strong>AVOIR-CLI-XXXX</strong>. Le stock est réintégré et un PDF est disponible.</p></div>
+    </div>
+  </div>
+  <div class="box info">
+    <div class="box-title">📋 Rapport Avoirs clients</div>
+    Retrouvez tous vos avoirs dans <strong>Rapports → Avoirs clients</strong> avec filtres par période et export CSV.
+  </div>
+  <figure class="screenshot-figure" data-shot="077"><img src="manual-screenshots/shot-077.png" alt="Rapport avoirs clients" loading="eager" width="900"><figcaption class="screenshot-caption">Rapport Avoirs clients — liste des AVOIR-CLI, période et totaux.</figcaption></figure>
+
+  <h3 id="ch7-s8">7.8 Partage WhatsApp</h3>
+  <p>
+    Sur la fiche d'une <strong>facture</strong> (et d'autres documents vente), un bouton <strong>WhatsApp</strong>
+    ouvre une conversation préremplie (nom, n° de document, montant) vers le téléphone du client.
+    Même principe pour une <strong>réservation</strong> (date, couverts, table) et une <strong>proposition d'achat</strong>
+    (lignes + total vers le fournisseur).
+  </p>
+  <div class="box warn">
+    <div class="box-title">⚠️ Numéro requis</div>
+    Sans téléphone sur la fiche client / fournisseur, le bouton indique qu'aucun numéro n'est disponible.
+    Le partage ouvre WhatsApp Web ou l'application installée ; il n'envoie pas le message à votre place.
+  </div>
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="076"><img src="manual-screenshots/shot-076.png" alt="Bouton WhatsApp sur une facture" loading="eager" width="900"><figcaption class="screenshot-caption">Même fiche document — le bouton WhatsApp préremplit un message vers le téléphone du client.</figcaption></figure>
+
+</div>
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 8 — TRANSACTIONS D'ACHAT
+───────────────────────────────────────── -->
+<div class="chapter" id="ch8">
+  <div class="chapter-header">
+    <div class="chapter-number">Chapitre 8</div>
+    <h2>Transactions d'Achat</h2>
+    <p>De la proposition automatique au paiement fournisseur, en passant par les devis et commandes</p>
+  </div>
+
+  <p>
+    Le module achat couvre l'approvisionnement : <strong>propositions</strong> automatiques, éventuels <strong>devis</strong> fournisseur, <strong>commandes</strong>, <strong>réceptions</strong>, <strong>factures</strong> et <strong>paiements</strong>.
+  </p>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ Cycle documentaire d'achat</div>
+    <strong>Proposition</strong> (suggestion automatique) → éventuellement <strong>Devis fournisseur</strong> → <strong>Commande</strong> → <strong>Bon de réception</strong> → <strong>Facture fournisseur</strong> → <strong>Paiement</strong>
+    <br>Toutes les étapes ne sont pas obligatoires : vous pouvez saisir directement une commande ou une facture selon votre habitude.
+  </div>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ Conversion depuis le POS Achat</div>
+    Comme pour les ventes, une conversion ouverte dans le <strong>POS Achat</strong> peut afficher la <strong>quantité source</strong> par ligne (chapitre 6, section <strong>6.3</strong>).
+  </div>
+
+  <h3 id="ch8-s1">8.1 Propositions d'achat</h3>
+  <p>
+    Les <strong>propositions d'achat</strong> sont générées automatiquement par le système en
+    analysant les niveaux de stock et les seuils minimaux définis. Elles constituent une aide
+    à la décision pour votre responsable achats.
+  </p>
+
+  <figure class="screenshot-figure" data-shot="026"><img src="manual-screenshots/shot-026.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <h3 id="ch8-s2">8.2 Devis fournisseur</h3>
+  <p>
+    Le <strong>devis fournisseur</strong> est une demande de prix ou une proposition d'achat <strong>adressée au fournisseur</strong> avant de vous engager sur une commande ferme. Il se rapproche du <strong>devis de vente</strong> côté client, mais ici c'est vous qui sollicitez le fournisseur.
+  </p>
+  <p>
+    Ouvrez la liste <strong>Devis fournisseur</strong> dans le menu <strong>Achats</strong>, créez un nouveau devis, choisissez le fournisseur et les lignes (produits, quantités, prix négociés). Vous pouvez ensuite l'envoyer ou le convertir en <strong>commande d'achat</strong> lorsque le fournisseur accepte.
+  </p>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="078"><img src="manual-screenshots/shot-078.png" alt="Devis fournisseur" loading="eager" width="900"><figcaption class="screenshot-caption">Liste des devis fournisseur — avant conversion en commande d'achat.</figcaption></figure>
+
+  <h3 id="ch8-s3">8.3 Commandes d'achat</h3>
+  <p>
+    Créez une <strong>commande d'achat</strong> (bon de commande) à adresser à un fournisseur.
+    Elle peut être générée depuis une proposition ou créée manuellement.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="027"><img src="manual-screenshots/shot-027.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <h3 id="ch8-s4">8.4 Bons de réception</h3>
+  <p>
+    À la réception des marchandises, créez un <strong>bon de réception</strong>. Cette étape
+    met à jour les stocks et enregistre les quantités effectivement reçues (qui peuvent
+    différer de ce qui a été commandé).
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="028"><img src="manual-screenshots/shot-028.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <h3 id="ch8-s5">8.5 Factures fournisseur</h3>
+  <p>
+    Enregistrez les <strong>factures reçues de vos fournisseurs</strong> pour un suivi comptable
+    précis de vos engagements et de votre dette fournisseur.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="029"><img src="manual-screenshots/shot-029.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <h4>Historique des prix d'achat</h4>
+  <p>
+    Assalim conserve l'historique des prix d'achat pour chaque produit. Vous pouvez consulter
+    l'évolution des tarifs fournisseurs et détecter les variations.
+  </p>
+
+  <h3 id="ch8-s6">8.6 Paiements fournisseurs</h3>
+  <p>
+    Enregistrez les <strong>règlements effectués à vos fournisseurs</strong> et suivez votre
+    dette fournisseur en temps réel.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="030"><img src="manual-screenshots/shot-030.png" alt="Capture" loading="eager" width="900"></figure>
+</div>
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 9 — STOCK & INVENTAIRE
+───────────────────────────────────────── -->
+<div class="chapter" id="ch9">
+  <div class="chapter-header">
+    <div class="chapter-number">Chapitre 9</div>
+    <h2>Stock &amp; Inventaire</h2>
+    <p>Suivi en temps réel de vos niveaux de stock</p>
+  </div>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ Visibilité du module Stock</div>
+    Les entrées de menu et les tuiles <strong>Stock</strong> et <strong>Inventaire</strong> ne
+    s'affichent que lorsque la <strong>gestion de stock à la vente est activée</strong> : le paramètre
+    <strong>« Désactiver la gestion de stock »</strong> doit être <strong>désactivé</strong> (non coché)
+    dans les paramètres généraux de l'établissement. Si vous ne voyez pas ces sections, demandez à
+    un administrateur de décocher ce réglage.
+  </div>
+
+  <h3 id="ch9-s1">9.1 État des stocks</h3>
+  <p>
+    La page <strong>Stock</strong> vous donne une vue instantanée des quantités disponibles
+    pour chaque produit, avec un code couleur d'alerte.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="031"><img src="manual-screenshots/shot-031.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <h4>Indicateurs de stock</h4>
+  <table>
+    <thead><tr><th>Couleur</th><th>Signification</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge badge-green">● Normal</span></td><td>Stock suffisant, au-dessus du seuil minimum</td></tr>
+      <tr><td><span class="badge badge-orange">● Faible</span></td><td>Stock proche du seuil minimum — à réapprovisionner</td></tr>
+      <tr><td><span class="badge badge-red">● Rupture</span></td><td>Stock nul ou en dessous du minimum critique</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Mouvements de stock</h4>
+  <p>
+    Chaque entrée ou sortie de stock est tracée avec la date, le motif (vente, achat, ajustement,
+    inventaire) et le document source associé.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="032"><img src="manual-screenshots/shot-032.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <h3 id="ch9-s2">9.2 Inventaires</h3>
+  <p>
+    Le module <strong>Inventaire</strong> vous permet de réaliser des comptages physiques et de
+    réconcilier les quantités théoriques avec les quantités réelles.
+  </p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>Créer un inventaire</h4><p>Cliquez sur <strong>"+ Nouvel inventaire"</strong> et choisissez si vous faites un inventaire complet ou partiel (par catégorie).</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>Saisir les quantités réelles</h4><p>Pour chaque produit, saisissez la quantité physiquement comptée. Vous pouvez aussi importer les données via un fichier CSV.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>Vérifier les écarts</h4><p>L'application affiche les différences entre le stock théorique et le stock compté.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body"><h4>Valider et ajuster</h4><p>Confirmez la finalisation de l'inventaire. Les stocks sont mis à jour automatiquement avec les écarts constatés.</p></div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure" data-shot="033"><img src="manual-screenshots/shot-033.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ Import CSV</div>
+    Pour les grandes quantités de produits, exportez la liste, renseignez les quantités
+    dans un tableur, puis réimportez le fichier CSV dans Assalim.
+  </div>
+
+  <h3 id="ch9-s3">9.3 Alertes de stock et d'achat</h3>
+  <p>
+    Les <strong>alertes</strong> sont accessibles depuis l'icône <strong>cloche</strong> (notifications)
+    dans la <strong>barre d'outils</strong>, pour les utilisateurs autorisés. Un <strong>badge</strong>
+    indique le nombre d'éléments non lus. Cliquez sur une ligne pour ouvrir l'écran concerné
+    (stock, achat, etc.).
+  </p>
+  <p>
+    En bas du panneau, des raccourcis permettent d'aller directement à la <strong>page Stock</strong>
+    ou aux <strong>transactions d'achat</strong>.
+  </p>
+  <ul>
+    <li><strong>Alerte de rupture / stock faible</strong> : produit en dessous du seuil minimum (les alertes similaires peuvent être regroupées)</li>
+    <li><strong>Alerte de péremption</strong> : produit approchant ou ayant dépassé sa date d'expiration</li>
+    <li><strong>Autres alertes métier</strong> : selon la configuration, des alertes liées aux achats peuvent également apparaître</li>
+  </ul>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="034"><img src="manual-screenshots/shot-034.png" alt="Panneau d'alertes stock" loading="eager" width="900"><figcaption class="screenshot-caption">Panneau d'alertes (cloche) — ruptures, stock faible et péremptions.</figcaption></figure>
+
+  <h3 id="ch9-s4">9.4 Gestion des périmés</h3>
+  <p>
+    La page <strong>Stock → Périmés</strong> (<code>/stock/expiry</code>) liste tous les lots dont la
+    date limite de consommation (DLC) approche ou est dépassée.
+  </p>
+  <h4>Codes couleur</h4>
+  <ul>
+    <li>🔴 <strong>Rouge</strong> — lot déjà périmé</li>
+    <li>🟠 <strong>Orange</strong> — expire dans les 7 prochains jours (critique)</li>
+    <li>🟢 <strong>Vert</strong> — expire dans le délai filtré mais pas critique</li>
+  </ul>
+  <h4>Filtrer</h4>
+  <p>Utilisez le sélecteur <strong>"Afficher les lots expirant dans X jours"</strong> pour ajuster la plage d'analyse (7, 30, 60, 90 jours).</p>
+  <h4>Détruire un lot</h4>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>Cliquer sur Détruire</h4><p>Sur la ligne du lot concerné.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>Saisir la quantité</h4><p>Entrez la quantité à sortir du stock vendable (destruction totale ou partielle).</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>Confirmer</h4><p>Le stock vendable est réduit et le mouvement est enregistré.</p></div>
+    </div>
+  </div>
+  <div class="box warn">
+    <div class="box-title">⚠️ Cette action est irréversible</div>
+    La destruction d'un lot réduit définitivement le stock vendable. Assurez-vous que les quantités sont correctes avant de confirmer.
+  </div>
+  <figure class="screenshot-figure" data-shot="079"><img src="manual-screenshots/shot-079.png" alt="Gestion des périmés" loading="eager" width="900"><figcaption class="screenshot-caption">Stock → Périmés — lots proches ou au-delà de la DLC, filtres et destruction.</figcaption></figure>
+
+  <h3 id="ch9-s5">9.5 Sites / dépôts</h3>
+  <p>
+    <strong>Stock → Sites / dépôts</strong> (<code>/stock/sites</code>) liste les lieux de stockage.
+    Le site marqué <strong>POS</strong> (défaut) est celui utilisé par la caisse et les ventes.
+    Les autres sites (entrepôt, réserve, second magasin) ne reçoivent du stock que par <strong>transfert</strong>.
+  </p>
+  <figure class="screenshot-figure" data-shot="065"><img src="manual-screenshots/shot-065.png" alt="Sites et dépôts de stock" loading="eager" width="900"><figcaption class="screenshot-caption">Liste des sites — le chip POS désigne le site par défaut des ventes.</figcaption></figure>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>Créer un site</h4><p>Cliquez <strong>Nouveau site</strong>, saisissez un code (ex. DEPOT) et un nom.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>Consulter le stock d'un site</h4><p>Ouvrez la carte du site pour voir les quantités vendables, endommagées et périmées.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>Changer le site POS</h4><p>Sur un site qui n'est pas le défaut, <strong>Définir comme POS</strong> : les ventes suivantes débiteront ce stock.</p></div>
+    </div>
+  </div>
+
+  <h3 id="ch9-s6">9.6 Transferts de stock</h3>
+  <p>
+    <strong>Stock → Transferts</strong> (<code>/stock/transfers</code>) déplace des quantités d'un site vers un autre.
+    Le cycle complet comprend l'<strong>expédition</strong> (sortie du site source), le <strong>transit</strong> éventuel
+    et la <strong>réception</strong> au site destination. Les écarts de quantité sont saisis à la réception ;
+    un transfert au-dessus du seuil configuré peut exiger une <strong>approbation manager</strong>.
+  </p>
+  <figure class="screenshot-figure" data-shot="066"><img src="manual-screenshots/shot-066.png" alt="Transferts de stock" loading="eager" width="900"><figcaption class="screenshot-caption">Liste des transferts entre sites.</figcaption></figure>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>Nouveau transfert</h4><p>Choisissez le site source, le site destination, ajoutez les produits et quantités.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>Confirmer</h4><p>Cochez <strong>Confirmer maintenant</strong> pour exécuter le mouvement tout de suite, ou enregistrez puis confirmez plus tard depuis la fiche.</p></div>
+    </div>
+  </div>
+  <div class="box warn">
+    <div class="box-title">⚠️ Stock insuffisant</div>
+    Un transfert est refusé si le site source n'a pas assez de quantité vendable. Les ventes POS restent sur le site du poste de caisse.
+  </div>
+
+  <h3 id="ch9-s7">9.7 Réseau retail</h3>
+  <p>
+    Édition <strong>Retail</strong>, profil <strong>Standard</strong> ou <strong>Avancé</strong> : le menu
+    <strong>Réseau retail</strong> regroupe la consolidation multi-sites (<code>/retail-network/*</code>).
+    Droits requis : permission <strong>stock:read</strong> (masqué en édition Essential ou profil Simple).
+  </p>
+  <table>
+    <thead><tr><th>Écran</th><th>Route</th><th>Usage</th></tr></thead>
+    <tbody>
+      <tr><td>Tableau de bord réseau</td><td><code>/retail-network/network</code></td><td>KPIs vendable / réservé / disponible par site ; liens catalogue et réappro</td></tr>
+      <tr><td>Seuils &amp; assortiments</td><td><code>/retail-network/site-catalog</code></td><td>Min/max, couverture jours, assortiment actif par site</td></tr>
+      <tr><td>Réapprovisionnement</td><td><code>/retail-network/replenishment</code></td><td>Suggestions par site ; création commandes fournisseur groupées</td></tr>
+      <tr><td>Centre retours</td><td><code>/retail-network/returns</code></td><td>Politiques de retour ; avoirs client et retours fournisseur récents</td></tr>
+      <tr><td>Approbations</td><td><code>/retail-network/approvals</code></td><td>File des demandes en attente (transfert, remise, etc.)</td></tr>
+      <tr><td>Inventaire cyclique</td><td><code>/retail-network/cyclic-inventory</code></td><td>Plans par site/zone ; ouverture du comptage</td></tr>
+      <tr><td>CMP / démarque</td><td><code>/retail-network/shrinkage</code></td><td>Coût moyen pondéré par site ; saisie démarque</td></tr>
+      <tr><td>Réservations stock</td><td><code>/retail-network/reservations</code></td><td>Réservations actives ; libération ou expiration</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Sur la <strong>fiche produit</strong>, le panneau réseau permet de lier plusieurs fournisseurs et des conversions d'unités.
+    Sur une <strong>commande achat</strong>, le panneau de suivi affiche réception partielle et rapprochement 3-way (commandé / livré / facturé).
+    La <strong>fidélité</strong> (paramètres + fiche client) inclut expiration des points et historique des mouvements.
+  </p>
+
+</div>
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 10 — CAISSE
+───────────────────────────────────────── -->
+<div class="chapter" id="ch10">
+  <div class="chapter-header">
+    <div class="chapter-number">Chapitre 10</div>
+    <h2>Caisse</h2>
+    <p>Gestion des sessions de caisse et des mouvements d'espèces</p>
+  </div>
+
+  <p>
+    Le module <strong>Caisse</strong> vous permet de gérer les fonds en espèces de votre
+    commerce avec une traçabilité complète.
+  </p>
+
+  <h3 id="ch10-s1">Ouvrir une session de caisse</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>Accéder à la caisse</h4><p>Ouvrez <strong>Caisse</strong> depuis le <strong>Hub</strong> (tuile dédiée) ou depuis le <strong>menu latéral</strong>.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>Déclarer le fond de caisse</h4><p>Saisissez le montant en espèces présent dans la caisse au moment de l'ouverture.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>Ouvrir la session</h4><p>Cliquez sur <strong>"Ouvrir la caisse"</strong>. La session démarre et le POS devient opérationnel.</p></div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure" data-shot="035"><img src="manual-screenshots/shot-035.png" alt="Session de caisse" loading="eager" width="900"><figcaption class="screenshot-caption">Caisse — session ouverte, solde et journal des mouvements.</figcaption></figure>
+
+  <h3 id="ch10-s2">Mouvements de caisse</h3>
+  <p>
+    En cours de session, enregistrez les mouvements non liés aux ventes :
+  </p>
+  <ul>
+    <li><strong>Entrée d'espèces</strong> : apport de monnaie, remboursement reçu…</li>
+    <li><strong>Sortie d'espèces</strong> : retrait pour dépenses courantes, paiement fournisseur en espèces…</li>
+  </ul>
+  <p>Le <strong>pavé numérique</strong> est intégré : saisissez le montant directement, sans bouton supplémentaire. Choisissez le <strong>mode de paiement</strong> (Espèces, Carte, Chèque, Virement, Autre) : seules les <strong>espèces</strong> bougent le fond de caisse théorique. Une entrée ou une sortie exige une <strong>catégorie</strong> (apport de monnaie, fournitures, transport…). Une sortie exige aussi un motif. Les catégories se gèrent en §10.5.</p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="036"><img src="manual-screenshots/shot-036.png" alt="Dialogue entrée caisse" loading="eager" width="900"><figcaption class="screenshot-caption">Dialogue « Entrée caisse » — pavé intégré, mode de paiement, catégorie obligatoire, montant et motif.</figcaption></figure>
+
+  <h3 id="ch10-s3">Fermer la session et rapport de clôture</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>Compter les espèces</h4><p>En fin de journée, comptez physiquement le contenu de votre caisse.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>Saisir le solde réel</h4><p>Touchez <strong>Montant compté</strong>, saisissez au <strong>pavé</strong> (toujours visible), puis confirmez le même montant. Le bouton « Pavé numérique » n’est plus nécessaire.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>Fermer la session</h4><p>Cliquez sur <strong>"Fermer la caisse"</strong>. Un rapport de clôture est généré automatiquement.</p></div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure" data-shot="037"><img src="manual-screenshots/shot-037.png" alt="Dialogue fermer la caisse" loading="eager" width="900"><figcaption class="screenshot-caption">Dialogue « Fermer la caisse » — pavé intégré, montant compté et confirmation.</figcaption></figure>
+
+  <div class="box warn">
+    <div class="box-title">⚠️ Écart de caisse</div>
+    Si le montant compté diffère du solde théorique, un écart est signalé dans le rapport.
+    Analysez les mouvements pour identifier la cause avant de valider la clôture.
+  </div>
+
+  <h3 id="ch10-s4">Historique des sessions</h3>
+  <p>
+    Accédez à l'onglet <strong>"Historique"</strong> pour consulter toutes les sessions passées,
+    leurs rapports de clôture et les mouvements associés.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="038"><img src="manual-screenshots/shot-038.png" alt="Historique des sessions de caisse" loading="eager" width="900"><figcaption class="screenshot-caption">Historique des sessions — ouvertures, montants théoriques, écarts et statut.</figcaption></figure>
+
+  <h3 id="ch10-s5">10.5 Catégories de caisse</h3>
+  <p>
+    Accès : <strong>Administration → Catégories de caisse</strong>. Chaque entrée ou sortie d’espèces
+    doit être classée (apport de monnaie, fournitures, transport, salaire, divers…).
+    Le catalogue est propre à l’établissement : créez, modifiez ou désactivez une catégorie
+    sans toucher au reste de l’application.
+  </p>
+  <ul>
+    <li><strong>Code</strong> : identifiant unique (ex. <code>SUPPLIES</code>).</li>
+    <li><strong>Libellé</strong> français, et libellé arabe optionnel.</li>
+    <li><strong>Sens</strong> : entrée, sortie, ou les deux.</li>
+    <li>Une catégorie <strong>désactivée</strong> disparaît du select du dialogue, mais reste visible sur l’historique déjà enregistré.</li>
+  </ul>
+  <figure class="screenshot-figure" data-shot="092"><img src="manual-screenshots/shot-092.png" alt="Liste des catégories de caisse" loading="eager" width="900"><figcaption class="screenshot-caption">Administration → Catégories de caisse — liste, code, libellé et sens.</figcaption></figure>
+  <p>
+    Cliquez une ligne ou <strong>+ Nouvelle</strong> pour ouvrir la fiche : code, libellés, sens, ordre et actif.
+  </p>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="093"><img src="manual-screenshots/shot-093.png" alt="Fiche catégorie de caisse" loading="eager" width="900"><figcaption class="screenshot-caption">Fiche catégorie — code, libellés FR/AR, sens entrée ou sortie, actif.</figcaption></figure>
+</div>
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 11 — RAPPORTS & ANALYSES
+───────────────────────────────────────── -->
+<div class="chapter" id="ch11">
+  <div class="chapter-header">
+    <div class="chapter-number">Chapitre 11</div>
+    <h2>Rapports &amp; Analyses</h2>
+    <p>Exploitez vos données pour piloter votre activité</p>
+  </div>
+
+  <p>
+    La section <strong>Rapports</strong> vous offre une vue analytique de toute votre activité
+    commerciale avec des exports dans différents formats.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="039"><img src="manual-screenshots/shot-039.png" alt="Portail Rapports" loading="eager" width="900"><figcaption class="screenshot-caption">Page Rapports — sections repliables vers l'analytique, la caisse, les achats et les ventes.</figcaption></figure>
+
+  <p>
+    La première page <strong>Rapports</strong> est organisée en <strong>sections repliables</strong> : accès rapide aux <strong>graphiques</strong> (analytique) et au tableau de bord, liens vers la <strong>caisse</strong> et le <strong>POS vente</strong>, raccourcis <strong>achats</strong> (analytique achats, rotation des stocks, exports, POS achat, factures et commandes fournisseur) et raccourcis <strong>ventes</strong> (factures, commandes, bons de livraison, devis). Ouvrez la section qui vous intéresse puis le bouton correspondant.
+  </p>
+
+  <h3 id="ch11-s0">11.0 Page Rapports : vue d'ensemble</h3>
+  <p>
+    Le tableau suivant liste les <strong>rapports les plus courants</strong> accessibles depuis les menus et liens de cette zone (les intitulés exacts à l'écran peuvent varier légèrement selon la version).
+  </p>
+  <table>
+    <thead><tr><th>Rapport</th><th>Description</th><th>Export</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Ventes par période</strong></td><td>CA, quantités vendues par jour / semaine / mois</td><td>CSV, Excel, PDF</td></tr>
+      <tr><td><strong>Ventes par produit</strong></td><td>Classement des articles par volume de vente</td><td>CSV, Excel</td></tr>
+      <tr><td><strong>Ventes par client</strong></td><td>CA réalisé par client et solde en cours</td><td>CSV, Excel</td></tr>
+      <tr><td><strong>Marge brute</strong></td><td>Marge par produit et globale sur la période</td><td>CSV, Excel, PDF</td></tr>
+      <tr><td><strong>Achats par fournisseur</strong></td><td>Volume d'achat et dette par fournisseur</td><td>CSV, Excel</td></tr>
+      <tr><td><strong>État des stocks</strong></td><td>Valeur du stock et produits en rupture</td><td>CSV, Excel, PDF</td></tr>
+      <tr><td><strong>Caisse</strong></td><td>Récapitulatif des sessions de caisse</td><td>PDF</td></tr>
+      <tr><td><strong>Analytique</strong></td><td>Graphiques interactifs d'évolution</td><td>—</td></tr>
+      <tr><td><strong>Encours clients / crédits</strong></td><td>Soldes dus par client, plafonds de crédit, disponible restant, clients en dépassement ; option d'inclure les soldes nuls</td><td>CSV</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="ch11-s1">11.1 Rapport encours clients (crédits)</h3>
+  <p>
+    Dans la page <strong>Rapports</strong>, la section dédiée aux <strong>encours clients</strong>
+    permet de charger un état des créances : total des créances, nombre de clients concernés, et un
+    tableau détaillé (nom, téléphone, solde, limite de crédit, crédit disponible, indicateur de
+    dépassement). Cochez l'option pour inclure les clients à solde nul si vous souhaitez une vue
+    exhaustive. Un bouton permet d'<strong>exporter les données en CSV</strong>.
+  </p>
+
+  <figure class="screenshot-figure" data-shot="040"><img src="manual-screenshots/shot-040.png" alt="Rapport encours clients" loading="eager" width="900"><figcaption class="screenshot-caption">Encours clients — soldes, plafonds de crédit et indicateur de dépassement.</figcaption></figure>
+
+  <h3 id="ch11-s2">11.2 Filtrer et exporter un rapport</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>Choisir le rapport</h4><p>Cliquez sur la catégorie de rapport souhaitée dans le menu.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>Définir la période</h4><p>Utilisez le sélecteur de date pour définir la plage temporelle.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>Appliquer des filtres</h4><p>Affinez par catégorie, produit, client ou fournisseur selon le rapport.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body"><h4>Exporter</h4><p>Cliquez sur le bouton d'export souhaité (CSV, Excel ou PDF).</p></div>
+    </div>
+  </div>
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="080"><img src="manual-screenshots/shot-080.png" alt="Filtres d'un rapport analytique" loading="eager" width="900"><figcaption class="screenshot-caption">Analytique ventes — filtres de période / catégorie et exports CSV, Excel, PDF.</figcaption></figure>
+
+  <h3 id="ch11-s3">11.3 Vieillissement créances (Aging 30/60/90j)</h3>
+  <p>
+    L'onglet <strong>Aging créances</strong> vous donne une vue de l'ensemble de vos factures impayées,
+    classées par ancienneté. Cela vous aide à prioriser vos relances clients.
+  </p>
+  <table>
+    <thead><tr><th>Colonne</th><th>Signification</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Non échu</strong></td><td>Factures dont la date d'échéance n'est pas encore atteinte</td></tr>
+      <tr><td><strong>0–30 j</strong></td><td>En retard de moins d'un mois</td></tr>
+      <tr><td><strong>31–60 j</strong></td><td>En retard d'un à deux mois</td></tr>
+      <tr><td><strong>61–90 j</strong></td><td>En retard de deux à trois mois</td></tr>
+      <tr><td><strong>&gt; 90 j</strong></td><td>En retard de plus de trois mois — à relancer en priorité</td></tr>
+    </tbody>
+  </table>
+  <p>Cliquez sur <strong>Exporter PDF</strong> ou <strong>Imprimer</strong> pour une version papier prête à l'envoi.</p>
+
+  <figure class="screenshot-figure" data-shot="041"><img src="manual-screenshots/shot-041.png" alt="Aging créances" loading="eager" width="900"><figcaption class="screenshot-caption">Aging créances — factures impayées classées par ancienneté (0–30 / 31–60 / 61–90 / &gt; 90 j).</figcaption></figure>
+
+  <h3 id="ch11-s4">11.4 Analyse ABC produits</h3>
+  <p>
+    L'analyse <strong>ABC</strong> classe vos produits en trois catégories selon leur contribution au chiffre d'affaires :
+  </p>
+  <ul>
+    <li>🅰 <strong>Classe A</strong> — Top 70 % du CA : vos produits phares. Priorité de stock et négociation fournisseur.</li>
+    <li>🅱 <strong>Classe B</strong> — 20 % suivants : produits importants à surveiller.</li>
+    <li>🅲 <strong>Classe C</strong> — 10 % restants : produits marginaux, à rationaliser éventuellement.</li>
+  </ul>
+  <p>Sélectionnez une période d'analyse (mois, trimestre, année) et cliquez <strong>Analyser</strong>.</p>
+  <p>Les cartes de résumé affichent le nombre de produits et leur CA par classe. Le tableau détaillé montre le rang, le % du CA, et le cumul.</p>
+
+  <div class="box tip">
+    <div class="box-title">💡 Usage pratique</div>
+    Utilisez cette analyse pour décider quels produits méritent un stock tampon plus élevé (Classe A) et lesquels peuvent être commandés à la demande (Classe C).
+  </div>
+  <figure class="screenshot-figure" data-shot="081"><img src="manual-screenshots/shot-081.png" alt="Analyse ABC produits" loading="eager" width="900"><figcaption class="screenshot-caption">Analyse ABC — classes A / B / C selon la contribution au chiffre d'affaires.</figcaption></figure>
+
+  <h3 id="ch11-s5">11.5 Avoirs clients (rapport)</h3>
+  <p>
+    L'onglet <strong>Avoirs clients</strong> liste tous les avoirs émis sur une période donnée (numéro AVOIR-CLI-XXXX).
+    Il affiche le client, le montant, la facture d'origine et la date.
+  </p>
+  <ul>
+    <li>Filtrez par période avec les sélecteurs de date.</li>
+    <li>Le total des avoirs est affiché en bas du tableau.</li>
+    <li>Exportez en CSV pour votre comptabilité.</li>
+  </ul>
+  <figure class="screenshot-figure" data-shot="077"><img src="manual-screenshots/shot-077.png" alt="Onglet avoirs clients" loading="eager" width="900"><figcaption class="screenshot-caption">Onglet Avoirs clients dans l'analytique — même écran que §7.7.</figcaption></figure>
+
+  <h3 id="ch11-s6">11.6 Exports comptables DGI</h3>
+  <p>
+    L'onglet <strong>Exports comptables (DGI)</strong> permet de générer les fichiers réglementaires
+    pour la Direction Générale des Impôts du Maroc.
+  </p>
+  <table>
+    <thead><tr><th>Export</th><th>Contenu</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Journal des écritures</strong></td><td>Toutes les écritures comptables (ventes, achats, encaissements, décaissements) sur la période</td></tr>
+      <tr><td><strong>Grand Livre</strong></td><td>Récapitulatif par compte comptable (3421, 4411, 7111, etc.) avec soldes</td></tr>
+      <tr><td><strong>Déclaration TVA</strong></td><td>Base imposable et TVA collectée/déductible par taux</td></tr>
+    </tbody>
+  </table>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Sélectionner la période</h4><p>Choisissez les dates de début et de fin.</p></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Cliquer sur le bouton de téléchargement</h4><p>Le fichier CSV est téléchargé automatiquement.</p></div></div>
+  </div>
+  <div class="box info">
+    <div class="box-title">ℹ️ Transactions annulées</div>
+    Les factures, avoirs et paiements annulés sont automatiquement exclus des exports comptables.
+  </div>
+  <figure class="screenshot-figure" data-shot="082"><img src="manual-screenshots/shot-082.png" alt="Exports comptables DGI" loading="eager" width="900"><figcaption class="screenshot-caption">Exports comptables DGI — journal, grand livre et déclaration TVA.</figcaption></figure>
+
+</div>
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 12 — HORECA
+───────────────────────────────────────── -->
+<div class="chapter" id="ch12">
+  <div class="chapter-header">
+    <div class="chapter-number">Chapitre 12</div>
+    <h2>HoReCa — Restauration</h2>
+    <p>Gestion des tables, commandes en salle, écran cuisine (KDS), statistiques et appel serveur</p>
+  </div>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ Module optionnel</div>
+    Le module HoReCa est dédié aux établissements de restauration (restaurants, cafétérias,
+    hôtels…). Il s'active uniquement si votre abonnement inclut cette fonctionnalité.
+  </div>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ Accès aux écrans HoReCa</div>
+    Les routes principales sont <code>/horeca/salle</code> (plan de salle) et <code>/horeca/cuisine</code>
+    (écran cuisine KDS). La racine <code>/horeca</code> redirige automatiquement vers le plan de salle.
+  </div>
+
+  <h3 id="ch12-s1">12.1 Plan de salle</h3>
+  <p>
+    L'écran <strong>Plan de salle</strong> offre une vue graphique de votre restaurant. Chaque
+    table est positionnée sur la carte et affiche son état en temps réel. La cloche en haut à droite
+    signale les <strong>appels serveur</strong> en attente ; chaque table peut afficher un QR code imprimable.
+    Le bouton <strong>Tout voir</strong> cadre toutes les tables et les murs dans l’écran.
+    Une réservation confirmée s’affiche en pastille horaire sur la table (ex. 20h · 4 p.).
+    En configuration, la réorganisation est active d’emblée (glisser, poignées, Décor). Le QR d’appel serveur reste sur le plan d’exploitation.
+    Vous pouvez <strong>tourner</strong> une table ou un décor (45°), <strong>redimensionner</strong> tables et décors par les poignées en réorganisation, ajouter des <strong>zones</strong> (terrasse, bar…) et du <strong>décor</strong> (plante, comptoir, banquette, porte), et vous déplacer via la <strong>mini-carte</strong>.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="042"><img src="manual-screenshots/shot-042.png" alt="Plan de salle" loading="eager" width="900"><figcaption class="screenshot-caption">Plan de salle — tables avec chaises, légende, mini-carte et zoom.</figcaption></figure>
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="091"><img src="manual-screenshots/shot-091.png" alt="Configuration du plan de salle" loading="eager" width="900"><figcaption class="screenshot-caption">Configuration du plan — réorganisation, décors, poignées et mini-carte.</figcaption></figure>
+
+  <h4>Statuts des tables</h4>
+  <table>
+    <thead><tr><th>Statut</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge badge-green">Libre</span></td><td>Table disponible, prête à accueillir des clients</td></tr>
+      <tr><td><span class="badge badge-orange">Occupée</span></td><td>Clients installés, commande en cours</td></tr>
+      <tr><td><span class="badge badge-blue">Réservée</span></td><td>Table réservée pour une heure précise</td></tr>
+      <tr><td><span class="badge badge-red">En attente</span></td><td>Commande envoyée en cuisine, en préparation</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="ch12-s2">12.2 Gestion des tables</h3>
+  <p>
+    Cliquez sur une table du plan de salle pour accéder à son menu de commande.
+  </p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>Ouvrir la table</h4><p>Cliquez sur une table libre pour démarrer une nouvelle commande.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>Ajouter les articles</h4>
+        <p>Touchez un plat ou scannez-le. S’il a des <strong>suppléments</strong>, une feuille <strong>Options</strong> s’ouvre : cochez les extras et saisissez la <strong>note cuisine</strong> (sans oignon, bien cuit…) dans le même écran — il n’y a plus d’icône notes à part. Avant l’envoi cuisine, <strong>⋯</strong> sur la ligne puis <strong>Options</strong> rouvre cette feuille pour modifier ou retirer les extras. Après <strong>Ajouter</strong>, le curseur revient dans la recherche pour le scan suivant.</p>
+        <p>Deux fois le même plat avec des <strong>notes différentes</strong> = <strong>deux lignes</strong> (chacune sa note, deux tickets KDS). Même plat, mêmes extras, même note = une ligne avec la quantité augmentée.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>Envoyer en cuisine</h4><p>Cliquez sur <strong>"Envoyer en cuisine"</strong>. Les articles apparaissent immédiatement sur l'écran KDS.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body"><h4>Encaisser</h4><p>Une fois le repas terminé, cliquez sur <strong>"Encaisser"</strong> pour passer en mode POS et régler la note.</p></div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure" data-shot="043"><img src="manual-screenshots/shot-043.png" alt="Session de table" loading="eager" width="900"><figcaption class="screenshot-caption">Session de table — caisse tactile, options cuisine (tune) et envoi en cuisine.</figcaption></figure>
+
+  <h4>Modes de service</h4>
+  <ul>
+    <li><strong>Sur place (Dine-in)</strong> : service en salle avec table associée</li>
+    <li><strong>À emporter (Takeaway)</strong> : commande sans table</li>
+    <li><strong>Livraison (Delivery)</strong> : commande avec adresse de livraison</li>
+  </ul>
+
+  <h4>Transfert de table</h4>
+  <p>
+    Pour déplacer un client d'une table à une autre (libération d'une table, réorganisation…),
+    utilisez la fonction <strong>"Transférer la table"</strong> depuis le menu de la table source.
+  </p>
+
+  <h3 id="ch12-s3">12.3 Écran cuisine (KDS)</h3>
+  <p>
+    Le <strong>KDS (Kitchen Display System)</strong> est l'écran dédié à la cuisine. Il affiche
+    en temps réel toutes les commandes envoyées depuis les tables.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="044"><img src="manual-screenshots/shot-044.png" alt="Écran cuisine KDS" loading="eager" width="900"><figcaption class="screenshot-caption">KDS — tickets cuisine (articles, suppléments, notes, table, heure d'envoi).</figcaption></figure>
+
+  <h4>Utilisation du KDS</h4>
+  <ul>
+    <li>Chaque ticket affiche la table, les articles, les <strong>suppléments</strong> et la <strong>note cuisine</strong>, plus l’heure d’envoi</li>
+    <li>Le cuisinier coche chaque article au fur et à mesure de sa préparation</li>
+    <li>Quand tous les articles sont prêts, le ticket est marqué comme <strong>"Prêt"</strong></li>
+    <li>Un signal est envoyé au serveur pour le service</li>
+  </ul>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ Stations de cuisine</div>
+    Si votre cuisine est organisée en stations (entrées, plats chauds, desserts, bar…),
+    chaque station peut avoir son propre écran KDS et ne voit que les articles qui la concernent.
+  </div>
+
+  <h3 id="ch12-s4">12.4 Réservations</h3>
+  <p>
+    Gérez les réservations de vos clients directement depuis Assalim.
+  </p>
+
+  <figure class="screenshot-figure" data-shot="045"><img src="manual-screenshots/shot-045.png" alt="Calendrier des réservations" loading="eager" width="900"><figcaption class="screenshot-caption">Réservations — calendrier hebdomadaire et bouton « Nouvelle réservation ».</figcaption></figure>
+
+  <h4>Créer une réservation</h4>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>Cliquer sur "Nouvelle réservation"</h4><p>Depuis la page Réservations ou depuis une table du plan de salle.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>Renseigner les informations</h4><p>Nom du client, date et heure, nombre de couverts, table souhaitée (optionnel) et notes spéciales.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>Confirmer</h4><p>Enregistrez la réservation. Une pastille horaire (ex. 20h · 4 p.) apparaît sur la table du plan de salle.</p></div>
+    </div>
+  </div>
+
+  <h3 id="ch12-s5">12.5 Statistiques salle</h3>
+  <p>
+    Accès : menu <strong>Statistiques salle</strong> (<code>/horeca/stats</code>) ou via le hub <strong>Rapports</strong>.
+  </p>
+  <ul>
+    <li><strong>KPIs :</strong> CA total, sessions, couverts moyens, durée moyenne, taux de rotation.</li>
+    <li><strong>Heatmap horaire :</strong> histogramme du CA par tranche horaire (heures de pointe).</li>
+    <li><strong>Performance par table :</strong> classement par CA, sessions et durée d'occupation.</li>
+    <li><strong>CA par serveur :</strong> classement des utilisateurs par chiffre d'affaires généré.</li>
+    <li><strong>Période :</strong> 7 jours, 30 jours, 90 jours ou dates personnalisées.</li>
+    <li><strong>Export PDF :</strong> bouton « Exporter PDF » → impression via le navigateur.</li>
+  </ul>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="055"><img src="manual-screenshots/shot-055.png" alt="Capture" loading="eager" width="900"><figcaption class="screenshot-caption">Statistiques salle — KPIs, heatmap horaire et classement par table / serveur.</figcaption></figure>
+
+  <h3 id="ch12-s6">12.6 Partager l'addition (split bill)</h3>
+  <p>
+    Depuis la <strong>session table</strong>, le bouton <strong>« Partager l'addition »</strong> permet de répartir
+    les articles entre deux parts (ex. deux groupes de convives).
+  </p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>Ouvrir le dialogue</h4><p>Cliquez « Partager l'addition » depuis le pied de page de la session.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>Répartir les quantités</h4><p>Pour chaque article, indiquez combien va sur l'addition 1 et l'addition 2. Utilisez « Répartir équitablement » pour diviser en un clic.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>Encaisser chaque part</h4><p>À la confirmation, une sous-commande est créée par part et le POS s'ouvre pour encaisser la première.</p></div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure" data-shot="056"><img src="manual-screenshots/shot-056.png" alt="Capture" loading="eager" width="900"><figcaption class="screenshot-caption">Dialogue « Partager l'addition » — répartition des quantités entre deux parts.</figcaption></figure>
+
+  <h3 id="ch12-s7">12.7 Commande comptoir (emporter / livraison)</h3>
+  <p>
+    Pour les commandes sans table assignée, utilisez le bouton <strong>« Comptoir »</strong> sur le plan de salle.
+    Choisissez <strong>Emporter</strong> ou <strong>Livraison</strong> — la page <code>/horeca/comptoir</code> s'ouvre
+    avec la même interface que la session table (recherche produits, envoi cuisine, encaissement).
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="057"><img src="manual-screenshots/shot-057.png" alt="Capture" loading="eager" width="900"><figcaption class="screenshot-caption">Session comptoir — commande emporter sans table assignée.</figcaption></figure>
+
+  <h3 id="ch12-s8">12.8 Appel serveur (QR code)</h3>
+  <p>
+    Chaque table dispose d'un <strong>QR code unique</strong> permettant aux clients d'appeler un serveur depuis leur
+    téléphone, sans compte ni application.
+  </p>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ Page publique</div>
+    Le lien <code>/call/{token}</code> est accessible sans connexion. Le client scanne le QR, voit le nom de sa table
+    et appuie sur <strong>« Appeler le serveur »</strong>. Un message optionnel peut accompagner l'appel.
+  </div>
+
+  <h4>Mise en place (personnel)</h4>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>Afficher le QR code</h4><p>Sur le plan de salle, cliquez l'icône QR code de la table (visible sans survol, y compris au tactile).</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>Imprimer ou copier</h4><p>Imprimez le QR (bouton « Imprimer ») pour le plastifier sur la table, ou copiez le lien.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>Traiter les appels</h4><p>La cloche du plan de salle affiche les appels en attente. Acquittez-les depuis le panneau latéral.</p></div>
+    </div>
+  </div>
+
+  <div class="box warn">
+    <div class="box-title">⚠️ Un seul appel actif par table</div>
+    Tant qu'un appel n'est pas acquitté, un second appel depuis la même table affiche « Serveur en route » au client.
+  </div>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="058"><img src="manual-screenshots/shot-058.png" alt="Capture" loading="eager" width="900"><figcaption class="screenshot-caption">Page publique <code>/call/{token}</code> — le client appelle un serveur sans connexion.</figcaption></figure>
+
+  <figure class="screenshot-figure" data-shot="059"><img src="manual-screenshots/shot-059.png" alt="Capture" loading="eager" width="900"><figcaption class="screenshot-caption">Dialogue QR code par table — lien imprimable à placer sur la table.</figcaption></figure>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="060"><img src="manual-screenshots/shot-060.png" alt="Capture" loading="eager" width="900"><figcaption class="screenshot-caption">Panneau des appels serveur en attente sur le plan de salle.</figcaption></figure>
+
+  <h3 id="ch12-s9">12.9 Livraisons téléphone / Glovo / Uber</h3>
+  <p>
+    Le board <strong>HoReCa → Livraisons</strong> (<code>/horeca/livraisons</code>) suit les commandes
+    à livrer. Il n'y a <strong>pas d'API partenaire</strong> : le personnel recopie le ticket Glovo / Uber
+    (n° plateforme, client, adresse) ou saisit une commande téléphone.
+  </p>
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="063"><img src="manual-screenshots/shot-063.png" alt="Board livraisons" loading="eager" width="900"><figcaption class="screenshot-caption">Board livraisons — colonnes Reçue, En prép., Prête, En route.</figcaption></figure>
+  <h4>Créer une livraison</h4>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>Nouvelle livraison</h4><p>Depuis le board, ou depuis le plan de salle → Comptoir → Livraison.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>Canal</h4><p><strong>Téléphone</strong> (n° client requis), <strong>Glovo</strong> / <strong>Uber Eats</strong> (n° commande plateforme requis), ou <strong>Autre</strong>.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>Prendre commande</h4><p>Après enregistrement, le comptoir s'ouvre pour ajouter les articles. L'envoi cuisine n'a lieu que si au moins une ligne va en cuisine ; le ticket passe alors en <strong>En prép.</strong></p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body"><h4>Avancer le statut</h4><p>Sur la carte : Reçue → En prép. → Prête → En route → Livrée. WhatsApp est proposé si le canal est téléphone et qu'un n° est renseigné.</p></div>
+    </div>
+  </div>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="064"><img src="manual-screenshots/shot-064.png" alt="Nouvelle livraison" loading="eager" width="900"><figcaption class="screenshot-caption">Dialogue « Nouvelle livraison » — canal, n° plateforme, client, adresse.</figcaption></figure>
+  <div class="box info">
+    <div class="box-title">ℹ️ Cuisine</div>
+    Sur le KDS, le ticket s'intitule <strong>Livraison</strong> avec le n° de commande en sous-titre.
+  </div>
+
+</div>
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 13 — MESSAGERIE
+───────────────────────────────────────── -->
+<div class="chapter" id="ch13">
+  <div class="chapter-header">
+    <div class="chapter-number">Chapitre 13</div>
+    <h2>Messagerie Interne</h2>
+    <p>Communiquez avec vos collègues directement depuis Assalim</p>
+  </div>
+
+  <p>
+    Le module de <strong>messagerie interne</strong> permet aux utilisateurs de votre établissement
+    de communiquer entre eux sans quitter l'application. Ouvrez la page <strong>Messages</strong>
+    depuis le <strong>menu latéral</strong> ou une tuile du <strong>Hub</strong> (adresse <code>/messages</code>).
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="046"><img src="manual-screenshots/shot-046.png" alt="Liste des conversations" loading="eager" width="900"><figcaption class="screenshot-caption">Messagerie — liste des conversations, bouton « Nouvelle conversation » et cibles tactiles.</figcaption></figure>
+
+  <h3 id="ch13-s1">Fonctionnalités de messagerie</h3>
+  <ul>
+    <li><strong>Conversations</strong> : démarrez une discussion en tête-à-tête ou un groupe depuis la liste des messages</li>
+    <li><strong>Messages</strong> : envoyez des textes avec pièces jointes</li>
+    <li><strong>Recherche</strong> : retrouvez rapidement une conversation ou un message</li>
+    <li><strong>Notifications</strong> : recevez des alertes en temps réel pour les nouveaux messages</li>
+    <li><strong>Ouverture</strong> : en cliquant une conversation, le fil descend jusqu’au dernier message (au-dessus de la zone de saisie)</li>
+    <li><strong>Tactile</strong> : listes, bulles et saisie se touchent au doigt (cibles larges). En mode tactile ou au POS, le clavier à l’écran est visible sous la zone de saisie, sans bouton supplémentaire</li>
+  </ul>
+
+  <h3 id="ch13-s2">Démarrer une conversation</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>Ouvrir la messagerie</h4><p>Cliquez sur l'icône de messagerie dans le menu ou accédez à <strong>Messages</strong>.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>Nouvelle conversation</h4><p>Cliquez sur <strong>« Nouvelle conversation »</strong>, cochez un collègue pour un échange en tête-à-tête, ou plusieurs (au moins deux autres personnes) pour un groupe. Vous pouvez donner un nom au groupe (optionnel).</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>Envoyer un message</h4><p>Touchez la zone de saisie (ou le <strong>clavier tactile</strong> s’il est affiché), puis le bouton d’envoi. Les actions modifier / supprimer d’un message sont visibles au doigt, sans survol.</p></div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="047"><img src="manual-screenshots/shot-047.png" alt="Conversation interne avec messages" loading="eager" width="900"><figcaption class="screenshot-caption">Fil de conversation — messages, zone de saisie tactile et clavier à l’écran.</figcaption></figure>
+
+  <h3 id="ch13-s3">13.3 Ouvrir une conversation</h3>
+  <p>
+    Depuis la liste, cliquez une conversation : le fil s’ouvre déjà <strong>en bas</strong>, sur le dernier message
+    (texte, vocal ou image). Vous n’avez pas à scroller manuellement. Si une image charge ensuite, le fil reste collé en bas
+    tant que vous n’êtes pas remonté lire l’historique. « Charger plus anciens » conserve votre position dans le fil.
+  </p>
+</div>
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 14 — COMMERCIAL
+───────────────────────────────────────── -->
+<div class="chapter" id="ch14">
+  <div class="chapter-header">
+    <div class="chapter-number">Chapitre 14</div>
+    <h2>Commercial</h2>
+    <p>Fidélité, promotions et grilles tarifaires</p>
+  </div>
+
+  <p>
+    Le menu latéral <strong>Commercial</strong> regroupe les règles commerciales de l'établissement :
+    fidélité, promotions et grilles tarifaires. Il est distinct du menu <strong>Administration</strong> (utilisateurs, établissement, catégories de caisse, sauvegarde…).
+  </p>
+
+  <h3 id="ch14-s1">14.1 Fidélité</h3>
+  <p>
+    Configurez le programme depuis <strong>Commercial → Fidélité</strong>.
+    L'usage à la caisse (widget points, rachat) est décrit en <strong>section 6.6</strong>.
+  </p>
+  <table>
+    <thead><tr><th>Paramètre</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Activer le programme</strong></td><td>Active ou désactive le widget fidélité au POS</td></tr>
+      <tr><td><strong>Points par MAD dépensé</strong></td><td>Nombre de points crédités pour 1 MAD de vente</td></tr>
+      <tr><td><strong>Valeur d'un point (en MAD)</strong></td><td>Conversion lors du rachat (ex: 1 point = 0.1 MAD)</td></tr>
+      <tr><td><strong>% max remise par rachat</strong></td><td>Plafonne la remise par fidélité (ex: 20% max de la facture)</td></tr>
+      <tr><td><strong>Seuil Bronze / Argent / Or</strong></td><td>Points nécessaires pour atteindre chaque niveau</td></tr>
+    </tbody>
+  </table>
+  <p>Cliquez <strong>Enregistrer</strong> pour appliquer les modifications. Les changements prennent effet immédiatement au POS.</p>
+  <figure class="screenshot-figure" data-shot="083"><img src="manual-screenshots/shot-083.png" alt="Fidélité" loading="eager" width="900"><figcaption class="screenshot-caption">Commercial → Fidélité — activation, points par MAD, seuils Bronze / Argent / Or.</figcaption></figure>
+
+  <h3 id="ch14-s2">14.2 Promotions</h3>
+  <p>
+    Accès : <strong>Commercial → Promotions</strong>. Créez des campagnes limitées dans le temps
+    (%, montant, prix barré ou offre 2+1). Au POS, le prix catalogue est barré et un badge affiche la promo.
+  </p>
+  <table>
+    <thead><tr><th>Type</th><th>Effet au POS</th></tr></thead>
+    <tbody>
+      <tr><td><strong>% remise</strong></td><td>Pourcentage sur le prix unitaire</td></tr>
+      <tr><td><strong>Montant</strong></td><td>Remise en MAD sur le prix unitaire</td></tr>
+      <tr><td><strong>Prix barré</strong></td><td>Prix forcé (étiquette « prix barré »)</td></tr>
+      <tr><td><strong>2+1 / X+Y</strong></td><td>Pack : acheter X, en obtenir Y offerts</td></tr>
+    </tbody>
+  </table>
+  <ul>
+    <li>Ciblez des <strong>produits</strong> et/ou des <strong>catégories</strong>. Aucune cible = tout le catalogue.</li>
+    <li>Si plusieurs promotions s'appliquent, une seule est retenue (priorité la plus élevée).</li>
+    <li>Le cumul des prix au POS : catalogue → grille client → 1 promo → % niveau fidélité, puis rachat de points.</li>
+  </ul>
+  <figure class="screenshot-figure" data-shot="087"><img src="manual-screenshots/shot-087.png" alt="Liste des promotions" loading="eager" width="900"><figcaption class="screenshot-caption">Commercial → Promotions — campagnes, type, cible et période.</figcaption></figure>
+  <p>
+    Cliquez une ligne ou l'icône <strong>œil</strong> pour ouvrir la fiche : type, valeur, dates, priorité, catégories et produits ciblés, puis Modifier ou Supprimer.
+  </p>
+  <figure class="screenshot-figure" data-shot="089"><img src="manual-screenshots/shot-089.png" alt="Détail d'une promotion" loading="eager" width="900"><figcaption class="screenshot-caption">Fiche promotion — type, période, cible, catégories et produits.</figcaption></figure>
+
+  <h3 id="ch14-s3">14.3 Grilles tarifaires</h3>
+  <p>
+    Accès : <strong>Commercial → Grilles tarifaires</strong>. Une grille définit des prix par produit
+    (et éventuellement un palier de quantité minimale). Vous l'<strong>affectez au client</strong> depuis sa fiche
+    (liste déroulante), pas depuis le POS.
+  </p>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Créer la grille</h4><p>Nommez-la, ajoutez des lignes (produit, qté min, prix).</p></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-body"><h4>L'assigner au client</h4><p>Ouvrez la fiche client et choisissez la grille dans le champ prévu.</p></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Vendre au POS</h4><p>Dès que ce client est sélectionné, le prix de la grille s'applique (avant promo et fidélité).</p></div></div>
+  </div>
+  <figure class="screenshot-figure" data-shot="088"><img src="manual-screenshots/shot-088.png" alt="Grilles tarifaires" loading="eager" width="900"><figcaption class="screenshot-caption">Commercial → Grilles tarifaires — listes de prix à assigner aux clients.</figcaption></figure>
+  <p>
+    L'icône <strong>œil</strong> ouvre le détail : nom, statut actif, et les lignes (produit, quantité min, prix unitaire).
+  </p>
+  <figure class="screenshot-figure" data-shot="090"><img src="manual-screenshots/shot-090.png" alt="Détail d'une grille tarifaire" loading="eager" width="900"><figcaption class="screenshot-caption">Fiche grille tarifaire — lignes produit, quantité minimale et prix.</figcaption></figure>
+</div>
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 15 — PARAMÈTRES
+───────────────────────────────────────── -->
+<div class="chapter" id="ch15">
+  <div class="chapter-header">
+    <div class="chapter-number">Chapitre 15</div>
+    <h2>Paramètres</h2>
+    <p>Configuration de l'application, des utilisateurs, de la licence et sauvegarde de la base</p>
+  </div>
+
+  <div class="box warn">
+    <div class="box-title">⚠️ Accès restreint</div>
+    La plupart des paramètres sont réservés aux utilisateurs ayant le rôle <strong>Administrateur</strong>.
+    Contactez votre administrateur si vous n'avez pas accès à certaines sections.
+  </div>
+
+  <h3 id="ch15-s1">15.1 Paramètres généraux</h3>
+  <p>
+    Configurez les informations de votre établissement, l'apparence des documents et
+    les réglages globaux de l'application.
+  </p>
+
+  <figure class="screenshot-figure" data-shot="048"><img src="manual-screenshots/shot-048.png" alt="Paramètres généraux" loading="eager" width="900"><figcaption class="screenshot-caption">Paramètres généraux — devise, pas des montants, droit de timbre par mode.</figcaption></figure>
+
+  <table>
+    <thead><tr><th>Paramètre</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Nom de la société</strong></td><td>Nom qui apparaît sur vos factures et reçus</td></tr>
+      <tr><td><strong>Logo</strong></td><td>Logo imprimé sur les documents</td></tr>
+      <tr><td><strong>Adresse</strong></td><td>Adresse complète de l'établissement</td></tr>
+      <tr><td><strong>Téléphone / E-mail</strong></td><td>Coordonnées de contact affichées sur les documents</td></tr>
+      <tr><td><strong>Devise</strong></td><td>Monnaie utilisée (ex. : MAD, EUR, USD)</td></tr>
+      <tr><td><strong>Pas des montants</strong></td><td>Arrondi HALF_UP des totaux ticket uniquement (sous-total, récap Ventes / Retours / Remises lignes, dû, droit de timbre, pourboire, espèces, rendu). Les lignes (PU et total de ligne) restent au tarif exact. Défaut 0,10 pour le MAD. Le taux % n’est pas arrondi au pas. Ex. : ligne 13,05, total ticket 13,10 ; timbre 0,25 % sur 100 → 0,30.</td></tr>
+      <tr><td><strong>TVA par défaut</strong></td><td>Taux de TVA appliqué par défaut sur les produits</td></tr>
+      <tr><td><strong>Pied de page reçu</strong></td><td>Message personnalisé sur les reçus caisse</td></tr>
+      <tr><td><strong>Délai scan</strong></td><td>Temps d'attente après scan code-barres (ms)</td></tr>
+      <tr><td><strong>Désactiver la gestion de stock</strong></td><td>Si activé : pas de suivi des stocks à la vente (caisse, BL, factures) et modules Stock / Inventaire masqués ; si désactivé : comportement habituel</td></tr>
+      <tr><td><strong>Autoriser le stock négatif</strong></td><td>Si activé (gestion de stock allumée) : une vente ou un BL peut passer le stock vendable sous zéro, après confirmation en caisse. Désactivé par défaut. Sans effet si la gestion de stock est désactivée. Voir §6.9.</td></tr>
+      <tr><td><strong>Verrouillage caisse après inactivité</strong></td><td>Délai en secondes avant le mur de visages au POS (défaut 90, 0 = jamais, max 3600). Voir §6.11.</td></tr>
+      <tr><td><strong>Droit de timbre par mode</strong></td><td>Taux en % sur la part encaissée (hors timbre). Défaut 0. Hors CA, comme le pourboire. Voir §7.5.</td></tr>
+      <tr><td><strong>Pourboires</strong></td><td>Si activé : ligne Pourboire (montant MAD) en bas du bloc paiement POS (sous les moyens ou le mixte). Hors total facture ; inclus dans l’encaissement (espèces ou carte). Montant et mode enregistrés sur la facture et dans le brouillon. Désactivé par défaut.</td></tr>
+      <tr><td><strong>Prix sur les étiquettes</strong></td><td>Affiche le prix de vente sur les étiquettes rayon (A4 ou rouleau). Voir §4.1.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ Courrier (SMTP) — administrateur plateforme</div>
+    Sur les déploiements multi-locataires, un compte <strong>administrateur plateforme</strong> peut
+    configurer le serveur SMTP global des e-mails système (réinitialisation de mot de passe, etc.)
+    dans les paramètres d'instance. Ce réglage est hors périmètre des utilisateurs d'un seul établissement.
+  </div>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="049"><img src="manual-screenshots/shot-049.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <h3 id="ch15-s2">15.2 Gestion des utilisateurs</h3>
+  <p>
+    Créez et gérez les comptes de tous les utilisateurs qui ont accès à Assalim dans
+    votre établissement.
+  </p>
+
+  <figure class="screenshot-figure" data-shot="050"><img src="manual-screenshots/shot-050.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <h4>Créer un utilisateur</h4>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>Cliquer sur "+ Nouvel utilisateur"</h4><p>Depuis la section <strong>Paramètres → Utilisateurs</strong>.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>Renseigner les informations</h4><p>Prénom, nom, adresse e-mail (servira d'identifiant de connexion) et mot de passe initial.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>Attribuer un rôle</h4><p>Sélectionnez le rôle approprié : Administrateur, Gérant, Pharmacien, Caissier ou Cuisine.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body"><h4>Enregistrer</h4><p>L'utilisateur peut maintenant se connecter avec ses identifiants.</p></div>
+    </div>
+  </div>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="051"><img src="manual-screenshots/shot-051.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ Réinitialisation de mot de passe</div>
+    Un administrateur peut réinitialiser le mot de passe de n'importe quel utilisateur
+    depuis la fiche utilisateur, sans connaître l'ancien mot de passe.
+  </div>
+
+  <h3 id="ch15-s3">15.3 Rôles &amp; Permissions</h3>
+  <p>
+    Le système de permissions d'Assalim est très granulaire. Vous pouvez définir précisément
+    ce qu'un rôle peut ou ne peut pas faire.
+  </p>
+
+  <figure class="screenshot-figure" data-shot="052"><img src="manual-screenshots/shot-052.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <h4>Permissions disponibles</h4>
+  <table>
+    <thead><tr><th>Ressource</th><th>Actions</th></tr></thead>
+    <tbody>
+      <tr><td>Tableau de bord</td><td>Lecture</td></tr>
+      <tr><td>POS Vente</td><td>Lecture / Écriture</td></tr>
+      <tr><td>POS Achat</td><td>Lecture / Écriture</td></tr>
+      <tr><td>Ventes (devis, commandes, BL, factures)</td><td>Lecture / Création / Modification / Suppression</td></tr>
+      <tr><td>Paiements clients</td><td>Lecture / Écriture</td></tr>
+      <tr><td>Achats (toutes étapes)</td><td>Lecture / Création / Modification</td></tr>
+      <tr><td>Paiements fournisseurs</td><td>Lecture / Écriture</td></tr>
+      <tr><td>Stocks</td><td>Lecture / Écriture</td></tr>
+      <tr><td>Inventaires</td><td>Lecture / Écriture</td></tr>
+      <tr><td>Produits / Catégories</td><td>Lecture / Écriture</td></tr>
+      <tr><td>Clients / Fournisseurs</td><td>Lecture / Écriture</td></tr>
+      <tr><td>Caisse</td><td>Lecture / Écriture</td></tr>
+      <tr><td>Rapports</td><td>Lecture</td></tr>
+      <tr><td>Utilisateurs</td><td>Lecture / Création / Modification</td></tr>
+      <tr><td>Paramètres</td><td>Lecture / Écriture</td></tr>
+      <tr><td>Cuisine (KDS)</td><td>Lecture / Écriture</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Permissions individuelles (surcharges)</h4>
+  <p>
+    En plus des rôles, vous pouvez accorder ou retirer une permission spécifique à un utilisateur
+    individuel, sans modifier son rôle global.
+    Accédez à la fiche de l'utilisateur → onglet <strong>"Permissions"</strong>.
+  </p>
+
+  <h3 id="ch15-s4">15.4 Gestion de la licence</h3>
+  <p>
+    La section licence vous permet de consulter l'état de votre licence Assalim et de
+    l'activer ou de la renouveler.
+  </p>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ Bannières en haut de l'écran</div>
+    Si un bandeau jaune ou orange apparaît sous la barre d'outils (essai gratuit, licence à activer, abonnement), lisez le message et utilisez le lien <strong>Activer</strong> ou contactez votre administrateur. Ce n'est pas une erreur de l'application : c'est un rappel pour éviter une interruption de service.
+  </div>
+
+  <figure class="screenshot-figure" data-shot="053"><img src="manual-screenshots/shot-053.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <h4>Activer une licence</h4>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>Obtenir la clé de licence</h4><p>Votre revendeur vous fournit une clé d'activation unique.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>Accéder à Paramètres → Licence</h4><p>Ouvrez la section de gestion de la licence.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>Saisir la clé</h4><p>Collez votre clé dans le champ prévu et cliquez sur <strong>"Activer"</strong>.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body"><h4>Confirmation</h4><p>Un message de succès confirme l'activation. La date d'expiration est mise à jour.</p></div>
+    </div>
+  </div>
+
+  <div class="box danger">
+    <div class="box-title">🚫 Licence expirée</div>
+    Si votre licence expire, l'accès à l'application sera restreint. Renouvelez votre licence
+    auprès de votre revendeur avant la date d'expiration pour éviter toute interruption.
+  </div>
+
+  <h3 id="ch15-s5">15.5 Historique des connexions</h3>
+  <p>
+    L'historique des connexions enregistre chaque accès à l'application : utilisateur, date,
+    heure, adresse IP et appareil utilisé. Cela permet de détecter des connexions suspectes.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="054"><img src="manual-screenshots/shot-054.png" alt="Capture" loading="eager" width="900"></figure>
+
+  <h3 id="ch15-s6">15.6 Double authentification (MFA)</h3>
+  <p>
+    Le <strong>MFA (Multi-Factor Authentication)</strong> ajoute une couche de sécurité à votre compte.
+    En plus de votre mot de passe, un code à 6 chiffres généré par une application comme
+    <strong>Google Authenticator</strong> ou <strong>Authy</strong> sera demandé à chaque connexion.
+  </p>
+  <h4>Activer le MFA</h4>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Ouvrir les paramètres MFA</h4><p>Allez dans <strong>Paramètres → Sécurité (MFA)</strong>.</p></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Scanner le QR code</h4><p>Ouvrez Google Authenticator sur votre téléphone → <strong>+</strong> → Scanner un QR code → pointez votre caméra sur le code affiché.</p></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Saisir le code de vérification</h4><p>Entrez le code à 6 chiffres affiché dans l'application → cliquez <strong>Vérifier et activer</strong>.</p></div></div>
+  </div>
+  <div class="box tip">
+    <div class="box-title">🔑 Clé manuelle</div>
+    Si vous ne pouvez pas scanner le QR code, une clé textuelle est également affichée pour une saisie manuelle dans l'application d'authentification.
+  </div>
+  <h4>Désactiver le MFA</h4>
+  <p>Dans la même page, cliquez <strong>Désactiver</strong>, saisissez le code TOTP actuel pour confirmer.</p>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="084"><img src="manual-screenshots/shot-084.png" alt="Paramètres MFA" loading="eager" width="900"><figcaption class="screenshot-caption">Double authentification — QR code et activation TOTP.</figcaption></figure>
+
+  <h3 id="ch15-s7">15.7 Identifiants fiscaux DGI</h3>
+  <p>
+    Renseignez vos identifiants fiscaux dans <strong>Paramètres → Établissement</strong>, section
+    <em>"Identifiants fiscaux DGI Maroc"</em>. Ces informations apparaissent automatiquement sur
+    tous vos PDFs (factures, avoirs, bons de livraison).
+  </p>
+  <table>
+    <thead><tr><th>Champ</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><strong>ICE</strong></td><td>Identifiant Commun de l'Entreprise (15 chiffres)</td></tr>
+      <tr><td><strong>IF</strong></td><td>Identifiant Fiscal (numéro d'imposition)</td></tr>
+      <tr><td><strong>RC</strong></td><td>Registre de Commerce</td></tr>
+      <tr><td><strong>Patente</strong></td><td>Numéro de patente</td></tr>
+      <tr><td><strong>Capital social</strong></td><td>Capital en MAD (affiché sur les factures)</td></tr>
+    </tbody>
+  </table>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="049"><img src="manual-screenshots/shot-049.png" alt="Identifiants fiscaux établissement" loading="eager" width="900"><figcaption class="screenshot-caption">Paramètres établissement — ICE, IF, RC et autres identifiants DGI (même écran que §15.1).</figcaption></figure>
+
+  <h3 id="ch15-s8">15.8 Backup base de données</h3>
+  <p>
+    Accès : <strong>Paramètres → Backup base de données</strong> (<code>/settings/backup</code>).
+    Réservé aux <strong>administrateurs</strong>.
+  </p>
+
+  <figure class="screenshot-figure screenshot-figure--tall" data-shot="061"><img src="manual-screenshots/shot-061.png" alt="Capture" loading="eager" width="900"><figcaption class="screenshot-caption">Page Backup — téléchargement et restauration de la base PostgreSQL.</figcaption></figure>
+
+  <div class="box warn">
+    <div class="box-title">⚠️ Opération sensible</div>
+    La <strong>restauration</strong> écrase entièrement la base PostgreSQL actuelle.
+    Effectuez toujours un backup avant toute restauration.
+  </div>
+
+  <h4>Télécharger un backup</h4>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>Ouvrir la page Backup</h4><p>Depuis <strong>Paramètres</strong>, cliquez le lien rouge « Backup base de données ».</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>Télécharger</h4><p>Saisissez un mot de passe (≥ 8 caractères) deux fois, puis cliquez <strong>« Télécharger le backup »</strong>. Un fichier chiffré <code>.assalim.bak</code> est téléchargé.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>Conserver en lieu sûr</h4><p>Stockez le fichier sur un support externe ou un cloud chiffré.</p></div>
+    </div>
+  </div>
+
+  <h4>Restaurer depuis un backup</h4>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><h4>Sélectionner le fichier</h4><p>Choisissez un fichier <code>.assalim.bak</code> (ou un ancien <code>.sql</code>) et saisissez le mot de passe si le fichier est chiffré.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><h4>Confirmer</h4><p>Tapez exactement <strong>RESTAURER</strong> dans le champ de confirmation.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><h4>Redémarrer le serveur</h4><p>Après la restauration, redémarrez le backend pour garantir la cohérence des données.</p></div>
+    </div>
+  </div>
+
+  <div class="box info">
+    <div class="box-title">ℹ️ Prérequis technique</div>
+    Le serveur backend doit disposer des utilitaires PostgreSQL <code>pg_dump</code> et <code>psql</code>
+    dans le PATH système (ou configurés via <code>pg.tools.path</code>).
+  </div>
+
+  <h3 id="ch15-s9">15.9 Options de l'écran caisse</h3>
+  <p>
+    Accès : <strong>Paramètres → Options de l'écran caisse</strong>. Un interrupteur ne peut que
+    <strong>masquer</strong> un bloc déjà prévu par le profil (magasin, comptoir, pharmacie, restaurant) :
+    remises, retours, pourboire, recherche, pièces jointes, conversation, etc.
+  </p>
+  <ul>
+    <li><strong>Toujours visibles</strong> (pas d’interrupteur) : chip Client / Fournisseur.</li>
+    <li><strong>Selon le contexte</strong> (pas d’interrupteur) : solde et plafond, fidélité, tarifs commerciaux — voir §6.10.</li>
+    <li><strong>« Tout afficher »</strong> restaure les blocs masqués manuellement.</li>
+    <li><strong>Catalogue (catégories et tuiles)</strong> : si vous le masquez, la caisse ne montre plus le rayon ; il reste le scan et la recherche (liste temporaire). Le ticket s’élargit (§6.1).</li>
+  </ul>
+  <p>Les mêmes options s’appliquent au POS vente et au POS achat. La fidélité et les tarifs commerciaux restent propres à la vente.</p>
+
+</div>
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 16 — APP MANAGER MOBILE
+───────────────────────────────────────── -->
+<div class="chapter" id="ch16">
+  <div class="chapter-header">
+    <div class="chapter-number">Chapitre 16</div>
+    <h2>App manager mobile</h2>
+    <p>Piloter l'activité depuis un téléphone (PWA ou APK Android)</p>
+  </div>
+
+  <p>
+    L'<strong>app manager</strong> est une vue soignée pour le gérant en déplacement : chiffre du jour,
+    état de la caisse, alertes stock / DLC, raccourcis. Elle n'embarque pas le POS complet
+    (ouvrez le POS depuis l'onglet Plus si besoin).
+  </p>
+
+  <h3 id="ch16-s1">16.1 PWA à l'adresse /m</h3>
+  <p>
+    Après connexion, ouvrez <code>/m</code> ou touchez le bandeau <strong>« Ouvrir l'app manager »</strong> sur le Hub.
+    Trois onglets en bas : <strong>Accueil</strong> (CA, caisse, KPIs), <strong>Alertes</strong> (même plan d'action que le dashboard),
+    <strong>Plus</strong> (POS, hub, stock, rapports, paramètres, déconnexion).
+  </p>
+  <figure class="screenshot-figure screenshot-figure--small" data-shot="062"><img src="manual-screenshots/shot-062.png" alt="App manager mobile" loading="eager" width="900"><figcaption class="screenshot-caption">App manager — accueil CA du jour, caisse et KPIs stock.</figcaption></figure>
+  <ul>
+    <li><strong>Pull-to-refresh</strong> : tirez vers le bas pour actualiser. Un rafraîchissement auto a lieu toutes les 45 s si l'onglet est visible.</li>
+    <li><strong>Hors ligne</strong> : bandeau + données éventuellement en cache (fraîcheur ~10 min).</li>
+    <li><strong>Installer</strong> : iPhone → Partager → Sur l'écran d'accueil. Android Chrome → d'abord déverrouiller la disposition de l'écran d'accueil, puis menu → Ajouter à l'écran d'accueil. En HTTP sur IP locale (ex. <code>192.168.x.x</code>), Chrome crée un raccourci, pas une app « stores ».</li>
+  </ul>
+  <div class="box info">
+    <div class="box-title">ℹ️ Droits</div>
+    L'app manager exige le droit <strong>dashboard:read</strong> (et les mêmes gardes que le reste : connexion, licence, configuration, mode verrouillé).
+  </div>
+
+  <h3 id="ch16-s2">16.2 Application Android (APK)</h3>
+  <p>
+    Une APK Capacitor (<code>com.assalim.app</code>) ouvre la même vue <code>/m</code> en plein écran, avec l'icône Assalim.
+    En mode pilote / LAN, l'app charge l'adresse du serveur (Mac ou PC qui fait tourner Assalim) : téléphone et serveur
+    doivent être sur le <strong>même Wi‑Fi</strong>. Le Play Store n'est pas encore le canal de distribution.
+  </p>
+  <div class="box warn">
+    <div class="box-title">⚠️ Installation</div>
+    Autorisez les « sources inconnues » pour installer l'APK de débogage. Si l'IP du serveur change, il faut resynchroniser la configuration LAN de l'app.
+  </div>
+
+</div>
+
+<!-- ─────────────────────────────────────────
+     CHAPITRE 17 — ASSALIM ESSENTIEL (HANOUT)
+───────────────────────────────────────── -->
+<div class="chapter" id="ch17">
+  <div class="chapter-header">
+    <div class="chapter-number">Chapitre 17</div>
+    <h2>Assalim Essentiel (Hanout)</h2>
+    <p>Épicerie de proximité : interface simple, crédit client, stock mono-site</p>
+  </div>
+
+  <p>
+    <strong>Assalim Essentiel</strong> correspond au trio <code>GROCERY</code> + profil d'expérience <strong>Simple</strong>
+    + édition <strong>Essentiel</strong>. Le menu affiche quatre tuiles : <strong>Vendre</strong>, <strong>Carnet</strong>,
+    <strong>Stock</strong>, <strong>Aujourd'hui</strong>. Devis, commandes, HoReCa et modules ERP avancés sont masqués
+    (les données restent en base si vous repassez en Retail).
+  </p>
+
+  <h3 id="ch17-s1">17.1 Profil Simple et hub</h3>
+  <ul>
+    <li>Setup guidé : commerce, caisse <code>CAISSE1</code>, import CSV facultatif, première vente.</li>
+    <li>POS vente : facture directe, espèces ou crédit client, scanner USB sans configuration.</li>
+    <li>Achat : réception directe fournisseur (payé / reste).</li>
+    <li>Caisse : ouverture, mouvements, clôture guidée (comptage avant affichage du théorique).</li>
+    <li>Hors ligne certifié : factures directes vente/achat en file ; inventaire, clôture et règlements ultérieurs bloqués avec message.</li>
+  </ul>
+
+  <h3 id="ch17-s2">17.2 Carnet et relevé</h3>
+  <p>
+    Le menu <strong>Clients</strong> devient <strong>Carnet</strong> : soldes, tri, encaissement rapide sans nouvelle facture,
+    historique auditable (lignes annulées conservées).
+  </p>
+  <ul>
+    <li><strong>Encaisser</strong> : Carnet → client → montant → moyen → reçu.</li>
+    <li><strong>Partager le relevé</strong> : menu avec WhatsApp (texte FR/AR prérempli via <code>wa.me</code>),
+      export PDF (impression « Enregistrer au format PDF ») ou image PNG téléchargeable.</li>
+    <li>Aucun envoi automatique : vous appuyez sur Envoyer dans WhatsApp.</li>
+  </ul>
+
+  <h3 id="ch17-s3">17.3 Montée vers Retail</h3>
+  <p>
+    Paramètres établissement : passer édition <strong>Retail</strong> et profil <strong>Standard</strong>.
+    Une checklist s'affiche (sauvegarde, diagnostic, modules, 2<sup>e</sup> site, inventaire, formation).
+    Le retour vers Essentiel masque sans supprimer.
+  </p>
+
+  <h3 id="ch17-s4">17.4 Métriques pilote et matériel</h3>
+  <p>
+    Sur <strong>Aujourd'hui</strong>, le gérant voit le tableau <strong>Parcours pilote (30 jours)</strong> : setup, première vente,
+    vente espèces au scanner, clôture caisse, encaissement Carnet, partage relevé et rejeu hors ligne — avec médianes et objectifs SLA.
+  </p>
+  <p>
+    Les postes caisse affichent les imprimantes certifiées 80 mm USB (Xprinter XP-N160I, Epson TM-T20III) avec câblage et tests.
+    Validez l'arabe RTL sur un vrai ticket avant le pilote.
+  </p>
+</div>
+
+<!-- ─────────────────────────────────────────
+     ANNEXE — GLOSSAIRE
+───────────────────────────────────────── -->
+<div class="chapter" id="annexe-glossaire">
+  <div class="chapter-header">
+    <div class="chapter-number">Annexe</div>
+    <h2>Glossaire — termes courants</h2>
+    <p>Définitions courtes pour vous repérer dans le manuel et à l'écran</p>
+  </div>
+
+  <table>
+    <thead><tr><th>Terme</th><th>Signification simple</th></tr></thead>
+    <tbody>
+      <tr><td><strong>BL (bon de livraison)</strong></td><td>Document qui atteste que les marchandises sont parties chez le client ; fait baisser le stock lorsqu'il est validé.</td></tr>
+      <tr><td><strong>Hub</strong></td><td>Page d'accueil avec tuiles colorées pour ouvrir les modules (ventes, achats, etc.).</td></tr>
+      <tr><td><strong>POS</strong></td><td>« Point of sale » : écran de caisse pour vendre ou, en POS Achat, pour enregistrer une réception fournisseur.</td></tr>
+      <tr><td><strong>Devis</strong></td><td>Proposition de prix ; devient commande ou facture une fois acceptée (côté vente ou achat).</td></tr>
+      <tr><td><strong>Commande</strong></td><td>Engagement sur les quantités et prix ; le BL ou la réception matérialise la sortie ou l'entrée de stock.</td></tr>
+      <tr><td><strong>Facture</strong></td><td>Document comptable qui constate la vente ou l'achat et le montant dû.</td></tr>
+      <tr><td><strong>Encours / crédit client</strong></td><td>Montant que le client vous doit encore sur l'ensemble de ses factures.</td></tr>
+      <tr><td><strong>Dette fournisseur</strong></td><td>Montant que vous devez encore au fournisseur.</td></tr>
+      <tr><td><strong>Session de caisse</strong></td><td>Période pendant laquelle les paiements espèces sont suivis ; à ouvrir le matin, à fermer en fin de journée ou de service.</td></tr>
+      <tr><td><strong>Inventaire</strong></td><td>Opération où l'on compte physiquement le stock et l'on corrige les écarts dans l'application.</td></tr>
+      <tr><td><strong>Proposition d'achat</strong></td><td>Suggestion automatique de réapprovisionnement selon les niveaux de stock.</td></tr>
+      <tr><td><strong>RTL</strong></td><td>Sens de lecture de droite à gauche ; utilisé en arabe pour le menu et les textes.</td></tr>
+      <tr><td><strong>KDS</strong></td><td>« Kitchen Display » : écran cuisine qui affiche les commandes à préparer (HoReCa).</td></tr>
+      <tr><td><strong>Appel serveur (QR)</strong></td><td>Page publique <code>/call/{token}</code> permettant au client d'appeler un serveur en scannant un QR code sur la table.</td></tr>
+      <tr><td><strong>Split bill</strong></td><td>Division de l'addition entre plusieurs parts pour un encaissement séparé au POS.</td></tr>
+      <tr><td><strong>Board livraisons</strong></td><td>Kanban HoReCa des commandes téléphone / Glovo / Uber (saisie manuelle, pas d'API partenaire).</td></tr>
+      <tr><td><strong>Site / dépôt</strong></td><td>Lieu de stock ; le site POS (défaut) est débité par les ventes ; les autres se remplissent par transfert.</td></tr>
+      <tr><td><strong>GS1 DataMatrix</strong></td><td>Code 2D scanné au POS qui peut contenir GTIN, lot et DLC en plus du code-barres.</td></tr>
+      <tr><td><strong>App manager</strong></td><td>Vue téléphone <code>/m</code> (PWA ou APK) pour le CA, la caisse et les alertes du gérant.</td></tr>
+      <tr><td><strong>Mode verrouillé</strong></td><td>Plein écran caissier (POS) ou serveur (salle) ; la sortie demande le mot de passe gérant.</td></tr>
+      <tr><td><strong>Verrou caisse (PIN)</strong></td><td>Overlay visages + PIN pendant une session POS (pause) ; distinct du mode verrouillé du menu compte.</td></tr>
+      <tr><td><strong>Droit de timbre</strong></td><td>Pourcentage sur la part encaissée d’un paiement (souvent espèces) ; hors CA facture, comme le pourboire.</td></tr>
+      <tr><td><strong>Affiche client</strong></td><td>Second écran <code>/pos/customer-display</code> qui montre le panier au client pendant l'encaissement.</td></tr>
+      <tr><td><strong>Licence</strong></td><td>Droit d'utiliser Assalim sur votre établissement ; peut afficher une date d'expiration.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ─────────────────────────────────────────
+     PIED DE PAGE
+───────────────────────────────────────── -->
+<div class="page-footer">
+  <p><strong>Assalim</strong> — Manuel d'utilisation v1.9 — Août 2026</p>
+  <p>Document confidentiel — Reproduction et diffusion soumises à autorisation</p>
+</div>
+
+</div><!-- /content -->
+
+<script>
+  (function prepareManualForViewAndPrint() {
+    function eagerImages() {
+      document.querySelectorAll('img').forEach(function (img) {
+        img.setAttribute('loading', 'eager');
+        img.loading = 'eager';
+      });
+    }
+    eagerImages();
+    window.addEventListener('beforeprint', eagerImages);
+    try {
+      if (window.parent === window) {
+        return;
+      }
+      var parentRoot = window.parent.document.documentElement;
+      var dark = parentRoot.classList.contains('assalim-dark-theme');
+      document.documentElement.classList.toggle('assalim-dark-theme', dark);
+      document.documentElement.classList.toggle('assalim-light-theme', !dark);
+    } catch (error) {
+      /* ignore cross-origin */
+    }
+  })();
+</script>
+
+</body></html>

@@ -1,0 +1,1 @@
+function n(e,t){String(t.status||"").toUpperCase()!=="DRAFT"&&(e.stopPersistent("FIRST_SALE",{outcome:"OK"}),t.paymentMethod==="CASH"&&e.stop("CASH_SCAN_SALE",{outcome:"OK",scannerUsed:e.consumeScanner()}))}function r(e,t,o){e.record("OFFLINE_REPLAY",Date.now()-t,{outcome:o>0?"PARTIAL":"OK",metadata:`synced=${o===0}`})}export{n as a,r as b};

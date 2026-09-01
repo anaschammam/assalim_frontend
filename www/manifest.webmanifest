@@ -1,0 +1,33 @@
+{
+  "name": "Assalim",
+  "short_name": "Assalim",
+  "description": "Gestion de stock, ventes, achats et point de vente.",
+  "theme_color": "#667eea",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./",
+  "shortcuts": [
+    {
+      "name": "Manager",
+      "short_name": "Manager",
+      "description": "CA, caisse et alertes",
+      "url": "./m",
+      "icons": [
+        {
+          "src": "assets/brand/assalim-mark.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ],
+  "icons": [
+    {
+      "src": "assets/brand/assalim-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

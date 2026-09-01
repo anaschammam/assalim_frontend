@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Assalim</title>
+  <HTA:APPLICATION
+    ID="AssalimSplash"
+    APPLICATIONNAME="Assalim"
+    BORDER="thin"
+    BORDERSTYLE="static"
+    CAPTION="yes"
+    INNERBORDER="no"
+    MAXIMIZEBUTTON="no"
+    MINIMIZEBUTTON="no"
+    SCROLL="no"
+    SINGLEINSTANCE="yes"
+    SYSMENU="yes"
+    WINDOWSTATE="normal">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="icon" type="image/svg+xml" href="assets/brand/assalim-mark.svg">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      color: #f7fafc;
+      background: #1a1a2e;
+      background: radial-gradient(ellipse at 50% -10%, #5a67d8 0%, transparent 55%),
+                  linear-gradient(165deg, #1a1a2e 0%, #434190 100%);
+      overflow: hidden;
+    }
+    #fx {
+      position: absolute;
+      left: 0; top: 0; right: 0; bottom: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .wrap {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      display: -ms-flexbox;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -ms-flex-align: center;
+      align-items: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      padding: 28px 28px 32px;
+      text-align: center;
+    }
+    .mark {
+      display: block;
+      width: 92px;
+      height: 92px;
+      margin: 0 auto 16px;
+      filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.35));
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    h1 {
+      margin: 0 0 22px;
+      font-size: 1.85rem;
+      font-weight: 650;
+      letter-spacing: 0.04em;
+    }
+    .stages {
+      width: 100%;
+      max-width: 280px;
+      margin: 0 auto 18px;
+      font-size: 0;
+    }
+    .stage {
+      display: inline-block;
+      width: 33.33%;
+      color: rgba(247, 250, 252, 0.42);
+      font-size: 11px;
+      font-weight: 650;
+      letter-spacing: 0.02em;
+      vertical-align: top;
+    }
+    .stage i {
+      display: block;
+      width: 10px;
+      height: 10px;
+      margin: 0 auto 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.22);
+    }
+    .stage.is-on { color: #f7fafc; }
+    .stage.is-on i { background: #fbbf24; box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.22); }
+    .stage.is-done { color: rgba(247, 250, 252, 0.78); }
+    .stage.is-done i { background: #34d399; box-shadow: none; }
+    .bar {
+      width: 100%;
+      max-width: 280px;
+      height: 8px;
+      margin: 0 auto 16px;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.14);
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      width: 4%;
+      border-radius: 99px;
+      background: #fbbf24;
+      background: linear-gradient(90deg, #fbbf24, #f59e0b);
+      transition: width 0.35s ease-out;
+    }
+    .ring {
+      width: 36px;
+      height: 36px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      border: 3px solid rgba(255, 255, 255, 0.18);
+      border-top-color: #a5b4fc;
+      animation: spin 0.85s linear infinite;
+    }
+    #status {
+      min-height: 1.4em;
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    #tip {
+      min-height: 2.6em;
+      max-width: 320px;
+      margin: 0 auto;
+      color: rgba(247, 250, 252, 0.68);
+      font-size: 0.92rem;
+      line-height: 1.35;
+    }
+    .error .ring,
+    .error .bar,
+    .error .stages { display: none; }
+    .retry {
+      display: none;
+      margin-top: 14px;
+      padding: 0.65rem 1.25rem;
+      border: 0;
+      border-radius: 999px;
+      background: #fff;
+      color: #434190;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .error .retry { display: inline-block; }
+    .ready .ring { display: none; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.06); opacity: 0.88; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <main class="wrap" id="main">
+    <img class="mark" src="assets/brand/assalim-mark-light.svg" alt="Assalim" width="92" height="92">
+    <h1>Assalim</h1>
+    <div class="stages" id="stages">
+      <div class="stage is-on" id="stage0"><i></i><span></span></div>
+      <div class="stage" id="stage1"><i></i><span></span></div>
+      <div class="stage" id="stage2"><i></i><span></span></div>
+    </div>
+    <div class="bar" aria-hidden="true"><div class="bar-fill" id="barFill"></div></div>
+    <div class="ring" aria-hidden="true"></div>
+    <p id="status"></p>
+    <p id="tip"></p>
+    <button type="button" class="retry" id="retry"></button>
+  </main>
+  <script>
+    (function () {
+      try {
+        window.resizeTo(460, 640);
+        window.moveTo((screen.availWidth - 460) / 2, (screen.availHeight - 640) / 2);
+      } catch (e) {}
+
+      var lang = 'fr';
+      try {
+        var stored = localStorage.getItem('assalim_language');
+        if (stored === 'ar' || stored === 'fr' || stored === 'en') lang = stored;
+      } catch (e2) {}
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+      var i18n = {
+        fr: {
+          stages: ['Base', 'Moteur', 'Caisse'],
+          steps: [
+            'Préparation de la base…',
+            'Démarrage du moteur…',
+            'Ouverture de la caisse…'
+          ],
+          tips: [
+            'Astuce : le pavé tactile va plus vite en caisse.',
+            'Les raccourcis clavier marchent aussi au POS.',
+            'Une sauvegarde régulière, c’est l’esprit tranquille.',
+            'Encore quelques instants, les tickets arrivent.'
+          ],
+          ready: 'C’est prêt',
+          timeout: 'L’application met trop de temps à démarrer. Journaux : dossier Assalim dans AppData\\Local\\Assalim\\logs.',
+          retry: 'Réessayer'
+        },
+        en: {
+          stages: ['Database', 'Engine', 'Register'],
+          steps: [
+            'Preparing the database…',
+            'Starting the engine…',
+            'Opening the register…'
+          ],
+          tips: [
+            'Tip: the on-screen keypad is faster at the till.',
+            'Keyboard shortcuts work in the POS too.',
+            'Regular backups keep you out of trouble.',
+            'Just a moment — receipts are on their way.'
+          ],
+          ready: 'Ready',
+          timeout: 'Assalim is taking too long to start. Logs: AppData\\Local\\Assalim\\logs.',
+          retry: 'Retry'
+        },
+        ar: {
+          stages: ['قاعدة', 'المحرك', 'الصندوق'],
+          steps: [
+            'تجهيز قاعدة البيانات…',
+            'تشغيل المحرك…',
+            'فتح الصندوق…'
+          ],
+          tips: [
+            'نصيحة: لوحة الأرقام أسرع في نقطة البيع.',
+            'اختصارات لوحة المفاتيح تعمل أيضاً في الصندوق.',
+            'النسخ الاحتياطي المنتظم يريحك.',
+            'لحظات قليلة… الفواتير في الطريق.'
+          ],
+          ready: 'جاهز',
+          timeout: 'يستغرق التشغيل وقتاً أطول من المتوقع. السجلات: AppData\\Local\\Assalim\\logs.',
+          retry: 'إعادة المحاولة'
+        }
+      };
+      var t = i18n[lang] || i18n.fr;
+
+      var mainEl = document.getElementById('main');
+      var statusEl = document.getElementById('status');
+      var tipEl = document.getElementById('tip');
+      var retryEl = document.getElementById('retry');
+      var barFill = document.getElementById('barFill');
+      var stageEls = [
+        document.getElementById('stage0'),
+        document.getElementById('stage1'),
+        document.getElementById('stage2')
+      ];
+      var i;
+      for (i = 0; i < 3; i++) {
+        stageEls[i].getElementsByTagName('span')[0].innerText = t.stages[i];
+      }
+      retryEl.innerText = t.retry;
+      statusEl.innerText = t.steps[0];
+      tipEl.innerText = t.tips[0];
+
+      var localFile = location.protocol === 'file:';
+      var readyUrl = localFile ? 'http://127.0.0.1:50/assalim-ready' : '/assalim-ready';
+      var versionUrl = 'http://127.0.0.1:5050/api/version';
+      var started = Date.now();
+      var deadline = started + 360000;
+      var phase = 0;
+      var stopped = false;
+      var tipIndex = 0;
+      var msgToggle = 0;
+
+      function setPhase(next) {
+        if (next < phase) return;
+        phase = next;
+        var s;
+        for (s = 0; s < 3; s++) {
+          stageEls[s].className = 'stage' + (s < phase ? ' is-done' : (s === phase ? ' is-on' : ''));
+        }
+        statusEl.innerText = t.steps[Math.min(phase, t.steps.length - 1)];
+      }
+
+      function setProgress(pct) {
+        if (pct < 4) pct = 4;
+        if (pct > 100) pct = 100;
+        barFill.style.width = pct + '%';
+      }
+
+      function tickProgress() {
+        if (stopped) return;
+        var elapsed = Date.now() - started;
+        var target = 90 * (1 - Math.pow(2, -elapsed / 9000));
+        setProgress(target);
+      }
+
+      function rotateCopy() {
+        if (stopped) return;
+        msgToggle = msgToggle ? 0 : 1;
+        if (msgToggle) {
+          tipIndex = (tipIndex + 1) % t.tips.length;
+          tipEl.innerText = t.tips[tipIndex];
+        } else {
+          statusEl.innerText = t.steps[Math.min(phase, t.steps.length - 1)];
+        }
+      }
+
+      /* --- particules (pièces / étincelles), Canvas 2D OK sous mshta --- */
+      var canvas = document.getElementById('fx');
+      var ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
+      var bits = [];
+      var reduceMotion = false;
+      try {
+        reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      } catch (eM) {}
+
+      function resizeFx() {
+        if (!canvas) return;
+        var w = document.documentElement.clientWidth || 460;
+        var h = document.documentElement.clientHeight || 640;
+        canvas.width = w;
+        canvas.height = h;
+      }
+
+      function spawnBits() {
+        bits = [];
+        if (!canvas) return;
+        var n = 18;
+        var k;
+        for (k = 0; k < n; k++) {
+          bits.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            r: 2.2 + Math.random() * 3.6,
+            vy: 0.18 + Math.random() * 0.45,
+            vx: (Math.random() - 0.5) * 0.25,
+            a: 0.25 + Math.random() * 0.45,
+            gold: Math.random() > 0.45
+          });
+        }
+      }
+
+      function paintBits() {
+        if (stopped || !ctx || !canvas) return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        var p, g;
+        for (p = 0; p < bits.length; p++) {
+          g = bits[p];
+          g.y -= g.vy;
+          g.x += g.vx;
+          if (g.y < -8) {
+            g.y = canvas.height + 8;
+            g.x = Math.random() * canvas.width;
+          }
+          ctx.beginPath();
+          ctx.arc(g.x, g.y, g.r, 0, 6.2832);
+          ctx.fillStyle = g.gold
+            ? 'rgba(251,191,36,' + g.a + ')'
+            : 'rgba(165,180,252,' + (g.a * 0.7) + ')';
+          ctx.fill();
+        }
+        if (window.requestAnimationFrame) {
+          window.requestAnimationFrame(paintBits);
+        } else {
+          setTimeout(paintBits, 40);
+        }
+      }
+
+      if (ctx && !reduceMotion) {
+        resizeFx();
+        spawnBits();
+        paintBits();
+      }
+
+      var openedUi = false;
+
+      function go() {
+        if (openedUi) return;
+        openedUi = true;
+        stopped = true;
+        setPhase(2);
+        setProgress(100);
+        mainEl.className = 'wrap ready';
+        statusEl.innerText = t.ready;
+        tipEl.innerText = '';
+        setTimeout(openUi, 280);
+      }
+
+      function openUi() {
+        var launch = 'http://127.0.0.1:50/?fresh=1';
+        if (localFile) {
+          try {
+            var sh = new ActiveXObject('WScript.Shell');
+            var exe = findChrome(sh);
+            if (exe) {
+              sh.Run('"' + exe + '" --new-window --start-fullscreen "' + launch + '"', 1, false);
+            } else {
+              sh.Run(launch, 1, false);
+            }
+          } catch (e3) {
+            location.href = launch;
+            return;
+          }
+          try { window.close(); } catch (e4) {}
+          return;
+        }
+        location.replace('/?fresh=1');
+      }
+
+      function findChrome(sh) {
+        var names = [
+          '%ProgramFiles%\\Google\\Chrome\\Application\\chrome.exe',
+          '%ProgramFiles(x86)%\\Google\\Chrome\\Application\\chrome.exe',
+          '%LocalAppData%\\Google\\Chrome\\Application\\chrome.exe'
+        ];
+        var fso;
+        try {
+          fso = new ActiveXObject('Scripting.FileSystemObject');
+        } catch (eFso) {
+          return '';
+        }
+        try {
+          var registered = sh.RegRead('HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\chrome.exe\\');
+          if (registered && fso.FileExists(registered)) {
+            return registered;
+          }
+        } catch (eReg) {}
+        var i;
+        for (i = 0; i < names.length; i++) {
+          var p = sh.ExpandEnvironmentStrings(names[i]);
+          if (fso.FileExists(p)) {
+            return p;
+          }
+        }
+        return '';
+      }
+
+      function fail(detail) {
+        stopped = true;
+        mainEl.className = 'wrap error';
+        statusEl.innerText = t.timeout;
+        tipEl.innerText = detail || '';
+      }
+
+      function schedule() {
+        if (stopped) return;
+        if (Date.now() > deadline) {
+          fail();
+          return;
+        }
+        setTimeout(check, 400);
+      }
+
+      function checkVersionFallback() {
+        try {
+          var xv = new XMLHttpRequest();
+          xv.open('GET', versionUrl, true);
+          xv.onreadystatechange = function () {
+            if (xv.readyState !== 4) return;
+            if (xv.status >= 200 && xv.status < 500) {
+              go();
+              return;
+            }
+            schedule();
+          };
+          xv.onerror = schedule;
+          xv.send();
+        } catch (eVer) {
+          schedule();
+        }
+      }
+
+      function check() {
+        if (stopped) return;
+        try {
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', readyUrl, true);
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState !== 4) return;
+            if (xhr.status === 204) {
+              go();
+              return;
+            }
+            if (xhr.status === 500) {
+              fail(xhr.responseText || t.timeout);
+              return;
+            }
+            if (xhr.status === 202) setPhase(0);
+            if (xhr.status === 503) setPhase(1);
+            if (xhr.status === 0 || xhr.status === 202 || xhr.status === 503) {
+              checkVersionFallback();
+              return;
+            }
+            schedule();
+          };
+          xhr.onerror = function () {
+            checkVersionFallback();
+          };
+          xhr.send();
+        } catch (e5) {
+          checkVersionFallback();
+        }
+      }
+
+      retryEl.onclick = function () {
+        stopped = false;
+        phase = 0;
+        started = Date.now();
+        deadline = started + 360000;
+        mainEl.className = 'wrap';
+        setPhase(0);
+        setProgress(4);
+        statusEl.innerText = t.steps[0];
+        tipEl.innerText = t.tips[0];
+        if (ctx && !reduceMotion) paintBits();
+        check();
+      };
+
+      setInterval(tickProgress, 350);
+      setInterval(rotateCopy, 2800);
+      check();
+    })();
+  </script>
+</body>
+</html>
