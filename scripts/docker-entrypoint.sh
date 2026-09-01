@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-BACKEND_HOST="${BACKEND_HOST:-assalim-backend.railway.internal}"
+BACKEND_HOST="${BACKEND_HOST:-assalimbackend.railway.internal}"
 BACKEND_PORT="${BACKEND_PORT:-8080}"
 
 echo "Waiting for backend DNS: ${BACKEND_HOST}..."
